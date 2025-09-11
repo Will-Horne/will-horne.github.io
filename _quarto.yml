@@ -1,56 +1,28 @@
 project:
-project:
-  type: website
   type: website
   output-dir: _site
-  output-dir: _site
-  render:
   render:
     - index.qmd
-    - index.qmd
-    - research.qmd
     - research.qmd
     - teaching.qmd
-    - teaching.qmd
-    - resources.qmd
     - resources.qmd
 
-
-website:
 website:
   title: "Will Horne"
-  title: "Will Horne"
-  navbar:
   navbar:
     left:
-    left:
-      - href: index.qmd
       - href: index.qmd
         text: Home
-        text: Home
-      - research.qmd
       - research.qmd
       - teaching.qmd
-      - teaching.qmd
-      - resources.qmd
       - resources.qmd
   page-footer:
-  page-footer:
     center: "© {year} Will Horne"
-    center: "© {year} Will Horne"
-  site-url: "https://Rwillh11.github.io/academic-page/"
-  site-url: "https://rwillh11.github.io/"
-
+  site-url: "https://will-horne.github.io/"
 
 format:
-format:
-  html:
   html:
     theme: cosmo
-    theme: cosmo
-    toc: true
     toc: true
     smooth-scroll: true
-    smooth-scroll: true
-    link-external-newwindow: true
     link-external-newwindow: true
