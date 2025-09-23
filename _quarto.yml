@@ -6,6 +6,8 @@ project:
     - research.qmd
     - teaching.qmd
     - resources.qmd
+   resources:
+    - google6306c6a89f6a4388.html
 
 website:
   title: "Will Horne"
