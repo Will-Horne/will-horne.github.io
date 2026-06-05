@@ -1,17 +1,52 @@
 [
   {
-    "objectID": "resources.html",
-    "href": "resources.html",
-    "title": "Resources",
+    "objectID": "icpsr-2026/index.html",
+    "href": "icpsr-2026/index.html",
+    "title": "ICPSR 2026 — Introduction to Python",
     "section": "",
-    "text": "Curriculum Vitae (PDF)\nSample Syllabus: Representation and Inequality in Democratic Societies\nSample Syllabus: Text-as-Data for Social Scientists"
+    "text": "A one-week introduction to Python for social scientists, taught at the ICPSR Summer Program in Quantitative Methods. The course assumes no prior coding background and focuses on the practical skills social scientists need: data manipulation, web scraping, API usage, and basic natural language processing."
   },
   {
-    "objectID": "resources.html#materials",
-    "href": "resources.html#materials",
-    "title": "Resources",
+    "objectID": "icpsr-2026/index.html#slides",
+    "href": "icpsr-2026/index.html#slides",
+    "title": "ICPSR 2026 — Introduction to Python",
+    "section": "Slides",
+    "text": "Slides\n\nDay 1 — Getting started with Python\nDay 2 — Flow control and data types\nDay 3 — Functions and object-oriented programming\nDay 4 — NumPy, pandas, and APIs\nDay 5 — Web scraping and text-as-data"
+  },
+  {
+    "objectID": "icpsr-2026/index.html#syllabus",
+    "href": "icpsr-2026/index.html#syllabus",
+    "title": "ICPSR 2026 — Introduction to Python",
+    "section": "Syllabus",
+    "text": "Syllabus\nSyllabus PDF: coming soon — there are two parallel sections; the canonical version will be linked here once finalized."
+  },
+  {
+    "objectID": "icpsr-2026/index.html#source",
+    "href": "icpsr-2026/index.html#source",
+    "title": "ICPSR 2026 — Introduction to Python",
+    "section": "Source",
+    "text": "Source\nThe source .qmd files live in a separate repository; rendered HTML is hosted here. If you spot an error or have a suggestion, email me."
+  },
+  {
+    "objectID": "teaching.html",
+    "href": "teaching.html",
+    "title": "Teaching",
     "section": "",
-    "text": "Curriculum Vitae (PDF)\nSample Syllabus: Representation and Inequality in Democratic Societies\nSample Syllabus: Text-as-Data for Social Scientists"
+    "text": "This spring, I am teaching POSC 8410, the second course in the Clemson’s PhD methods sequence. I am also teaching POSC 3710, European Politics.\n\n\nI am teaching Introduction to Python at the ICPSR Summer Program in Quantitative Methods, University of Michigan. The course is a one-week, hands-on introduction to Python for social scientists, with no prior coding background assumed. It covers data manipulation with pandas, web scraping, API usage, and basic natural language processing, with worked examples drawn from real social science data.\nSlides and materials are available here.\nAt Clemson, I have taught the following classes:\n\nPOST 8000: Introduction to Social Science Research Methods – first course in the graduate methods sequence, introducing probability theory, statistics, and basic research design. Taught using R.\n\nAt Georgia State, I have taught:\n\nPOL4900: Representation and Inequality in Democratic Societies – examines why some groups are less represented, exploring descriptive vs. substantive representation, inequality, and institutional reforms.\nPOL8820: Text-as-Data for Social Scientists – covers text-data methods: descriptive representation, topic models, embeddings, supervised classification, and transformer models like BERT/GPT.\n\nAt Princeton, I taught:\n\nPOL 981: The Junior Independent Work Research Design Seminar (Fall 2017 & Fall 2018) – original research design content (statistical, experimental, qualitative methods). Awarded the George Kateb Prize."
+  },
+  {
+    "objectID": "teaching.html#teaching",
+    "href": "teaching.html#teaching",
+    "title": "Teaching",
+    "section": "",
+    "text": "This spring, I am teaching POSC 8410, the second course in the Clemson’s PhD methods sequence. I am also teaching POSC 3710, European Politics.\n\n\nI am teaching Introduction to Python at the ICPSR Summer Program in Quantitative Methods, University of Michigan. The course is a one-week, hands-on introduction to Python for social scientists, with no prior coding background assumed. It covers data manipulation with pandas, web scraping, API usage, and basic natural language processing, with worked examples drawn from real social science data.\nSlides and materials are available here.\nAt Clemson, I have taught the following classes:\n\nPOST 8000: Introduction to Social Science Research Methods – first course in the graduate methods sequence, introducing probability theory, statistics, and basic research design. Taught using R.\n\nAt Georgia State, I have taught:\n\nPOL4900: Representation and Inequality in Democratic Societies – examines why some groups are less represented, exploring descriptive vs. substantive representation, inequality, and institutional reforms.\nPOL8820: Text-as-Data for Social Scientists – covers text-data methods: descriptive representation, topic models, embeddings, supervised classification, and transformer models like BERT/GPT.\n\nAt Princeton, I taught:\n\nPOL 981: The Junior Independent Work Research Design Seminar (Fall 2017 & Fall 2018) – original research design content (statistical, experimental, qualitative methods). Awarded the George Kateb Prize."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Bio",
+    "section": "",
+    "text": "Will Horne\nI am an Assistant Professor in Political Science at Clemson University. I received my PhD from Princeton University in the Department of Politics in May of 2022, and was a Post-Doctoral Fellow with the Executive Approval Project from 2022-2024.\nMy research focuses on changes in the structure of political competition and representation in advanced democratic societies. In particular I am interested in how political parties choose when and how to represent different groups in society, and how these decisions impact attitudes towards parties (including affective polarization), policy outputs and attitudes towards democracy. Methodologically, I have a particular interest in the use of Natural Language Processing techniques to study political parties and candidates.\nMy work has been published in the  American Political Science Review , the British Journal of Political Science, Comparative Political Studies and Public Opinion Quarterly, among other outlets. My research has been featured in The New York Times, FiveThirtyEight, Foreign Policy and the Washington Post’s Monkey Cage. I am also a core team member of the Executive Approval Project.\nDownload My CV"
   },
   {
     "objectID": "research.html",
@@ -56,24 +91,17 @@
     "text": "Working Papers\n\nHorne, Will (Under Review), “Changing the Face of the Party: How Political Parties Use Candidate Selection to Influence Voter Perceptions.”\n\nHorne, Will (Under Review), “How are working class candidates different? Evidence from a quantitative text analysis of campaign materials”\n\nAdams, James, David Bracken, Noam Gidron, Will Horne, Seonghui Lee, Diana O’Brien, Philip Santoso, Kaitlin Senk, and Randolph Stevenson (Under Review), “Do Woman MPs Influence Party’s Policy Images?”\n\nHorne, Will, Gregory Love and Ryan Carlin, “Is your classifier bilingual? Using Large Language Models for Cross-Lingual Classification” (APSA 2023)\n\nDolinsky, Alona, Lena Maria Huber and Will Horne, “Parties Group Appeals Across Space and Time” (EPSA 2023)\n\nCarlin, Ryan, Jonathan Hartlyn, Timothy Hellwig, Will Horne, Gregory Love, Cecilia Martinez Gallardo and Matthew Singer, “Executive Approval in Times of Crisis.” (APSA 2023)"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Bio",
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources",
     "section": "",
-    "text": "Will Horne\nI am an Assistant Professor in Political Science at Clemson University. I received my PhD from Princeton University in the Department of Politics in May of 2022, and was a Post-Doctoral Fellow with the Executive Approval Project from 2022-2024.\nMy research focuses on changes in the structure of political competition and representation in advanced democratic societies. In particular I am interested in how political parties choose when and how to represent different groups in society, and how these decisions impact attitudes towards parties (including affective polarization), policy outputs and attitudes towards democracy. Methodologically, I have a particular interest in the use of Natural Language Processing techniques to study political parties and candidates.\nMy work has been published in the  American Political Science Review , the British Journal of Political Science, Comparative Political Studies and Public Opinion Quarterly, among other outlets. My research has been featured in The New York Times, FiveThirtyEight, Foreign Policy and the Washington Post’s Monkey Cage. I am also a core team member of the Executive Approval Project.\nDownload My CV"
+    "text": "Curriculum Vitae (PDF)\nSample Syllabus: Representation and Inequality in Democratic Societies\nSample Syllabus: Text-as-Data for Social Scientists"
   },
   {
-    "objectID": "teaching.html",
-    "href": "teaching.html",
-    "title": "Teaching",
+    "objectID": "resources.html#materials",
+    "href": "resources.html#materials",
+    "title": "Resources",
     "section": "",
-    "text": "This spring, I am teaching POSC 8410, the second course in the Clemson’s PhD methods sequence. I am also teaching POSC 3710, European Politics.\nAt Clemson, I have taught the following classes:\n\nPOST 8000: Introduction to Social Science Research Methods – first course in the graduate methods sequence, introducing probability theory, statistics, and basic research design. Taught using R.\n\nAt Georgia State, I have taught:\n\nPOL4900: Representation and Inequality in Democratic Societies – examines why some groups are less represented, exploring descriptive vs. substantive representation, inequality, and institutional reforms.\nPOL8820: Text-as-Data for Social Scientists – covers text-data methods: descriptive representation, topic models, embeddings, supervised classification, and transformer models like BERT/GPT.\n\nAt Princeton, I taught:\n\nPOL 981: The Junior Independent Work Research Design Seminar (Fall 2017 & Fall 2018) – original research design content (statistical, experimental, qualitative methods). Awarded the George Kateb Prize."
-  },
-  {
-    "objectID": "teaching.html#teaching",
-    "href": "teaching.html#teaching",
-    "title": "Teaching",
-    "section": "",
-    "text": "This spring, I am teaching POSC 8410, the second course in the Clemson’s PhD methods sequence. I am also teaching POSC 3710, European Politics.\nAt Clemson, I have taught the following classes:\n\nPOST 8000: Introduction to Social Science Research Methods – first course in the graduate methods sequence, introducing probability theory, statistics, and basic research design. Taught using R.\n\nAt Georgia State, I have taught:\n\nPOL4900: Representation and Inequality in Democratic Societies – examines why some groups are less represented, exploring descriptive vs. substantive representation, inequality, and institutional reforms.\nPOL8820: Text-as-Data for Social Scientists – covers text-data methods: descriptive representation, topic models, embeddings, supervised classification, and transformer models like BERT/GPT.\n\nAt Princeton, I taught:\n\nPOL 981: The Junior Independent Work Research Design Seminar (Fall 2017 & Fall 2018) – original research design content (statistical, experimental, qualitative methods). Awarded the George Kateb Prize."
+    "text": "Curriculum Vitae (PDF)\nSample Syllabus: Representation and Inequality in Democratic Societies\nSample Syllabus: Text-as-Data for Social Scientists"
   }
 ]

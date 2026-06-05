@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://will-horne.github.io/resources.html</loc>
-    <lastmod>2025-09-23T20:06:46.917Z</lastmod>
-  </url>
-  <url>
-    <loc>https://will-horne.github.io/research.html</loc>
-    <lastmod>2025-09-23T20:06:46.917Z</lastmod>
-  </url>
-  <url>
-    <loc>https://will-horne.github.io/index.html</loc>
-    <lastmod>2025-09-23T20:06:46.917Z</lastmod>
+    <loc>https://will-horne.github.io/icpsr-2026/index.html</loc>
+    <lastmod>2026-06-05T16:42:48.862Z</lastmod>
   </url>
   <url>
     <loc>https://will-horne.github.io/teaching.html</loc>
-    <lastmod>2025-09-23T20:06:46.917Z</lastmod>
+    <lastmod>2026-06-05T16:42:48.862Z</lastmod>
+  </url>
+  <url>
+    <loc>https://will-horne.github.io/index.html</loc>
+    <lastmod>2026-06-05T16:42:48.862Z</lastmod>
+  </url>
+  <url>
+    <loc>https://will-horne.github.io/research.html</loc>
+    <lastmod>2026-06-05T16:42:48.862Z</lastmod>
+  </url>
+  <url>
+    <loc>https://will-horne.github.io/resources.html</loc>
+    <lastmod>2026-06-05T16:42:48.862Z</lastmod>
   </url>
 </urlset>
