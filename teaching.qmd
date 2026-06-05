@@ -16,7 +16,14 @@ Slides and materials are available [here](icpsr-2026/index.qmd).
 
 At Clemson, I have taught the following classes:
 
-- **POST 8000: Introduction to Social Science Research Methods** – first course in the graduate methods sequence, introducing probability theory, statistics, and basic research design. Taught using R.
+- **POSC 8410: Public Data Analysis** – first course in the PhD methods sequence, introducing probability theory, statistics, and basic research design. Taught using R.
+
+- **POSC 8420: Advanced Quantitative Analysis for Social Scientists** – Second course in the PhD methods sequence, introducing probability theory, statistics, and basic research design. Taught using R.
+
+- **POSC 3710: European Politics** - A survey of European Politics focused on the political systems of European countries and pressing political problems facing Europe today.
+
+- **POSC 3710: Quantitaitive Research Methods** - An introduction to quantitative methods and research design for undergraduate political science majors, taught using R. 
+
 
 At Georgia State, I have taught:
 
