@@ -6,6 +6,12 @@ title: "Teaching"
 
 This spring, I am teaching **POSC 8410**, the second course in the Clemson’s PhD methods sequence. I am also teaching **POSC 3710, European Politics**.
 
+### Summer 2026: ICPSR Introduction to Python
+
+I am teaching **Introduction to Python** at the [ICPSR Summer Program in Quantitative Methods](https://www.icpsr.umich.edu/web/pages/sumprog/index.html), University of Michigan. The course is a one-week, hands-on introduction to Python for social scientists, with no prior coding background assumed. It covers data manipulation with pandas, web scraping, API usage, and basic natural language processing, with worked examples drawn from real social science data.
+
+Slides and materials are available [here](icpsr-2026/index.qmd).
+
 At Clemson, I have taught the following classes:
 
 - **POST 8000: Introduction to Social Science Research Methods** – first course in the graduate methods sequence, introducing probability theory, statistics, and basic research design. Taught using R.

@@ -1,0 +1,27 @@
+---
+title: "ICPSR 2026 — Introduction to Python"
+---
+
+A one-week introduction to Python for social scientists, taught at the
+[ICPSR Summer Program in Quantitative Methods](https://www.icpsr.umich.edu/web/pages/sumprog/index.html).
+The course assumes no prior coding background and focuses on the practical
+skills social scientists need: data manipulation, web scraping, API usage,
+and basic natural language processing.
+
+## Slides
+
+- [Day 1 — Getting started with Python](day-1.html)
+- [Day 2 — Flow control and data types](day-2.html)
+- [Day 3 — Functions and object-oriented programming](day-3.html)
+- [Day 4 — NumPy, pandas, and APIs](day-4.html)
+- [Day 5 — Web scraping and text-as-data](day-5.html)
+
+## Syllabus
+
+Syllabus PDF: *coming soon* — there are two parallel sections; the
+canonical version will be linked here once finalized.
+
+## Source
+
+The source `.qmd` files live in a separate repository; rendered HTML is
+hosted here. If you spot an error or have a suggestion, email me.

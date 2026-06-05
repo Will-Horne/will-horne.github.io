@@ -6,8 +6,11 @@ project:
     - research.qmd
     - teaching.qmd
     - resources.qmd
+    - icpsr-2026/index.qmd
   resources:
     - google6306c6a89f6a4388.html
+    - icpsr-2026/*.html
+    - icpsr-2026/*_files/**
 
 website:
   title: "Will Horne"
