@@ -26,13 +26,3 @@ Working through these is the fastest way to build fluency. Each set takes 45–6
 | 2 | [Exercises](exercises/Day_2_Exercises.html) | [Solutions](exercises/Day_2_Solutions.html) |
 | 3 | [Exercises](exercises/Day_3_Exercises.html) | [Solutions](exercises/Day_3_Solutions.html) |
 | 4 | [Exercises](exercises/Day_4_Exercises.html) | [Solutions](exercises/Day_4_Solutions.html) |
-
-## Syllabus
-
-Syllabus PDF: *coming soon* — there are two parallel sections; the
-canonical version will be linked here once finalized.
-
-## Source
-
-The source `.qmd` files live in a separate repository; rendered HTML is
-hosted here. If you spot an error or have a suggestion, email me.
