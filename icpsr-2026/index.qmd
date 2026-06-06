@@ -16,6 +16,17 @@ and basic natural language processing.
 - [Day 4 — NumPy, pandas, and APIs](day-4.html)
 - [Day 5 — Web scraping and text-as-data](day-5.html)
 
+## Optional exercises
+
+Working through these is the fastest way to build fluency. Each set takes 45–60 minutes. Solutions in separate links.
+
+| Day | Exercises | Solutions |
+|---|---|---|
+| 1 | [Exercises](exercises/Day_1_Exercises.html) | [Solutions](exercises/Day_1_Solutions.html) |
+| 2 | [Exercises](exercises/Day_2_Exercises.html) | [Solutions](exercises/Day_2_Solutions.html) |
+| 3 | [Exercises](exercises/Day_3_Exercises.html) | [Solutions](exercises/Day_3_Solutions.html) |
+| 4 | [Exercises](exercises/Day_4_Exercises.html) | [Solutions](exercises/Day_4_Solutions.html) |
+
 ## Syllabus
 
 Syllabus PDF: *coming soon* — there are two parallel sections; the

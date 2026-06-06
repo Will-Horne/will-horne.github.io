@@ -12,6 +12,8 @@ project:
     - icpsr-2026/*.html
     - icpsr-2026/*_files/**
     - icpsr-2026/Slides_Images/**
+    - icpsr-2026/exercises/*.html
+    - icpsr-2026/exercises/*_files/**
 
 website:
   title: "Will Horne"
