@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="exercise-1-nested-conditionals" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1-nested-conditionals">Exercise 1 — Nested conditionals</h2>
-<div id="9eee88c4" class="cell" data-execution_count="1">
+<div id="aa3d18ee" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>is_registered <span class="op">=</span> <span class="va">True</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>at_correct_precinct <span class="op">=</span> <span class="va">False</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -130,7 +130,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Alternative using a single chain of conditions:</p>
-<div id="f79c8192" class="cell" data-execution_count="2">
+<div id="e10a8215" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> is_registered <span class="kw">and</span> at_correct_precinct:</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Allow to vote"</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> is_registered:</span>
@@ -142,7 +142,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="exercise-2-for-loop-with-a-list" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2-for-loop-with-a-list">Exercise 2 — <code>for</code> loop with a list</h2>
-<div id="a182747f" class="cell" data-execution_count="3">
+<div id="d6a508a2" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>presidents <span class="op">=</span> [<span class="st">"Washington"</span>, <span class="st">"Adams"</span>, <span class="st">"Jefferson"</span>, <span class="st">"Madison"</span>, <span class="st">"Monroe"</span>]</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Part 1</span></span>
@@ -169,7 +169,7 @@ President Monroe
 </section>
 <section id="exercise-3-while-loop-with-a-condition" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3-while-loop-with-a-condition">Exercise 3 — <code>while</code> loop with a condition</h2>
-<div id="555d5ddf" class="cell" data-execution_count="4">
+<div id="7a7175ab" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">101</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="kw">not</span> (n <span class="op">%</span> <span class="dv">7</span> <span class="op">==</span> <span class="dv">0</span> <span class="kw">and</span> n <span class="op">%</span> <span class="dv">11</span> <span class="op">==</span> <span class="dv">0</span>):</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    n <span class="op">+=</span> <span class="dv">1</span></span>
@@ -183,7 +183,7 @@ President Monroe
 </section>
 <section id="exercise-4-list-operations" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4-list-operations">Exercise 4 — List operations</h2>
-<div id="a1b7cdca" class="cell" data-execution_count="5">
+<div id="56c0ef7f" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>states <span class="op">=</span> [<span class="st">"Ohio"</span>, <span class="st">"Florida"</span>, <span class="st">"Pennsylvania"</span>, <span class="st">"Wisconsin"</span>, <span class="st">"Michigan"</span>]</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>states.append(<span class="st">"Arizona"</span>)</span>
@@ -203,7 +203,7 @@ President Monroe
 </section>
 <section id="exercise-5-list-comprehension-preview" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5-list-comprehension-preview">Exercise 5 — List comprehension preview</h2>
-<div id="32a7b987" class="cell" data-execution_count="6">
+<div id="1e3cc759" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>senators <span class="op">=</span> [<span class="st">"Sanders"</span>, <span class="st">"Warren"</span>, <span class="st">"Cruz"</span>, <span class="st">"Cornyn"</span>, <span class="st">"Schumer"</span>]</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>years <span class="op">=</span> [<span class="dv">34</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">23</span>, <span class="dv">26</span>]</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -221,7 +221,7 @@ Schumer: 26 years</code></pre>
 </section>
 <section id="exercise-6-sets" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-6-sets">Exercise 6 — Sets</h2>
-<div id="97aadda2" class="cell" data-execution_count="7">
+<div id="34478ca6" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>bill_a_sponsors <span class="op">=</span> [<span class="st">"Sanders"</span>, <span class="st">"Warren"</span>, <span class="st">"Klobuchar"</span>, <span class="st">"Booker"</span>, <span class="st">"Brown"</span>]</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>bill_b_sponsors <span class="op">=</span> [<span class="st">"Warren"</span>, <span class="st">"Booker"</span>, <span class="st">"Markey"</span>, <span class="st">"Whitehouse"</span>, <span class="st">"Klobuchar"</span>]</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -232,8 +232,8 @@ Schumer: 26 years</code></pre>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"A only:"</span>, a <span class="op">-</span> b)</span>
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total unique:"</span>, <span class="bu">len</span>(a <span class="op">|</span> b))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Both: {'Booker', 'Klobuchar', 'Warren'}
-A only: {'Sanders', 'Brown'}
+<pre><code>Both: {'Klobuchar', 'Booker', 'Warren'}
+A only: {'Brown', 'Sanders'}
 Total unique: 7</code></pre>
 </div>
 </div>
@@ -242,7 +242,7 @@ Total unique: 7</code></pre>
 </section>
 <section id="exercise-7-putting-it-together" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-7-putting-it-together">Exercise 7 — Putting it together</h2>
-<div id="4d993806" class="cell" data-execution_count="8">
+<div id="acaf51b6" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>vote_counts <span class="op">=</span> [<span class="dv">4250</span>, <span class="dv">3980</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">5120</span>, <span class="dv">2890</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">6400</span>, <span class="dv">4100</span>]</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> <span class="dv">0</span></span>
