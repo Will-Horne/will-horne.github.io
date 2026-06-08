@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="exercise-1-variables-and-types" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1-variables-and-types">Exercise 1 — Variables and types</h2>
-<div id="ebd42d0a" class="cell" data-execution_count="1">
+<div id="d524a4b8" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>state <span class="op">=</span> <span class="st">"Michigan"</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>population <span class="op">=</span> <span class="dv">10_077_331</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>electoral_votes <span class="op">=</span> <span class="dv">15</span></span>
@@ -136,7 +136,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="exercise-2-type-conversion" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2-type-conversion">Exercise 2 — Type conversion</h2>
-<div id="02ec3a83" class="cell" data-execution_count="2">
+<div id="e4982c39" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>vote_share_str <span class="op">=</span> <span class="st">"52.3"</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>vote_share <span class="op">=</span> <span class="bu">float</span>(vote_share_str)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>margin <span class="op">=</span> vote_share <span class="op">-</span> (<span class="dv">100</span> <span class="op">-</span> vote_share)</span>
@@ -146,11 +146,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Two-party share assumption means the other candidate got <code>100 - vote_share</code>. Could also compute as <code>2 * vote_share - 100</code>.</p>
+<p>{margin.1f} looks weird, and isn’t something we covered in class. You don’t <em>need</em> it - it’s just rounding to the first decimal place for interpretability.</p>
 <hr>
 </section>
 <section id="exercise-3-string-indexing-and-slicing" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3-string-indexing-and-slicing">Exercise 3 — String indexing and slicing</h2>
-<div id="d07de82e" class="cell" data-execution_count="3">
+<div id="fb52a5c1" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">"Senator Bernie Sanders"</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(name[<span class="dv">0</span>])         <span class="co"># 'S'</span></span>
@@ -169,7 +170,7 @@ Sanders</code></pre>
 </section>
 <section id="exercise-4-f-strings" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4-f-strings">Exercise 4 — f-strings</h2>
-<div id="3b4fc2a6" class="cell" data-execution_count="4">
+<div id="80a747b8" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>candidate <span class="op">=</span> <span class="st">"Smith"</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>party <span class="op">=</span> <span class="st">"Democratic"</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>vote_share <span class="op">=</span> <span class="fl">0.523</span></span>
@@ -185,7 +186,7 @@ Sanders</code></pre>
 </section>
 <section id="exercise-5-boolean-expressions" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5-boolean-expressions">Exercise 5 — Boolean expressions</h2>
-<div id="41abbbe2" class="cell" data-execution_count="5">
+<div id="cfeb72c5" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">5</span> <span class="op">==</span> <span class="fl">5.0</span>)                  <span class="co"># True — Python compares numerically across int and float</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Democrat"</span> <span class="op">==</span> <span class="st">"democrat"</span>)  <span class="co"># False — string equality is case-sensitive</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">60</span> <span class="op">&gt;</span> <span class="dv">50</span> <span class="kw">and</span> <span class="dv">60</span> <span class="op">&lt;</span> <span class="dv">70</span>)       <span class="co"># True</span></span>
@@ -204,7 +205,7 @@ True</code></pre>
 </section>
 <section id="exercise-6-if-else" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-6-if-else">Exercise 6 — if / else</h2>
-<div id="b2490ac4" class="cell" data-execution_count="6">
+<div id="1e8d3337" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>turnout <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">"Enter turnout percentage: "</span>))</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> turnout <span class="op">&gt;</span> <span class="dv">60</span>:</span>
@@ -218,7 +219,7 @@ True</code></pre>
 </section>
 <section id="exercise-7-putting-it-together" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-7-putting-it-together">Exercise 7 — Putting it together</h2>
-<div id="6c5231d5" class="cell" data-execution_count="7">
+<div id="68abf1b3" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>candidate_a <span class="op">=</span> <span class="st">"Adams"</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>candidate_b <span class="op">=</span> <span class="st">"Burr"</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>candidate_c <span class="op">=</span> <span class="st">"Carroll"</span></span>
