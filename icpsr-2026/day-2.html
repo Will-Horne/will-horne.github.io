@@ -219,16 +219,31 @@
 <li><p>Friday: Web Scraping and Text-as-Data</p></li>
 </ul>
 </section>
-<section id="python-syntax-is-sensitive" class="slide level2">
-<h2>Python Syntax is Sensitive!</h2>
-<p>At the end of class, we tried the following code which seemed to work in colab.</p>
-<div id="e880b84a" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a>Day <span class="op">=</span> <span class="bu">input</span>(<span class="st">"What day is it?"</span>)</span>
-<span id="cb1-2"><a href=""></a></span>
-<span id="cb1-3"><a href=""></a><span class="cf">if</span> Day <span class="op">==</span> <span class="st">"Friday"</span> <span class="kw">or</span> <span class="st">"friday"</span>:</span>
-<span id="cb1-4"><a href=""></a>    <span class="bu">print</span>(<span class="st">"It's Friday, I'm in love!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="three-ways-same-result" class="slide level2">
+<h2>Three Ways, Same Result</h2>
+<p>Yesterday’s exercise only accepted <code>Friday</code>. What if we also want to accept <code>friday</code>? There are several reasonable ways to do this.</p>
+<div id="552b40dd" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="co"># Option 1 — explicit OR</span></span>
+<span id="cb1-2"><a href=""></a><span class="cf">if</span> Day <span class="op">==</span> <span class="st">"Friday"</span> <span class="kw">or</span> Day <span class="op">==</span> <span class="st">"friday"</span>:</span>
+<span id="cb1-3"><a href=""></a>    <span class="bu">print</span>(<span class="st">"It's Friday, I'm in love!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>It seemed like it worked well! But, let’s check it out in Colab…</p>
+<div class="fragment">
+<div id="fef4a86e" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="co"># Option 2 — normalize first</span></span>
+<span id="cb2-2"><a href=""></a><span class="cf">if</span> Day.lower() <span class="op">==</span> <span class="st">"friday"</span>:</span>
+<span id="cb2-3"><a href=""></a>    <span class="bu">print</span>(<span class="st">"It's Friday, I'm in love!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<div id="e28952a3" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="co"># Option 3 — membership test</span></span>
+<span id="cb3-2"><a href=""></a><span class="cf">if</span> Day <span class="kw">in</span> (<span class="st">"Friday"</span>, <span class="st">"friday"</span>):</span>
+<span id="cb3-3"><a href=""></a>    <span class="bu">print</span>(<span class="st">"It's Friday, I'm in love!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<p>All three work. Option 2 scales best — it also handles <code>FRIDAY</code>, <code>fRiDaY</code>, etc. Option 3 reads cleanly when you have a small set of valid inputs.</p>
+</div>
 </section>
 <section id="lets-review" class="slide level2">
 <h2>Let’s Review</h2>
@@ -261,35 +276,35 @@
 </section>
 <section id="logical-operator-example" class="slide level2">
 <h2>Logical Operator Example</h2>
-<div id="2e983c91" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="co"># How did you get to work today</span></span>
-<span id="cb2-2"><a href=""></a>bike <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb2-3"><a href=""></a>bus <span class="op">=</span> <span class="va">False</span></span>
-<span id="cb2-4"><a href=""></a></span>
-<span id="cb2-5"><a href=""></a><span class="bu">print</span>(<span class="kw">not</span> bus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7a6d9396" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="co"># How did you get to work today</span></span>
+<span id="cb4-2"><a href=""></a>bike <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb4-3"><a href=""></a>bus <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb4-4"><a href=""></a></span>
+<span id="cb4-5"><a href=""></a><span class="bu">print</span>(<span class="kw">not</span> bus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p>What will this print?</p>
-<div id="8becbbd4" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="bu">print</span>(bus <span class="kw">or</span> bike)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d251f198" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a><span class="bu">print</span>(bus <span class="kw">or</span> bike)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
 <p>What about this?</p>
-<div id="bf410a04" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="bu">print</span>(bus <span class="kw">and</span> bike)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f7377e76" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="bu">print</span>(bus <span class="kw">and</span> bike)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
 <section id="control-flow" class="slide level2">
 <h2>Control Flow</h2>
 <p><strong>If</strong> is used to evaluate an expression if a condition is true</p>
-<div id="56a4790d" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a><span class="cf">if</span> <span class="op">&lt;</span>condition<span class="op">&gt;</span>:</span>
-<span id="cb5-2"><a href=""></a>    <span class="op">&lt;</span>expression <span class="dv">1</span><span class="op">&gt;</span></span>
-<span id="cb5-3"><a href=""></a>    <span class="op">&lt;</span>expression <span class="dv">2</span><span class="op">&gt;</span></span>
-<span id="cb5-4"><a href=""></a>  </span>
-<span id="cb5-5"><a href=""></a>some other code</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ffcefba5" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a><span class="cf">if</span> <span class="op">&lt;</span>condition<span class="op">&gt;</span>:</span>
+<span id="cb7-2"><a href=""></a>    <span class="op">&lt;</span>expression <span class="dv">1</span><span class="op">&gt;</span></span>
+<span id="cb7-3"><a href=""></a>    <span class="op">&lt;</span>expression <span class="dv">2</span><span class="op">&gt;</span></span>
+<span id="cb7-4"><a href=""></a>  </span>
+<span id="cb7-5"><a href=""></a>some other code</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If statements are always &lt;condition&gt;:</p>
 <p>Don’t forget the colon.</p>
@@ -307,11 +322,11 @@
 </section>
 <section id="budgeting-example" class="slide level2">
 <h2>Budgeting Example</h2>
-<div id="03689f92" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a>earned <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">'How much money did you earn? '</span>))</span>
-<span id="cb6-2"><a href=""></a>spent <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">'How much money did you spend? '</span>))</span>
-<span id="cb6-3"><a href=""></a><span class="cf">if</span> earned <span class="op">&gt;</span> spent:</span>
-<span id="cb6-4"><a href=""></a>    <span class="bu">print</span>(<span class="st">'Great! You earned more than you spent. Good job.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c3bbc31e" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a>earned <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">'How much money did you earn? '</span>))</span>
+<span id="cb8-2"><a href=""></a>spent <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">'How much money did you spend? '</span>))</span>
+<span id="cb8-3"><a href=""></a><span class="cf">if</span> earned <span class="op">&gt;</span> spent:</span>
+<span id="cb8-4"><a href=""></a>    <span class="bu">print</span>(<span class="st">'Great! You earned more than you spent. Good job.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The script compares earned to spent, and if we earned more than we spent, it congratulates us.</p>
 <div class="fragment">
@@ -348,12 +363,12 @@
 <section id="nesting-statements" class="slide level2">
 <h2>Nesting Statements</h2>
 <p>We can “nest” conditional statements inside of other conditionals, using the following format</p>
-<div id="f8d4b55b" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a><span class="cf">if</span> condition:</span>
-<span id="cb7-2"><a href=""></a>    <span class="cf">if</span> condition:</span>
-<span id="cb7-3"><a href=""></a>        code</span>
-<span id="cb7-4"><a href=""></a><span class="cf">else</span>:</span>
-<span id="cb7-5"><a href=""></a>    code</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="99ffd1db" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="cf">if</span> condition:</span>
+<span id="cb9-2"><a href=""></a>    <span class="cf">if</span> condition:</span>
+<span id="cb9-3"><a href=""></a>        code</span>
+<span id="cb9-4"><a href=""></a><span class="cf">else</span>:</span>
+<span id="cb9-5"><a href=""></a>    code</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p>Imagine now that voting requires both being old enough <em>and</em> being registered. We can <em>nest</em> a second <code>if</code> statement, evaluated only when the first one is true, to handle this. What would the code look like?</p>
@@ -396,17 +411,17 @@
 <p>How do we know when code will be evaluated?</p>
 <p>How do we know which <code>else</code> belongs to which if?</p>
 <p>Indentation!</p>
-<div id="cf785911" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a><span class="co"># number = some numeric value</span></span>
-<span id="cb8-2"><a href=""></a></span>
-<span id="cb8-3"><a href=""></a><span class="cf">if</span> number <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:  <span class="co"># if number divided by two leaves no remainder</span></span>
-<span id="cb8-4"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Number is even."</span>)</span>
-<span id="cb8-5"><a href=""></a>    <span class="cf">if</span> number <span class="op">%</span> <span class="dv">3</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb8-6"><a href=""></a>        <span class="bu">print</span>(<span class="st">"Number is divisible by 6."</span>)</span>
-<span id="cb8-7"><a href=""></a>    <span class="cf">else</span>:</span>
-<span id="cb8-8"><a href=""></a>        <span class="bu">print</span>(<span class="st">"Number is not divisible by 6."</span>)</span>
-<span id="cb8-9"><a href=""></a><span class="cf">else</span>:</span>
-<span id="cb8-10"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Number is odd."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="23ba0116" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a><span class="co"># number = some numeric value</span></span>
+<span id="cb10-2"><a href=""></a></span>
+<span id="cb10-3"><a href=""></a><span class="cf">if</span> number <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:  <span class="co"># if number divided by two leaves no remainder</span></span>
+<span id="cb10-4"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Number is even."</span>)</span>
+<span id="cb10-5"><a href=""></a>    <span class="cf">if</span> number <span class="op">%</span> <span class="dv">3</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb10-6"><a href=""></a>        <span class="bu">print</span>(<span class="st">"Number is divisible by 6."</span>)</span>
+<span id="cb10-7"><a href=""></a>    <span class="cf">else</span>:</span>
+<span id="cb10-8"><a href=""></a>        <span class="bu">print</span>(<span class="st">"Number is not divisible by 6."</span>)</span>
+<span id="cb10-9"><a href=""></a><span class="cf">else</span>:</span>
+<span id="cb10-10"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Number is odd."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="loops" class="slide level2">
@@ -423,26 +438,26 @@
 <section id="loops-while" class="slide level2">
 <h2>Loops: While</h2>
 <p>Keeps running <strong>while</strong> a condition is true.</p>
-<div id="2cae1f6d" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="cf">while</span> <span class="op">&lt;</span>condition<span class="op">&gt;</span>:</span>
-<span id="cb9-2"><a href=""></a>    <span class="op">&lt;</span>expression<span class="op">&gt;</span></span>
-<span id="cb9-3"><a href=""></a>    <span class="op">&lt;</span>expression<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7d07b26d" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a><span class="cf">while</span> <span class="op">&lt;</span>condition<span class="op">&gt;</span>:</span>
+<span id="cb11-2"><a href=""></a>    <span class="op">&lt;</span>expression<span class="op">&gt;</span></span>
+<span id="cb11-3"><a href=""></a>    <span class="op">&lt;</span>expression<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The loop will keep running until the condition is no longer true, then exit.</p>
 <p><strong>Warning:</strong> It’s possible to write infinite loops that never exit, often by accident. We want to avoid this by paying close attention to our condition.</p>
 </section>
 <section id="while-loop-example" class="slide level2">
 <h2>While Loop Example</h2>
-<div id="98253f33" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a><span class="co"># program to display the numbers from 1 to 5</span></span>
-<span id="cb10-2"><a href=""></a></span>
-<span id="cb10-3"><a href=""></a>i <span class="op">=</span> <span class="dv">1</span>  <span class="co"># initialize the condition</span></span>
-<span id="cb10-4"><a href=""></a>n <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb10-5"><a href=""></a></span>
-<span id="cb10-6"><a href=""></a><span class="co"># while loop from i = 1 to 5</span></span>
-<span id="cb10-7"><a href=""></a><span class="cf">while</span> i <span class="op">&lt;=</span> n:</span>
-<span id="cb10-8"><a href=""></a>    <span class="bu">print</span>(i)</span>
-<span id="cb10-9"><a href=""></a>    i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span>  <span class="co"># this will update the condition</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b519ff3e" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a><span class="co"># program to display the numbers from 1 to 5</span></span>
+<span id="cb12-2"><a href=""></a></span>
+<span id="cb12-3"><a href=""></a>i <span class="op">=</span> <span class="dv">1</span>  <span class="co"># initialize the condition</span></span>
+<span id="cb12-4"><a href=""></a>n <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb12-5"><a href=""></a></span>
+<span id="cb12-6"><a href=""></a><span class="co"># while loop from i = 1 to 5</span></span>
+<span id="cb12-7"><a href=""></a><span class="cf">while</span> i <span class="op">&lt;=</span> n:</span>
+<span id="cb12-8"><a href=""></a>    <span class="bu">print</span>(i)</span>
+<span id="cb12-9"><a href=""></a>    i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span>  <span class="co"># this will update the condition</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>1
 2
@@ -454,11 +469,11 @@
 </section>
 <section id="common-syntax-for-while-loops" class="slide level2">
 <h2>Common Syntax for While Loops</h2>
-<div id="2607fd96" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a>index <span class="op">=</span> <span class="dv">0</span>  <span class="co"># Declare an index variable</span></span>
-<span id="cb12-2"><a href=""></a><span class="cf">while</span> index <span class="op">&lt;</span> <span class="dv">10</span>:  <span class="co"># compare index value to condition</span></span>
-<span id="cb12-3"><a href=""></a>    <span class="bu">print</span>(<span class="st">"hi"</span>)  <span class="co"># the code to be executed</span></span>
-<span id="cb12-4"><a href=""></a>    index <span class="op">+=</span> <span class="dv">1</span>  <span class="co"># update the index</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c8eb5051" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a>index <span class="op">=</span> <span class="dv">0</span>  <span class="co"># Declare an index variable</span></span>
+<span id="cb14-2"><a href=""></a><span class="cf">while</span> index <span class="op">&lt;</span> <span class="dv">10</span>:  <span class="co"># compare index value to condition</span></span>
+<span id="cb14-3"><a href=""></a>    <span class="bu">print</span>(<span class="st">"hi"</span>)  <span class="co"># the code to be executed</span></span>
+<span id="cb14-4"><a href=""></a>    index <span class="op">+=</span> <span class="dv">1</span>  <span class="co"># update the index</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="graphical-while-loops" class="slide level2">
@@ -474,13 +489,13 @@
 </section>
 <section id="a-solution" class="slide level2">
 <h2>A Solution</h2>
-<div id="7d8636a4" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a>number <span class="op">=</span> <span class="dv">701</span> <span class="co"># start at the first number greater than 700</span></span>
-<span id="cb13-2"><a href=""></a></span>
-<span id="cb13-3"><a href=""></a><span class="cf">while</span> number <span class="op">%</span> <span class="dv">13</span> <span class="op">!=</span> <span class="dv">0</span>:</span>
-<span id="cb13-4"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>number<span class="sc">}</span><span class="ss"> is not divisible by 13."</span>) <span class="co">## remember those f strings from earlier!</span></span>
-<span id="cb13-5"><a href=""></a>    number <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb13-6"><a href=""></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>number<span class="sc">}</span><span class="ss"> the smallest number greater than 700 and divisible by 13"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fb145e1a" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a>number <span class="op">=</span> <span class="dv">701</span> <span class="co"># start at the first number greater than 700</span></span>
+<span id="cb15-2"><a href=""></a></span>
+<span id="cb15-3"><a href=""></a><span class="cf">while</span> number <span class="op">%</span> <span class="dv">13</span> <span class="op">!=</span> <span class="dv">0</span>:</span>
+<span id="cb15-4"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>number<span class="sc">}</span><span class="ss"> is not divisible by 13."</span>) <span class="co">## remember those f strings from earlier!</span></span>
+<span id="cb15-5"><a href=""></a>    number <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb15-6"><a href=""></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>number<span class="sc">}</span><span class="ss"> the smallest number greater than 700 and divisible by 13"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>701 is not divisible by 13.
 702 the smallest number greater than 700 and divisible by 13</code></pre>
@@ -489,36 +504,36 @@
 </section>
 <section id="nested-while-loop" class="slide level2">
 <h2>Nested While Loop</h2>
-<div id="c700e616" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a><span class="co"># A list of names</span></span>
-<span id="cb15-2"><a href=""></a>names <span class="op">=</span> [<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span>]</span>
-<span id="cb15-3"><a href=""></a></span>
-<span id="cb15-4"><a href=""></a><span class="co"># A list of languages to greet in</span></span>
-<span id="cb15-5"><a href=""></a>languages <span class="op">=</span> [<span class="st">"English"</span>, <span class="st">"Spanish"</span>, <span class="st">"French"</span>]</span>
-<span id="cb15-6"><a href=""></a></span>
-<span id="cb15-7"><a href=""></a><span class="co"># Outer loop: step through each person</span></span>
-<span id="cb15-8"><a href=""></a>i <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb15-9"><a href=""></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(names):</span>
-<span id="cb15-10"><a href=""></a>    name <span class="op">=</span> names[i]</span>
-<span id="cb15-11"><a href=""></a></span>
-<span id="cb15-12"><a href=""></a>    <span class="co"># Inner loop: for the current person, greet in each language</span></span>
-<span id="cb15-13"><a href=""></a>    j <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb15-14"><a href=""></a>    <span class="cf">while</span> j <span class="op">&lt;</span> <span class="bu">len</span>(languages):</span>
-<span id="cb15-15"><a href=""></a>        lang <span class="op">=</span> languages[j]</span>
-<span id="cb15-16"><a href=""></a>        <span class="cf">if</span> lang <span class="op">==</span> <span class="st">"English"</span>:</span>
-<span id="cb15-17"><a href=""></a>            greeting <span class="op">=</span> <span class="st">"Hello"</span></span>
-<span id="cb15-18"><a href=""></a>        <span class="cf">elif</span> lang <span class="op">==</span> <span class="st">"Spanish"</span>:</span>
-<span id="cb15-19"><a href=""></a>            greeting <span class="op">=</span> <span class="st">"¡Hola"</span></span>
-<span id="cb15-20"><a href=""></a>        <span class="cf">elif</span> lang <span class="op">==</span> <span class="st">"French"</span>:</span>
-<span id="cb15-21"><a href=""></a>            greeting <span class="op">=</span> <span class="st">"Bonjour"</span></span>
-<span id="cb15-22"><a href=""></a>        <span class="cf">else</span>:</span>
-<span id="cb15-23"><a href=""></a>            greeting <span class="op">=</span> <span class="st">"Hi"</span></span>
-<span id="cb15-24"><a href=""></a></span>
-<span id="cb15-25"><a href=""></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>greeting<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!"</span>)</span>
-<span id="cb15-26"><a href=""></a>        j <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb15-27"><a href=""></a></span>
-<span id="cb15-28"><a href=""></a>    <span class="co"># Move to the next person</span></span>
-<span id="cb15-29"><a href=""></a>    i <span class="op">+=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5d12259a" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a><span class="co"># A list of names</span></span>
+<span id="cb17-2"><a href=""></a>names <span class="op">=</span> [<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span>]</span>
+<span id="cb17-3"><a href=""></a></span>
+<span id="cb17-4"><a href=""></a><span class="co"># A list of languages to greet in</span></span>
+<span id="cb17-5"><a href=""></a>languages <span class="op">=</span> [<span class="st">"English"</span>, <span class="st">"Spanish"</span>, <span class="st">"French"</span>]</span>
+<span id="cb17-6"><a href=""></a></span>
+<span id="cb17-7"><a href=""></a><span class="co"># Outer loop: step through each person</span></span>
+<span id="cb17-8"><a href=""></a>i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb17-9"><a href=""></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(names):</span>
+<span id="cb17-10"><a href=""></a>    name <span class="op">=</span> names[i]</span>
+<span id="cb17-11"><a href=""></a></span>
+<span id="cb17-12"><a href=""></a>    <span class="co"># Inner loop: for the current person, greet in each language</span></span>
+<span id="cb17-13"><a href=""></a>    j <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb17-14"><a href=""></a>    <span class="cf">while</span> j <span class="op">&lt;</span> <span class="bu">len</span>(languages):</span>
+<span id="cb17-15"><a href=""></a>        lang <span class="op">=</span> languages[j]</span>
+<span id="cb17-16"><a href=""></a>        <span class="cf">if</span> lang <span class="op">==</span> <span class="st">"English"</span>:</span>
+<span id="cb17-17"><a href=""></a>            greeting <span class="op">=</span> <span class="st">"Hello"</span></span>
+<span id="cb17-18"><a href=""></a>        <span class="cf">elif</span> lang <span class="op">==</span> <span class="st">"Spanish"</span>:</span>
+<span id="cb17-19"><a href=""></a>            greeting <span class="op">=</span> <span class="st">"¡Hola"</span></span>
+<span id="cb17-20"><a href=""></a>        <span class="cf">elif</span> lang <span class="op">==</span> <span class="st">"French"</span>:</span>
+<span id="cb17-21"><a href=""></a>            greeting <span class="op">=</span> <span class="st">"Bonjour"</span></span>
+<span id="cb17-22"><a href=""></a>        <span class="cf">else</span>:</span>
+<span id="cb17-23"><a href=""></a>            greeting <span class="op">=</span> <span class="st">"Hi"</span></span>
+<span id="cb17-24"><a href=""></a></span>
+<span id="cb17-25"><a href=""></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>greeting<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!"</span>)</span>
+<span id="cb17-26"><a href=""></a>        j <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb17-27"><a href=""></a></span>
+<span id="cb17-28"><a href=""></a>    <span class="co"># Move to the next person</span></span>
+<span id="cb17-29"><a href=""></a>    i <span class="op">+=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="graphical-nested-while-loops" class="slide level2">
@@ -528,23 +543,23 @@
 <section id="another-one" class="slide level2">
 <h2>Another One</h2>
 <p>What will this code do?</p>
-<div id="2649f603" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href=""></a>n <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb16-2"><a href=""></a><span class="cf">while</span> n <span class="op">&lt;=</span> <span class="dv">50</span>:</span>
-<span id="cb16-3"><a href=""></a>    count <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb16-4"><a href=""></a>    m <span class="op">=</span> n</span>
-<span id="cb16-5"><a href=""></a>    <span class="cf">while</span> m <span class="op">%</span> <span class="dv">13</span> <span class="op">!=</span> <span class="dv">0</span>:</span>
-<span id="cb16-6"><a href=""></a>        count <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb16-7"><a href=""></a>        m <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb16-8"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss"> reaches a multiple of 13 (</span><span class="sc">{</span>m<span class="sc">}</span><span class="ss">) after </span><span class="sc">{</span>count<span class="sc">}</span><span class="ss"> steps."</span>)</span>
-<span id="cb16-9"><a href=""></a>    n <span class="op">+=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="51251aa8" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href=""></a>n <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb18-2"><a href=""></a><span class="cf">while</span> n <span class="op">&lt;=</span> <span class="dv">50</span>:</span>
+<span id="cb18-3"><a href=""></a>    count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb18-4"><a href=""></a>    m <span class="op">=</span> n</span>
+<span id="cb18-5"><a href=""></a>    <span class="cf">while</span> m <span class="op">%</span> <span class="dv">13</span> <span class="op">!=</span> <span class="dv">0</span>:</span>
+<span id="cb18-6"><a href=""></a>        count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb18-7"><a href=""></a>        m <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb18-8"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss"> reaches a multiple of 13 (</span><span class="sc">{</span>m<span class="sc">}</span><span class="ss">) after </span><span class="sc">{</span>count<span class="sc">}</span><span class="ss"> steps."</span>)</span>
+<span id="cb18-9"><a href=""></a>    n <span class="op">+=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="you-try-2" class="slide level2">
 <h2>You Try</h2>
 <p>Create the following object</p>
-<div id="116bf3ab" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a>sentence <span class="op">=</span> <span class="st">'There once lived a bee in a house by the sea.'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2a6edd92" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a>sentence <span class="op">=</span> <span class="st">'There once lived a bee in a house by the sea.'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Write a nested while loop that prints each 10 character sequence in the sentence, so that the output looks like</p>
 <p>There once</p>
@@ -557,22 +572,22 @@
 <h2>For Loops</h2>
 <p>With <strong>for loops</strong>, you explicitly define the <em>range</em> over which the loop will execute.</p>
 <p>Similar to while loops, but when you know the number of iterations, the syntax is cleaner. Each iteration, the running variable updates its value (it iterates over the iterable object) — no manual index updates needed.</p>
-<div id="23eed649" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href=""></a><span class="cf">for</span> <span class="op">&lt;</span>variable<span class="op">&gt;</span> <span class="kw">in</span> <span class="op">&lt;</span>iterable<span class="op">&gt;</span>:</span>
-<span id="cb18-2"><a href=""></a>    <span class="op">&lt;</span>expression<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="03ee6934" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href=""></a><span class="cf">for</span> <span class="op">&lt;</span>variable<span class="op">&gt;</span> <span class="kw">in</span> <span class="op">&lt;</span>iterable<span class="op">&gt;</span>:</span>
+<span id="cb20-2"><a href=""></a>    <span class="op">&lt;</span>expression<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p>Most commonly we iterate over a numeric range, but we can also iterate over items in a list, dictionary, tuple, set, etc.</p>
-<div id="9e588226" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a><span class="cf">for</span> <span class="op">&lt;</span>numeric<span class="op">&gt;</span> <span class="kw">in</span> <span class="bu">range</span>(<span class="op">&lt;</span>some_numeric<span class="op">&gt;</span>):</span>
-<span id="cb19-2"><a href=""></a>    <span class="op">&lt;</span>expression<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="48752b85" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href=""></a><span class="cf">for</span> <span class="op">&lt;</span>numeric<span class="op">&gt;</span> <span class="kw">in</span> <span class="bu">range</span>(<span class="op">&lt;</span>some_numeric<span class="op">&gt;</span>):</span>
+<span id="cb21-2"><a href=""></a>    <span class="op">&lt;</span>expression<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
 <section id="notes-on-range" class="slide level2">
 <h2>Notes on Range()</h2>
-<div id="eb84715b" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href=""></a><span class="bu">range</span>(start, stop, step)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="25683dae" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href=""></a><span class="bu">range</span>(start, stop, step)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><p>By default, start = 0 and step = 1</p></li>
@@ -583,32 +598,32 @@
 <section id="examples" class="slide level2">
 <h2>Examples</h2>
 <p>How will these evaluate?</p>
-<div id="92fc7a6a" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">5</span>):</span>
-<span id="cb21-2"><a href=""></a>    <span class="bu">print</span>(i)</span>
-<span id="cb21-3"><a href=""></a></span>
-<span id="cb21-4"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">11</span>, <span class="dv">15</span>, <span class="dv">1</span>):</span>
-<span id="cb21-5"><a href=""></a>    <span class="bu">print</span>(i)</span>
-<span id="cb21-6"><a href=""></a></span>
-<span id="cb21-7"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">30</span>, <span class="dv">5</span>):</span>
-<span id="cb21-8"><a href=""></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5fe3cac5" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">5</span>):</span>
+<span id="cb23-2"><a href=""></a>    <span class="bu">print</span>(i)</span>
+<span id="cb23-3"><a href=""></a></span>
+<span id="cb23-4"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">11</span>, <span class="dv">15</span>, <span class="dv">1</span>):</span>
+<span id="cb23-5"><a href=""></a>    <span class="bu">print</span>(i)</span>
+<span id="cb23-6"><a href=""></a></span>
+<span id="cb23-7"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">30</span>, <span class="dv">5</span>):</span>
+<span id="cb23-8"><a href=""></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="a-more-complex-for-loop" class="slide level2">
 <h2>A more complex for loop</h2>
-<div id="a8f12efa" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href=""></a>words <span class="op">=</span> [<span class="st">"apple"</span>, <span class="st">"bat"</span>, <span class="st">"bar"</span>, <span class="st">"atom"</span>, <span class="st">"book"</span>]</span>
-<span id="cb22-2"><a href=""></a></span>
-<span id="cb22-3"><a href=""></a>by_letter <span class="op">=</span> {}</span>
-<span id="cb22-4"><a href=""></a></span>
-<span id="cb22-5"><a href=""></a><span class="cf">for</span> word <span class="kw">in</span> words:</span>
-<span id="cb22-6"><a href=""></a>    letter <span class="op">=</span> word[<span class="dv">0</span>]</span>
-<span id="cb22-7"><a href=""></a>    <span class="cf">if</span> letter <span class="kw">not</span> <span class="kw">in</span> by_letter:</span>
-<span id="cb22-8"><a href=""></a>        by_letter[letter] <span class="op">=</span> [word]</span>
-<span id="cb22-9"><a href=""></a>    <span class="cf">else</span>:</span>
-<span id="cb22-10"><a href=""></a>        by_letter[letter].append(word)</span>
-<span id="cb22-11"><a href=""></a></span>
-<span id="cb22-12"><a href=""></a><span class="bu">print</span>(by_letter)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="98d250c9" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href=""></a>words <span class="op">=</span> [<span class="st">"apple"</span>, <span class="st">"bat"</span>, <span class="st">"bar"</span>, <span class="st">"atom"</span>, <span class="st">"book"</span>]</span>
+<span id="cb24-2"><a href=""></a></span>
+<span id="cb24-3"><a href=""></a>by_letter <span class="op">=</span> {}</span>
+<span id="cb24-4"><a href=""></a></span>
+<span id="cb24-5"><a href=""></a><span class="cf">for</span> word <span class="kw">in</span> words:</span>
+<span id="cb24-6"><a href=""></a>    letter <span class="op">=</span> word[<span class="dv">0</span>]</span>
+<span id="cb24-7"><a href=""></a>    <span class="cf">if</span> letter <span class="kw">not</span> <span class="kw">in</span> by_letter:</span>
+<span id="cb24-8"><a href=""></a>        by_letter[letter] <span class="op">=</span> [word]</span>
+<span id="cb24-9"><a href=""></a>    <span class="cf">else</span>:</span>
+<span id="cb24-10"><a href=""></a>        by_letter[letter].append(word)</span>
+<span id="cb24-11"><a href=""></a></span>
+<span id="cb24-12"><a href=""></a><span class="bu">print</span>(by_letter)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>What will this code do?</p>
 </section>
@@ -616,9 +631,9 @@
 <h2>You Try</h2>
 <p>Write a for loop that loops over all the characters in “Michigan” and outputs each character individually followed by a !.</p>
 <div class="fragment">
-<div id="74947ecf" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href=""></a><span class="cf">for</span> char <span class="kw">in</span> <span class="st">"CLEMSON"</span>:</span>
-<span id="cb23-2"><a href=""></a>    <span class="bu">print</span>(char <span class="op">+</span> <span class="st">"!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="18a20f03" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href=""></a><span class="cf">for</span> char <span class="kw">in</span> <span class="st">"CLEMSON"</span>:</span>
+<span id="cb25-2"><a href=""></a>    <span class="bu">print</span>(char <span class="op">+</span> <span class="st">"!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>C!
 L!
@@ -638,12 +653,12 @@ N!</code></pre>
 <li><p>Break statements do exactly this, exiting the loop and stopping evaluation</p></li>
 </ul>
 <div class="fragment">
-<div id="cfc278cd" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">4</span>):</span>
-<span id="cb25-2"><a href=""></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">4</span>):</span>
-<span id="cb25-3"><a href=""></a>        <span class="cf">if</span> i <span class="op">==</span> <span class="dv">2</span> <span class="kw">and</span> j <span class="op">==</span> <span class="dv">2</span>:</span>
-<span id="cb25-4"><a href=""></a>            <span class="cf">break</span>  <span class="co"># break will only exit the inner loop</span></span>
-<span id="cb25-5"><a href=""></a>    <span class="bu">print</span>(i, j)  <span class="co"># why is this the output we get?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2eb3df05" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">4</span>):</span>
+<span id="cb27-2"><a href=""></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">4</span>):</span>
+<span id="cb27-3"><a href=""></a>        <span class="cf">if</span> i <span class="op">==</span> <span class="dv">2</span> <span class="kw">and</span> j <span class="op">==</span> <span class="dv">2</span>:</span>
+<span id="cb27-4"><a href=""></a>            <span class="cf">break</span>  <span class="co"># break will only exit the inner loop</span></span>
+<span id="cb27-5"><a href=""></a>    <span class="bu">print</span>(i, j)  <span class="co"># why is this the output we get?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>1 3
 2 2
@@ -671,25 +686,25 @@ N!</code></pre>
 </ul></li>
 </ul></li>
 <li><p>Used to store multiple items in a single variable</p>
-<div id="e8900fb2" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href=""></a>my_fav_fruits <span class="op">=</span> [<span class="st">"Peaches"</span>, <span class="st">"Raspberries"</span>, <span class="st">"Blueberries"</span>, <span class="st">"Mangoes"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="14f37414" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href=""></a>my_fav_fruits <span class="op">=</span> [<span class="st">"Peaches"</span>, <span class="st">"Raspberries"</span>, <span class="st">"Blueberries"</span>, <span class="st">"Mangoes"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 </ul>
 </section>
 <section id="more-on-lists" class="slide level2">
 <h2>More on lists</h2>
 <p>Items in a list don’t all need to be of the same type</p>
-<div id="94b7e3bd" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href=""></a>my_list <span class="op">=</span> [<span class="st">"cactus"</span>, <span class="dv">42</span>, <span class="va">False</span>]</span>
-<span id="cb28-2"><a href=""></a>my_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="8e55aa1d" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href=""></a>my_list <span class="op">=</span> [<span class="st">"cactus"</span>, <span class="dv">42</span>, <span class="va">False</span>]</span>
+<span id="cb30-2"><a href=""></a>my_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>['cactus', 42, False]</code></pre>
 </div>
 </div>
 <div class="fragment">
 <p>You can also initialize empty lists, and fill them as you go</p>
-<div id="cf3810d2" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href=""></a>empty_list <span class="op">=</span> []</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="22b313a7" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href=""></a>empty_list <span class="op">=</span> []</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -709,18 +724,18 @@ N!</code></pre>
 </div>
 </div>
 </div>
-<div id="ccb9576c" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href=""></a>fruits <span class="op">=</span> [<span class="st">"Papaya"</span>, <span class="st">"Passion Fruit"</span>, <span class="st">"Pineapple"</span>, <span class="st">"Pomegranate"</span>]</span>
-<span id="cb31-2"><a href=""></a></span>
-<span id="cb31-3"><a href=""></a>fruits[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="418d1bf8" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href=""></a>fruits <span class="op">=</span> [<span class="st">"Papaya"</span>, <span class="st">"Passion Fruit"</span>, <span class="st">"Pineapple"</span>, <span class="st">"Pomegranate"</span>]</span>
+<span id="cb33-2"><a href=""></a></span>
+<span id="cb33-3"><a href=""></a>fruits[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>'Papaya'</code></pre>
 </div>
 </div>
 <div class="fragment">
 <p>Remember, we can also use negative indexing to start from the end</p>
-<div id="1b1751bb" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href=""></a>fruits[<span class="op">-</span><span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="782e3da6" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href=""></a>fruits[<span class="op">-</span><span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>'Pomegranate'</code></pre>
 </div>
@@ -730,8 +745,8 @@ N!</code></pre>
 <section id="lists-can-have-duplicates" class="slide level2">
 <h2>Lists can have duplicates</h2>
 <p>An item can occur more than once in a list</p>
-<div id="a229491b" class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href=""></a>fruit <span class="op">=</span> [<span class="st">"apple"</span>, <span class="st">"apple"</span>, <span class="st">"pear"</span>, <span class="st">"plum"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="517dba3e" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href=""></a>fruit <span class="op">=</span> [<span class="st">"apple"</span>, <span class="st">"apple"</span>, <span class="st">"pear"</span>, <span class="st">"plum"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><em>sets</em> can only contain each object a single time</p>
 </section>
@@ -741,10 +756,10 @@ N!</code></pre>
 <li><p>Lists are mutable objects</p></li>
 <li><p>This means that they can be modified in place</p></li>
 </ul>
-<div id="4d7757fc" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href=""></a>fruit[<span class="dv">2</span>] <span class="op">=</span> <span class="st">"cherry"</span></span>
-<span id="cb36-2"><a href=""></a></span>
-<span id="cb36-3"><a href=""></a><span class="bu">print</span>(fruit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7e928c42" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href=""></a>fruit[<span class="dv">2</span>] <span class="op">=</span> <span class="st">"cherry"</span></span>
+<span id="cb38-2"><a href=""></a></span>
+<span id="cb38-3"><a href=""></a><span class="bu">print</span>(fruit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['apple', 'apple', 'cherry', 'plum']</code></pre>
 </div>
@@ -754,8 +769,8 @@ N!</code></pre>
 <h2>Length Function</h2>
 <p>Sometimes, it’s useful to know the length of a list. The length of a list is the number of elements in the list, rather than say the total number of characters in the list. The <code>len()</code> function will find the length for us.</p>
 <div class="fragment">
-<div id="e8867de1" class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href=""></a><span class="bu">len</span>(fruit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f3a75656" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href=""></a><span class="bu">len</span>(fruit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>4</code></pre>
 </div>
@@ -792,10 +807,10 @@ N!</code></pre>
 <section id="append" class="slide level2">
 <h2>append()</h2>
 <p><code>append()</code> adds an item to the end of a list</p>
-<div id="e7e04f82" class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href=""></a>teams <span class="op">=</span> [<span class="st">"Red Sox"</span>, <span class="st">"Braves"</span>, <span class="st">"Cubs"</span>]</span>
-<span id="cb40-2"><a href=""></a>teams.append(<span class="st">"Giants"</span>)</span>
-<span id="cb40-3"><a href=""></a><span class="bu">print</span>(teams)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3f208aa8" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href=""></a>teams <span class="op">=</span> [<span class="st">"Red Sox"</span>, <span class="st">"Braves"</span>, <span class="st">"Cubs"</span>]</span>
+<span id="cb42-2"><a href=""></a>teams.append(<span class="st">"Giants"</span>)</span>
+<span id="cb42-3"><a href=""></a><span class="bu">print</span>(teams)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['Red Sox', 'Braves', 'Cubs', 'Giants']</code></pre>
 </div>
@@ -807,18 +822,18 @@ N!</code></pre>
 <section id="insert" class="slide level2">
 <h2>Insert()</h2>
 <p><code>insert()</code> adds an element at a specified position. The syntax is</p>
-<div id="5c063e97" class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href=""></a><span class="bu">list</span>.insert(index, element)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="99f06e47" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href=""></a><span class="bu">list</span>.insert(index, element)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p>Use the insert() method to insert the “Phillies” into this list, with index = 1.</p>
 </div>
 <div class="fragment">
 <p>Notice how this is different than updating an index</p>
-<div id="3785b8d0" class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href=""></a>teams[<span class="dv">1</span>] <span class="op">=</span> <span class="st">"Rays"</span></span>
-<span id="cb43-2"><a href=""></a></span>
-<span id="cb43-3"><a href=""></a><span class="bu">print</span>(teams)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d6e62093" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href=""></a>teams[<span class="dv">1</span>] <span class="op">=</span> <span class="st">"Rays"</span></span>
+<span id="cb45-2"><a href=""></a></span>
+<span id="cb45-3"><a href=""></a><span class="bu">print</span>(teams)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['Red Sox', 'Rays', 'Cubs', 'Giants']</code></pre>
 </div>
@@ -828,18 +843,18 @@ N!</code></pre>
 <section id="sort" class="slide level2">
 <h2>Sort</h2>
 <p><code>sort()</code> will order your list. The default is to sort in ascending order</p>
-<div id="a781ba66" class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href=""></a>teams.sort()</span>
-<span id="cb45-2"><a href=""></a><span class="bu">print</span>(teams)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a93ec0cf" class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href=""></a>teams.sort()</span>
+<span id="cb47-2"><a href=""></a><span class="bu">print</span>(teams)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['Cubs', 'Giants', 'Rays', 'Red Sox']</code></pre>
 </div>
 </div>
 <div class="fragment">
 <p>But we can also sort in descending order by using <code>reverse</code></p>
-<div id="7e370dd5" class="cell" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href=""></a>teams.sort(reverse<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb47-2"><a href=""></a><span class="bu">print</span>(teams)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5e695454" class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href=""></a>teams.sort(reverse<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb49-2"><a href=""></a><span class="bu">print</span>(teams)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['Red Sox', 'Rays', 'Giants', 'Cubs']</code></pre>
 </div>
@@ -847,10 +862,10 @@ N!</code></pre>
 </div>
 <div class="fragment">
 <p>Or even by length using <code>key</code></p>
-<div id="3f72e9ee" class="cell" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href=""></a>teams <span class="op">=</span> [<span class="st">"Red Sox"</span>, <span class="st">"Braves"</span>, <span class="st">"Cubs"</span>]</span>
-<span id="cb49-2"><a href=""></a>teams.sort(key<span class="op">=</span><span class="bu">len</span>)</span>
-<span id="cb49-3"><a href=""></a><span class="bu">print</span>(teams)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="0e0ca420" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href=""></a>teams <span class="op">=</span> [<span class="st">"Red Sox"</span>, <span class="st">"Braves"</span>, <span class="st">"Cubs"</span>]</span>
+<span id="cb51-2"><a href=""></a>teams.sort(key<span class="op">=</span><span class="bu">len</span>)</span>
+<span id="cb51-3"><a href=""></a><span class="bu">print</span>(teams)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['Cubs', 'Braves', 'Red Sox']</code></pre>
 </div>
@@ -861,10 +876,10 @@ N!</code></pre>
 <h2>Sorted()</h2>
 <p>To see the difference between using a function and a method, consider the function <code>sorted</code></p>
 <p><code>sorted(object)</code> returns a sorted version of the list, <em>without updating the original</em></p>
-<div id="93231330" class="cell" data-execution_count="37">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href=""></a>teams <span class="op">=</span> [<span class="st">"Red Sox"</span>, <span class="st">"Braves"</span>, <span class="st">"Cubs"</span>]</span>
-<span id="cb51-2"><a href=""></a><span class="bu">print</span>(<span class="bu">sorted</span>(teams))</span>
-<span id="cb51-3"><a href=""></a><span class="bu">print</span>(teams)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="42016d07" class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href=""></a>teams <span class="op">=</span> [<span class="st">"Red Sox"</span>, <span class="st">"Braves"</span>, <span class="st">"Cubs"</span>]</span>
+<span id="cb53-2"><a href=""></a><span class="bu">print</span>(<span class="bu">sorted</span>(teams))</span>
+<span id="cb53-3"><a href=""></a><span class="bu">print</span>(teams)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['Braves', 'Cubs', 'Red Sox']
 ['Red Sox', 'Braves', 'Cubs']</code></pre>
@@ -874,8 +889,8 @@ N!</code></pre>
 <section id="index" class="slide level2">
 <h2>Index</h2>
 <p>Index returns the index of the <em>first</em> element with the specified value</p>
-<div id="35b7dede" class="cell" data-execution_count="38">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href=""></a>teams.index(<span class="st">"Red Sox"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e19a9aea" class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href=""></a>teams.index(<span class="st">"Red Sox"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
 <pre><code>0</code></pre>
 </div>
@@ -884,12 +899,12 @@ N!</code></pre>
 <section id="extend" class="slide level2">
 <h2>extend()</h2>
 <p><code>extend()</code> adds the elements of a new list (or other iterable) to an existing list</p>
-<div id="ed543bad" class="cell" data-execution_count="39">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href=""></a>new_teams <span class="op">=</span> [<span class="st">"Blue Jays"</span>, <span class="st">"Orioles"</span>, <span class="st">"Cardinals"</span>]</span>
-<span id="cb55-2"><a href=""></a></span>
-<span id="cb55-3"><a href=""></a>teams.extend(new_teams)</span>
-<span id="cb55-4"><a href=""></a></span>
-<span id="cb55-5"><a href=""></a><span class="bu">print</span>(teams)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="68114e23" class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href=""></a>new_teams <span class="op">=</span> [<span class="st">"Blue Jays"</span>, <span class="st">"Orioles"</span>, <span class="st">"Cardinals"</span>]</span>
+<span id="cb57-2"><a href=""></a></span>
+<span id="cb57-3"><a href=""></a>teams.extend(new_teams)</span>
+<span id="cb57-4"><a href=""></a></span>
+<span id="cb57-5"><a href=""></a><span class="bu">print</span>(teams)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['Red Sox', 'Braves', 'Cubs', 'Blue Jays', 'Orioles', 'Cardinals']</code></pre>
 </div>
@@ -898,17 +913,17 @@ N!</code></pre>
 <section id="remove-and-pop" class="slide level2">
 <h2>Remove and Pop</h2>
 <p>Remove removes a named element</p>
-<div id="a2b2be0d" class="cell" data-execution_count="40">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href=""></a>teams.remove(<span class="st">"Cubs"</span>)</span>
-<span id="cb57-2"><a href=""></a><span class="bu">print</span>(teams)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c9dca2f6" class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href=""></a>teams.remove(<span class="st">"Cubs"</span>)</span>
+<span id="cb59-2"><a href=""></a><span class="bu">print</span>(teams)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['Red Sox', 'Braves', 'Blue Jays', 'Orioles', 'Cardinals']</code></pre>
 </div>
 </div>
 <p>pop removes by index and returns the element that has been deleted</p>
-<div id="b023ddf9" class="cell" data-execution_count="41">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href=""></a>teams.pop(<span class="dv">1</span>) </span>
-<span id="cb59-2"><a href=""></a><span class="bu">print</span>(teams)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="bc371471" class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href=""></a>teams.pop(<span class="dv">1</span>) </span>
+<span id="cb61-2"><a href=""></a><span class="bu">print</span>(teams)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['Red Sox', 'Blue Jays', 'Orioles', 'Cardinals']</code></pre>
 </div>
@@ -923,23 +938,23 @@ N!</code></pre>
 <li><p>stop one step before stop (default is len(list))</p></li>
 <li><p>step specifies how many indices to jump</p></li>
 </ul>
-<div id="7397a63c" class="cell" data-execution_count="42">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href=""></a>teams[:<span class="dv">2</span>]    <span class="co"># first two elements</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c66d0bc9" class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href=""></a>teams[:<span class="dv">2</span>]    <span class="co"># first two elements</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
 <pre><code>['Red Sox', 'Blue Jays']</code></pre>
 </div>
 </div>
 <div class="fragment">
-<div id="e963f728" class="cell" data-execution_count="43">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href=""></a>teams[<span class="dv">1</span>:]    <span class="co"># everything from index 1 onward</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f8263632" class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href=""></a>teams[<span class="dv">1</span>:]    <span class="co"># everything from index 1 onward</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>['Blue Jays', 'Orioles', 'Cardinals']</code></pre>
 </div>
 </div>
 </div>
 <div class="fragment">
-<div id="3946f680" class="cell" data-execution_count="44">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href=""></a>teams[::<span class="dv">2</span>]   <span class="co"># every other element</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e3b0d966" class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href=""></a>teams[::<span class="dv">2</span>]   <span class="co"># every other element</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="26">
 <pre><code>['Red Sox', 'Orioles']</code></pre>
 </div>
@@ -949,10 +964,10 @@ N!</code></pre>
 <section id="watch-out-exclusive-endpoints" class="slide level2">
 <h2>Watch Out: Exclusive Endpoints</h2>
 <p>The <code>stop</code> index is <strong>not included</strong> in the slice. <code>[a:b]</code> gives you <code>b - a</code> items.</p>
-<div id="d232841d" class="cell" data-execution_count="45">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href=""></a>word <span class="op">=</span> <span class="st">"Bernie"</span></span>
-<span id="cb67-2"><a href=""></a><span class="bu">print</span>(word[<span class="dv">0</span>:<span class="dv">3</span>])         <span class="co"># 'Ber' — not 'Bern'!</span></span>
-<span id="cb67-3"><a href=""></a><span class="bu">print</span>(<span class="bu">len</span>(word[<span class="dv">0</span>:<span class="dv">3</span>]))    <span class="co"># 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="35f29571" class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href=""></a>word <span class="op">=</span> <span class="st">"Bernie"</span></span>
+<span id="cb69-2"><a href=""></a><span class="bu">print</span>(word[<span class="dv">0</span>:<span class="dv">3</span>])         <span class="co"># 'Ber' — not 'Bern'!</span></span>
+<span id="cb69-3"><a href=""></a><span class="bu">print</span>(<span class="bu">len</span>(word[<span class="dv">0</span>:<span class="dv">3</span>]))    <span class="co"># 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Ber
 3</code></pre>
@@ -960,8 +975,8 @@ N!</code></pre>
 </div>
 <div class="fragment">
 <p>Same rule as <code>range(0, 3)</code> — it stops <em>before</em> 3.</p>
-<div id="4592b7c1" class="cell" data-execution_count="46">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href=""></a><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">3</span>))        <span class="co"># [0, 1, 2]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="94021362" class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href=""></a><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">3</span>))        <span class="co"># [0, 1, 2]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
 <pre><code>[0, 1, 2]</code></pre>
 </div>
@@ -983,8 +998,8 @@ N!</code></pre>
 <section id="combining-lists-and-loops" class="slide level2">
 <h2>Combining Lists and Loops</h2>
 <p>Consider the following list:</p>
-<div id="4a28c6af" class="cell" data-execution_count="47">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href=""></a>fruits <span class="op">=</span> [<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"cherry"</span>, <span class="st">"pineapple"</span>, <span class="st">"kiwi"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ea21c56f" class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href=""></a>fruits <span class="op">=</span> [<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"cherry"</span>, <span class="st">"pineapple"</span>, <span class="st">"kiwi"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>How could we write a for loop to return all of the fruits in the list? What about a while loop?</p>
 </section>
@@ -1010,11 +1025,11 @@ N!</code></pre>
 <li><p>Unlike lists, they are immutable (cannot be changed on the fly)</p></li>
 <li><p>Created with parentheses ()</p></li>
 </ul>
-<div id="4b977d5f" class="cell" data-execution_count="48">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href=""></a>tpl <span class="op">=</span> (<span class="st">"a"</span>, <span class="va">True</span>, <span class="dv">5</span>, <span class="st">"Red Sox"</span>)</span>
-<span id="cb72-2"><a href=""></a><span class="bu">print</span>(tpl)</span>
-<span id="cb72-3"><a href=""></a></span>
-<span id="cb72-4"><a href=""></a>tpl[<span class="dv">3</span>] <span class="op">=</span> <span class="st">"Blue"</span> <span class="co">## Note that this causes an error message, because the tuple is immutable</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e217c407" class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href=""></a>tpl <span class="op">=</span> (<span class="st">"a"</span>, <span class="va">True</span>, <span class="dv">5</span>, <span class="st">"Red Sox"</span>)</span>
+<span id="cb74-2"><a href=""></a><span class="bu">print</span>(tpl)</span>
+<span id="cb74-3"><a href=""></a></span>
+<span id="cb74-4"><a href=""></a>tpl[<span class="dv">3</span>] <span class="op">=</span> <span class="st">"Blue"</span> <span class="co">## Note that this causes an error message, because the tuple is immutable</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>('a', True, 5, 'Red Sox')</code></pre>
 </div>
@@ -1052,11 +1067,11 @@ N!</code></pre>
 <li><p>index()</p></li>
 </ul></li>
 </ul>
-<div id="57f40006" class="cell" data-execution_count="49">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href=""></a>tpl <span class="op">=</span> (<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"a"</span>)</span>
-<span id="cb74-2"><a href=""></a></span>
-<span id="cb74-3"><a href=""></a><span class="bu">print</span>(tpl.count(<span class="st">"a"</span>))</span>
-<span id="cb74-4"><a href=""></a><span class="bu">print</span>(tpl.index(<span class="st">"b"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="0430824a" class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href=""></a>tpl <span class="op">=</span> (<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"a"</span>)</span>
+<span id="cb76-2"><a href=""></a></span>
+<span id="cb76-3"><a href=""></a><span class="bu">print</span>(tpl.count(<span class="st">"a"</span>))</span>
+<span id="cb76-4"><a href=""></a><span class="bu">print</span>(tpl.index(<span class="st">"b"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>2
 1</code></pre>
@@ -1078,9 +1093,9 @@ N!</code></pre>
 <li><p>Sets are generally created with curly braces</p></li>
 <li><p>Empty sets are created with <code>set()</code></p></li>
 </ul>
-<div id="81092743" class="cell" data-execution_count="50">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href=""></a>my_set <span class="op">=</span> {<span class="dv">14</span>, <span class="st">"a"</span>, <span class="dv">5</span>, <span class="va">True</span>, <span class="dv">11</span>}</span>
-<span id="cb76-2"><a href=""></a>my_empty_set <span class="op">=</span> <span class="bu">set</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="252cf040" class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href=""></a>my_set <span class="op">=</span> {<span class="dv">14</span>, <span class="st">"a"</span>, <span class="dv">5</span>, <span class="va">True</span>, <span class="dv">11</span>}</span>
+<span id="cb78-2"><a href=""></a>my_empty_set <span class="op">=</span> <span class="bu">set</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -1090,10 +1105,10 @@ N!</code></pre>
 <li><p>Create a set of voters who have already cast a ballot</p></li>
 <li><p>Check to see if Will is among them</p></li>
 </ul>
-<div id="046ec803" class="cell" data-execution_count="51">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href=""></a>voted <span class="op">=</span> {<span class="st">"Will"</span>, <span class="st">"Sarah"</span>, <span class="st">"John"</span>, <span class="st">"Amy"</span>}</span>
-<span id="cb77-2"><a href=""></a></span>
-<span id="cb77-3"><a href=""></a><span class="co">"Will"</span> <span class="kw">in</span> voted</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="00ce6f23" class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href=""></a>voted <span class="op">=</span> {<span class="st">"Will"</span>, <span class="st">"Sarah"</span>, <span class="st">"John"</span>, <span class="st">"Amy"</span>}</span>
+<span id="cb79-2"><a href=""></a></span>
+<span id="cb79-3"><a href=""></a><span class="co">"Will"</span> <span class="kw">in</span> voted</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="33">
 <pre><code>True</code></pre>
 </div>
@@ -1123,24 +1138,24 @@ N!</code></pre>
 <li><p>.difference_update() will modify the original set</p></li>
 </ul>
 <div class="fragment">
-<div id="a0d61ec6" class="cell" data-execution_count="52">
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href=""></a>s <span class="op">=</span> {<span class="st">"John"</span>, <span class="st">"Jack"</span>}</span>
-<span id="cb79-2"><a href=""></a>s.add(<span class="st">"Chuck"</span>)</span>
-<span id="cb79-3"><a href=""></a><span class="bu">print</span>(s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7fb13261" class="cell" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href=""></a>s <span class="op">=</span> {<span class="st">"John"</span>, <span class="st">"Jack"</span>}</span>
+<span id="cb81-2"><a href=""></a>s.add(<span class="st">"Chuck"</span>)</span>
+<span id="cb81-3"><a href=""></a><span class="bu">print</span>(s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'Jack', 'John', 'Chuck'}</code></pre>
+<pre><code>{'Chuck', 'John', 'Jack'}</code></pre>
 </div>
 </div>
-<div id="8f3242ea" class="cell" data-execution_count="53">
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href=""></a>s_new <span class="op">=</span> {<span class="st">"Sarah"</span>, <span class="st">"Tara"</span>, <span class="st">"Jack"</span>}</span>
-<span id="cb81-2"><a href=""></a></span>
-<span id="cb81-3"><a href=""></a>s.union(s_new)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b3b1b910" class="cell" data-execution_count="55">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href=""></a>s_new <span class="op">=</span> {<span class="st">"Sarah"</span>, <span class="st">"Tara"</span>, <span class="st">"Jack"</span>}</span>
+<span id="cb83-2"><a href=""></a></span>
+<span id="cb83-3"><a href=""></a>s.union(s_new)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="35">
 <pre><code>{'Chuck', 'Jack', 'John', 'Sarah', 'Tara'}</code></pre>
 </div>
 </div>
-<div id="8b9357bf" class="cell" data-execution_count="54">
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href=""></a>s.difference(s_new)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ac75ec2b" class="cell" data-execution_count="56">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href=""></a>s.difference(s_new)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="36">
 <pre><code>{'Chuck', 'John'}</code></pre>
 </div>
@@ -1158,12 +1173,12 @@ N!</code></pre>
 </section>
 <section id="an-answer" class="slide level2">
 <h2>An Answer</h2>
-<div id="562b5f59" class="cell" data-execution_count="55">
-<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href=""></a>papers <span class="op">=</span> [<span class="st">"New York Times"</span>, <span class="st">"Washington Post"</span>, <span class="st">"Boston Globe"</span>, <span class="st">"Philadelphia Inquirer"</span>, <span class="st">"Atlanta Journal-Constitution"</span>]</span>
-<span id="cb85-2"><a href=""></a></span>
-<span id="cb85-3"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(papers)):</span>
-<span id="cb85-4"><a href=""></a>    papers[i] <span class="op">=</span> papers[i].lower()</span>
-<span id="cb85-5"><a href=""></a>papers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="21b40212" class="cell" data-execution_count="57">
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href=""></a>papers <span class="op">=</span> [<span class="st">"New York Times"</span>, <span class="st">"Washington Post"</span>, <span class="st">"Boston Globe"</span>, <span class="st">"Philadelphia Inquirer"</span>, <span class="st">"Atlanta Journal-Constitution"</span>]</span>
+<span id="cb87-2"><a href=""></a></span>
+<span id="cb87-3"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(papers)):</span>
+<span id="cb87-4"><a href=""></a>    papers[i] <span class="op">=</span> papers[i].lower()</span>
+<span id="cb87-5"><a href=""></a>papers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="37">
 <pre><code>['new york times',
  'washington post',
@@ -1172,10 +1187,10 @@ N!</code></pre>
  'atlanta journal-constitution']</code></pre>
 </div>
 </div>
-<div id="e0c45a62" class="cell" data-execution_count="56">
-<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href=""></a>stations <span class="op">=</span> [<span class="st">"Fox News"</span>, <span class="st">"CNN"</span>, <span class="st">"MSNBC"</span>, <span class="st">"Newsmax"</span>]</span>
-<span id="cb87-2"><a href=""></a>papers.extend(stations)</span>
-<span id="cb87-3"><a href=""></a>papers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="922ec181" class="cell" data-execution_count="58">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href=""></a>stations <span class="op">=</span> [<span class="st">"Fox News"</span>, <span class="st">"CNN"</span>, <span class="st">"MSNBC"</span>, <span class="st">"Newsmax"</span>]</span>
+<span id="cb89-2"><a href=""></a>papers.extend(stations)</span>
+<span id="cb89-3"><a href=""></a>papers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="38">
 <pre><code>['new york times',
  'washington post',
