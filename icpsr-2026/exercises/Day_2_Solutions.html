@@ -116,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="exercise-1-nested-conditionals" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1-nested-conditionals">Exercise 1 — Nested conditionals</h2>
-<div id="441ef159" class="cell" data-execution_count="1">
+<div id="dd452bd3" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>is_registered <span class="op">=</span> <span class="va">True</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>at_correct_precinct <span class="op">=</span> <span class="va">False</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -132,7 +132,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Alternative using a single chain of conditions:</p>
-<div id="4ad740a7" class="cell" data-execution_count="2">
+<div id="0bf4f40a" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> is_registered <span class="kw">and</span> at_correct_precinct:</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Allow to vote"</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> is_registered:</span>
@@ -144,7 +144,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="exercise-2-for-loop-with-a-list" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2-for-loop-with-a-list">Exercise 2 — <code>for</code> loop with a list</h2>
-<div id="3621aeaa" class="cell" data-execution_count="3">
+<div id="89991089" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>presidents <span class="op">=</span> [<span class="st">"Washington"</span>, <span class="st">"Adams"</span>, <span class="st">"Jefferson"</span>, <span class="st">"Madison"</span>, <span class="st">"Monroe"</span>]</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Part 1</span></span>
@@ -152,8 +152,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"President </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Part 2</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, name <span class="kw">in</span> <span class="bu">enumerate</span>(presidents, start<span class="op">=</span><span class="dv">1</span>):</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"#</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name <span class="kw">in</span> presidents:</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"#</span><span class="sc">{</span>count<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    count <span class="op">+=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>President Washington
 President Adams
@@ -171,7 +173,7 @@ President Monroe
 </section>
 <section id="exercise-3-while-loop-with-a-condition" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3-while-loop-with-a-condition">Exercise 3 — <code>while</code> loop with a condition</h2>
-<div id="ec9c1a9b" class="cell" data-execution_count="4">
+<div id="2043ddc8" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">101</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="kw">not</span> (n <span class="op">%</span> <span class="dv">7</span> <span class="op">==</span> <span class="dv">0</span> <span class="kw">and</span> n <span class="op">%</span> <span class="dv">11</span> <span class="op">==</span> <span class="dv">0</span>):</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    n <span class="op">+=</span> <span class="dv">1</span></span>
@@ -185,7 +187,7 @@ President Monroe
 </section>
 <section id="exercise-4-list-operations" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4-list-operations">Exercise 4 — List operations</h2>
-<div id="456d76d2" class="cell" data-execution_count="5">
+<div id="5cb516d2" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>states <span class="op">=</span> [<span class="st">"Ohio"</span>, <span class="st">"Florida"</span>, <span class="st">"Pennsylvania"</span>, <span class="st">"Wisconsin"</span>, <span class="st">"Michigan"</span>]</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>states.append(<span class="st">"Arizona"</span>)</span>
@@ -205,46 +207,46 @@ President Monroe
 </section>
 <section id="exercise-5-list-comprehension-preview" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5-list-comprehension-preview">Exercise 5 — List comprehension preview</h2>
-<div id="0d53df2b" class="cell" data-execution_count="6">
+<div id="566e84f5" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>senators <span class="op">=</span> [<span class="st">"Sanders"</span>, <span class="st">"Warren"</span>, <span class="st">"Cruz"</span>, <span class="st">"Cornyn"</span>, <span class="st">"Schumer"</span>]</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>years <span class="op">=</span> [<span class="dv">34</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">23</span>, <span class="dv">26</span>]</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, y <span class="kw">in</span> <span class="bu">zip</span>(senators, years):</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> y <span class="op">&gt;</span> <span class="dv">15</span>:</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>y<span class="sc">}</span><span class="ss"> years"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(senators)):</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> years[i] <span class="op">&gt;</span> <span class="dv">15</span>:</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>senators[i]<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>years[i]<span class="sc">}</span><span class="ss"> years"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Sanders: 34 years
 Cornyn: 23 years
 Schumer: 26 years</code></pre>
 </div>
 </div>
-<p><code>zip</code> produces pairs as you iterate. We’ll see a one-line version of this with list comprehensions on Day 3.</p>
+<p><code>range(len(senators))</code> produces indices <code>0, 1, 2, ...</code> up to <code>len(senators) - 1</code>. We then access each list with <code>[i]</code>. This works, but it’s clunky — on Day 3 we’ll see <code>zip()</code>, which produces matched pairs directly, plus a one-line version using a list comprehension.</p>
 <hr>
 </section>
 <section id="exercise-6-sets" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-6-sets">Exercise 6 — Sets</h2>
-<div id="4f84bde2" class="cell" data-execution_count="7">
+<div id="dce40dfd" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>bill_a_sponsors <span class="op">=</span> [<span class="st">"Sanders"</span>, <span class="st">"Warren"</span>, <span class="st">"Klobuchar"</span>, <span class="st">"Booker"</span>, <span class="st">"Brown"</span>]</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>bill_b_sponsors <span class="op">=</span> [<span class="st">"Warren"</span>, <span class="st">"Booker"</span>, <span class="st">"Markey"</span>, <span class="st">"Whitehouse"</span>, <span class="st">"Klobuchar"</span>]</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="bu">set</span>(bill_a_sponsors)</span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="bu">set</span>(bill_b_sponsors)</span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Both:"</span>, a <span class="op">&amp;</span> b)</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"A only:"</span>, a <span class="op">-</span> b)</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total unique:"</span>, <span class="bu">len</span>(a <span class="op">|</span> b))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Both:"</span>, a.intersection(b))</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"A only:"</span>, a.difference(b))</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total unique:"</span>, <span class="bu">len</span>(a.union(b)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Both: {'Booker', 'Warren', 'Klobuchar'}
-A only: {'Brown', 'Sanders'}
+<pre><code>Both: {'Warren', 'Klobuchar', 'Booker'}
+A only: {'Sanders', 'Brown'}
 Total unique: 7</code></pre>
 </div>
 </div>
-<p><code>&amp;</code> is intersection, <code>-</code> is difference, <code>|</code> is union. You can also call methods: <code>a.intersection(b)</code>, <code>a.difference(b)</code>, <code>a.union(b)</code>.</p>
+<p>Once you’ve converted both lists to sets, the methods do the work: <code>.intersection()</code> returns elements in both, <code>.difference()</code> returns elements in the first but not the second, and <code>.union()</code> returns all elements combined (with duplicates removed). You may also see these written with operators (<code>&amp;</code>, <code>-</code>, <code>|</code>) — equivalent, just shorter.</p>
 <hr>
 </section>
 <section id="exercise-7-putting-it-together" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-7-putting-it-together">Exercise 7 — Putting it together</h2>
-<div id="412bead6" class="cell" data-execution_count="8">
+<div id="9ed0dc8f" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>vote_counts <span class="op">=</span> [<span class="dv">4250</span>, <span class="dv">3980</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">5120</span>, <span class="dv">2890</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">6400</span>, <span class="dv">4100</span>]</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> <span class="dv">0</span></span>
@@ -258,8 +260,8 @@ Total unique: 7</code></pre>
 <span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>        total <span class="op">+=</span> v</span>
 <span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>        valid_count <span class="op">+=</span> <span class="dv">1</span></span>
 <span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>mean <span class="op">=</span> total <span class="op">/</span> valid_count</span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Mean: </span><span class="sc">{</span>mean<span class="sc">:.1f}</span><span class="ss"> (</span><span class="sc">{</span>missing_count<span class="sc">}</span><span class="ss"> missing values dropped)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>mean <span class="op">=</span> <span class="bu">round</span>(total <span class="op">/</span> valid_count, <span class="dv">1</span>)</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Mean: </span><span class="sc">{</span>mean<span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span>missing_count<span class="sc">}</span><span class="ss"> missing values dropped)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Mean: 4456.7 (2 missing values dropped)</code></pre>
 </div>
