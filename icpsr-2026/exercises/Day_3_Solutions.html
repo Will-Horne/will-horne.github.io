@@ -83,11 +83,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#exercise-1-write-your-first-function" id="toc-exercise-1-write-your-first-function" class="nav-link active" data-scroll-target="#exercise-1-write-your-first-function">Exercise 1 — Write your first function</a></li>
   <li><a href="#exercise-2-function-with-conditional-return" id="toc-exercise-2-function-with-conditional-return" class="nav-link" data-scroll-target="#exercise-2-function-with-conditional-return">Exercise 2 — Function with conditional return</a></li>
-  <li><a href="#exercise-3-list-comprehension" id="toc-exercise-3-list-comprehension" class="nav-link" data-scroll-target="#exercise-3-list-comprehension">Exercise 3 — List comprehension</a></li>
-  <li><a href="#exercise-4-dictionary-comprehension" id="toc-exercise-4-dictionary-comprehension" class="nav-link" data-scroll-target="#exercise-4-dictionary-comprehension">Exercise 4 — Dictionary comprehension</a></li>
-  <li><a href="#exercise-5-using-a-module" id="toc-exercise-5-using-a-module" class="nav-link" data-scroll-target="#exercise-5-using-a-module">Exercise 5 — Using a module</a></li>
-  <li><a href="#exercise-6-numpy-arrays" id="toc-exercise-6-numpy-arrays" class="nav-link" data-scroll-target="#exercise-6-numpy-arrays">Exercise 6 — NumPy arrays</a></li>
-  <li><a href="#exercise-7-putting-it-together" id="toc-exercise-7-putting-it-together" class="nav-link" data-scroll-target="#exercise-7-putting-it-together">Exercise 7 — Putting it together</a></li>
+  <li><a href="#exercise-3-enumerate" id="toc-exercise-3-enumerate" class="nav-link" data-scroll-target="#exercise-3-enumerate">Exercise 3 — <code>enumerate</code></a></li>
+  <li><a href="#exercise-4-list-comprehension" id="toc-exercise-4-list-comprehension" class="nav-link" data-scroll-target="#exercise-4-list-comprehension">Exercise 4 — List comprehension</a></li>
+  <li><a href="#exercise-5-dictionary-comprehension" id="toc-exercise-5-dictionary-comprehension" class="nav-link" data-scroll-target="#exercise-5-dictionary-comprehension">Exercise 5 — Dictionary comprehension</a></li>
+  <li><a href="#exercise-6-using-a-module" id="toc-exercise-6-using-a-module" class="nav-link" data-scroll-target="#exercise-6-using-a-module">Exercise 6 — Using a module</a></li>
+  <li><a href="#exercise-7-numpy-arrays" id="toc-exercise-7-numpy-arrays" class="nav-link" data-scroll-target="#exercise-7-numpy-arrays">Exercise 7 — NumPy arrays</a></li>
+  <li><a href="#exercise-8-putting-it-together" id="toc-exercise-8-putting-it-together" class="nav-link" data-scroll-target="#exercise-8-putting-it-together">Exercise 8 — Putting it together</a></li>
   </ul>
 </nav>
 </div>
@@ -116,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="exercise-1-write-your-first-function" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1-write-your-first-function">Exercise 1 — Write your first function</h2>
-<div id="6436873d" class="cell" data-execution_count="1">
+<div id="074f3567" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> winning_margin(a, b):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return the margin of victory as a percentage of total votes."""</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    total <span class="op">=</span> a <span class="op">+</span> b</span>
@@ -133,7 +134,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="exercise-2-function-with-conditional-return" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2-function-with-conditional-return">Exercise 2 — Function with conditional return</h2>
-<div id="d38c3a18" class="cell" data-execution_count="2">
+<div id="93281391" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> state_classifier(margin):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> margin <span class="op">&gt;</span> <span class="dv">10</span>:</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Solid"</span></span>
@@ -155,18 +156,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <hr>
 </section>
-<section id="exercise-3-list-comprehension" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3-list-comprehension">Exercise 3 — List comprehension</h2>
-<div id="663f5f58" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ages <span class="op">=</span> [<span class="dv">42</span>, <span class="dv">67</span>, <span class="dv">51</span>, <span class="dv">39</span>, <span class="dv">78</span>, <span class="dv">55</span>, <span class="dv">33</span>, <span class="dv">71</span>]</span>
+<section id="exercise-3-enumerate" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3-enumerate">Exercise 3 — <code>enumerate</code></h2>
+<div id="37e51c91" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>senators <span class="op">=</span> [<span class="st">"bernie sanders"</span>, <span class="st">"Elizabeth Warren"</span>, <span class="st">"ted CRUZ"</span>, <span class="st">"AMY Klobuchar"</span>]</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>squares <span class="op">=</span> [a<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> a <span class="kw">in</span> ages]</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>fifty_plus <span class="op">=</span> [a <span class="cf">for</span> a <span class="kw">in</span> ages <span class="cf">if</span> a <span class="op">&gt;=</span> <span class="dv">50</span>]</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">"senior"</span> <span class="cf">if</span> a <span class="op">&gt;=</span> <span class="dv">65</span> <span class="cf">else</span> <span class="st">"adult"</span> <span class="cf">for</span> a <span class="kw">in</span> ages]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Part 1 — normalize in place</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> idx, name <span class="kw">in</span> <span class="bu">enumerate</span>(senators):</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    senators[idx] <span class="op">=</span> name.title()</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(squares)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fifty_plus)</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(labels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(senators)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Part 2 — print with 1-based numbering</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, name <span class="kw">in</span> <span class="bu">enumerate</span>(senators, start<span class="op">=</span><span class="dv">1</span>):</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"#</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['Bernie Sanders', 'Elizabeth Warren', 'Ted Cruz', 'Amy Klobuchar']
+#1: Bernie Sanders
+#2: Elizabeth Warren
+#3: Ted Cruz
+#4: Amy Klobuchar</code></pre>
+</div>
+</div>
+<p>The <code>.title()</code> method capitalizes the first letter of each word and lowercases the rest, which handles all four messy inputs uniformly. <code>enumerate(senators, start=1)</code> shifts the counter so the first iteration gives <code>i = 1</code> instead of <code>0</code>.</p>
+<hr>
+</section>
+<section id="exercise-4-list-comprehension" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4-list-comprehension">Exercise 4 — List comprehension</h2>
+<div id="7c1e676d" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ages <span class="op">=</span> [<span class="dv">42</span>, <span class="dv">67</span>, <span class="dv">51</span>, <span class="dv">39</span>, <span class="dv">78</span>, <span class="dv">55</span>, <span class="dv">33</span>, <span class="dv">71</span>]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>squares <span class="op">=</span> [a<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> a <span class="kw">in</span> ages]</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>fifty_plus <span class="op">=</span> [a <span class="cf">for</span> a <span class="kw">in</span> ages <span class="cf">if</span> a <span class="op">&gt;=</span> <span class="dv">50</span>]</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">"senior"</span> <span class="cf">if</span> a <span class="op">&gt;=</span> <span class="dv">65</span> <span class="cf">else</span> <span class="st">"adult"</span> <span class="cf">for</span> a <span class="kw">in</span> ages]</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(squares)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fifty_plus)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(labels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1764, 4489, 2601, 1521, 6084, 3025, 1089, 5041]
 [67, 51, 78, 55, 71]
@@ -176,17 +202,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The conditional-expression form <code>"senior" if a &gt;= 65 else "adult"</code> is different from the filter form <code>if a &gt;= 65</code> — it returns a value rather than filtering.</p>
 <hr>
 </section>
-<section id="exercise-4-dictionary-comprehension" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-4-dictionary-comprehension">Exercise 4 — Dictionary comprehension</h2>
-<div id="e7a4b9e0" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>states <span class="op">=</span> [<span class="st">"Ohio"</span>, <span class="st">"Florida"</span>, <span class="st">"Texas"</span>, <span class="st">"California"</span>, <span class="st">"New York"</span>]</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>electoral_votes <span class="op">=</span> [<span class="dv">17</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">54</span>, <span class="dv">28</span>]</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>ev_dict <span class="op">=</span> {s: v <span class="cf">for</span> s, v <span class="kw">in</span> <span class="bu">zip</span>(states, electoral_votes)}</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>big_states <span class="op">=</span> {s: v <span class="cf">for</span> s, v <span class="kw">in</span> ev_dict.items() <span class="cf">if</span> v <span class="op">&gt;=</span> <span class="dv">30</span>}</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ev_dict)</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(big_states)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="exercise-5-dictionary-comprehension" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5-dictionary-comprehension">Exercise 5 — Dictionary comprehension</h2>
+<div id="f1d46e04" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>states <span class="op">=</span> [<span class="st">"Ohio"</span>, <span class="st">"Florida"</span>, <span class="st">"Texas"</span>, <span class="st">"California"</span>, <span class="st">"New York"</span>]</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>electoral_votes <span class="op">=</span> [<span class="dv">17</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">54</span>, <span class="dv">28</span>]</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>ev_dict <span class="op">=</span> {s: v <span class="cf">for</span> s, v <span class="kw">in</span> <span class="bu">zip</span>(states, electoral_votes)}</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>big_states <span class="op">=</span> {s: v <span class="cf">for</span> s, v <span class="kw">in</span> ev_dict.items() <span class="cf">if</span> v <span class="op">&gt;=</span> <span class="dv">30</span>}</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ev_dict)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(big_states)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{'Ohio': 17, 'Florida': 30, 'Texas': 40, 'California': 54, 'New York': 28}
 {'Florida': 30, 'Texas': 40, 'California': 54}</code></pre>
@@ -195,37 +221,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><code>zip</code> pairs the parallel lists. The second comprehension iterates over the first dictionary’s items.</p>
 <hr>
 </section>
-<section id="exercise-5-using-a-module" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-5-using-a-module">Exercise 5 — Using a module</h2>
-<div id="4cb798c7" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> date</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.log(<span class="dv">1000</span>))</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.sqrt(<span class="dv">2</span>))</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"pi ≈ </span><span class="sc">{</span>math<span class="sc">.</span>pi<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Today is </span><span class="sc">{</span>date<span class="sc">.</span>today()<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="exercise-6-using-a-module" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6-using-a-module">Exercise 6 — Using a module</h2>
+<div id="22779e13" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> date</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.log(<span class="dv">1000</span>))</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.sqrt(<span class="dv">2</span>))</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"pi ≈ </span><span class="sc">{</span>math<span class="sc">.</span>pi<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Today is </span><span class="sc">{</span>date<span class="sc">.</span>today()<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>6.907755278982137
 1.4142135623730951
 pi ≈ 3.1416
-Today is 2026-06-07</code></pre>
+Today is 2026-06-10</code></pre>
 </div>
 </div>
 <p><code>from datetime import date</code> saves you typing <code>datetime.date.today()</code>.</p>
 <hr>
 </section>
-<section id="exercise-6-numpy-arrays" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-6-numpy-arrays">Exercise 6 — NumPy arrays</h2>
-<div id="f0e0e336" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="dv">11</span>)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr.mean())</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr[arr <span class="op">&gt;</span> <span class="dv">5</span>])      <span class="co"># boolean indexing</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr <span class="op">*</span> <span class="dv">3</span>)           <span class="co"># elementwise multiplication</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr.reshape(<span class="dv">2</span>, <span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="exercise-7-numpy-arrays" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7-numpy-arrays">Exercise 7 — NumPy arrays</h2>
+<div id="01cb697d" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="dv">11</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr.mean())</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr[arr <span class="op">&gt;</span> <span class="dv">5</span>])      <span class="co"># boolean indexing</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr <span class="op">*</span> <span class="dv">3</span>)           <span class="co"># elementwise multiplication</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr.reshape(<span class="dv">2</span>, <span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>5.5
 [ 6  7  8  9 10]
@@ -237,23 +263,23 @@ Today is 2026-06-07</code></pre>
 <p>Note that <code>np.arange(1, 11)</code> includes 1 but excludes 11. Boolean indexing (<code>arr[arr &gt; 5]</code>) returns the elements where the condition is True — much faster than a loop on big arrays.</p>
 <hr>
 </section>
-<section id="exercise-7-putting-it-together" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-7-putting-it-together">Exercise 7 — Putting it together</h2>
-<div id="c7405a2f" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> summarize_polls(poll_results):</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(poll_results) <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">None</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    arr <span class="op">=</span> np.array(poll_results)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"mean"</span>: <span class="bu">round</span>(<span class="bu">float</span>(arr.mean()), <span class="dv">1</span>),</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"min"</span>: <span class="bu">round</span>(<span class="bu">float</span>(arr.<span class="bu">min</span>()), <span class="dv">1</span>),</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"max"</span>: <span class="bu">round</span>(<span class="bu">float</span>(arr.<span class="bu">max</span>()), <span class="dv">1</span>),</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(summarize_polls([<span class="fl">48.5</span>, <span class="fl">51.2</span>, <span class="fl">49.8</span>, <span class="fl">50.3</span>, <span class="fl">47.9</span>]))</span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(summarize_polls([]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="exercise-8-putting-it-together" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-8-putting-it-together">Exercise 8 — Putting it together</h2>
+<div id="c9a8eefe" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> summarize_polls(poll_results):</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(poll_results) <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    arr <span class="op">=</span> np.array(poll_results)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"mean"</span>: <span class="bu">round</span>(<span class="bu">float</span>(arr.mean()), <span class="dv">1</span>),</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"min"</span>: <span class="bu">round</span>(<span class="bu">float</span>(arr.<span class="bu">min</span>()), <span class="dv">1</span>),</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"max"</span>: <span class="bu">round</span>(<span class="bu">float</span>(arr.<span class="bu">max</span>()), <span class="dv">1</span>),</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(summarize_polls([<span class="fl">48.5</span>, <span class="fl">51.2</span>, <span class="fl">49.8</span>, <span class="fl">50.3</span>, <span class="fl">47.9</span>]))</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(summarize_polls([]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{'mean': 49.5, 'min': 47.9, 'max': 51.2}
 None</code></pre>
