@@ -83,11 +83,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#exercise-1-write-your-first-function" id="toc-exercise-1-write-your-first-function" class="nav-link active" data-scroll-target="#exercise-1-write-your-first-function">Exercise 1 — Write your first function</a></li>
   <li><a href="#exercise-2-function-with-conditional-return" id="toc-exercise-2-function-with-conditional-return" class="nav-link" data-scroll-target="#exercise-2-function-with-conditional-return">Exercise 2 — Function with conditional return</a></li>
-  <li><a href="#exercise-3-list-comprehension" id="toc-exercise-3-list-comprehension" class="nav-link" data-scroll-target="#exercise-3-list-comprehension">Exercise 3 — List comprehension</a></li>
-  <li><a href="#exercise-4-dictionary-comprehension" id="toc-exercise-4-dictionary-comprehension" class="nav-link" data-scroll-target="#exercise-4-dictionary-comprehension">Exercise 4 — Dictionary comprehension</a></li>
-  <li><a href="#exercise-5-using-a-module" id="toc-exercise-5-using-a-module" class="nav-link" data-scroll-target="#exercise-5-using-a-module">Exercise 5 — Using a module</a></li>
-  <li><a href="#exercise-6-numpy-arrays" id="toc-exercise-6-numpy-arrays" class="nav-link" data-scroll-target="#exercise-6-numpy-arrays">Exercise 6 — NumPy arrays</a></li>
-  <li><a href="#exercise-7-putting-it-together" id="toc-exercise-7-putting-it-together" class="nav-link" data-scroll-target="#exercise-7-putting-it-together">Exercise 7 — Putting it together</a></li>
+  <li><a href="#exercise-3-enumerate" id="toc-exercise-3-enumerate" class="nav-link" data-scroll-target="#exercise-3-enumerate">Exercise 3 — <code>enumerate</code></a></li>
+  <li><a href="#exercise-4-list-comprehension" id="toc-exercise-4-list-comprehension" class="nav-link" data-scroll-target="#exercise-4-list-comprehension">Exercise 4 — List comprehension</a></li>
+  <li><a href="#exercise-5-dictionary-comprehension" id="toc-exercise-5-dictionary-comprehension" class="nav-link" data-scroll-target="#exercise-5-dictionary-comprehension">Exercise 5 — Dictionary comprehension</a></li>
+  <li><a href="#exercise-6-using-a-module" id="toc-exercise-6-using-a-module" class="nav-link" data-scroll-target="#exercise-6-using-a-module">Exercise 6 — Using a module</a></li>
+  <li><a href="#exercise-7-numpy-arrays" id="toc-exercise-7-numpy-arrays" class="nav-link" data-scroll-target="#exercise-7-numpy-arrays">Exercise 7 — NumPy arrays</a></li>
+  <li><a href="#exercise-8-putting-it-together" id="toc-exercise-8-putting-it-together" class="nav-link" data-scroll-target="#exercise-8-putting-it-together">Exercise 8 — Putting it together</a></li>
   </ul>
 </nav>
 </div>
@@ -125,7 +126,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Returns the value as a <strong>positive</strong> number regardless of which candidate won (use <code>abs()</code>).</li>
 </ul>
 <p>Include a docstring.</p>
-<div id="a93a2402" class="cell" data-execution_count="1">
+<div id="8daa5508" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Test it on <code>winning_margin(5200, 4800)</code> (should return 4.0).</p>
@@ -140,17 +141,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>"Lean"</code> if the margin is between 2 and 5</li>
 <li><code>"Toss-up"</code> if the margin is less than 2</li>
 </ul>
-<div id="98ff0230" class="cell" data-execution_count="2">
+<div id="e1c28dcc" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Test it on margins of 1, 4, 7, and 15.</p>
 <hr>
 </section>
-<section id="exercise-3-list-comprehension" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3-list-comprehension">Exercise 3 — List comprehension</h2>
+<section id="exercise-3-enumerate" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3-enumerate">Exercise 3 — <code>enumerate</code></h2>
+<p>You have a list of senator names that aren’t formatted consistently:</p>
+<div id="cfe8e385" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>senators <span class="op">=</span> [<span class="st">"bernie sanders"</span>, <span class="st">"Elizabeth Warren"</span>, <span class="st">"ted CRUZ"</span>, <span class="st">"AMY Klobuchar"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol type="1">
+<li><p>Use a <code>for</code> loop with <code>enumerate()</code> to normalize each name to title case (use the <code>.title()</code> string method). Update each name <strong>in place</strong> with <code>senators[idx] = ...</code>. Then print the cleaned list.</p></li>
+<li><p>Write a second loop using <code>enumerate</code> that prints each senator with their 1-based position, like:</p></li>
+</ol>
+<pre><code>#1: Bernie Sanders
+#2: Elizabeth Warren
+#3: Ted Cruz
+#4: Amy Klobuchar</code></pre>
+<p>(Hint: <code>enumerate(senators, start=1)</code> lets you start counting from 1 instead of 0.)</p>
+<div id="465a3101" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+</section>
+<section id="exercise-4-list-comprehension" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4-list-comprehension">Exercise 4 — List comprehension</h2>
 <p>You have a list of candidate ages:</p>
-<div id="ee5d7172" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ages <span class="op">=</span> [<span class="dv">42</span>, <span class="dv">67</span>, <span class="dv">51</span>, <span class="dv">39</span>, <span class="dv">78</span>, <span class="dv">55</span>, <span class="dv">33</span>, <span class="dv">71</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fc5e64e4" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ages <span class="op">=</span> [<span class="dv">42</span>, <span class="dv">67</span>, <span class="dv">51</span>, <span class="dv">39</span>, <span class="dv">78</span>, <span class="dv">55</span>, <span class="dv">33</span>, <span class="dv">71</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Using a <strong>single list comprehension</strong> for each:</p>
 <ol type="1">
@@ -158,29 +179,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Create a list of only the ages that are 50 or above.</li>
 <li>Create a list of labels — <code>"senior"</code> if the age is 65+, <code>"adult"</code> otherwise.</li>
 </ol>
-<div id="9a0a14ff" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3c75edc1" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <hr>
 </section>
-<section id="exercise-4-dictionary-comprehension" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-4-dictionary-comprehension">Exercise 4 — Dictionary comprehension</h2>
+<section id="exercise-5-dictionary-comprehension" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5-dictionary-comprehension">Exercise 5 — Dictionary comprehension</h2>
 <p>Given two parallel lists:</p>
-<div id="098edeab" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>states <span class="op">=</span> [<span class="st">"Ohio"</span>, <span class="st">"Florida"</span>, <span class="st">"Texas"</span>, <span class="st">"California"</span>, <span class="st">"New York"</span>]</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>electoral_votes <span class="op">=</span> [<span class="dv">17</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">54</span>, <span class="dv">28</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b06f70c1" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>states <span class="op">=</span> [<span class="st">"Ohio"</span>, <span class="st">"Florida"</span>, <span class="st">"Texas"</span>, <span class="st">"California"</span>, <span class="st">"New York"</span>]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>electoral_votes <span class="op">=</span> [<span class="dv">17</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">54</span>, <span class="dv">28</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol type="1">
 <li>Use a dict comprehension to build a dictionary mapping each state to its electoral vote count.</li>
 <li>Use a second dict comprehension to build a new dictionary that only includes states with 30 or more electoral votes.</li>
 </ol>
-<div id="7f5f2a2f" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2ba2b1ae" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <hr>
 </section>
-<section id="exercise-5-using-a-module" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-5-using-a-module">Exercise 5 — Using a module</h2>
+<section id="exercise-6-using-a-module" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6-using-a-module">Exercise 6 — Using a module</h2>
 <p>Use the <code>math</code> module to:</p>
 <ol type="1">
 <li>Compute the natural logarithm of 1000.</li>
@@ -188,15 +209,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Print <code>math.pi</code> rounded to 4 decimal places (use an f-string).</li>
 </ol>
 <p>Then use the <code>datetime</code> module to print today’s date.</p>
-<div id="472bdbdd" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="66e5f168" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <hr>
 </section>
-<section id="exercise-6-numpy-arrays" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-6-numpy-arrays">Exercise 6 — NumPy arrays</h2>
-<div id="77a691f9" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="exercise-7-numpy-arrays" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7-numpy-arrays">Exercise 7 — NumPy arrays</h2>
+<div id="856370d2" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Create a 1D NumPy array containing the numbers 1 through 10. Then:</p>
 <ol type="1">
@@ -205,13 +226,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Multiply every element by 3 and print the result.</li>
 <li>Reshape the array into a 2×5 matrix and print it.</li>
 </ol>
-<div id="ad4b13ef" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a735b6a1" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <hr>
 </section>
-<section id="exercise-7-putting-it-together" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-7-putting-it-together">Exercise 7 — Putting it together</h2>
+<section id="exercise-8-putting-it-together" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-8-putting-it-together">Exercise 8 — Putting it together</h2>
 <p>Write a function called <code>summarize_polls(poll_results)</code> that:</p>
 <ul>
 <li>Takes a list of poll percentages (numbers between 0 and 100).</li>
@@ -219,8 +240,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>If the input list is empty, returns <code>None</code> (use an <code>if</code> early in the function).</li>
 </ul>
 <p>Use NumPy for the calculations.</p>
-<div id="568439ab" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fd21ff18" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Test it on <code>summarize_polls([48.5, 51.2, 49.8, 50.3, 47.9])</code> and on <code>summarize_polls([])</code>.</p>
 </section>
