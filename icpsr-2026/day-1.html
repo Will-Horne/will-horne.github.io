@@ -302,12 +302,12 @@ Will Horne
 <section id="google-colab" class="slide level2">
 <h2>Google Colab</h2>
 <p>Go to colab.google.com. Use your existing Google account, or create one for free.</p>
-<p>There are other good options (Spyder, VS Code, Positron) — we’ll come back to Positron at the end of class. You can also code Python directly in RStudio via the <code>reticulate</code> package.</p>
+<p>There are other good options (Spyder, VS Code, Positron) — we’ll come back to Positron at the end of class.</p>
 </section>
 <section id="set-up" class="slide level2">
 <h2>Set Up</h2>
 <p>Once you have set up a colab account, try running the following line of code to make sure everything works</p>
-<div id="bd8a0059" class="cell" data-execution_count="1">
+<div id="bbe28d67" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="bu">print</span>(<span class="st">"hello world!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>hello world!</code></pre>
@@ -415,7 +415,7 @@ Will Horne
 <section id="comments" class="slide level2">
 <h2>Comments</h2>
 <p>Anything after <code>#</code> on a line is a <em>comment</em> — Python ignores it. Use comments to explain what your code does (to your future self, mostly).</p>
-<div id="774b1217" class="cell" data-execution_count="2">
+<div id="66d845dd" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="co"># This is a comment — Python skips it.</span></span>
 <span id="cb3-2"><a href=""></a>x <span class="op">=</span> <span class="dv">5</span>     <span class="co"># Comments can also live at the end of a line.</span></span>
 <span id="cb3-3"><a href=""></a><span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -472,15 +472,15 @@ Will Horne
 </div>
 </div>
 </div>
-<div id="89d68f26" class="cell" data-execution_count="3">
+<div id="c298c871" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>a <span class="op">=</span> <span class="fl">3.99999</span></span>
 <span id="cb5-2"><a href=""></a><span class="bu">int</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="4c727c93" class="cell" data-execution_count="4">
+<div id="35966623" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a>b <span class="op">=</span> <span class="va">True</span></span>
 <span id="cb6-2"><a href=""></a><span class="bu">int</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="471ad104" class="cell" data-execution_count="5">
+<div id="4d0abd60" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>c <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb7-2"><a href=""></a><span class="bu">float</span>(c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -550,7 +550,7 @@ Will Horne
 <ul>
 <li>When you reference an object, Python returns its value.</li>
 </ul>
-<div id="43fd08cc" class="cell" data-execution_count="6">
+<div id="83ed7667" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a>r <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb8-2"><a href=""></a>pi <span class="op">=</span> <span class="fl">3.14159</span></span>
 <span id="cb8-3"><a href=""></a>area <span class="op">=</span> pi <span class="op">*</span> (r <span class="op">**</span> <span class="dv">2</span>)</span>
@@ -596,7 +596,7 @@ Will Horne
 </ul></li>
 </ul>
 <div class="fragment">
-<div id="2b9a8d02" class="cell" data-execution_count="7">
+<div id="cb0fb8da" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a>value_1 <span class="op">=</span> <span class="st">"Wolverine"</span></span>
 <span id="cb10-2"><a href=""></a>value_2 <span class="op">=</span> <span class="st">"Tiger"</span></span>
 <span id="cb10-3"><a href=""></a><span class="bu">print</span>(value_1, value_2)</span>
@@ -608,7 +608,7 @@ WolverineTiger</code></pre>
 </div>
 </div>
 <div class="fragment">
-<div id="93420764" class="cell" data-execution_count="8">
+<div id="24b02545" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a><span class="bu">print</span>(value_1 <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> value_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Wolverine Tiger</code></pre>
@@ -617,7 +617,7 @@ WolverineTiger</code></pre>
 </div>
 <div class="fragment">
 <p>Triple quotes let you write a string that spans multiple lines:</p>
-<div id="46782a8b" class="cell" data-execution_count="9">
+<div id="4bca2321" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a>quote <span class="op">=</span> <span class="st">"""The best argument against democracy</span></span>
 <span id="cb14-2"><a href=""></a><span class="st">is a five-minute conversation</span></span>
 <span id="cb14-3"><a href=""></a><span class="st">with the average voter."""</span></span>
@@ -633,7 +633,7 @@ with the average voter.</code></pre>
 </section>
 <section id="more-examples" class="slide level2 smaller">
 <h2>More Examples</h2>
-<div id="d0050d37" class="cell" data-execution_count="10">
+<div id="64b76f86" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href=""></a>name <span class="op">=</span> <span class="st">"Will"</span></span>
 <span id="cb16-2"><a href=""></a>email <span class="op">=</span> <span class="st">"rwhorne@umich.edu"</span></span>
 <span id="cb16-3"><a href=""></a></span>
@@ -644,7 +644,7 @@ with the average voter.</code></pre>
 </div>
 <div class="fragment">
 <p>We can’t add strings and integers together</p>
-<div id="b3c6d297" class="cell" data-execution_count="11">
+<div id="46b68a15" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href=""></a>height <span class="op">=</span> <span class="dv">72</span></span>
 <span id="cb18-2"><a href=""></a></span>
 <span id="cb18-3"><a href=""></a><span class="bu">print</span>(<span class="st">"Will is "</span> <span class="op">+</span> height <span class="op">+</span> <span class="st">" inches tall"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -682,7 +682,7 @@ with the average voter.</code></pre>
 <p>Of course, we want to be able to include numbers in our strings. If we can’t add/concatenate strings and integers (or floats), what can we do?</p>
 <div class="fragment">
 <p>We can put quotes around the numeric value to ensure python treats them as strings.</p>
-<div id="84fb788b" class="cell" data-execution_count="12">
+<div id="ac0e5ade" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a>height <span class="op">=</span> <span class="st">"72"</span></span>
 <span id="cb19-2"><a href=""></a></span>
 <span id="cb19-3"><a href=""></a><span class="bu">print</span>(<span class="st">"Will is "</span> <span class="op">+</span> height <span class="op">+</span> <span class="st">" inches tall"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -693,7 +693,7 @@ with the average voter.</code></pre>
 </div>
 <div class="fragment">
 <p>Or, we can change the type of <code>height</code> and then add it. <em>This is what you’d typically do — quoting the number means you lose the ability to use it as a number later.</em></p>
-<div id="b808f3e7" class="cell" data-execution_count="13">
+<div id="85a2b12a" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href=""></a>height <span class="op">=</span> <span class="dv">72</span></span>
 <span id="cb21-2"><a href=""></a></span>
 <span id="cb21-3"><a href=""></a><span class="bu">print</span>(<span class="st">"Will is "</span> <span class="op">+</span> <span class="bu">str</span>(height) <span class="op">+</span> <span class="st">" inches tall"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -708,7 +708,7 @@ with the average voter.</code></pre>
 <p>Strings are made up of <em>characters</em>. You can pull out an individual character by its position.</p>
 <div class="fragment">
 <p>Unlike R, Python uses zero-indexing.</p>
-<div id="9ed45ea7" class="cell" data-execution_count="14">
+<div id="bbae3bc4" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href=""></a>city <span class="op">=</span> <span class="st">"Ann Arbor"</span></span>
 <span id="cb23-2"><a href=""></a></span>
 <span id="cb23-3"><a href=""></a><span class="bu">print</span>(city[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -718,7 +718,7 @@ with the average voter.</code></pre>
 </div>
 </div>
 <div class="fragment">
-<div id="556939d4" class="cell" data-execution_count="15">
+<div id="7dad9c75" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href=""></a><span class="bu">print</span>(city[<span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> </code></pre>
@@ -730,7 +730,7 @@ with the average voter.</code></pre>
 <section id="indexing-and-concatenation" class="slide level2">
 <h2>Indexing and Concatenation</h2>
 <p>We can do all sorts of things with string indexing. For example, we can make new strings.</p>
-<div id="6c169019" class="cell" data-execution_count="16">
+<div id="1754390a" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href=""></a>new_word <span class="op">=</span> city[<span class="dv">0</span>] <span class="op">+</span> city[<span class="dv">6</span>] <span class="op">+</span> city[<span class="dv">6</span>] <span class="op">+</span> city[<span class="dv">4</span>]</span>
 <span id="cb27-2"><a href=""></a><span class="bu">print</span>(new_word)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -744,7 +744,7 @@ with the average voter.</code></pre>
 <p>Negative indexing starts at the end. The last character is <code>-1</code> (not <code>-0</code>), the second-to-last is <code>-2</code>, and so on.</p>
 <div class="fragment">
 <p>It’s easy to confuse yourself — be mindful when mixing positive and negative indices.</p>
-<div id="18b07476" class="cell" data-execution_count="17">
+<div id="89a979dc" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href=""></a>city <span class="op">=</span> <span class="st">"Ann Arbor"</span></span>
 <span id="cb29-2"><a href=""></a></span>
 <span id="cb29-3"><a href=""></a><span class="bu">print</span>(city[<span class="op">-</span><span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -762,7 +762,7 @@ with the average voter.</code></pre>
 <section id="solutions" class="slide level2">
 <h2>Solutions</h2>
 <p>Positive Indexing</p>
-<div id="3491e554" class="cell" data-execution_count="18">
+<div id="cdda8e4a" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href=""></a>Date <span class="op">=</span> <span class="st">"July 6, 2026"</span></span>
 <span id="cb31-2"><a href=""></a></span>
 <span id="cb31-3"><a href=""></a>Year <span class="op">=</span> Date[<span class="dv">8</span>] <span class="op">+</span> Date[<span class="dv">9</span>] <span class="op">+</span> Date[<span class="dv">10</span>] <span class="op">+</span> Date[<span class="dv">11</span>]</span>
@@ -774,7 +774,7 @@ with the average voter.</code></pre>
 </div>
 <div class="fragment">
 <p>Negative Indexing</p>
-<div id="52cacdc9" class="cell" data-execution_count="19">
+<div id="7cf4dde4" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href=""></a>Year <span class="op">=</span> Date[<span class="op">-</span><span class="dv">4</span>] <span class="op">+</span> Date[<span class="op">-</span><span class="dv">3</span>] <span class="op">+</span> Date[<span class="op">-</span><span class="dv">2</span>] <span class="op">+</span> Date[<span class="op">-</span><span class="dv">1</span>]</span>
 <span id="cb33-2"><a href=""></a></span>
 <span id="cb33-3"><a href=""></a><span class="bu">print</span>(Year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -787,7 +787,7 @@ with the average voter.</code></pre>
 <section id="a-more-elegant-solution" class="slide level2">
 <h2>A More Elegant Solution</h2>
 <p>There’s almost always a better way. The Python idiom for “the last four characters” is <em>slicing</em>, which we’ll properly introduce tomorrow:</p>
-<div id="c0e086ca" class="cell" data-execution_count="20">
+<div id="0b500f67" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href=""></a>Year <span class="op">=</span> Date[<span class="op">-</span><span class="dv">4</span>:]</span>
 <span id="cb35-2"><a href=""></a></span>
 <span id="cb35-3"><a href=""></a><span class="bu">print</span>(Year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -800,7 +800,7 @@ with the average voter.</code></pre>
 <section id="f-strings" class="slide level2">
 <h2>F strings</h2>
 <p><code>f</code>, or formatted, strings, are a convenient way to embed python objects inside of strings. The syntax is triggered by <code>f"</code> or <code>F"</code> and the object(s) are embedded in brackets <code>{object}</code>.</p>
-<div id="c0dcfdc2" class="cell" data-execution_count="21">
+<div id="39691bcc" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href=""></a>name <span class="op">=</span> <span class="st">"Yuki"</span></span>
 <span id="cb37-2"><a href=""></a>message <span class="op">=</span> <span class="ss">f"Hello, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!"</span></span>
 <span id="cb37-3"><a href=""></a><span class="bu">print</span>(message)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -814,7 +814,7 @@ with the average voter.</code></pre>
 <p>This is most useful when we are working with more complex data structures. We will see several examples throughout the course.</p>
 <div class="fragment">
 <p>Here is a relatively simple example:</p>
-<div id="56db84a2" class="cell" data-execution_count="22">
+<div id="60a293ca" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href=""></a>x <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb39-2"><a href=""></a>y <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb39-3"><a href=""></a>result <span class="op">=</span> <span class="ss">f"The sum of </span><span class="sc">{</span>x<span class="sc">}</span><span class="ss"> and </span><span class="sc">{</span>y<span class="sc">}</span><span class="ss"> is </span><span class="sc">{</span>x <span class="op">+</span> y<span class="sc">}</span><span class="ss">."</span></span>
@@ -833,7 +833,7 @@ with the average voter.</code></pre>
 <li>Take on values of True or False</li>
 </ul></li>
 </ul>
-<div id="5bce0737" class="cell" data-execution_count="23">
+<div id="6b134438" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href=""></a>x <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb41-2"><a href=""></a>y <span class="op">=</span> x <span class="op">&lt;</span> <span class="dv">3</span></span>
 <span id="cb41-3"><a href=""></a><span class="bu">print</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -850,7 +850,7 @@ with the average voter.</code></pre>
 </ul>
 </div>
 <div class="fragment">
-<div id="7a9926b0" class="cell" data-execution_count="24">
+<div id="a78a5cec" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href=""></a>names_match <span class="op">=</span> <span class="st">"Will"</span> <span class="op">==</span> <span class="st">"Willl"</span></span>
 <span id="cb43-2"><a href=""></a><span class="bu">print</span>(names_match)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -897,7 +897,7 @@ with the average voter.</code></pre>
 </table>
 <div class="fragment">
 <p><strong>Watch out:</strong> <code>=</code> is assignment, <code>==</code> is comparison. Confusing them is the single most common beginner mistake.</p>
-<div id="181137aa" class="cell" data-execution_count="25">
+<div id="52fe1a96" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href=""></a>x <span class="op">=</span> <span class="dv">5</span>      <span class="co"># assignment</span></span>
 <span id="cb45-2"><a href=""></a>x <span class="op">==</span> <span class="dv">5</span>     <span class="co"># comparison</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
@@ -908,7 +908,7 @@ with the average voter.</code></pre>
 </section>
 <section id="examples" class="slide level2">
 <h2>Examples</h2>
-<div id="2cce32f1" class="cell" data-execution_count="26">
+<div id="c45ea915" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href=""></a>x <span class="op">=</span> <span class="dv">14</span></span>
 <span id="cb47-2"><a href=""></a>compare_result <span class="op">=</span> (x <span class="op">&lt;=</span> <span class="dv">13</span>)</span>
 <span id="cb47-3"><a href=""></a></span>
@@ -918,7 +918,7 @@ with the average voter.</code></pre>
 </div>
 </div>
 <div class="fragment">
-<div id="083c094e" class="cell" data-execution_count="27">
+<div id="6c5f95f7" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href=""></a>party <span class="op">=</span> <span class="st">"Democrat"</span></span>
 <span id="cb49-2"><a href=""></a>is_dem <span class="op">=</span> (party <span class="op">==</span> <span class="st">"Democrat"</span>)</span>
 <span id="cb49-3"><a href=""></a></span>
@@ -936,7 +936,7 @@ with the average voter.</code></pre>
 <li><p>True: any non-zero number, any non empty-string</p></li>
 <li><p>False: 0, empty string</p></li>
 </ul>
-<div id="18ad64e2" class="cell" data-execution_count="28">
+<div id="4e6f6ef9" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href=""></a><span class="bu">print</span>(<span class="bu">bool</span>(<span class="dv">0</span>), <span class="bu">bool</span>(<span class="dv">42</span>), <span class="bu">bool</span>(<span class="st">""</span>), <span class="bu">bool</span>(<span class="st">"hello"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>False True False True</code></pre>
@@ -967,7 +967,7 @@ with the average voter.</code></pre>
 </section>
 <section id="example" class="slide level2">
 <h2>Example</h2>
-<div id="3fb25acf" class="cell" data-execution_count="29">
+<div id="19fd77fb" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href=""></a>chance_of_rain <span class="op">=</span> <span class="fl">0.62</span></span>
 <span id="cb53-2"><a href=""></a></span>
 <span id="cb53-3"><a href=""></a><span class="cf">if</span> chance_of_rain <span class="op">&gt;</span> <span class="fl">0.5</span>:</span>
@@ -980,7 +980,7 @@ with the average voter.</code></pre>
 </div>
 <div class="fragment">
 <p>Notice the syntax:</p>
-<div id="8becbba0" class="cell" data-execution_count="30">
+<div id="1259a960" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href=""></a><span class="cf">if</span> <span class="op">&lt;</span>condition<span class="op">&gt;</span>:</span>
 <span id="cb55-2"><a href=""></a>    <span class="op">&lt;</span>code, indented <span class="dv">4</span> spaces<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -997,7 +997,7 @@ with the average voter.</code></pre>
 </ul></li>
 </ul>
 <div class="fragment">
-<div id="7bd70e67" class="cell" data-execution_count="31">
+<div id="06dabd83" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href=""></a>number <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">'What is your favorite number?'</span>))</span>
 <span id="cb56-2"><a href=""></a>my_fav <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb56-3"><a href=""></a><span class="cf">if</span> my_fav <span class="op">==</span> number:  <span class="co">## if statements need a : after the condition</span></span>
@@ -1010,7 +1010,7 @@ with the average voter.</code></pre>
 <h2>Another Example</h2>
 <p>How could we write a script that checks whether the user has enough money to make a 20% down payment on a house?</p>
 <div class="fragment">
-<div id="74674d71" class="cell" data-execution_count="32">
+<div id="0b9cc775" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href=""></a>home_cost <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">'How much does the home cost? '</span>))</span>
 <span id="cb57-2"><a href=""></a>available_funds <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">'How much money do you have immediately available? '</span>))</span>
 <span id="cb57-3"><a href=""></a>down_payment <span class="op">=</span> home_cost <span class="op">*</span> <span class="fl">0.2</span></span>
