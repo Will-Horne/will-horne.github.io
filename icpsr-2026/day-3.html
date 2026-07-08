@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="Will Horne">
-  <title>Intro to Python Day 3: Object Oriented Programming and Functions</title>
+  <title>Intro to Python Day 3: Functions, Modules, and NumPy</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -193,7 +193,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Intro to Python Day 3: Object Oriented Programming and Functions</h1>
+  <h1 class="title">Intro to Python Day 3: Functions, Modules, and NumPy</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -208,7 +208,7 @@ Will Horne
 <h2>Reminders</h2>
 <p>Office hours from 10-12, or by appointment</p>
 <p>Glad to see a few people stop by today!</p>
-<p>I know that many of you are in the Math Lecture (and likely also the LaTex lecture). If you want to meet via zoom at some other time, email me.</p>
+<p>I know that many of you are in the Math Lecture (and likely also the LaTeX lecture). If you want to meet via zoom at some other time, email me.</p>
 <p>Optional readings are posted on the syllabus</p>
 <p>Practice is key!</p>
 </section>
@@ -216,7 +216,7 @@ Will Horne
 <h2>Course Outline</h2>
 <p>Monday: Intro and Coding Basics</p>
 <p>Tuesday: Basics Continued and Control Flow</p>
-<p><strong>Today: Object Oriented Programming and Functions</strong></p>
+<p><strong>Today: Functions, Modules, and NumPy</strong></p>
 <p>Thursday: Data Analysis and APIs</p>
 <p>Friday: Web Scraping and Text-as-Data</p>
 </section>
@@ -226,7 +226,7 @@ Will Horne
 </section>
 <section id="an-answer" class="slide level2">
 <h2>An Answer</h2>
-<div id="eb149f4c" class="cell" data-execution_count="1">
+<div id="b5bf1e14" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="cf">if</span> number <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
 <span id="cb1-2"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>number<span class="sc">}</span><span class="ss"> is even!"</span>)</span>
 <span id="cb1-3"><a href=""></a><span class="cf">else</span>:</span>
@@ -246,7 +246,7 @@ Will Horne
 </section>
 <section id="an-answer-1" class="slide level2">
 <h2>An Answer</h2>
-<div id="85c6b361" class="cell" data-execution_count="2">
+<div id="6b7c1c17" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="cf">for</span> number <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">11</span>):</span>
 <span id="cb2-2"><a href=""></a>    <span class="cf">if</span> number <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
 <span id="cb2-3"><a href=""></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>number<span class="sc">}</span><span class="ss"> is even!"</span>)</span>
@@ -311,7 +311,7 @@ Will Horne
 <section id="enumerate" class="slide level2">
 <h2>Enumerate</h2>
 <p><code>enumerate</code> is a built-in function that takes an iterable and returns index-value pairs.</p>
-<div id="a123fb1b" class="cell" data-execution_count="3">
+<div id="9d49b11e" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a><span class="cf">for</span> idx, name <span class="kw">in</span> <span class="bu">enumerate</span>([<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span>]):</span>
 <span id="cb5-2"><a href=""></a>    <span class="bu">print</span>(idx, name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -327,7 +327,7 @@ Will Horne
 <section id="when-enumerate-is-useful" class="slide level2">
 <h2>When Enumerate is Useful</h2>
 <p>Print numbered rankings of presidents:</p>
-<div id="eb00d1e7" class="cell" data-execution_count="4">
+<div id="866bed99" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>presidents <span class="op">=</span> [<span class="st">"Washington"</span>, <span class="st">"Adams"</span>, <span class="st">"Jefferson"</span>, <span class="st">"Madison"</span>]</span>
 <span id="cb7-2"><a href=""></a></span>
 <span id="cb7-3"><a href=""></a><span class="cf">for</span> i, president <span class="kw">in</span> <span class="bu">enumerate</span>(presidents, start<span class="op">=</span><span class="dv">1</span>):</span>
@@ -350,7 +350,7 @@ Will Horne
 <section id="another-enumerate-example" class="slide level2">
 <h2>Another Enumerate Example</h2>
 <p>Create the following sentence</p>
-<div id="3fa573d8" class="cell" data-execution_count="5">
+<div id="efa18a5f" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a>sentence <span class="op">=</span> <span class="st">"I truly love learning Python!"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Write a for loop (or while loop, if you want) that prints each word, with its index, one by one.</p>
@@ -364,7 +364,7 @@ Will Horne
 <h2>Dictionaries</h2>
 <p>Dictionaries are objects in Python that consist of <strong>key:value</strong> pairs</p>
 <p>For example, suppose we wanted to create a dictionary of employees and their salaries</p>
-<div id="b608b124" class="cell" data-execution_count="6">
+<div id="36f8ccac" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a>salaries <span class="op">=</span> {<span class="st">"Jane"</span>:<span class="dv">100</span>,</span>
 <span id="cb10-2"><a href=""></a><span class="st">"Mike"</span>: <span class="dv">80</span>,</span>
 <span id="cb10-3"><a href=""></a><span class="st">"Ali"</span>: <span class="dv">85</span>,</span>
@@ -393,24 +393,9 @@ Will Horne
 <li><p>In Python 3.7+, dictionaries maintain insertion order (sets still don’t)</p></li>
 </ul>
 </section>
-<section id="you-try" class="slide level2">
-<h2>You Try</h2>
-<p>Create a Dictionary using political parties as keys, and politicians who are members of that party as values. For example, you could have a key value pair of Democrat: Kamala Harris or Labour: Keir Starmer.</p>
-</section>
-<section id="dictionary-methods" class="slide level2">
-<h2>Dictionary Methods</h2>
-<ul>
-<li><p>.keys() will give you the keys</p></li>
-<li><p>.values() will give you the values</p></li>
-<li><p>.update() will update key:value pairs</p>
-<ul>
-<li>useful for batch updating, i.e., importing keys:values from another dictionary</li>
-</ul></li>
-</ul>
-</section>
 <section id="using-dictionaries" class="slide level2">
 <h2>Using Dictionaries</h2>
-<div id="01ca733e" class="cell" data-execution_count="7">
+<div id="1dc47f67" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a>salaries <span class="op">=</span> {<span class="st">"Jane"</span>:<span class="dv">100</span>,</span>
 <span id="cb12-2"><a href=""></a><span class="st">"Mike"</span>: <span class="dv">80</span>,</span>
 <span id="cb12-3"><a href=""></a><span class="st">"Ali"</span>: <span class="dv">85</span>,</span>
@@ -426,13 +411,127 @@ Will Horne
 </div>
 </div>
 </section>
+<section id="you-try" class="slide level2">
+<h2>You Try</h2>
+<p>Create a Dictionary using political parties as keys, and politicians who are members of that party as values. For example, you could have a key value pair of Democrat: Kamala Harris or Labour: Keir Starmer.</p>
+</section>
+<section id="dictionary-methods" class="slide level2 smaller">
+<h2>Dictionary Methods</h2>
+<ul>
+<li><code>.keys()</code> returns the keys</li>
+<li><code>.values()</code> returns the values</li>
+<li><code>.items()</code> returns <code>(key, value)</code> pairs</li>
+<li><code>.get(key, default)</code> returns <code>default</code> if the key is missing</li>
+<li><code>.update()</code> merges another dictionary into this one</li>
+<li><code>.pop(key)</code> removes a key and returns its value</li>
+</ul>
+<p>Let’s see each in action.</p>
+</section>
+<section id="keys-and-.values" class="slide level2">
+<h2>.keys() and .values()</h2>
+<div id="a8d2d033" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a>salaries <span class="op">=</span> {<span class="st">"Jane"</span>: <span class="dv">100</span>, <span class="st">"Mike"</span>: <span class="dv">80</span>, <span class="st">"Ali"</span>: <span class="dv">85</span>, <span class="st">"Diego"</span>: <span class="dv">80</span>}</span>
+<span id="cb14-2"><a href=""></a></span>
+<span id="cb14-3"><a href=""></a><span class="bu">print</span>(salaries.keys())</span>
+<span id="cb14-4"><a href=""></a><span class="bu">print</span>(salaries.values())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>dict_keys(['Jane', 'Mike', 'Ali', 'Diego'])
+dict_values([100, 80, 85, 80])</code></pre>
+</div>
+</div>
+</section>
+<section id="items" class="slide level2">
+<h2>.items()</h2>
+<p>Returns each <code>(key, value)</code> pair — cleaner than looking up each value by key</p>
+<div id="1cb37ded" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href=""></a><span class="cf">for</span> name, salary <span class="kw">in</span> salaries.items():</span>
+<span id="cb16-2"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss"> makes $</span><span class="sc">{</span>salary<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Jane makes $100
+Mike makes $80
+Ali makes $85
+Diego makes $80</code></pre>
+</div>
+</div>
+</section>
+<section id="get" class="slide level2">
+<h2>.get()</h2>
+<p>Safe key access. Returns <code>None</code> (or a supplied default) if the key isn’t there, instead of raising <code>KeyError</code>.</p>
+<div id="f5b1e7c7" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href=""></a><span class="bu">print</span>(salaries[<span class="st">"Jane"</span>])            <span class="co"># 100</span></span>
+<span id="cb18-2"><a href=""></a><span class="bu">print</span>(salaries.get(<span class="st">"Jane"</span>))        <span class="co"># 100</span></span>
+<span id="cb18-3"><a href=""></a><span class="bu">print</span>(salaries.get(<span class="st">"Ghost"</span>))       <span class="co"># None — no crash</span></span>
+<span id="cb18-4"><a href=""></a><span class="bu">print</span>(salaries.get(<span class="st">"Ghost"</span>, <span class="dv">0</span>))    <span class="co"># 0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>100
+100
+None
+0</code></pre>
+</div>
+</div>
+<p>Use <code>.get()</code> when you’re not sure the key exists. Common with messy real-world data.</p>
+</section>
+<section id="update" class="slide level2">
+<h2>.update()</h2>
+<p>Merges another dictionary into this one.</p>
+<div id="a41c997e" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href=""></a>raises <span class="op">=</span> {<span class="st">"Mike"</span>: <span class="dv">90</span>, <span class="st">"Allison"</span>: <span class="dv">105</span>}   <span class="co"># Mike got a raise; Allison is a new hire</span></span>
+<span id="cb20-2"><a href=""></a></span>
+<span id="cb20-3"><a href=""></a>salaries.update(raises)</span>
+<span id="cb20-4"><a href=""></a><span class="bu">print</span>(salaries)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'Jane': 100, 'Mike': 90, 'Ali': 85, 'Diego': 80, 'Allison': 105}</code></pre>
+</div>
+</div>
+<p>Existing keys are overwritten; new keys are added.</p>
+</section>
+<section id="adding-to-a-list-value" class="slide level2">
+<h2>Adding to a list value</h2>
+<p>If a dictionary’s value is a <strong>list</strong>, you can grow it in place with list methods</p>
+<div id="9c0c2dfa" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href=""></a>sponsors <span class="op">=</span> {<span class="st">"HR1"</span>: [<span class="st">"Sanders"</span>, <span class="st">"Warren"</span>]}</span>
+<span id="cb22-2"><a href=""></a></span>
+<span id="cb22-3"><a href=""></a>sponsors[<span class="st">"HR1"</span>].append(<span class="st">"Booker"</span>)</span>
+<span id="cb22-4"><a href=""></a><span class="bu">print</span>(sponsors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'HR1': ['Sanders', 'Warren', 'Booker']}</code></pre>
+</div>
+</div>
+<p>If the key might not exist yet:</p>
+<div id="58215a67" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href=""></a>key <span class="op">=</span> <span class="st">"HR2"</span></span>
+<span id="cb24-2"><a href=""></a><span class="cf">if</span> key <span class="kw">in</span> sponsors:</span>
+<span id="cb24-3"><a href=""></a>    sponsors[key].append(<span class="st">"Klobuchar"</span>)</span>
+<span id="cb24-4"><a href=""></a><span class="cf">else</span>:</span>
+<span id="cb24-5"><a href=""></a>    sponsors[key] <span class="op">=</span> [<span class="st">"Klobuchar"</span>]</span>
+<span id="cb24-6"><a href=""></a></span>
+<span id="cb24-7"><a href=""></a><span class="bu">print</span>(sponsors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'HR1': ['Sanders', 'Warren', 'Booker'], 'HR2': ['Klobuchar']}</code></pre>
+</div>
+</div>
+</section>
+<section id="pop" class="slide level2">
+<h2>.pop()</h2>
+<p>Removes a key and returns its value.</p>
+<div id="738d569d" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href=""></a>diego_salary <span class="op">=</span> salaries.pop(<span class="st">"Diego"</span>)</span>
+<span id="cb26-2"><a href=""></a><span class="bu">print</span>(diego_salary)</span>
+<span id="cb26-3"><a href=""></a><span class="bu">print</span>(salaries)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>80
+{'Jane': 100, 'Mike': 90, 'Ali': 85, 'Allison': 105}</code></pre>
+</div>
+</div>
+<p>Raises <code>KeyError</code> if the key doesn’t exist</p>
+</section>
 <section id="iterating-over-a-dictionary" class="slide level2">
 <h2>Iterating over a dictionary</h2>
 <p>We can iterate over dictionaries. Consider the following dictionary, and write a for loop to print out each student’s grade.</p>
-<div id="afddd405" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a>grades <span class="op">=</span> {<span class="st">"Ali"</span>: <span class="st">"A+"</span>, <span class="st">"Bella"</span>: <span class="st">"A"</span>, <span class="st">"Will"</span>: <span class="st">"C-"</span>, <span class="st">"Sam"</span>: <span class="st">"B"</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="81febdde" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href=""></a>grades <span class="op">=</span> {<span class="st">"Ali"</span>: <span class="st">"A+"</span>, <span class="st">"Bella"</span>: <span class="st">"A"</span>, <span class="st">"Will"</span>: <span class="st">"C-"</span>, <span class="st">"Sam"</span>: <span class="st">"B"</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><strong>Hint:</strong> grades[person] (or whatever index) will return that person’s grade.</p>
+<p><strong>Hint:</strong> <code>grades[person]</code> (or whatever index) will return that person’s grade.</p>
 </section>
 <section id="your-turn" class="slide level2">
 <h2>Your Turn</h2>
@@ -442,7 +541,7 @@ Will Horne
 <li><p>print all the keys</p></li>
 <li><p>Create a second dictionary from a list</p></li>
 <li><p>Add that dictionary to the original</p></li>
-<li><p>Iterate over the dictionary to print “The key is [key] and the value is [value]” for each entry</p></li>
+<li><p>Iterate over the dictionary to print “The key is <code>[key]</code> and the value is <code>[value]</code>” for each entry</p></li>
 </ul>
 </section>
 <section id="break" class="slide level2">
@@ -476,16 +575,16 @@ Will Horne
 </section>
 <section id="example-function" class="slide level2">
 <h2>Example Function</h2>
-<div id="db70c11e" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a><span class="kw">def</span> is_even(i):</span>
-<span id="cb15-2"><a href=""></a>    <span class="co">"""</span></span>
-<span id="cb15-3"><a href=""></a><span class="co">    Input: i, an integer</span></span>
-<span id="cb15-4"><a href=""></a><span class="co">    Returns True if i is even, otherwise False</span></span>
-<span id="cb15-5"><a href=""></a><span class="co">    """</span></span>
-<span id="cb15-6"><a href=""></a>    <span class="cf">return</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span></span>
-<span id="cb15-7"><a href=""></a></span>
-<span id="cb15-8"><a href=""></a>is_even(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div id="a707f20d" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href=""></a><span class="kw">def</span> is_even(i):</span>
+<span id="cb29-2"><a href=""></a>    <span class="co">"""</span></span>
+<span id="cb29-3"><a href=""></a><span class="co">    Input: i, an integer</span></span>
+<span id="cb29-4"><a href=""></a><span class="co">    Returns True if i is even, otherwise False</span></span>
+<span id="cb29-5"><a href=""></a><span class="co">    """</span></span>
+<span id="cb29-6"><a href=""></a>    <span class="cf">return</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span></span>
+<span id="cb29-7"><a href=""></a></span>
+<span id="cb29-8"><a href=""></a>is_even(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>True</code></pre>
 </div>
 </div>
@@ -508,15 +607,15 @@ Will Horne
 <li><p>the docstring, enclosed in “““, provides info on how to use the function</p></li>
 <li><p>the docstring can be called with help()</p></li>
 </ul>
-<div id="22f25200" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a><span class="kw">def</span> is_even(i):</span>
-<span id="cb17-2"><a href=""></a>    <span class="co">"""</span></span>
-<span id="cb17-3"><a href=""></a><span class="co">    Input: i, an integer</span></span>
-<span id="cb17-4"><a href=""></a><span class="co">    Returns True if i is even, otherwise False</span></span>
-<span id="cb17-5"><a href=""></a><span class="co">    """</span></span>
-<span id="cb17-6"><a href=""></a>    <span class="cf">return</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span></span>
-<span id="cb17-7"><a href=""></a></span>
-<span id="cb17-8"><a href=""></a><span class="bu">help</span>(is_even)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6f60753c" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href=""></a><span class="kw">def</span> is_even(i):</span>
+<span id="cb31-2"><a href=""></a>    <span class="co">"""</span></span>
+<span id="cb31-3"><a href=""></a><span class="co">    Input: i, an integer</span></span>
+<span id="cb31-4"><a href=""></a><span class="co">    Returns True if i is even, otherwise False</span></span>
+<span id="cb31-5"><a href=""></a><span class="co">    """</span></span>
+<span id="cb31-6"><a href=""></a>    <span class="cf">return</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span></span>
+<span id="cb31-7"><a href=""></a></span>
+<span id="cb31-8"><a href=""></a><span class="bu">help</span>(is_even)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Help on function is_even in module __main__:
 
@@ -541,37 +640,37 @@ is_even(i)
 </section>
 <section id="variable-scope-lookup" class="slide level2">
 <h2>Variable Scope: Lookup</h2>
-<div id="2ceed25c" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a><span class="kw">def</span> p(y):</span>
-<span id="cb19-2"><a href=""></a>    <span class="bu">print</span>(x)</span>
-<span id="cb19-3"><a href=""></a></span>
-<span id="cb19-4"><a href=""></a>x <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb19-5"><a href=""></a></span>
-<span id="cb19-6"><a href=""></a>p(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4e447570" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href=""></a><span class="kw">def</span> p(y):</span>
+<span id="cb33-2"><a href=""></a>    <span class="bu">print</span>(x)</span>
+<span id="cb33-3"><a href=""></a></span>
+<span id="cb33-4"><a href=""></a>x <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb33-5"><a href=""></a></span>
+<span id="cb33-6"><a href=""></a>p(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>What will this print?</p>
 <div class="fragment">
-<div id="ff423311" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href=""></a><span class="kw">def</span> p(x):</span>
-<span id="cb20-2"><a href=""></a>    <span class="bu">print</span>(x)</span>
-<span id="cb20-3"><a href=""></a></span>
-<span id="cb20-4"><a href=""></a>x <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb20-5"><a href=""></a></span>
-<span id="cb20-6"><a href=""></a>p(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c0e43643" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href=""></a><span class="kw">def</span> p(x):</span>
+<span id="cb34-2"><a href=""></a>    <span class="bu">print</span>(x)</span>
+<span id="cb34-3"><a href=""></a></span>
+<span id="cb34-4"><a href=""></a>x <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb34-5"><a href=""></a></span>
+<span id="cb34-6"><a href=""></a>p(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>What about this?</p>
 </div>
 </section>
 <section id="variable-scope-reassignment" class="slide level2">
 <h2>Variable Scope: Reassignment</h2>
-<div id="dfb204a9" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href=""></a>x <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb21-2"><a href=""></a><span class="kw">def</span> square(x):</span>
-<span id="cb21-3"><a href=""></a>    x <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb21-4"><a href=""></a>    <span class="cf">return</span> x</span>
-<span id="cb21-5"><a href=""></a></span>
-<span id="cb21-6"><a href=""></a>z <span class="op">=</span> square(x)</span>
-<span id="cb21-7"><a href=""></a><span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="83775164" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href=""></a>x <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb35-2"><a href=""></a><span class="kw">def</span> square(x):</span>
+<span id="cb35-3"><a href=""></a>    x <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb35-4"><a href=""></a>    <span class="cf">return</span> x</span>
+<span id="cb35-5"><a href=""></a></span>
+<span id="cb35-6"><a href=""></a>z <span class="op">=</span> square(x)</span>
+<span id="cb35-7"><a href=""></a><span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>What will this print?</p>
 </section>
@@ -591,14 +690,14 @@ is_even(i)
 </section>
 <section id="returns-in-functions" class="slide level2">
 <h2>Returns in Functions</h2>
-<div id="e9af8042" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href=""></a><span class="kw">def</span> check_number(number):</span>
-<span id="cb22-2"><a href=""></a>    <span class="cf">if</span> number <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb22-3"><a href=""></a>        <span class="cf">return</span> <span class="st">"positive"</span></span>
-<span id="cb22-4"><a href=""></a>    <span class="cf">elif</span> number <span class="op">&lt;</span> <span class="dv">0</span>:</span>
-<span id="cb22-5"><a href=""></a>        <span class="cf">return</span> <span class="st">"negative"</span></span>
-<span id="cb22-6"><a href=""></a>    <span class="cf">else</span>:</span>
-<span id="cb22-7"><a href=""></a>        <span class="cf">return</span> <span class="st">"zero"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2bc51c94" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href=""></a><span class="kw">def</span> check_number(number):</span>
+<span id="cb36-2"><a href=""></a>    <span class="cf">if</span> number <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb36-3"><a href=""></a>        <span class="cf">return</span> <span class="st">"positive"</span></span>
+<span id="cb36-4"><a href=""></a>    <span class="cf">elif</span> number <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb36-5"><a href=""></a>        <span class="cf">return</span> <span class="st">"negative"</span></span>
+<span id="cb36-6"><a href=""></a>    <span class="cf">else</span>:</span>
+<span id="cb36-7"><a href=""></a>        <span class="cf">return</span> <span class="st">"zero"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>As soon as we hit return, the function will exit. Let’s try this out in colab.</p>
 </section>
@@ -609,31 +708,31 @@ is_even(i)
 </section>
 <section id="an-answer-2" class="slide level2">
 <h2>An Answer</h2>
-<div id="35977bf2" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href=""></a><span class="kw">def</span> is_div_six(number):</span>
-<span id="cb23-2"><a href=""></a>    <span class="cf">if</span> number <span class="op">%</span> <span class="dv">6</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb23-3"><a href=""></a>        <span class="cf">return</span> <span class="st">"Number is divisible by 6"</span></span>
-<span id="cb23-4"><a href=""></a>    <span class="cf">else</span>:</span>
-<span id="cb23-5"><a href=""></a>        <span class="cf">return</span> <span class="st">"Number is not divisible by 6"</span></span>
-<span id="cb23-6"><a href=""></a></span>
-<span id="cb23-7"><a href=""></a>is_div_six(<span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div id="a5126b57" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href=""></a><span class="kw">def</span> is_div_six(number):</span>
+<span id="cb37-2"><a href=""></a>    <span class="cf">if</span> number <span class="op">%</span> <span class="dv">6</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb37-3"><a href=""></a>        <span class="cf">return</span> <span class="st">"Number is divisible by 6"</span></span>
+<span id="cb37-4"><a href=""></a>    <span class="cf">else</span>:</span>
+<span id="cb37-5"><a href=""></a>        <span class="cf">return</span> <span class="st">"Number is not divisible by 6"</span></span>
+<span id="cb37-6"><a href=""></a></span>
+<span id="cb37-7"><a href=""></a>is_div_six(<span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>'Number is not divisible by 6'</code></pre>
 </div>
 </div>
 <div class="fragment">
-<div id="d930b240" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href=""></a><span class="kw">def</span> is_div_six(number):</span>
-<span id="cb25-2"><a href=""></a>    <span class="cf">if</span> number <span class="op">%</span> <span class="dv">6</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb25-3"><a href=""></a>        <span class="cf">if</span> number <span class="op">%</span> <span class="dv">9</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb25-4"><a href=""></a>            <span class="cf">return</span> <span class="st">"Number is divisible by 6 and 9"</span></span>
-<span id="cb25-5"><a href=""></a>        <span class="cf">else</span>:</span>
-<span id="cb25-6"><a href=""></a>            <span class="cf">return</span> <span class="st">"Number is divisible by 6"</span></span>
-<span id="cb25-7"><a href=""></a>    <span class="cf">else</span>:</span>
-<span id="cb25-8"><a href=""></a>        <span class="cf">return</span> <span class="st">"Number is not divisible by 6"</span></span>
-<span id="cb25-9"><a href=""></a></span>
-<span id="cb25-10"><a href=""></a>is_div_six(<span class="dv">108</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div id="d052f602" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href=""></a><span class="kw">def</span> is_div_six(number):</span>
+<span id="cb39-2"><a href=""></a>    <span class="cf">if</span> number <span class="op">%</span> <span class="dv">6</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb39-3"><a href=""></a>        <span class="cf">if</span> number <span class="op">%</span> <span class="dv">9</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb39-4"><a href=""></a>            <span class="cf">return</span> <span class="st">"Number is divisible by 6 and 9"</span></span>
+<span id="cb39-5"><a href=""></a>        <span class="cf">else</span>:</span>
+<span id="cb39-6"><a href=""></a>            <span class="cf">return</span> <span class="st">"Number is divisible by 6"</span></span>
+<span id="cb39-7"><a href=""></a>    <span class="cf">else</span>:</span>
+<span id="cb39-8"><a href=""></a>        <span class="cf">return</span> <span class="st">"Number is not divisible by 6"</span></span>
+<span id="cb39-9"><a href=""></a></span>
+<span id="cb39-10"><a href=""></a>is_div_six(<span class="dv">108</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>'Number is divisible by 6 and 9'</code></pre>
 </div>
 </div>
@@ -641,16 +740,16 @@ is_even(i)
 </section>
 <section id="dictionaries-in-functions" class="slide level2">
 <h2>Dictionaries in Functions</h2>
-<div id="09d1abd6" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href=""></a><span class="kw">def</span> word_freq(text):</span>
-<span id="cb27-2"><a href=""></a>    words_list <span class="op">=</span> text.split()</span>
-<span id="cb27-3"><a href=""></a>    freq <span class="op">=</span> {}</span>
-<span id="cb27-4"><a href=""></a>    <span class="cf">for</span> word <span class="kw">in</span> words_list:</span>
-<span id="cb27-5"><a href=""></a>        <span class="cf">if</span> word <span class="kw">in</span> freq:</span>
-<span id="cb27-6"><a href=""></a>            freq[word] <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb27-7"><a href=""></a>        <span class="cf">else</span>:</span>
-<span id="cb27-8"><a href=""></a>            freq[word] <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb27-9"><a href=""></a>    <span class="cf">return</span> freq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="9f2bcaed" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href=""></a><span class="kw">def</span> word_freq(text):</span>
+<span id="cb41-2"><a href=""></a>    words_list <span class="op">=</span> text.split()</span>
+<span id="cb41-3"><a href=""></a>    freq <span class="op">=</span> {}</span>
+<span id="cb41-4"><a href=""></a>    <span class="cf">for</span> word <span class="kw">in</span> words_list:</span>
+<span id="cb41-5"><a href=""></a>        <span class="cf">if</span> word <span class="kw">in</span> freq:</span>
+<span id="cb41-6"><a href=""></a>            freq[word] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb41-7"><a href=""></a>        <span class="cf">else</span>:</span>
+<span id="cb41-8"><a href=""></a>            freq[word] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb41-9"><a href=""></a>    <span class="cf">return</span> freq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Run this function on some quote you find (or make up). What does it return? How might it be useful?</p>
 <p>What would you include as a docstring?</p>
@@ -658,7 +757,7 @@ is_even(i)
 <section id="you-try-1" class="slide level2">
 <h2>You Try</h2>
 <p>Imagine we had a list of employees and salaries from some company, and we wanted to extract a new dictionary of high earners (specifically, those earning more than the mean salary at the company).</p>
-<p>We write a function to do this. Then, test it out with a dictionary you create</p>
+<p>Write a function to do this. Then, test it out with a dictionary you create.</p>
 </section>
 <section id="break-time" class="slide level2">
 <h2>Break Time?</h2>
@@ -676,34 +775,34 @@ is_even(i)
 <section id="comprehension-syntax" class="slide level2">
 <h2>Comprehension Syntax</h2>
 <p>In general, a comprehension will look something like this</p>
-<div id="c84cc3a8" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href=""></a>[expr <span class="cf">for</span> value <span class="kw">in</span> <span class="bu">object</span> <span class="cf">if</span> condition] <span class="co">## do something to a value in some object (optionally if some condition is met)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3ed0e1d4" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href=""></a>[expr <span class="cf">for</span> value <span class="kw">in</span> <span class="bu">object</span> <span class="cf">if</span> condition] <span class="co">## do something to a value in some object (optionally if some condition is met)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>As a loop, it might look like this</p>
-<div id="81c31de3" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href=""></a>result <span class="op">=</span> []</span>
-<span id="cb29-2"><a href=""></a><span class="cf">for</span> value <span class="kw">in</span> <span class="bu">object</span>:</span>
-<span id="cb29-3"><a href=""></a>    <span class="cf">if</span> condition:</span>
-<span id="cb29-4"><a href=""></a>        result.append(expr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7cb507f6" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href=""></a>result <span class="op">=</span> []</span>
+<span id="cb43-2"><a href=""></a><span class="cf">for</span> value <span class="kw">in</span> <span class="bu">object</span>:</span>
+<span id="cb43-3"><a href=""></a>    <span class="cf">if</span> condition:</span>
+<span id="cb43-4"><a href=""></a>        result.append(expr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="example" class="slide level2">
 <h2>Example</h2>
 <p>Simple example - create a copy of a list</p>
-<div id="c4953c73" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href=""></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]</span>
-<span id="cb30-2"><a href=""></a>new_list <span class="op">=</span> []</span>
-<span id="cb30-3"><a href=""></a><span class="cf">for</span> number <span class="kw">in</span> numbers:</span>
-<span id="cb30-4"><a href=""></a>    new_list.append(number)</span>
-<span id="cb30-5"><a href=""></a><span class="bu">print</span>(new_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c8883528" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href=""></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]</span>
+<span id="cb44-2"><a href=""></a>new_list <span class="op">=</span> []</span>
+<span id="cb44-3"><a href=""></a><span class="cf">for</span> number <span class="kw">in</span> numbers:</span>
+<span id="cb44-4"><a href=""></a>    new_list.append(number)</span>
+<span id="cb44-5"><a href=""></a><span class="bu">print</span>(new_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</code></pre>
 </div>
 </div>
 <p>Simpler with a list comprehension</p>
-<div id="6c78ec79" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href=""></a>new_list <span class="op">=</span> [number <span class="cf">for</span> number <span class="kw">in</span> numbers]</span>
-<span id="cb32-2"><a href=""></a><span class="bu">print</span>(new_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5f459968" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href=""></a>new_list <span class="op">=</span> [number <span class="cf">for</span> number <span class="kw">in</span> numbers]</span>
+<span id="cb46-2"><a href=""></a><span class="bu">print</span>(new_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</code></pre>
 </div>
@@ -712,23 +811,23 @@ is_even(i)
 <section id="another-list-comprehension" class="slide level2">
 <h2>Another List Comprehension</h2>
 <p>Square every item in a list, creating a new list of squared numbers</p>
-<div id="452ffbae" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href=""></a>numbers <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
-<span id="cb34-2"><a href=""></a>new_list <span class="op">=</span> []</span>
-<span id="cb34-3"><a href=""></a><span class="cf">for</span> number <span class="kw">in</span> numbers:</span>
-<span id="cb34-4"><a href=""></a>    new_list.append(number<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb34-5"><a href=""></a><span class="bu">print</span>(new_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6a43a87e" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href=""></a>numbers <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb48-2"><a href=""></a>new_list <span class="op">=</span> []</span>
+<span id="cb48-3"><a href=""></a><span class="cf">for</span> number <span class="kw">in</span> numbers:</span>
+<span id="cb48-4"><a href=""></a>    new_list.append(number<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb48-5"><a href=""></a><span class="bu">print</span>(new_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[4, 9, 16, 25]</code></pre>
 </div>
 </div>
 <p>With a list comprehension</p>
-<div id="b2f37063" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href=""></a>numbers <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
-<span id="cb36-2"><a href=""></a></span>
-<span id="cb36-3"><a href=""></a>squared <span class="op">=</span> [num<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> num <span class="kw">in</span> numbers]</span>
-<span id="cb36-4"><a href=""></a></span>
-<span id="cb36-5"><a href=""></a><span class="bu">print</span>(squared)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="061c575f" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href=""></a>numbers <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb50-2"><a href=""></a></span>
+<span id="cb50-3"><a href=""></a>squared <span class="op">=</span> [num<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> num <span class="kw">in</span> numbers]</span>
+<span id="cb50-4"><a href=""></a></span>
+<span id="cb50-5"><a href=""></a><span class="bu">print</span>(squared)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[4, 9, 16, 25]</code></pre>
 </div>
@@ -737,23 +836,23 @@ is_even(i)
 <section id="one-more-list-comprehension" class="slide level2">
 <h2>One More List Comprehension</h2>
 <p>Example - Square only even numbers</p>
-<div id="3f0cac82" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href=""></a>some_squared <span class="op">=</span> []</span>
-<span id="cb38-2"><a href=""></a></span>
-<span id="cb38-3"><a href=""></a><span class="cf">for</span> num <span class="kw">in</span> numbers:</span>
-<span id="cb38-4"><a href=""></a>    <span class="cf">if</span> num <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb38-5"><a href=""></a>        some_squared.append(num<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb38-6"><a href=""></a></span>
-<span id="cb38-7"><a href=""></a><span class="bu">print</span>(some_squared)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="026ce117" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href=""></a>some_squared <span class="op">=</span> []</span>
+<span id="cb52-2"><a href=""></a></span>
+<span id="cb52-3"><a href=""></a><span class="cf">for</span> num <span class="kw">in</span> numbers:</span>
+<span id="cb52-4"><a href=""></a>    <span class="cf">if</span> num <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb52-5"><a href=""></a>        some_squared.append(num<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb52-6"><a href=""></a></span>
+<span id="cb52-7"><a href=""></a><span class="bu">print</span>(some_squared)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[4, 16]</code></pre>
 </div>
 </div>
 <p>With a list comprehension</p>
-<div id="db375dc5" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href=""></a>some_squared <span class="op">=</span> [num<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> num <span class="kw">in</span> numbers <span class="cf">if</span> num <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>]</span>
-<span id="cb40-2"><a href=""></a></span>
-<span id="cb40-3"><a href=""></a><span class="bu">print</span>(some_squared)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="137d0e79" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href=""></a>some_squared <span class="op">=</span> [num<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> num <span class="kw">in</span> numbers <span class="cf">if</span> num <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>]</span>
+<span id="cb54-2"><a href=""></a></span>
+<span id="cb54-3"><a href=""></a><span class="bu">print</span>(some_squared)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[4, 16]</code></pre>
 </div>
@@ -766,15 +865,15 @@ is_even(i)
 <section id="zip" class="slide level2">
 <h2>Zip()</h2>
 <p><code>zip()</code> will combine two lists by index, which can be useful if we have lists that match by index. For example, consider</p>
-<div id="f1b3e245" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href=""></a>countries <span class="op">=</span> [<span class="st">"USA"</span>, <span class="st">"Canada"</span>, <span class="st">"Mexico"</span>]</span>
-<span id="cb42-2"><a href=""></a>capitals <span class="op">=</span> [<span class="st">"Washington, DC."</span>, <span class="st">"Ottawa"</span>, <span class="st">"Mexico City"</span>]</span>
-<span id="cb42-3"><a href=""></a></span>
-<span id="cb42-4"><a href=""></a>merged <span class="op">=</span> <span class="bu">zip</span>(countries, capitals)</span>
-<span id="cb42-5"><a href=""></a></span>
-<span id="cb42-6"><a href=""></a><span class="bu">print</span>(merged)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="35ff278d" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href=""></a>countries <span class="op">=</span> [<span class="st">"USA"</span>, <span class="st">"Canada"</span>, <span class="st">"Mexico"</span>]</span>
+<span id="cb56-2"><a href=""></a>capitals <span class="op">=</span> [<span class="st">"Washington, DC."</span>, <span class="st">"Ottawa"</span>, <span class="st">"Mexico City"</span>]</span>
+<span id="cb56-3"><a href=""></a></span>
+<span id="cb56-4"><a href=""></a>merged <span class="op">=</span> <span class="bu">zip</span>(countries, capitals)</span>
+<span id="cb56-5"><a href=""></a></span>
+<span id="cb56-6"><a href=""></a><span class="bu">print</span>(merged)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;zip object at 0x104132d40&gt;</code></pre>
+<pre><code>&lt;zip object at 0x10869c4c0&gt;</code></pre>
 </div>
 </div>
 <p>So - this is kind of weird. It returns a zip object - how can we make this useful?</p>
@@ -783,24 +882,24 @@ is_even(i)
 <section id="a-dictionary-comprehension" class="slide level2">
 <h2>A Dictionary Comprehension</h2>
 <p>We might wish to combine two dictionaries</p>
-<div id="90d3df76" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href=""></a>countries <span class="op">=</span> [<span class="st">"USA"</span>, <span class="st">"Canada"</span>, <span class="st">"Mexico"</span>]</span>
-<span id="cb44-2"><a href=""></a>capitals <span class="op">=</span> [<span class="st">"Washington, DC."</span>, <span class="st">"Ottawa"</span>, <span class="st">"Mexico City"</span>]</span>
-<span id="cb44-3"><a href=""></a>capital_dict <span class="op">=</span> {}</span>
-<span id="cb44-4"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(countries)):</span>
-<span id="cb44-5"><a href=""></a>    capital_dict[countries[i]] <span class="op">=</span> capitals[i]</span>
-<span id="cb44-6"><a href=""></a></span>
-<span id="cb44-7"><a href=""></a><span class="bu">print</span>(capital_dict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="35eed221" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href=""></a>countries <span class="op">=</span> [<span class="st">"USA"</span>, <span class="st">"Canada"</span>, <span class="st">"Mexico"</span>]</span>
+<span id="cb58-2"><a href=""></a>capitals <span class="op">=</span> [<span class="st">"Washington, DC."</span>, <span class="st">"Ottawa"</span>, <span class="st">"Mexico City"</span>]</span>
+<span id="cb58-3"><a href=""></a>capital_dict <span class="op">=</span> {}</span>
+<span id="cb58-4"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(countries)):</span>
+<span id="cb58-5"><a href=""></a>    capital_dict[countries[i]] <span class="op">=</span> capitals[i]</span>
+<span id="cb58-6"><a href=""></a></span>
+<span id="cb58-7"><a href=""></a><span class="bu">print</span>(capital_dict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{'USA': 'Washington, DC.', 'Canada': 'Ottawa', 'Mexico': 'Mexico City'}</code></pre>
 </div>
 </div>
 <div class="fragment">
 <p>Dictionary Comprehension (with zip())</p>
-<div id="c5049d32" class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href=""></a>capital_dict <span class="op">=</span> {key:value <span class="cf">for</span> key, value <span class="kw">in</span> <span class="bu">zip</span>(countries, capitals)}</span>
-<span id="cb46-2"><a href=""></a></span>
-<span id="cb46-3"><a href=""></a><span class="bu">print</span>(capital_dict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="571285d7" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href=""></a>capital_dict <span class="op">=</span> {key:value <span class="cf">for</span> key, value <span class="kw">in</span> <span class="bu">zip</span>(countries, capitals)}</span>
+<span id="cb60-2"><a href=""></a></span>
+<span id="cb60-3"><a href=""></a><span class="bu">print</span>(capital_dict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{'USA': 'Washington, DC.', 'Canada': 'Ottawa', 'Mexico': 'Mexico City'}</code></pre>
 </div>
@@ -811,29 +910,35 @@ is_even(i)
 <section id="more-dictionary-comprehensions" class="slide level2">
 <h2>More Dictionary Comprehensions</h2>
 <p>Extract just the USA key:value pair (Get the capital of the USA)</p>
-<div id="b0bc1f3e" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href=""></a>usa_cap <span class="op">=</span> {key: value <span class="cf">for</span> key, value <span class="kw">in</span> <span class="bu">zip</span>(countries, capitals) <span class="cf">if</span> key <span class="op">==</span> <span class="st">"USA"</span>}</span>
-<span id="cb48-2"><a href=""></a></span>
-<span id="cb48-3"><a href=""></a><span class="bu">print</span>(usa_cap)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="0de6246f" class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href=""></a>usa_cap <span class="op">=</span> {key: value <span class="cf">for</span> key, value <span class="kw">in</span> <span class="bu">zip</span>(countries, capitals) <span class="cf">if</span> key <span class="op">==</span> <span class="st">"USA"</span>}</span>
+<span id="cb62-2"><a href=""></a></span>
+<span id="cb62-3"><a href=""></a><span class="bu">print</span>(usa_cap)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{'USA': 'Washington, DC.'}</code></pre>
 </div>
 </div>
 <div class="fragment">
 <p>Or, use the value to extract the key</p>
-<div id="3c19ba31" class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href=""></a>ottawa_country <span class="op">=</span> {key: value <span class="cf">for</span> key, value <span class="kw">in</span> <span class="bu">zip</span>(countries, capitals) <span class="cf">if</span> value <span class="op">==</span> <span class="st">"Ottawa"</span>}</span>
-<span id="cb50-2"><a href=""></a></span>
-<span id="cb50-3"><a href=""></a><span class="bu">print</span>(ottawa_country)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d49e7caf" class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href=""></a>ottawa_country <span class="op">=</span> {key: value <span class="cf">for</span> key, value <span class="kw">in</span> <span class="bu">zip</span>(countries, capitals) <span class="cf">if</span> value <span class="op">==</span> <span class="st">"Ottawa"</span>}</span>
+<span id="cb64-2"><a href=""></a></span>
+<span id="cb64-3"><a href=""></a><span class="bu">print</span>(ottawa_country)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{'Canada': 'Ottawa'}</code></pre>
 </div>
 </div>
 </div>
 </section>
-<section id="your-turn-2" class="slide level2">
-<h2>Your Turn!</h2>
-<p>Take one of our loops from yesterday (or come up with your own), and re-implement it using a comprehension</p>
+<section id="your-turn-dictionary-comprehension" class="slide level2">
+<h2>Your Turn — Dictionary Comprehension</h2>
+<p>You have two parallel lists — senators and their years of service:</p>
+<div id="e771b320" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href=""></a>senators <span class="op">=</span> [<span class="st">"Sanders"</span>, <span class="st">"Warren"</span>, <span class="st">"Cruz"</span>, <span class="st">"Cornyn"</span>, <span class="st">"Schumer"</span>]</span>
+<span id="cb66-2"><a href=""></a>years    <span class="op">=</span> [<span class="dv">34</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">23</span>, <span class="dv">26</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Write a dictionary comprehension that builds a <code>{senator: years}</code> mapping, but only includes senators with <strong>more than 15 years</strong> of service.</p>
+<p><strong>Hint:</strong> you’ll need <code>zip()</code> and an <code>if</code> clause.</p>
 </section>
 <section id="python-modules" class="slide level2">
 <h2>Python Modules</h2>
@@ -851,20 +956,20 @@ is_even(i)
 <h2>Python Modules: The Standard Library</h2>
 <p>The standard library already contains a bunch of useful modules. For example, we can load the <code>math</code> module.</p>
 <p>Instead of writing our own power function</p>
-<div id="06f414ca" class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href=""></a><span class="kw">def</span> raise_to_power(a, b):</span>
-<span id="cb52-2"><a href=""></a>    <span class="cf">return</span> a<span class="op">**</span>b</span>
-<span id="cb52-3"><a href=""></a></span>
-<span id="cb52-4"><a href=""></a>raise_to_power(<span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="25">
+<div id="f5ece748" class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href=""></a><span class="kw">def</span> raise_to_power(a, b):</span>
+<span id="cb67-2"><a href=""></a>    <span class="cf">return</span> a<span class="op">**</span>b</span>
+<span id="cb67-3"><a href=""></a></span>
+<span id="cb67-4"><a href=""></a>raise_to_power(<span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="32">
 <pre><code>8</code></pre>
 </div>
 </div>
 <p>We can import a module that has already defined this function</p>
-<div id="45063c5b" class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href=""></a><span class="im">import</span> math</span>
-<span id="cb54-2"><a href=""></a>math.<span class="bu">pow</span>(<span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="26">
+<div id="b728c700" class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href=""></a><span class="im">import</span> math</span>
+<span id="cb69-2"><a href=""></a>math.<span class="bu">pow</span>(<span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="33">
 <pre><code>8.0</code></pre>
 </div>
 </div>
@@ -872,12 +977,12 @@ is_even(i)
 <section id="another-example" class="slide level2">
 <h2>Another example</h2>
 <p>There are <em>tons</em> of useful modules in the standard library</p>
-<div id="657321e0" class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href=""></a><span class="im">from</span> datetime <span class="im">import</span> date</span>
-<span id="cb56-2"><a href=""></a></span>
-<span id="cb56-3"><a href=""></a>today <span class="op">=</span> date.today()</span>
-<span id="cb56-4"><a href=""></a></span>
-<span id="cb56-5"><a href=""></a><span class="bu">print</span>(<span class="st">"Today's date is:"</span>, today)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="69003abf" class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href=""></a><span class="im">from</span> datetime <span class="im">import</span> date</span>
+<span id="cb71-2"><a href=""></a></span>
+<span id="cb71-3"><a href=""></a>today <span class="op">=</span> date.today()</span>
+<span id="cb71-4"><a href=""></a></span>
+<span id="cb71-5"><a href=""></a><span class="bu">print</span>(<span class="st">"Today's date is:"</span>, today)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Today's date is: 2026-07-07</code></pre>
 </div>
@@ -897,10 +1002,10 @@ is_even(i)
 </section>
 <section id="importing-libraries" class="slide level2">
 <h2>Importing Libraries</h2>
-<p><code>numpy</code> is not a built-in feature of Python, so we need to load it</p>
+<p><code>numpy</code> is not a built-in feature of Python, so we need to load it. If you don’t have it installed, type <code>pip install numpy</code> in your terminal.</p>
 <p>by convention we load <code>numpy</code> as <code>np</code></p>
-<div id="f6d1da36" class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="daf9b653" class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="np-arrays" class="slide level2">
@@ -908,12 +1013,12 @@ is_even(i)
 <p><code>numpy</code> Arrays are useful because they are very computationally efficient ways of storing multi-dimensional data. On average, between 10x to 100x faster than other Python approaches.</p>
 <div class="fragment">
 <p>Most data in the social sciences is multidimensional, so this is crucial for our purposes!</p>
-<div id="f8d5efae" class="cell" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href=""></a><span class="co"># create an array of data</span></span>
-<span id="cb59-2"><a href=""></a>data <span class="op">=</span> np.array([[<span class="fl">1.5</span>, <span class="op">-</span><span class="fl">0.1</span>, <span class="dv">3</span>], [<span class="dv">0</span>, <span class="op">-</span><span class="dv">3</span>, <span class="fl">6.5</span>]])</span>
-<span id="cb59-3"><a href=""></a></span>
-<span id="cb59-4"><a href=""></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="29">
+<div id="aad70544" class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href=""></a><span class="co"># create an array of data</span></span>
+<span id="cb74-2"><a href=""></a>data <span class="op">=</span> np.array([[<span class="fl">1.5</span>, <span class="op">-</span><span class="fl">0.1</span>, <span class="dv">3</span>], [<span class="dv">0</span>, <span class="op">-</span><span class="dv">3</span>, <span class="fl">6.5</span>]])</span>
+<span id="cb74-3"><a href=""></a></span>
+<span id="cb74-4"><a href=""></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="36">
 <pre><code>array([[ 1.5, -0.1,  3. ],
        [ 0. , -3. ,  6.5]])</code></pre>
 </div>
@@ -922,13 +1027,13 @@ is_even(i)
 </section>
 <section id="math-with-arrays" class="slide level2">
 <h2>Math with Arrays</h2>
-<div id="fec7b169" class="cell" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href=""></a>data <span class="op">*</span> <span class="dv">10</span></span>
-<span id="cb61-2"><a href=""></a></span>
-<span id="cb61-3"><a href=""></a>data <span class="op">+</span> <span class="dv">5</span></span>
-<span id="cb61-4"><a href=""></a></span>
-<span id="cb61-5"><a href=""></a>data <span class="op">*</span> data </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="30">
+<div id="6a761ffe" class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href=""></a>data <span class="op">*</span> <span class="dv">10</span></span>
+<span id="cb76-2"><a href=""></a></span>
+<span id="cb76-3"><a href=""></a>data <span class="op">+</span> <span class="dv">5</span></span>
+<span id="cb76-4"><a href=""></a></span>
+<span id="cb76-5"><a href=""></a>data <span class="op">*</span> data </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="37">
 <pre><code>array([[2.250e+00, 1.000e-02, 9.000e+00],
        [0.000e+00, 9.000e+00, 4.225e+01]])</code></pre>
 </div>
@@ -937,16 +1042,16 @@ is_even(i)
 <section id="array-methods" class="slide level2">
 <h2>Array Methods</h2>
 <p>We can check the shape of data stored in an array</p>
-<div id="04ba9192" class="cell" data-execution_count="37">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href=""></a>data.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="31">
+<div id="a6b221dc" class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href=""></a>data.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="38">
 <pre><code>(2, 3)</code></pre>
 </div>
 </div>
 <p>Or the type of data stored in the array</p>
-<div id="5b5b2dfb" class="cell" data-execution_count="38">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href=""></a>data.dtype</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="32">
+<div id="87c8f14c" class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href=""></a>data.dtype</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="39">
 <pre><code>dtype('float64')</code></pre>
 </div>
 </div>
@@ -954,9 +1059,9 @@ is_even(i)
 <section id="more-array-methods" class="slide level2">
 <h2>More Array Methods</h2>
 <p>We can make an array of zeros with arbitrarily many dimensions like so</p>
-<div id="4f5594bf" class="cell" data-execution_count="39">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href=""></a>np.zeros((<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="33">
+<div id="0636b917" class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href=""></a>np.zeros((<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="40">
 <pre><code>array([[[0., 0.],
         [0., 0.],
         [0., 0.]],
@@ -967,9 +1072,9 @@ is_even(i)
 </div>
 </div>
 <p>Or an ordered array from 0 to 19 like this</p>
-<div id="4cb5fd11" class="cell" data-execution_count="40">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href=""></a>np.arange(<span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="34">
+<div id="c49906df" class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href=""></a>np.arange(<span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="41">
 <pre><code>array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,
        17, 18, 19])</code></pre>
 </div>
@@ -978,22 +1083,22 @@ is_even(i)
 <section id="slicing-and-indexing-arrays" class="slide level2">
 <h2>Slicing and Indexing Arrays</h2>
 <p>Like with lists, we can slice and index arrays. Let’s start with a 1D array. As with other data types, arrays are zero indexed in Python</p>
-<div id="a4b4f425" class="cell" data-execution_count="41">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href=""></a>arr <span class="op">=</span> np.arange(<span class="dv">10</span>)</span>
-<span id="cb71-2"><a href=""></a></span>
-<span id="cb71-3"><a href=""></a>arr[<span class="dv">5</span>]</span>
-<span id="cb71-4"><a href=""></a></span>
-<span id="cb71-5"><a href=""></a>arr[<span class="dv">5</span>:<span class="dv">8</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="35">
+<div id="d2d695c9" class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href=""></a>arr <span class="op">=</span> np.arange(<span class="dv">10</span>)</span>
+<span id="cb86-2"><a href=""></a></span>
+<span id="cb86-3"><a href=""></a>arr[<span class="dv">5</span>]</span>
+<span id="cb86-4"><a href=""></a></span>
+<span id="cb86-5"><a href=""></a>arr[<span class="dv">5</span>:<span class="dv">8</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="42">
 <pre><code>array([5, 6, 7])</code></pre>
 </div>
 </div>
 <p>We can update the values of arrays</p>
-<div id="f7d886f0" class="cell" data-execution_count="42">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href=""></a>arr[<span class="dv">5</span>:<span class="dv">8</span>] <span class="op">=</span> <span class="dv">12</span></span>
-<span id="cb73-2"><a href=""></a></span>
-<span id="cb73-3"><a href=""></a>arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="36">
+<div id="6cc3968b" class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href=""></a>arr[<span class="dv">5</span>:<span class="dv">8</span>] <span class="op">=</span> <span class="dv">12</span></span>
+<span id="cb88-2"><a href=""></a></span>
+<span id="cb88-3"><a href=""></a>arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="43">
 <pre><code>array([ 0,  1,  2,  3,  4, 12, 12, 12,  8,  9])</code></pre>
 </div>
 </div>
@@ -1001,16 +1106,16 @@ is_even(i)
 <section id="warning" class="slide level2">
 <h2>Warning!</h2>
 <p>You do need to be careful with slicing arrays. Even if you save a slice of an array to a new object, <code>NumPy</code> still recognizes that slice as part of the original array. And if you change the values in that new object, it will also change the original object in memory.</p>
-<div id="714d1874" class="cell" data-execution_count="43">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href=""></a><span class="co"># uh-oh</span></span>
-<span id="cb75-2"><a href=""></a></span>
-<span id="cb75-3"><a href=""></a>arr_slice <span class="op">=</span> arr[<span class="dv">5</span>:<span class="dv">8</span>]</span>
-<span id="cb75-4"><a href=""></a>arr_slice</span>
-<span id="cb75-5"><a href=""></a></span>
-<span id="cb75-6"><a href=""></a>arr_slice[<span class="dv">1</span>] <span class="op">=</span> <span class="dv">12345</span></span>
-<span id="cb75-7"><a href=""></a></span>
-<span id="cb75-8"><a href=""></a>arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="37">
+<div id="a087c56d" class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href=""></a><span class="co"># uh-oh</span></span>
+<span id="cb90-2"><a href=""></a></span>
+<span id="cb90-3"><a href=""></a>arr_slice <span class="op">=</span> arr[<span class="dv">5</span>:<span class="dv">8</span>]</span>
+<span id="cb90-4"><a href=""></a>arr_slice</span>
+<span id="cb90-5"><a href=""></a></span>
+<span id="cb90-6"><a href=""></a>arr_slice[<span class="dv">1</span>] <span class="op">=</span> <span class="dv">12345</span></span>
+<span id="cb90-7"><a href=""></a></span>
+<span id="cb90-8"><a href=""></a>arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="44">
 <pre><code>array([    0,     1,     2,     3,     4,    12, 12345,    12,     8,
            9])</code></pre>
 </div>
@@ -1018,12 +1123,12 @@ is_even(i)
 </section>
 <section id="comparing-arrays" class="slide level2">
 <h2>Comparing Arrays</h2>
-<div id="0d2091b2" class="cell" data-execution_count="44">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href=""></a>arr <span class="op">=</span> np.array([[<span class="fl">1.</span>, <span class="fl">2.</span>, <span class="fl">3.</span>], [<span class="fl">4.</span>, <span class="fl">5.</span>, <span class="fl">6.</span>]])</span>
-<span id="cb77-2"><a href=""></a>arr2 <span class="op">=</span> np.array([[<span class="fl">0.</span>, <span class="fl">4.</span>, <span class="fl">1.</span>], [<span class="fl">7.</span>, <span class="fl">2.</span>, <span class="fl">12.</span>]])</span>
-<span id="cb77-3"><a href=""></a></span>
-<span id="cb77-4"><a href=""></a>arr2 <span class="op">&gt;</span> arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="38">
+<div id="679ffb57" class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a href=""></a>arr <span class="op">=</span> np.array([[<span class="fl">1.</span>, <span class="fl">2.</span>, <span class="fl">3.</span>], [<span class="fl">4.</span>, <span class="fl">5.</span>, <span class="fl">6.</span>]])</span>
+<span id="cb92-2"><a href=""></a>arr2 <span class="op">=</span> np.array([[<span class="fl">0.</span>, <span class="fl">4.</span>, <span class="fl">1.</span>], [<span class="fl">7.</span>, <span class="fl">2.</span>, <span class="fl">12.</span>]])</span>
+<span id="cb92-3"><a href=""></a></span>
+<span id="cb92-4"><a href=""></a>arr2 <span class="op">&gt;</span> arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="45">
 <pre><code>array([[False,  True, False],
        [ True, False,  True]])</code></pre>
 </div>
@@ -1032,11 +1137,11 @@ is_even(i)
 <section id="multidimensional-arrays" class="slide level2">
 <h2>Multidimensional Arrays</h2>
 <p>We can create arrays of arbitrarily many dimensions, although if things are getting very complex we might want to think about other ways to store our data</p>
-<div id="4ee8ee1f" class="cell" data-execution_count="45">
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href=""></a>arr_3d <span class="op">=</span> np.array([[[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]], [[<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>], [<span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>]]])</span>
-<span id="cb79-2"><a href=""></a></span>
-<span id="cb79-3"><a href=""></a>arr_3d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="39">
+<div id="eaff8d32" class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href=""></a>arr_3d <span class="op">=</span> np.array([[[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]], [[<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>], [<span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>]]])</span>
+<span id="cb94-2"><a href=""></a></span>
+<span id="cb94-3"><a href=""></a>arr_3d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="46">
 <pre><code>array([[[ 1,  2,  3],
         [ 4,  5,  6]],
 
