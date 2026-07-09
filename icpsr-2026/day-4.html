@@ -9,7 +9,7 @@
 <link href="day-4_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.32">
 
-  <title>Day 4: Numpy, Pandas and APIs</title>
+  <title>Day 4: NumPy, pandas, and APIs</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -195,7 +195,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Day 4: Numpy, Pandas and APIs</h1>
+  <h1 class="title">Day 4: NumPy, pandas, and APIs</h1>
 
 <div class="quarto-title-authors">
 </div>
@@ -205,7 +205,7 @@
 <h2>Course Outline</h2>
 <p>Monday: Intro and Coding Basics</p>
 <p>Tuesday: Basics Continued and Control Flow</p>
-<p>Wednesday: Object Oriented Programming and Functions</p>
+<p>Wednesday: Functions, Modules, and NumPy</p>
 <p><strong>Today: Arrays, Data Analysis and APIs</strong></p>
 <p>Friday: Web Scraping and Text-as-Data</p>
 </section>
@@ -213,25 +213,11 @@
 <h2>Review Exercise (Functions)</h2>
 <p>Write a function that, given a dictionary consisting of policies and their budgets in millions of dollars, constructs a list of the policy names with budgets below $100 million.</p>
 <p>Use the following dictionary of policies</p>
-<div id="8ca3f918" class="cell" data-execution_count="1">
+<div id="01959e80" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a>policies <span class="op">=</span> {<span class="st">"public_transit"</span>: <span class="dv">10</span>, <span class="st">"education_funding"</span>: <span class="dv">50</span>, <span class="st">"snap_expansion"</span>: <span class="dv">175</span>,</span>
 <span id="cb1-2"><a href=""></a>            <span class="st">"defense_procurement"</span>: <span class="dv">850</span>, <span class="st">"reduce_emissions"</span>: <span class="dv">20</span>,</span>
 <span id="cb1-3"><a href=""></a>            <span class="st">"judicial_modernization"</span>: <span class="dv">35</span>, <span class="st">"broadband_access"</span>: <span class="dv">250</span>, <span class="st">"school_lunches"</span>: <span class="dv">80</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="return-clarification" class="slide level2">
-<h2>Return: Clarification</h2>
-<div id="89e11294" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="kw">def</span> is_div_six(number):</span>
-<span id="cb2-2"><a href=""></a>    <span class="cf">if</span> number <span class="op">%</span> <span class="dv">6</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb2-3"><a href=""></a>        <span class="cf">if</span> number <span class="op">%</span> <span class="dv">9</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb2-4"><a href=""></a>            <span class="cf">return</span> <span class="st">"Number is divisible by 6 and 9"</span></span>
-<span id="cb2-5"><a href=""></a>        <span class="cf">else</span>:</span>
-<span id="cb2-6"><a href=""></a>            <span class="cf">return</span> <span class="st">"Number is divisible by 6"</span></span>
-<span id="cb2-7"><a href=""></a>    <span class="cf">else</span>:</span>
-<span id="cb2-8"><a href=""></a>        <span class="cf">return</span> <span class="st">"Number is not divisible by 6"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Note where the <code>return</code> statements are. In a <code>for</code> loop with print, we might print after <code>number % 6 == 0</code>, but if we did that here it would exit the function before checking whether the number is also divisible by 9!</p>
 </section>
 <section id="you-try" class="slide level2">
 <h2>You Try</h2>
@@ -240,20 +226,20 @@
 <section id="conditional-logic-in-comprehensions" class="slide level2">
 <h2>Conditional Logic in Comprehensions</h2>
 <p>Suppose we have multiple conditions we want to evaluate. In a <code>for</code> loop we would use <code>if</code>, <code>elif</code> and <code>else</code>, but the syntax is a little different for comprehensions. Check out this more complicated syntax.</p>
-<div id="23540064" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a>policies <span class="op">=</span> [<span class="st">"Public Transit"</span>, <span class="st">"Education Funding"</span>, <span class="st">"SNAP Expansion"</span>, <span class="st">"Defense Procurement"</span>, <span class="st">"Reduce Emissions"</span>]</span>
-<span id="cb3-2"><a href=""></a>budgets  <span class="op">=</span> [<span class="dv">10</span>,                <span class="dv">50</span>,                  <span class="dv">175</span>,              <span class="dv">850</span>,                   <span class="dv">20</span>]  <span class="co"># in millions of dollars</span></span>
-<span id="cb3-3"><a href=""></a></span>
-<span id="cb3-4"><a href=""></a>classifications <span class="op">=</span> [</span>
-<span id="cb3-5"><a href=""></a>    <span class="ss">f"</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">: "</span> <span class="op">+</span> (</span>
-<span id="cb3-6"><a href=""></a>        <span class="st">"small"</span>   <span class="cf">if</span> budget <span class="op">&lt;</span> <span class="dv">25</span></span>
-<span id="cb3-7"><a href=""></a>        <span class="cf">else</span> <span class="st">"medium"</span> <span class="cf">if</span> budget <span class="op">&lt;</span> <span class="dv">100</span></span>
-<span id="cb3-8"><a href=""></a>        <span class="cf">else</span> <span class="st">"large"</span></span>
-<span id="cb3-9"><a href=""></a>    )</span>
-<span id="cb3-10"><a href=""></a>    <span class="cf">for</span> name, budget <span class="kw">in</span> <span class="bu">zip</span>(policies, budgets)</span>
-<span id="cb3-11"><a href=""></a>]</span>
-<span id="cb3-12"><a href=""></a></span>
-<span id="cb3-13"><a href=""></a><span class="bu">print</span>(classifications)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c764ec0e" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a>policies <span class="op">=</span> [<span class="st">"Public Transit"</span>, <span class="st">"Education Funding"</span>, <span class="st">"SNAP Expansion"</span>, <span class="st">"Defense Procurement"</span>, <span class="st">"Reduce Emissions"</span>]</span>
+<span id="cb2-2"><a href=""></a>budgets  <span class="op">=</span> [<span class="dv">10</span>,                <span class="dv">50</span>,                  <span class="dv">175</span>,              <span class="dv">850</span>,                   <span class="dv">20</span>]  <span class="co"># in millions of dollars</span></span>
+<span id="cb2-3"><a href=""></a></span>
+<span id="cb2-4"><a href=""></a>classifications <span class="op">=</span> [</span>
+<span id="cb2-5"><a href=""></a>    <span class="ss">f"</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">: "</span> <span class="op">+</span> (</span>
+<span id="cb2-6"><a href=""></a>        <span class="st">"small"</span>   <span class="cf">if</span> budget <span class="op">&lt;</span> <span class="dv">25</span></span>
+<span id="cb2-7"><a href=""></a>        <span class="cf">else</span> <span class="st">"medium"</span> <span class="cf">if</span> budget <span class="op">&lt;</span> <span class="dv">100</span></span>
+<span id="cb2-8"><a href=""></a>        <span class="cf">else</span> <span class="st">"large"</span></span>
+<span id="cb2-9"><a href=""></a>    )</span>
+<span id="cb2-10"><a href=""></a>    <span class="cf">for</span> name, budget <span class="kw">in</span> <span class="bu">zip</span>(policies, budgets)</span>
+<span id="cb2-11"><a href=""></a>]</span>
+<span id="cb2-12"><a href=""></a></span>
+<span id="cb2-13"><a href=""></a><span class="bu">print</span>(classifications)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['Public Transit: small', 'Education Funding: medium', 'SNAP Expansion: large', 'Defense Procurement: large', 'Reduce Emissions: small']</code></pre>
 </div>
@@ -261,28 +247,28 @@
 </section>
 <section id="complex-dictionary-comprehensions-setup" class="slide level2">
 <h2>Complex Dictionary Comprehensions: setup</h2>
-<div id="a547da6c" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>policy_budgets <span class="op">=</span> {</span>
-<span id="cb5-2"><a href=""></a>    <span class="st">"Public Transit"</span>: <span class="dv">10</span>,</span>
-<span id="cb5-3"><a href=""></a>    <span class="st">"Education Funding"</span>: <span class="dv">50</span>,</span>
-<span id="cb5-4"><a href=""></a>    <span class="st">"SNAP Expansion"</span>: <span class="dv">175</span>,</span>
-<span id="cb5-5"><a href=""></a>    <span class="st">"Defense Procurement"</span>: <span class="dv">850</span>,</span>
-<span id="cb5-6"><a href=""></a>    <span class="st">"Reduce Emissions"</span>: <span class="dv">20</span></span>
-<span id="cb5-7"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e7cf400c" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a>policy_budgets <span class="op">=</span> {</span>
+<span id="cb4-2"><a href=""></a>    <span class="st">"Public Transit"</span>: <span class="dv">10</span>,</span>
+<span id="cb4-3"><a href=""></a>    <span class="st">"Education Funding"</span>: <span class="dv">50</span>,</span>
+<span id="cb4-4"><a href=""></a>    <span class="st">"SNAP Expansion"</span>: <span class="dv">175</span>,</span>
+<span id="cb4-5"><a href=""></a>    <span class="st">"Defense Procurement"</span>: <span class="dv">850</span>,</span>
+<span id="cb4-6"><a href=""></a>    <span class="st">"Reduce Emissions"</span>: <span class="dv">20</span></span>
+<span id="cb4-7"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Same data as the conditional-logic example, just in dictionary form.</p>
 </section>
 <section id="complex-dictionary-comprehensions-the-comprehension" class="slide level2">
 <h2>Complex Dictionary Comprehensions: the comprehension</h2>
-<div id="435d2c41" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a>classification <span class="op">=</span> {</span>
-<span id="cb6-2"><a href=""></a>    name: (</span>
-<span id="cb6-3"><a href=""></a>        <span class="st">"small"</span>   <span class="cf">if</span> b <span class="op">&lt;</span> <span class="dv">25</span></span>
-<span id="cb6-4"><a href=""></a>        <span class="cf">else</span> <span class="st">"medium"</span> <span class="cf">if</span> b <span class="op">&lt;</span> <span class="dv">100</span></span>
-<span id="cb6-5"><a href=""></a>        <span class="cf">else</span> <span class="st">"large"</span></span>
-<span id="cb6-6"><a href=""></a>    )</span>
-<span id="cb6-7"><a href=""></a>    <span class="cf">for</span> name, b <span class="kw">in</span> policy_budgets.items()</span>
-<span id="cb6-8"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="420d88d3" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>classification <span class="op">=</span> {</span>
+<span id="cb5-2"><a href=""></a>    name: (</span>
+<span id="cb5-3"><a href=""></a>        <span class="st">"small"</span>   <span class="cf">if</span> b <span class="op">&lt;</span> <span class="dv">25</span></span>
+<span id="cb5-4"><a href=""></a>        <span class="cf">else</span> <span class="st">"medium"</span> <span class="cf">if</span> b <span class="op">&lt;</span> <span class="dv">100</span></span>
+<span id="cb5-5"><a href=""></a>        <span class="cf">else</span> <span class="st">"large"</span></span>
+<span id="cb5-6"><a href=""></a>    )</span>
+<span id="cb5-7"><a href=""></a>    <span class="cf">for</span> name, b <span class="kw">in</span> policy_budgets.items()</span>
+<span id="cb5-8"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Same conditional pattern as the list version, but <code>name: value</code> instead of just <code>value</code>. <code>policy_budgets.items()</code> gives us <code>(name, budget)</code> pairs to unpack.</p>
 </section>
@@ -290,10 +276,10 @@
 <h2>Review Exercise Revisited</h2>
 <p>Write a function that, given a dictionary consisting of policies and their budgets in millions, constructs a dictionary of policies with budgets below $100 million. Use a comprehension to accomplish this!</p>
 <p>Start with</p>
-<div id="065c98fa" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>policies <span class="op">=</span> {<span class="st">"public_transit"</span>: <span class="dv">10</span>, <span class="st">"education_funding"</span>: <span class="dv">50</span>, <span class="st">"snap_expansion"</span>: <span class="dv">175</span>,</span>
-<span id="cb7-2"><a href=""></a>            <span class="st">"defense_procurement"</span>: <span class="dv">850</span>, <span class="st">"reduce_emissions"</span>: <span class="dv">20</span>,</span>
-<span id="cb7-3"><a href=""></a>            <span class="st">"judicial_modernization"</span>: <span class="dv">35</span>, <span class="st">"broadband_access"</span>: <span class="dv">250</span>, <span class="st">"school_lunches"</span>: <span class="dv">80</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="57b4d34a" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a>policies <span class="op">=</span> {<span class="st">"public_transit"</span>: <span class="dv">10</span>, <span class="st">"education_funding"</span>: <span class="dv">50</span>, <span class="st">"snap_expansion"</span>: <span class="dv">175</span>,</span>
+<span id="cb6-2"><a href=""></a>            <span class="st">"defense_procurement"</span>: <span class="dv">850</span>, <span class="st">"reduce_emissions"</span>: <span class="dv">20</span>,</span>
+<span id="cb6-3"><a href=""></a>            <span class="st">"judicial_modernization"</span>: <span class="dv">35</span>, <span class="st">"broadband_access"</span>: <span class="dv">250</span>, <span class="st">"school_lunches"</span>: <span class="dv">80</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="python-modules" class="slide level2">
@@ -312,20 +298,20 @@
 <h2>Python Modules: The Standard Library</h2>
 <p>The standard library already contains a bunch of useful modules. For example, we can load the <code>math</code> module.</p>
 <p>Instead of writing our own power function</p>
-<div id="10ab5d5e" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a><span class="kw">def</span> raise_to_power(a, b):</span>
-<span id="cb8-2"><a href=""></a>    <span class="cf">return</span> a<span class="op">**</span>b</span>
-<span id="cb8-3"><a href=""></a></span>
-<span id="cb8-4"><a href=""></a>raise_to_power(<span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div id="806aae47" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a><span class="kw">def</span> raise_to_power(a, b):</span>
+<span id="cb7-2"><a href=""></a>    <span class="cf">return</span> a<span class="op">**</span>b</span>
+<span id="cb7-3"><a href=""></a></span>
+<span id="cb7-4"><a href=""></a>raise_to_power(<span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>8</code></pre>
 </div>
 </div>
 <p>We can import a module that has already defined this function</p>
-<div id="21dc63a9" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a><span class="im">import</span> math</span>
-<span id="cb10-2"><a href=""></a>math.<span class="bu">pow</span>(<span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div id="78da9571" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="im">import</span> math</span>
+<span id="cb9-2"><a href=""></a>math.<span class="bu">pow</span>(<span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>8.0</code></pre>
 </div>
 </div>
@@ -333,12 +319,12 @@
 <section id="another-example" class="slide level2">
 <h2>Another example</h2>
 <p>There are <em>tons</em> of useful modules in the standard library</p>
-<div id="ef523e13" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a><span class="im">from</span> datetime <span class="im">import</span> date</span>
-<span id="cb12-2"><a href=""></a></span>
-<span id="cb12-3"><a href=""></a>today <span class="op">=</span> date.today()</span>
-<span id="cb12-4"><a href=""></a></span>
-<span id="cb12-5"><a href=""></a><span class="bu">print</span>(<span class="st">"Today's date is:"</span>, today)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="92623729" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a><span class="im">from</span> datetime <span class="im">import</span> date</span>
+<span id="cb11-2"><a href=""></a></span>
+<span id="cb11-3"><a href=""></a>today <span class="op">=</span> date.today()</span>
+<span id="cb11-4"><a href=""></a></span>
+<span id="cb11-5"><a href=""></a><span class="bu">print</span>(<span class="st">"Today's date is:"</span>, today)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Today's date is: 2026-07-09</code></pre>
 </div>
@@ -359,9 +345,9 @@
 <section id="importing-libraries" class="slide level2">
 <h2>Importing Libraries</h2>
 <p><code>numpy</code> is not a built-in feature of Python, so we need to load it. If you don’t have it installed, type <code>pip install numpy</code> in your terminal.</p>
-<p>by convention we load <code>numpy</code> as <code>np</code></p>
-<div id="ab9db837" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>By convention we load <code>numpy</code> as <code>np</code>.</p>
+<div id="ed93ee07" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="np-arrays" class="slide level2">
@@ -369,12 +355,12 @@
 <p><code>numpy</code> Arrays are useful because they are very computationally efficient ways of storing multi-dimensional data. On average, between 10x to 100x faster than other Python approaches.</p>
 <div class="fragment">
 <p>Most data in the social sciences is multidimensional, so this is crucial for our purposes!</p>
-<div id="8610c03b" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a><span class="co"># create an array of data</span></span>
-<span id="cb15-2"><a href=""></a>data <span class="op">=</span> np.array([[<span class="fl">1.5</span>, <span class="op">-</span><span class="fl">0.1</span>, <span class="dv">3</span>], [<span class="dv">0</span>, <span class="op">-</span><span class="dv">3</span>, <span class="fl">6.5</span>]])</span>
-<span id="cb15-3"><a href=""></a></span>
-<span id="cb15-4"><a href=""></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
+<div id="46f45726" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a><span class="co"># create an array of data</span></span>
+<span id="cb14-2"><a href=""></a>data <span class="op">=</span> np.array([[<span class="fl">1.5</span>, <span class="op">-</span><span class="fl">0.1</span>, <span class="dv">3</span>], [<span class="dv">0</span>, <span class="op">-</span><span class="dv">3</span>, <span class="fl">6.5</span>]])</span>
+<span id="cb14-3"><a href=""></a></span>
+<span id="cb14-4"><a href=""></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>array([[ 1.5, -0.1,  3. ],
        [ 0. , -3. ,  6.5]])</code></pre>
 </div>
@@ -383,13 +369,13 @@
 </section>
 <section id="math-with-arrays" class="slide level2">
 <h2>Math with Arrays</h2>
-<div id="dc01e03b" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a>data <span class="op">*</span> <span class="dv">10</span></span>
-<span id="cb17-2"><a href=""></a></span>
-<span id="cb17-3"><a href=""></a>data <span class="op">+</span> <span class="dv">5</span></span>
-<span id="cb17-4"><a href=""></a></span>
-<span id="cb17-5"><a href=""></a>data <span class="op">*</span> data </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div id="c8d39e34" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href=""></a>data <span class="op">*</span> <span class="dv">10</span></span>
+<span id="cb16-2"><a href=""></a></span>
+<span id="cb16-3"><a href=""></a>data <span class="op">+</span> <span class="dv">5</span></span>
+<span id="cb16-4"><a href=""></a></span>
+<span id="cb16-5"><a href=""></a>data <span class="op">*</span> data </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>array([[2.250e+00, 1.000e-02, 9.000e+00],
        [0.000e+00, 9.000e+00, 4.225e+01]])</code></pre>
 </div>
@@ -398,16 +384,16 @@
 <section id="array-methods" class="slide level2">
 <h2>Array Methods</h2>
 <p>We can check the shape of data stored in an array</p>
-<div id="a14bc9f8" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a>data.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div id="0ac13316" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href=""></a>data.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>(2, 3)</code></pre>
 </div>
 </div>
 <p>Or the type of data stored in the array</p>
-<div id="65511b20" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href=""></a>data.dtype</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div id="5c86f510" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href=""></a>data.dtype</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>dtype('float64')</code></pre>
 </div>
 </div>
@@ -415,9 +401,9 @@
 <section id="more-array-methods" class="slide level2">
 <h2>More Array Methods</h2>
 <p>We can make an array of zeros with arbitrarily many dimensions like so</p>
-<div id="5be9e1e6" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href=""></a>np.zeros((<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div id="5ace9099" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href=""></a>np.zeros((<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>array([[[0., 0.],
         [0., 0.],
         [0., 0.]],
@@ -428,9 +414,9 @@
 </div>
 </div>
 <p>Or an ordered array from 0 to 19 like this</p>
-<div id="ea6b42ec" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href=""></a>np.arange(<span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div id="d3045fb7" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href=""></a>np.arange(<span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,
        17, 18, 19])</code></pre>
 </div>
@@ -439,22 +425,22 @@
 <section id="slicing-and-indexing-arrays" class="slide level2">
 <h2>Slicing and Indexing Arrays</h2>
 <p>Like with lists, we can slice and index arrays. Let’s start with a 1D array. As with other data types, arrays are zero indexed in Python</p>
-<div id="6951b32c" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href=""></a>arr <span class="op">=</span> np.arange(<span class="dv">10</span>)</span>
-<span id="cb27-2"><a href=""></a></span>
-<span id="cb27-3"><a href=""></a>arr[<span class="dv">5</span>]</span>
-<span id="cb27-4"><a href=""></a></span>
-<span id="cb27-5"><a href=""></a>arr[<span class="dv">5</span>:<span class="dv">8</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="15">
+<div id="688b47c0" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href=""></a>arr <span class="op">=</span> np.arange(<span class="dv">10</span>)</span>
+<span id="cb26-2"><a href=""></a></span>
+<span id="cb26-3"><a href=""></a>arr[<span class="dv">5</span>]</span>
+<span id="cb26-4"><a href=""></a></span>
+<span id="cb26-5"><a href=""></a>arr[<span class="dv">5</span>:<span class="dv">8</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>array([5, 6, 7])</code></pre>
 </div>
 </div>
 <p>We can update the values of arrays</p>
-<div id="879a95c5" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href=""></a>arr[<span class="dv">5</span>:<span class="dv">8</span>] <span class="op">=</span> <span class="dv">12</span></span>
-<span id="cb29-2"><a href=""></a></span>
-<span id="cb29-3"><a href=""></a>arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="16">
+<div id="05071b3e" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href=""></a>arr[<span class="dv">5</span>:<span class="dv">8</span>] <span class="op">=</span> <span class="dv">12</span></span>
+<span id="cb28-2"><a href=""></a></span>
+<span id="cb28-3"><a href=""></a>arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>array([ 0,  1,  2,  3,  4, 12, 12, 12,  8,  9])</code></pre>
 </div>
 </div>
@@ -462,28 +448,46 @@
 <section id="warning" class="slide level2">
 <h2>Warning!</h2>
 <p>You do need to be careful with slicing arrays. Even if you save a slice of an array to a new object, <code>NumPy</code> still recognizes that slice as part of the original array. And if you change the values in that new object, it will also change the original object in memory.</p>
-<div id="a6f30b76" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href=""></a><span class="co"># uh-oh</span></span>
-<span id="cb31-2"><a href=""></a></span>
-<span id="cb31-3"><a href=""></a>arr_slice <span class="op">=</span> arr[<span class="dv">5</span>:<span class="dv">8</span>]</span>
-<span id="cb31-4"><a href=""></a>arr_slice</span>
-<span id="cb31-5"><a href=""></a></span>
-<span id="cb31-6"><a href=""></a>arr_slice[<span class="dv">1</span>] <span class="op">=</span> <span class="dv">12345</span></span>
-<span id="cb31-7"><a href=""></a></span>
-<span id="cb31-8"><a href=""></a>arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="17">
+<div id="901b9412" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href=""></a><span class="co"># uh-oh</span></span>
+<span id="cb30-2"><a href=""></a></span>
+<span id="cb30-3"><a href=""></a>arr_slice <span class="op">=</span> arr[<span class="dv">5</span>:<span class="dv">8</span>]</span>
+<span id="cb30-4"><a href=""></a>arr_slice</span>
+<span id="cb30-5"><a href=""></a></span>
+<span id="cb30-6"><a href=""></a>arr_slice[<span class="dv">1</span>] <span class="op">=</span> <span class="dv">12345</span></span>
+<span id="cb30-7"><a href=""></a></span>
+<span id="cb30-8"><a href=""></a>arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>array([    0,     1,     2,     3,     4,    12, 12345,    12,     8,
            9])</code></pre>
 </div>
 </div>
 </section>
+<section id="fixing-the-copy-problem" class="slide level2">
+<h2>Fixing the Copy Problem</h2>
+<p>If you want an independent copy of the slice, use <code>.copy()</code>:</p>
+<div id="fa195b7b" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href=""></a>arr <span class="op">=</span> np.arange(<span class="dv">10</span>)</span>
+<span id="cb32-2"><a href=""></a>arr_slice <span class="op">=</span> arr[<span class="dv">5</span>:<span class="dv">8</span>].copy()</span>
+<span id="cb32-3"><a href=""></a></span>
+<span id="cb32-4"><a href=""></a>arr_slice[<span class="dv">1</span>] <span class="op">=</span> <span class="dv">12345</span></span>
+<span id="cb32-5"><a href=""></a><span class="bu">print</span>(<span class="st">"slice:   "</span>, arr_slice)</span>
+<span id="cb32-6"><a href=""></a><span class="bu">print</span>(<span class="st">"original:"</span>, arr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>slice:    [    5 12345     7]
+original: [0 1 2 3 4 5 6 7 8 9]</code></pre>
+</div>
+</div>
+<p>Now the slice is a completely separate array — changes to <code>arr_slice</code> don’t touch <code>arr</code>.</p>
+<p><strong>Rule of thumb:</strong> if you’ll be modifying the slice, call <code>.copy()</code>. If you’re only reading from it, you don’t need to.</p>
+</section>
 <section id="comparing-arrays" class="slide level2">
 <h2>Comparing Arrays</h2>
-<div id="eaca20d7" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href=""></a>arr <span class="op">=</span> np.array([[<span class="fl">1.</span>, <span class="fl">2.</span>, <span class="fl">3.</span>], [<span class="fl">4.</span>, <span class="fl">5.</span>, <span class="fl">6.</span>]])</span>
-<span id="cb33-2"><a href=""></a>arr2 <span class="op">=</span> np.array([[<span class="fl">0.</span>, <span class="fl">4.</span>, <span class="fl">1.</span>], [<span class="fl">7.</span>, <span class="fl">2.</span>, <span class="fl">12.</span>]])</span>
-<span id="cb33-3"><a href=""></a></span>
-<span id="cb33-4"><a href=""></a>arr2 <span class="op">&gt;</span> arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="aca0e1f8" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href=""></a>arr <span class="op">=</span> np.array([[<span class="fl">1.</span>, <span class="fl">2.</span>, <span class="fl">3.</span>], [<span class="fl">4.</span>, <span class="fl">5.</span>, <span class="fl">6.</span>]])</span>
+<span id="cb34-2"><a href=""></a>arr2 <span class="op">=</span> np.array([[<span class="fl">0.</span>, <span class="fl">4.</span>, <span class="fl">1.</span>], [<span class="fl">7.</span>, <span class="fl">2.</span>, <span class="fl">12.</span>]])</span>
+<span id="cb34-3"><a href=""></a></span>
+<span id="cb34-4"><a href=""></a>arr2 <span class="op">&gt;</span> arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>array([[False,  True, False],
        [ True, False,  True]])</code></pre>
@@ -493,10 +497,10 @@
 <section id="multidimensional-arrays" class="slide level2">
 <h2>Multidimensional Arrays</h2>
 <p>We can create arrays of arbitrarily many dimensions, although if things are getting very complex we might want to think about other ways to store our data</p>
-<div id="7bab08d3" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href=""></a>arr_3d <span class="op">=</span> np.array([[[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]], [[<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>], [<span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>]]])</span>
-<span id="cb35-2"><a href=""></a></span>
-<span id="cb35-3"><a href=""></a>arr_3d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b5981811" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href=""></a>arr_3d <span class="op">=</span> np.array([[[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]], [[<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>], [<span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>]]])</span>
+<span id="cb36-2"><a href=""></a></span>
+<span id="cb36-3"><a href=""></a>arr_3d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>array([[[ 1,  2,  3],
         [ 4,  5,  6]],
@@ -510,65 +514,74 @@
 <section id="multidimensional-indexing" class="slide level2">
 <h2>Multidimensional Indexing</h2>
 <p>Recall this 3D array:</p>
-<div id="02bb8f14" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href=""></a>arr_3d <span class="op">=</span> np.array([[[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]], [[<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>], [<span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>]]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="db71028a" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href=""></a>arr_3d <span class="op">=</span> np.array([[[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]], [[<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>], [<span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>]]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Each comma-separated index drills down one axis:</p>
-<div id="04c7706b" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href=""></a>arr_3d[<span class="dv">1</span>]          <span class="co"># second 2D "slab"</span></span>
-<span id="cb38-2"><a href=""></a>arr_3d[<span class="dv">1</span>, <span class="dv">0</span>]       <span class="co"># first row of that slab</span></span>
-<span id="cb38-3"><a href=""></a>arr_3d[<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>]    <span class="co"># second element of that row</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ac84add7" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href=""></a>arr_3d[<span class="dv">1</span>]          <span class="co"># second 2D "slab"</span></span>
+<span id="cb39-2"><a href=""></a>arr_3d[<span class="dv">1</span>, <span class="dv">0</span>]       <span class="co"># first row of that slab</span></span>
+<span id="cb39-3"><a href=""></a>arr_3d[<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>]    <span class="co"># second element of that row</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="multidimensional-slicing" class="slide level2">
 <h2>Multidimensional Slicing</h2>
-<div id="be33ba02" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href=""></a>arr_3d[<span class="dv">1</span>:, :<span class="dv">2</span>, <span class="dv">1</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="8c973bfc" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href=""></a>arr_3d[<span class="dv">1</span>:, :<span class="dv">2</span>, <span class="dv">1</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If you want a lower dimensional slice, mix indexing and slicing</p>
-<div id="4b6a98ed" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href=""></a>lower_d_slice <span class="op">=</span> arr_3d[<span class="dv">1</span>, :<span class="dv">2</span>, :<span class="dv">1</span>] <span class="co">## row 1 of the first axis, first 2 rows, first column</span></span>
-<span id="cb40-2"><a href=""></a></span>
-<span id="cb40-3"><a href=""></a>lower_d_slice</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2bd82902" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href=""></a>lower_d_slice <span class="op">=</span> arr_3d[<span class="dv">1</span>, :<span class="dv">2</span>, :<span class="dv">1</span>] <span class="co">## row 1 of the first axis, first 2 rows, first column</span></span>
+<span id="cb41-2"><a href=""></a></span>
+<span id="cb41-3"><a href=""></a>lower_d_slice</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="random-number-generation" class="slide level2">
 <h2>Random Number Generation</h2>
 <p>Numpy also provides us with efficient ways to generate arrays of random numbers. This is a good thing to know how to do!</p>
-<div id="9ae6e44c" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href=""></a>samples <span class="op">=</span> np.random.standard_normal(size<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">4</span>))</span>
-<span id="cb41-2"><a href=""></a>samples</span>
-<span id="cb41-3"><a href=""></a></span>
-<span id="cb41-4"><a href=""></a>samples_2 <span class="op">=</span> np.random.uniform(<span class="dv">0</span>, <span class="dv">2</span>, size<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">4</span>))  <span class="co"># min, max are the positional arguments</span></span>
-<span id="cb41-5"><a href=""></a></span>
-<span id="cb41-6"><a href=""></a>samples_2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="548eac4e" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href=""></a>samples <span class="op">=</span> np.random.standard_normal(size<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">4</span>))</span>
+<span id="cb42-2"><a href=""></a>samples</span>
+<span id="cb42-3"><a href=""></a></span>
+<span id="cb42-4"><a href=""></a>samples_2 <span class="op">=</span> np.random.uniform(<span class="dv">0</span>, <span class="dv">2</span>, size<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">4</span>))  <span class="co"># min, max are the positional arguments</span></span>
+<span id="cb42-5"><a href=""></a></span>
+<span id="cb42-6"><a href=""></a>samples_2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="universal-functions" class="slide level2">
 <h2>Universal Functions</h2>
-<p>Universal Functions perform fast element-wise operations on data in numpy arrays. Similar to how R does fast operations over matrices.</p>
-<p>We can make a simple 1d array of the numbers 1-10 like this</p>
-<div id="668f45be" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href=""></a>arr <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="dv">11</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A <strong>universal function</strong> (or <em>ufunc</em>) is a NumPy function that operates on each element of an array in parallel — no Python loop required.</p>
+<ul>
+<li>Fast: the loop happens in compiled C code under the hood</li>
+<li>Element-wise: <code>np.sqrt(arr)</code> returns an array of the same shape with the square root of every element</li>
+<li>Broadcasts across dimensions: works on 1D, 2D, or higher-dimensional arrays without changes to your code</li>
+</ul>
+<p>Analogous to how R vectorizes operations over vectors and matrices.</p>
+</section>
+<section id="a-simple-ufunc-example" class="slide level2">
+<h2>A Simple ufunc Example</h2>
+<p>We can make a simple 1D array of the numbers 1-10 like this</p>
+<div id="bb1da795" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href=""></a>arr <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="dv">11</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If we wanted to take the square root of every element in the array, we can do</p>
-<div id="336d0170" class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href=""></a>np.sqrt(arr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d81cdf14" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href=""></a>np.sqrt(arr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="comparisons-with-universal-functions" class="slide level2">
 <h2>Comparisons with Universal Functions</h2>
 <p>Suppose we wanted to compare two arrays and select the maximum value at each index.</p>
-<div id="cca281fe" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href=""></a>arr1 <span class="op">=</span> np.random.standard_normal(<span class="dv">10</span>)</span>
-<span id="cb44-2"><a href=""></a>arr2 <span class="op">=</span> np.random.standard_normal(<span class="dv">10</span>)</span>
-<span id="cb44-3"><a href=""></a></span>
-<span id="cb44-4"><a href=""></a>np.maximum(arr1, arr2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="71a3985d" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href=""></a>arr1 <span class="op">=</span> np.random.standard_normal(<span class="dv">10</span>)</span>
+<span id="cb45-2"><a href=""></a>arr2 <span class="op">=</span> np.random.standard_normal(<span class="dv">10</span>)</span>
+<span id="cb45-3"><a href=""></a></span>
+<span id="cb45-4"><a href=""></a>np.maximum(arr1, arr2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="more-universal-functions" class="slide level2">
 <h2>More Universal Functions</h2>
-<p>There are a ton more universal functions, including useful utility functions like <code>.isnan</code> to check which elements have missing values</p>
+<p>There are a ton more universal functions, including useful utility functions like <code>np.isnan()</code> to check which elements have missing values</p>
 <p>Refer to McKinney section 4.3 for a list of the most common/useful universal functions</p>
 </section>
 <section id="pandas" class="slide level2">
@@ -576,18 +589,18 @@
 <p><code>pandas</code> is the most popular data analysis package in Python. It is not the only option — <code>Polars</code>, which has syntax more similar to the tidyverse, is gaining popularity.</p>
 <p>But <code>pandas</code> is still dominant. It is great for loading and cleaning data, as well as basic data analyses. Most advanced analyses packages, including machine learning packages like <code>PyTorch</code> and <code>TensorFlow</code>, build on <code>pandas</code> and <code>numpy</code>.</p>
 <p>By convention, we import pandas as pd</p>
-<div id="b96c2f1e" class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f9bd3234" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="pandas-data-structures-series" class="slide level2">
 <h2>Pandas Data Structures: Series</h2>
 <p>A Series is a one-dimensional array-like object containing a sequence of values of the same type and an associated array of data labels, called its <em>index</em>.</p>
 <p>A basic Series might look something like this:</p>
-<div id="d021f183" class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href=""></a>obj <span class="op">=</span> pd.Series([<span class="dv">4</span>, <span class="dv">7</span>, <span class="op">-</span><span class="dv">5</span>, <span class="dv">3</span>])</span>
-<span id="cb46-2"><a href=""></a></span>
-<span id="cb46-3"><a href=""></a>obj</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="8662740e" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href=""></a>obj <span class="op">=</span> pd.Series([<span class="dv">4</span>, <span class="dv">7</span>, <span class="op">-</span><span class="dv">5</span>, <span class="dv">3</span>])</span>
+<span id="cb47-2"><a href=""></a></span>
+<span id="cb47-3"><a href=""></a>obj</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>0    4
 1    7
@@ -597,17 +610,17 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p>We can also access it in array style</p>
-<div id="586b3722" class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href=""></a>obj.array</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="25d49d6b" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href=""></a>obj.array</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="named-indices" class="slide level2">
 <h2>Named Indices</h2>
 <p>You can give your indices meaningful labels</p>
-<div id="9da65fca" class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href=""></a>test_scores <span class="op">=</span> pd.Series([<span class="dv">88</span>, <span class="dv">75</span>, <span class="dv">95</span>, <span class="dv">83</span>], index<span class="op">=</span>[<span class="st">"Will"</span>, <span class="st">"Ben"</span>, <span class="st">"Adam"</span>, <span class="st">"Charlie"</span>])</span>
-<span id="cb49-2"><a href=""></a></span>
-<span id="cb49-3"><a href=""></a>test_scores</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d702dac1" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href=""></a>test_scores <span class="op">=</span> pd.Series([<span class="dv">88</span>, <span class="dv">75</span>, <span class="dv">95</span>, <span class="dv">83</span>], index<span class="op">=</span>[<span class="st">"Will"</span>, <span class="st">"Ben"</span>, <span class="st">"Adam"</span>, <span class="st">"Charlie"</span>])</span>
+<span id="cb50-2"><a href=""></a></span>
+<span id="cb50-3"><a href=""></a>test_scores</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>Will       88
 Ben        75
@@ -617,8 +630,8 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p>And we can use that index label to extract specific data points</p>
-<div id="927c15e4" class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href=""></a>test_scores[<span class="st">"Ben"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="12d6ecde" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href=""></a>test_scores[<span class="st">"Ben"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>np.int64(75)</code></pre>
 </div>
@@ -627,34 +640,34 @@ dtype: int64</code></pre>
 <section id="data-alignment" class="slide level2">
 <h2>Data Alignment</h2>
 <p>If you have two Series with matching labels, any operation matches by <strong>label</strong> rather than position:</p>
-<div id="f7e5f87c" class="cell" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href=""></a>states1 <span class="op">=</span> pd.Series([<span class="dv">500</span>, <span class="dv">250</span>, <span class="dv">300</span>],</span>
-<span id="cb53-2"><a href=""></a>                    index<span class="op">=</span>[<span class="st">"Alaska"</span>, <span class="st">"Kansas"</span>, <span class="st">"Ohio"</span>])</span>
-<span id="cb53-3"><a href=""></a>states2 <span class="op">=</span> pd.Series([<span class="dv">1000</span>, <span class="dv">300</span>, <span class="dv">1300</span>],</span>
-<span id="cb53-4"><a href=""></a>                    index<span class="op">=</span>[<span class="st">"Kansas"</span>, <span class="st">"Alaska"</span>, <span class="st">"Ohio"</span>])</span>
-<span id="cb53-5"><a href=""></a></span>
-<span id="cb53-6"><a href=""></a>states1 <span class="op">+</span> states2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b6d2a3d0" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href=""></a>states1 <span class="op">=</span> pd.Series([<span class="dv">500</span>, <span class="dv">250</span>, <span class="dv">300</span>],</span>
+<span id="cb54-2"><a href=""></a>                    index<span class="op">=</span>[<span class="st">"Alaska"</span>, <span class="st">"Kansas"</span>, <span class="st">"Ohio"</span>])</span>
+<span id="cb54-3"><a href=""></a>states2 <span class="op">=</span> pd.Series([<span class="dv">1000</span>, <span class="dv">300</span>, <span class="dv">1300</span>],</span>
+<span id="cb54-4"><a href=""></a>                    index<span class="op">=</span>[<span class="st">"Kansas"</span>, <span class="st">"Alaska"</span>, <span class="st">"Ohio"</span>])</span>
+<span id="cb54-5"><a href=""></a></span>
+<span id="cb54-6"><a href=""></a>states1 <span class="op">+</span> states2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Even though Alaska and Kansas are in different positions, pandas adds the right values together. Like a SQL or <code>tidyverse</code> join, with the index as the key.</p>
 </section>
 <section id="naming-the-index" class="slide level2">
 <h2>Naming the Index</h2>
 <p>You can also name the index to remind yourself what it represents:</p>
-<div id="41cdd3b1" class="cell" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href=""></a>states1.index.name <span class="op">=</span> <span class="st">"state"</span></span>
-<span id="cb54-2"><a href=""></a>states1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b4989af7" class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href=""></a>states1.index.name <span class="op">=</span> <span class="st">"state"</span></span>
+<span id="cb55-2"><a href=""></a>states1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Useful when you’ll later be filtering or merging — the name shows up in error messages and prints.</p>
 </section>
 <section id="dataframe" class="slide level2">
 <h2>DataFrame</h2>
 <p>A data frame is a data object that contains an ordered, named, collection of columns. You can think of this as a dictionary of Series, each sharing the same index.</p>
-<div id="c0b766a6" class="cell" data-execution_count="37">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href=""></a>data <span class="op">=</span> {<span class="st">'state'</span>: [<span class="st">'Ohio'</span>, <span class="st">'Ohio'</span>, <span class="st">'Ohio'</span>, <span class="st">'Nevada'</span>, <span class="st">'Nevada'</span>, <span class="st">'Nevada'</span>],</span>
-<span id="cb55-2"><a href=""></a>        <span class="st">'year'</span>: [<span class="dv">2000</span>, <span class="dv">2001</span>, <span class="dv">2002</span>, <span class="dv">2001</span>, <span class="dv">2002</span>, <span class="dv">2003</span>],</span>
-<span id="cb55-3"><a href=""></a>        <span class="st">'pop'</span>: [<span class="fl">1.5</span>, <span class="fl">1.7</span>, <span class="fl">3.6</span>, <span class="fl">2.4</span>, <span class="fl">2.9</span>, <span class="fl">3.2</span>]}</span>
-<span id="cb55-4"><a href=""></a>frame <span class="op">=</span> pd.DataFrame(data)</span>
-<span id="cb55-5"><a href=""></a>frame</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ad12aff7" class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href=""></a>data <span class="op">=</span> {<span class="st">'state'</span>: [<span class="st">'Ohio'</span>, <span class="st">'Ohio'</span>, <span class="st">'Ohio'</span>, <span class="st">'Nevada'</span>, <span class="st">'Nevada'</span>, <span class="st">'Nevada'</span>],</span>
+<span id="cb56-2"><a href=""></a>        <span class="st">'year'</span>: [<span class="dv">2000</span>, <span class="dv">2001</span>, <span class="dv">2002</span>, <span class="dv">2001</span>, <span class="dv">2002</span>, <span class="dv">2003</span>],</span>
+<span id="cb56-3"><a href=""></a>        <span class="st">'pop'</span>: [<span class="fl">1.5</span>, <span class="fl">1.7</span>, <span class="fl">3.6</span>, <span class="fl">2.4</span>, <span class="fl">2.9</span>, <span class="fl">3.2</span>]}</span>
+<span id="cb56-4"><a href=""></a>frame <span class="op">=</span> pd.DataFrame(data)</span>
+<span id="cb56-5"><a href=""></a>frame</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
 <div>
 <style scoped="">
@@ -727,65 +740,65 @@ dtype: int64</code></pre>
 <section id="dataframe-methods" class="slide level2">
 <h2>DataFrame Methods</h2>
 <p>The <code>head</code> method displays only the first five rows</p>
-<div id="267b7df5" class="cell" data-execution_count="38">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href=""></a>frame.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="47198dcd" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href=""></a>frame.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>tail</code> will do the same, but for the last five rows</p>
 </section>
 <section id="accessing-specific-columns" class="slide level2">
 <h2>Accessing Specific Columns</h2>
 <p>We can also look at specific columns</p>
-<div id="811bc142" class="cell" data-execution_count="39">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href=""></a>frame[[<span class="st">"state"</span>, <span class="st">"pop"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="45aba29d" class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href=""></a>frame[[<span class="st">"state"</span>, <span class="st">"pop"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="creating-a-new-column" class="slide level2">
 <h2>Creating a new Column</h2>
 <p>Suppose we want to add a <code>turnout</code> column. Make a Series and assign it to a new column name:</p>
-<div id="14305010" class="cell" data-execution_count="40">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href=""></a>val <span class="op">=</span> pd.Series([<span class="fl">0.5</span>, <span class="fl">0.49</span>, <span class="fl">0.51</span>, <span class="fl">0.65</span>, <span class="fl">0.59</span>, <span class="fl">0.6</span>])</span>
-<span id="cb58-2"><a href=""></a>frame[<span class="st">"turnout"</span>] <span class="op">=</span> val</span>
-<span id="cb58-3"><a href=""></a>frame</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="266b5fb5" class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href=""></a>val <span class="op">=</span> pd.Series([<span class="fl">0.5</span>, <span class="fl">0.49</span>, <span class="fl">0.51</span>, <span class="fl">0.65</span>, <span class="fl">0.59</span>, <span class="fl">0.6</span>])</span>
+<span id="cb59-2"><a href=""></a>frame[<span class="st">"turnout"</span>] <span class="op">=</span> val</span>
+<span id="cb59-3"><a href=""></a>frame</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="partial-series-filling-with-nan" class="slide level2">
 <h2>Partial Series: filling with NaN</h2>
 <p>You can also specify which index each entry corresponds to. Missing positions get <code>NaN</code>:</p>
-<div id="48d71eca" class="cell" data-execution_count="41">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href=""></a>val <span class="op">=</span> pd.Series([<span class="fl">0.5</span>, <span class="fl">0.49</span>, <span class="fl">0.51</span>, <span class="fl">0.6</span>], index<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>])</span>
-<span id="cb59-2"><a href=""></a>frame[<span class="st">"turnout"</span>] <span class="op">=</span> val</span>
-<span id="cb59-3"><a href=""></a>frame</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="eb93c925" class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href=""></a>val <span class="op">=</span> pd.Series([<span class="fl">0.5</span>, <span class="fl">0.49</span>, <span class="fl">0.51</span>, <span class="fl">0.6</span>], index<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>])</span>
+<span id="cb60-2"><a href=""></a>frame[<span class="st">"turnout"</span>] <span class="op">=</span> val</span>
+<span id="cb60-3"><a href=""></a>frame</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Useful when you have data for some rows but not all, and you want pandas to fill the rest in for you.</p>
 </section>
 <section id="filtering" class="slide level2">
 <h2>Filtering</h2>
 <p>Imagine we only want to consider cases with high turnout (above 0.5). Let’s re-append the original turnout data. Then we can take a conditional slice</p>
-<div id="7fb9d114" class="cell" data-execution_count="42">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href=""></a>val <span class="op">=</span> pd.Series([<span class="fl">0.5</span>, <span class="fl">0.49</span>, <span class="fl">0.51</span>, <span class="fl">0.65</span>, <span class="fl">0.59</span>, <span class="fl">0.6</span>])</span>
-<span id="cb60-2"><a href=""></a>frame[<span class="st">"turnout"</span>] <span class="op">=</span> val</span>
-<span id="cb60-3"><a href=""></a></span>
-<span id="cb60-4"><a href=""></a>frame_high <span class="op">=</span> frame[frame[<span class="st">"turnout"</span>] <span class="op">&gt;</span> <span class="fl">0.5</span>] <span class="co">## this looks familiar for base R users,  I hope?</span></span>
-<span id="cb60-5"><a href=""></a></span>
-<span id="cb60-6"><a href=""></a>frame_high</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="435a1fc6" class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href=""></a>val <span class="op">=</span> pd.Series([<span class="fl">0.5</span>, <span class="fl">0.49</span>, <span class="fl">0.51</span>, <span class="fl">0.65</span>, <span class="fl">0.59</span>, <span class="fl">0.6</span>])</span>
+<span id="cb61-2"><a href=""></a>frame[<span class="st">"turnout"</span>] <span class="op">=</span> val</span>
+<span id="cb61-3"><a href=""></a></span>
+<span id="cb61-4"><a href=""></a>frame_high <span class="op">=</span> frame[frame[<span class="st">"turnout"</span>] <span class="op">&gt;</span> <span class="fl">0.5</span>] <span class="co">## this looks familiar for base R users,  I hope?</span></span>
+<span id="cb61-5"><a href=""></a></span>
+<span id="cb61-6"><a href=""></a>frame_high</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Notice that the indices are retained from the original <code>DataFrame</code> object.</p>
 </section>
 <section id="updating-values-a-common-mistake" class="slide level2">
 <h2>Updating Values: a common mistake</h2>
 <p>You can update values using a boolean filter — but watch your syntax:</p>
-<div id="4cd5286e" class="cell" data-execution_count="43">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href=""></a>frame[frame[<span class="st">"pop"</span>] <span class="op">&lt;</span> <span class="dv">2</span>] <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb61-2"><a href=""></a>frame</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="67c20546" class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href=""></a>frame[frame[<span class="st">"pop"</span>] <span class="op">&lt;</span> <span class="dv">2</span>] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb62-2"><a href=""></a>frame</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This zeroes out <strong>every column</strong> of the matching rows, not just <code>pop</code>. Almost never what you want.</p>
 </section>
 <section id="updating-values-the-right-way" class="slide level2">
 <h2>Updating Values: the right way</h2>
 <p>Use <code>.loc</code> to name which column you’re updating:</p>
-<div id="1af20d75" class="cell" data-execution_count="45">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href=""></a>frame.loc[frame[<span class="st">"pop"</span>] <span class="op">&lt;</span> <span class="dv">2</span>, <span class="st">"pop"</span>] <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb62-2"><a href=""></a>frame</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d49c00f1" class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href=""></a>frame.loc[frame[<span class="st">"pop"</span>] <span class="op">&lt;</span> <span class="dv">2</span>, <span class="st">"pop"</span>] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb63-2"><a href=""></a>frame</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="26">
 <div>
 <style scoped="">
@@ -866,16 +879,16 @@ dtype: int64</code></pre>
 <section id="indexing-pitfalls" class="slide level2">
 <h2>Indexing Pitfalls</h2>
 <p>When you use integers for your Series index, <code>[-1]</code> doesn’t mean “last element” — it tries to find the label <code>-1</code>:</p>
-<div id="2ccf28b0" class="cell" data-execution_count="46">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href=""></a>ser <span class="op">=</span> pd.Series(np.arange(<span class="fl">3.</span>))</span>
-<span id="cb63-2"><a href=""></a>ser[<span class="op">-</span><span class="dv">1</span>]    <span class="co"># raises KeyError</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f26e4047" class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href=""></a>ser <span class="op">=</span> pd.Series(np.arange(<span class="fl">3.</span>))</span>
+<span id="cb64-2"><a href=""></a>ser[<span class="op">-</span><span class="dv">1</span>]    <span class="co"># raises KeyError</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="use-.iloc-for-positional-access" class="slide level2">
 <h2>Use <code>.iloc</code> for positional access</h2>
 <p><code>.iloc[]</code> always uses positional indexing, regardless of what the index labels look like:</p>
-<div id="af91616a" class="cell" data-execution_count="47">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href=""></a>ser.iloc[<span class="op">-</span><span class="dv">1</span>]    <span class="co"># 2.0 — the last element</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="8dbf1ad6" class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href=""></a>ser.iloc[<span class="op">-</span><span class="dv">1</span>]    <span class="co"># 2.0 — the last element</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p>With character indices, <code>[-1]</code> has historically worked as positional, but pandas’s behavior has shifted across versions. Just use <code>.iloc</code> whenever you want positional access — it’s always unambiguous.</p>
@@ -884,19 +897,19 @@ dtype: int64</code></pre>
 <section id="summarizing-data" class="slide level2">
 <h2>Summarizing Data</h2>
 <p>Sometimes it’s useful to get some descriptives about our data. We can call <code>.describe()</code> on a dataframe to do that.</p>
-<div id="151d6e8c" class="cell" data-execution_count="48">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href=""></a>frame.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6872e977" class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href=""></a>frame.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="correlation-and-covariance" class="slide level2">
 <h2>Correlation and Covariance</h2>
 <p>If we want the correlation between two columns, we can do the following</p>
-<div id="9b131185" class="cell" data-execution_count="49">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href=""></a>corr_value <span class="op">=</span> frame[<span class="st">"pop"</span>].corr(frame[<span class="st">"turnout"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="8a44baff" class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href=""></a>corr_value <span class="op">=</span> frame[<span class="st">"pop"</span>].corr(frame[<span class="st">"turnout"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Or a covariance matrix between three columns</p>
-<div id="c1649ee7" class="cell" data-execution_count="50">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href=""></a>cov_matrix <span class="op">=</span> frame[[<span class="st">"pop"</span>, <span class="st">"turnout"</span>, <span class="st">"year"</span>]].cov()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="960a8476" class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href=""></a>cov_matrix <span class="op">=</span> frame[[<span class="st">"pop"</span>, <span class="st">"turnout"</span>, <span class="st">"year"</span>]].cov()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="loading-data" class="slide level2">
@@ -909,20 +922,20 @@ dtype: int64</code></pre>
 <h2>Read_csv()</h2>
 <p>It’s a tad different in Colab, where we don’t need to think about the file path, but in general to load data, you need to know where it lives on your machine.</p>
 <p>Generically, it looks something like this</p>
-<div id="8cd579be" class="cell" data-execution_count="51">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href=""></a>df <span class="op">=</span> pd.read_csv(<span class="st">"filepath/filename.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d035cde3" class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href=""></a>df <span class="op">=</span> pd.read_csv(<span class="st">"filepath/filename.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>As a specific example, I can load</p>
-<div id="ddd602b1" class="cell" data-execution_count="52">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb69-2"><a href=""></a></span>
-<span id="cb69-3"><a href=""></a>nes <span class="op">=</span> pd.read_csv(<span class="st">"Data/nes2020_subset.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6b6e11eb" class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb70-2"><a href=""></a></span>
+<span id="cb70-3"><a href=""></a>nes <span class="op">=</span> pd.read_csv(<span class="st">"Data/nes2020_subset.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="looking-at-the-data" class="slide level2">
 <h2>Looking at the Data</h2>
-<div id="68e11f63" class="cell" data-execution_count="53">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href=""></a>nes.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4b32375f" class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href=""></a>nes.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
 <div>
 <style scoped="">
@@ -1097,8 +1110,8 @@ dtype: int64</code></pre>
 </section>
 <section id="describing-the-data" class="slide level2">
 <h2>Describing the Data</h2>
-<div id="40317920" class="cell" data-execution_count="54">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href=""></a>nes.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="737c87f4" class="cell" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href=""></a>nes.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="29">
 <div>
 <style scoped="">
@@ -1299,10 +1312,10 @@ dtype: int64</code></pre>
 </section>
 <section id="frequency-tables" class="slide level2">
 <h2>Frequency Tables</h2>
-<div id="9bf46eb4" class="cell" data-execution_count="55">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href=""></a>frequency_table <span class="op">=</span> nes[<span class="st">'freetrade'</span>].value_counts()</span>
-<span id="cb72-2"><a href=""></a></span>
-<span id="cb72-3"><a href=""></a>frequency_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2faf8b5b" class="cell" data-execution_count="55">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href=""></a>frequency_table <span class="op">=</span> nes[<span class="st">'freetrade'</span>].value_counts()</span>
+<span id="cb73-2"><a href=""></a></span>
+<span id="cb73-3"><a href=""></a>frequency_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="30">
 <pre><code>freetrade
 Approve       3386
@@ -1315,9 +1328,9 @@ Name: count, dtype: int64</code></pre>
 <section id="groupby-and-aggregation" class="slide level2">
 <h2>GroupBy and Aggregation</h2>
 <p>A pattern you’ll use constantly: split your data into groups, compute something per group, recombine. The R equivalent is <code>dplyr::group_by() |&gt; summarise()</code>.</p>
-<div id="bfe20021" class="cell" data-execution_count="56">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href=""></a><span class="co"># Mean Biden feeling thermometer by party ID</span></span>
-<span id="cb74-2"><a href=""></a>nes.groupby(<span class="st">"party"</span>)[<span class="st">"ft_biden"</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4659c684" class="cell" data-execution_count="56">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href=""></a><span class="co"># Mean Biden feeling thermometer by party ID</span></span>
+<span id="cb75-2"><a href=""></a>nes.groupby(<span class="st">"party"</span>)[<span class="st">"ft_biden"</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="31">
 <pre><code>party
 1.0    77.805263
@@ -1330,8 +1343,8 @@ Name: ft_biden, dtype: float64</code></pre>
 </section>
 <section id="aggregating-multiple-columns" class="slide level2">
 <h2>Aggregating Multiple Columns</h2>
-<div id="18561009" class="cell" data-execution_count="57">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href=""></a>nes.groupby(<span class="st">"party"</span>)[[<span class="st">"ft_biden"</span>, <span class="st">"ft_trump"</span>]].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="44136ca0" class="cell" data-execution_count="57">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href=""></a>nes.groupby(<span class="st">"party"</span>)[[<span class="st">"ft_biden"</span>, <span class="st">"ft_trump"</span>]].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="32">
 <div>
 <style scoped="">
@@ -1390,8 +1403,8 @@ Name: ft_biden, dtype: float64</code></pre>
 </div>
 <div class="fragment">
 <p>Or apply different functions to different columns with <code>.agg()</code>:</p>
-<div id="9a4b503f" class="cell" data-execution_count="58">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href=""></a>nes.groupby(<span class="st">"party"</span>).agg({<span class="st">"ft_biden"</span>: <span class="st">"mean"</span>, <span class="st">"ft_trump"</span>: <span class="st">"std"</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cee3f4de" class="cell" data-execution_count="58">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href=""></a>nes.groupby(<span class="st">"party"</span>).agg({<span class="st">"ft_biden"</span>: <span class="st">"mean"</span>, <span class="st">"ft_trump"</span>: <span class="st">"std"</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="33">
 <div>
 <style scoped="">
@@ -1453,23 +1466,23 @@ Name: ft_biden, dtype: float64</code></pre>
 <section id="merging-dataframes" class="slide level2">
 <h2>Merging DataFrames</h2>
 <p>Real analyses combine multiple datasets. <code>pd.merge()</code> handles this — its options mirror SQL or <code>dplyr</code> joins.</p>
-<div id="e05d9ef3" class="cell" data-execution_count="59">
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href=""></a>state_pop <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb78-2"><a href=""></a>    <span class="st">"state"</span>:        [<span class="st">"Ohio"</span>, <span class="st">"Nevada"</span>, <span class="st">"Wyoming"</span>],</span>
-<span id="cb78-3"><a href=""></a>    <span class="st">"population_m"</span>: [<span class="fl">11.8</span>, <span class="fl">3.2</span>, <span class="fl">0.6</span>]</span>
-<span id="cb78-4"><a href=""></a>})</span>
-<span id="cb78-5"><a href=""></a></span>
-<span id="cb78-6"><a href=""></a>state_gdp <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb78-7"><a href=""></a>    <span class="st">"state"</span>: [<span class="st">"Ohio"</span>, <span class="st">"Nevada"</span>, <span class="st">"California"</span>],</span>
-<span id="cb78-8"><a href=""></a>    <span class="st">"gdp_b"</span>: [<span class="dv">770</span>, <span class="dv">220</span>, <span class="dv">3900</span>]</span>
-<span id="cb78-9"><a href=""></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d470ffa3" class="cell" data-execution_count="59">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href=""></a>state_pop <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb79-2"><a href=""></a>    <span class="st">"state"</span>:        [<span class="st">"Ohio"</span>, <span class="st">"Nevada"</span>, <span class="st">"Wyoming"</span>],</span>
+<span id="cb79-3"><a href=""></a>    <span class="st">"population_m"</span>: [<span class="fl">11.8</span>, <span class="fl">3.2</span>, <span class="fl">0.6</span>]</span>
+<span id="cb79-4"><a href=""></a>})</span>
+<span id="cb79-5"><a href=""></a></span>
+<span id="cb79-6"><a href=""></a>state_gdp <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb79-7"><a href=""></a>    <span class="st">"state"</span>: [<span class="st">"Ohio"</span>, <span class="st">"Nevada"</span>, <span class="st">"California"</span>],</span>
+<span id="cb79-8"><a href=""></a>    <span class="st">"gdp_b"</span>: [<span class="dv">770</span>, <span class="dv">220</span>, <span class="dv">3900</span>]</span>
+<span id="cb79-9"><a href=""></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="inner-vs-outer-joins" class="slide level2">
 <h2>Inner vs Outer Joins</h2>
-<div id="7e309ac7" class="cell" data-execution_count="60">
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href=""></a><span class="co"># Inner join (default) — only rows that match in both</span></span>
-<span id="cb79-2"><a href=""></a>pd.merge(state_pop, state_gdp, on<span class="op">=</span><span class="st">"state"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="43b5b0d0" class="cell" data-execution_count="60">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href=""></a><span class="co"># Inner join (default) — only rows that match in both</span></span>
+<span id="cb80-2"><a href=""></a>pd.merge(state_pop, state_gdp, on<span class="op">=</span><span class="st">"state"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="35">
 <div>
 <style scoped="">
@@ -1515,9 +1528,9 @@ Name: ft_biden, dtype: float64</code></pre>
 </div>
 </div>
 <div class="fragment">
-<div id="18e306d7" class="cell" data-execution_count="61">
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href=""></a><span class="co"># Outer join — keep everything, fill with NaN</span></span>
-<span id="cb80-2"><a href=""></a>pd.merge(state_pop, state_gdp, on<span class="op">=</span><span class="st">"state"</span>, how<span class="op">=</span><span class="st">"outer"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e89d8435" class="cell" data-execution_count="61">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href=""></a><span class="co"># Outer join — keep everything, fill with NaN</span></span>
+<span id="cb81-2"><a href=""></a>pd.merge(state_pop, state_gdp, on<span class="op">=</span><span class="st">"state"</span>, how<span class="op">=</span><span class="st">"outer"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="36">
 <div>
 <style scoped="">
@@ -1585,9 +1598,9 @@ Name: ft_biden, dtype: float64</code></pre>
 <li><code>.dropna()</code> removes rows with missing values</li>
 <li><code>.fillna()</code> fills missing values with something</li>
 </ul>
-<div id="5db725db" class="cell" data-execution_count="62">
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href=""></a><span class="co"># Count missing per column</span></span>
-<span id="cb81-2"><a href=""></a>nes[[<span class="st">"ft_biden"</span>, <span class="st">"ft_trump"</span>, <span class="st">"ft_fauci"</span>]].isna().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f53a180a" class="cell" data-execution_count="62">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href=""></a><span class="co"># Count missing per column</span></span>
+<span id="cb82-2"><a href=""></a>nes[[<span class="st">"ft_biden"</span>, <span class="st">"ft_trump"</span>, <span class="st">"ft_fauci"</span>]].isna().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="37">
 <pre><code>ft_biden     78
 ft_trump     94
@@ -1598,17 +1611,17 @@ dtype: int64</code></pre>
 </section>
 <section id="dropping-or-filling" class="slide level2">
 <h2>Dropping or Filling</h2>
-<div id="a7d4f734" class="cell" data-execution_count="63">
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href=""></a>clean <span class="op">=</span> nes[[<span class="st">"ft_biden"</span>, <span class="st">"ft_trump"</span>]].dropna()</span>
-<span id="cb83-2"><a href=""></a><span class="bu">print</span>(<span class="bu">len</span>(nes), <span class="st">"-&gt;"</span>, <span class="bu">len</span>(clean), <span class="st">"rows after dropna"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c3aefe2c" class="cell" data-execution_count="63">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href=""></a>clean <span class="op">=</span> nes[[<span class="st">"ft_biden"</span>, <span class="st">"ft_trump"</span>]].dropna()</span>
+<span id="cb84-2"><a href=""></a><span class="bu">print</span>(<span class="bu">len</span>(nes), <span class="st">"-&gt;"</span>, <span class="bu">len</span>(clean), <span class="st">"rows after dropna"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>7453 -&gt; 7319 rows after dropna</code></pre>
 </div>
 </div>
 <div class="fragment">
-<div id="67e94ef6" class="cell" data-execution_count="64">
-<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href=""></a><span class="co"># Fill with the column mean</span></span>
-<span id="cb85-2"><a href=""></a>nes[<span class="st">"ft_biden"</span>].fillna(nes[<span class="st">"ft_biden"</span>].mean()).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3417f3f4" class="cell" data-execution_count="64">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href=""></a><span class="co"># Fill with the column mean</span></span>
+<span id="cb86-2"><a href=""></a>nes[<span class="st">"ft_biden"</span>].fillna(nes[<span class="st">"ft_biden"</span>].mean()).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="39">
 <pre><code>0      0.0
 1     15.0
@@ -1624,9 +1637,9 @@ Name: ft_biden, dtype: float64</code></pre>
 <section id="string-operations-the-.str-accessor" class="slide level2">
 <h2>String Operations: the <code>.str</code> accessor</h2>
 <p>When you have a column of strings, <code>.str</code> lets you apply string methods to every element at once. Like the string methods you saw on Day 1, but vectorized over the whole column.</p>
-<div id="74f414fb" class="cell" data-execution_count="65">
-<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href=""></a><span class="co"># Uppercase every value</span></span>
-<span id="cb87-2"><a href=""></a>nes[<span class="st">"aca"</span>].<span class="bu">str</span>.upper().head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="db9df979" class="cell" data-execution_count="65">
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href=""></a><span class="co"># Uppercase every value</span></span>
+<span id="cb88-2"><a href=""></a>nes[<span class="st">"aca"</span>].<span class="bu">str</span>.upper().head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="40">
 <pre><code>0    DISAPPROVE
 1    DISAPPROVE
@@ -1639,9 +1652,9 @@ Name: aca, dtype: object</code></pre>
 </section>
 <section id="more-.str-operations" class="slide level2">
 <h2>More <code>.str</code> operations</h2>
-<div id="004ef2e9" class="cell" data-execution_count="66">
-<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href=""></a><span class="co"># Does the value contain a substring?</span></span>
-<span id="cb89-2"><a href=""></a>nes[<span class="st">"aca"</span>].<span class="bu">str</span>.contains(<span class="st">"Approve"</span>, na<span class="op">=</span><span class="va">False</span>).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="273d96da" class="cell" data-execution_count="66">
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href=""></a><span class="co"># Does the value contain a substring?</span></span>
+<span id="cb90-2"><a href=""></a>nes[<span class="st">"aca"</span>].<span class="bu">str</span>.contains(<span class="st">"Approve"</span>, na<span class="op">=</span><span class="va">False</span>).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="41">
 <pre><code>0    False
 1    False
@@ -1653,9 +1666,9 @@ Name: aca, dtype: bool</code></pre>
 </div>
 <p><code>na=False</code> tells pandas to treat <code>NaN</code> as <code>False</code> rather than letting it propagate.</p>
 <div class="fragment">
-<div id="5ff65fe7" class="cell" data-execution_count="67">
-<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href=""></a><span class="co"># Boolean filter using a string condition</span></span>
-<span id="cb91-2"><a href=""></a>nes[nes[<span class="st">"aca"</span>].<span class="bu">str</span>.contains(<span class="st">"Approve"</span>, na<span class="op">=</span><span class="va">False</span>)].shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ad05b51d" class="cell" data-execution_count="67">
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a href=""></a><span class="co"># Boolean filter using a string condition</span></span>
+<span id="cb92-2"><a href=""></a>nes[nes[<span class="st">"aca"</span>].<span class="bu">str</span>.contains(<span class="st">"Approve"</span>, na<span class="op">=</span><span class="va">False</span>)].shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="42">
 <pre><code>(3640, 36)</code></pre>
 </div>
@@ -1665,12 +1678,12 @@ Name: aca, dtype: bool</code></pre>
 <section id="apply-with-a-lambda" class="slide level2">
 <h2><code>.apply()</code> with a lambda</h2>
 <p>Sometimes you need custom logic that no built-in method covers. <code>.apply()</code> runs a function on each element. Pair it with a <code>lambda</code> for one-off functions.</p>
-<div id="9d8c6f96" class="cell" data-execution_count="68">
-<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href=""></a>nes[<span class="st">"biden_class"</span>] <span class="op">=</span> nes[<span class="st">"ft_biden"</span>].<span class="bu">apply</span>(</span>
-<span id="cb93-2"><a href=""></a>    <span class="kw">lambda</span> x: <span class="st">"warm"</span> <span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">60</span> <span class="cf">else</span> (<span class="st">"neutral"</span> <span class="cf">if</span> x <span class="op">&gt;=</span> <span class="dv">40</span> <span class="cf">else</span> <span class="st">"cold"</span>)</span>
-<span id="cb93-3"><a href=""></a>)</span>
-<span id="cb93-4"><a href=""></a></span>
-<span id="cb93-5"><a href=""></a>nes[<span class="st">"biden_class"</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a542a692" class="cell" data-execution_count="68">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href=""></a>nes[<span class="st">"biden_class"</span>] <span class="op">=</span> nes[<span class="st">"ft_biden"</span>].<span class="bu">apply</span>(</span>
+<span id="cb94-2"><a href=""></a>    <span class="kw">lambda</span> x: <span class="st">"warm"</span> <span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">60</span> <span class="cf">else</span> (<span class="st">"neutral"</span> <span class="cf">if</span> x <span class="op">&gt;=</span> <span class="dv">40</span> <span class="cf">else</span> <span class="st">"cold"</span>)</span>
+<span id="cb94-3"><a href=""></a>)</span>
+<span id="cb94-4"><a href=""></a></span>
+<span id="cb94-5"><a href=""></a>nes[<span class="st">"biden_class"</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="43">
 <pre><code>biden_class
 warm       3497
@@ -1682,16 +1695,16 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="the-equivalent-without-a-lambda" class="slide level2">
 <h2>The Equivalent Without a Lambda</h2>
-<div id="c458b94e" class="cell" data-execution_count="69">
-<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href=""></a><span class="kw">def</span> classify(x):</span>
-<span id="cb95-2"><a href=""></a>    <span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">60</span>:</span>
-<span id="cb95-3"><a href=""></a>        <span class="cf">return</span> <span class="st">"warm"</span></span>
-<span id="cb95-4"><a href=""></a>    <span class="cf">elif</span> x <span class="op">&gt;=</span> <span class="dv">40</span>:</span>
-<span id="cb95-5"><a href=""></a>        <span class="cf">return</span> <span class="st">"neutral"</span></span>
-<span id="cb95-6"><a href=""></a>    <span class="cf">else</span>:</span>
-<span id="cb95-7"><a href=""></a>        <span class="cf">return</span> <span class="st">"cold"</span></span>
-<span id="cb95-8"><a href=""></a></span>
-<span id="cb95-9"><a href=""></a>nes[<span class="st">"biden_class"</span>] <span class="op">=</span> nes[<span class="st">"ft_biden"</span>].<span class="bu">apply</span>(classify)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7b4d54f1" class="cell" data-execution_count="69">
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href=""></a><span class="kw">def</span> classify(x):</span>
+<span id="cb96-2"><a href=""></a>    <span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">60</span>:</span>
+<span id="cb96-3"><a href=""></a>        <span class="cf">return</span> <span class="st">"warm"</span></span>
+<span id="cb96-4"><a href=""></a>    <span class="cf">elif</span> x <span class="op">&gt;=</span> <span class="dv">40</span>:</span>
+<span id="cb96-5"><a href=""></a>        <span class="cf">return</span> <span class="st">"neutral"</span></span>
+<span id="cb96-6"><a href=""></a>    <span class="cf">else</span>:</span>
+<span id="cb96-7"><a href=""></a>        <span class="cf">return</span> <span class="st">"cold"</span></span>
+<span id="cb96-8"><a href=""></a></span>
+<span id="cb96-9"><a href=""></a>nes[<span class="st">"biden_class"</span>] <span class="op">=</span> nes[<span class="st">"ft_biden"</span>].<span class="bu">apply</span>(classify)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Lambdas are great for short logic. Named functions are better when the logic is complex or used in multiple places.</p>
 <p>For row-wise operations (functions that depend on multiple columns), use <code>df.apply(func, axis=1)</code> and access <code>row["col_name"]</code> inside.</p>
@@ -1704,17 +1717,17 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="default-plots" class="slide level2">
 <h2>Default Plots</h2>
-<div id="4eef5b89" class="cell" data-execution_count="70">
-<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb96-2"><a href=""></a></span>
-<span id="cb96-3"><a href=""></a>plt.plot(nes[<span class="st">'ft_police'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="1258f9f1" class="cell" data-execution_count="70">
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb97-2"><a href=""></a></span>
+<span id="cb97-3"><a href=""></a>plt.plot(nes[<span class="st">'ft_police'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="day-4_files/figure-revealjs/cell-71-output-1.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="a-better-plot" class="slide level2">
 <h2>A better Plot</h2>
-<div id="2c3ed160" class="cell" data-execution_count="71">
-<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href=""></a>plt.hist(nes[<span class="st">'ft_police'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c1396a9d" class="cell" data-execution_count="71">
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href=""></a>plt.hist(nes[<span class="st">'ft_police'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="45">
 <pre><code>(array([ 231.,  169.,   46.,  266.,  495.,  550.,  830., 1286., 1783.,
         1732.]),
@@ -1727,13 +1740,13 @@ Name: count, dtype: int64</code></pre>
 <section id="making-the-plot-nicer" class="slide level2">
 <h2>Making the Plot Nicer</h2>
 <p>We can, of course, make this plot nicer</p>
-<div id="7506ef22" class="cell" data-execution_count="72">
-<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href=""></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
-<span id="cb99-2"><a href=""></a>plt.hist(nes[<span class="st">'ft_police'</span>], bins<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb99-3"><a href=""></a>plt.xlabel(<span class="st">'Feeling Thermometer Police'</span>)</span>
-<span id="cb99-4"><a href=""></a>plt.ylabel(<span class="st">'Frequency'</span>)</span>
-<span id="cb99-5"><a href=""></a>plt.title(<span class="st">'Distribution of Police Feeling Thermometer Scores'</span>)</span>
-<span id="cb99-6"><a href=""></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="77443c72" class="cell" data-execution_count="72">
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb100-1"><a href=""></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
+<span id="cb100-2"><a href=""></a>plt.hist(nes[<span class="st">'ft_police'</span>], bins<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb100-3"><a href=""></a>plt.xlabel(<span class="st">'Feeling Thermometer Police'</span>)</span>
+<span id="cb100-4"><a href=""></a>plt.ylabel(<span class="st">'Frequency'</span>)</span>
+<span id="cb100-5"><a href=""></a>plt.title(<span class="st">'Distribution of Police Feeling Thermometer Scores'</span>)</span>
+<span id="cb100-6"><a href=""></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="day-4_files/figure-revealjs/cell-73-output-1.png" class="quarto-figure quarto-figure-center r-stretch"></section>
@@ -1757,27 +1770,27 @@ Name: count, dtype: int64</code></pre>
 <h2>Accessing Data from the Internet</h2>
 <ul>
 <li class="fragment"><p>Data (e.g.&nbsp;web pages) lives on servers</p></li>
-<li class="fragment"><p>Browsers, apps, etc are clients</p></li>
-<li class="fragment"><p>clients send requests to servers</p></li>
-<li class="fragment"><p>servers serve the necessary files to the user</p></li>
+<li class="fragment"><p>Browsers, apps, etc. are clients</p></li>
+<li class="fragment"><p>Clients send requests to servers</p></li>
+<li class="fragment"><p>Servers serve the necessary files to the user</p></li>
 </ul>
 </section>
 <section id="requests-library" class="slide level2">
 <h2>Requests library</h2>
 <p>The <code>requests</code> library allows us to send requests to servers. This requires us to be working on a machine connected to the internet (obviously).</p>
 <p>Let’s see a very simple example</p>
-<div id="373c32ee" class="cell" data-execution_count="73">
-<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb100-1"><a href=""></a><span class="im">import</span> requests</span>
-<span id="cb100-2"><a href=""></a></span>
-<span id="cb100-3"><a href=""></a>r <span class="op">=</span> requests.get(<span class="st">"https://www.python.org"</span>)</span>
-<span id="cb100-4"><a href=""></a>r.status_code</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a965d23e" class="cell" data-execution_count="73">
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a href=""></a><span class="im">import</span> requests</span>
+<span id="cb101-2"><a href=""></a></span>
+<span id="cb101-3"><a href=""></a>r <span class="op">=</span> requests.get(<span class="st">"https://www.python.org"</span>)</span>
+<span id="cb101-4"><a href=""></a>r.status_code</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="whats-in-the-response" class="slide level2">
 <h2>What’s in the Response?</h2>
 <p>What happens if you run this?</p>
-<div id="73c2073a" class="cell" data-execution_count="74">
-<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a href=""></a><span class="bu">print</span>(r.text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="8b07596e" class="cell" data-execution_count="74">
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb102-1"><a href=""></a><span class="bu">print</span>(r.text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="html-files" class="slide level2">
@@ -1839,9 +1852,9 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="json-files" class="slide level2">
 <h2>JSON Files</h2>
-<p>JSON (JavaScript Object Notation) files store structured data in a simple(ish) and human readable way.</p>
-<p>In Python, we usually use the <code>json</code> module to interact with JSON files.</p>
-<p>Very very (very) popular for exchanging data with servers, storing metadata along with data, etc.</p>
+<p>JSON (JavaScript Object Notation) files store structured data in a simple(ish) and human-readable way.</p>
+<p>When working with API responses, we usually call <code>.json()</code> on the response object (e.g., <code>r.json()</code>) — the <code>json</code> module comes into play when reading/writing JSON files on disk.</p>
+<p>Extremely popular for exchanging data with servers, storing metadata alongside data, etc.</p>
 </section>
 <section id="json-structure" class="slide level2">
 <h2>JSON Structure</h2>
@@ -1863,38 +1876,38 @@ Name: count, dtype: int64</code></pre>
 <li>Arbitrary combinations of the above</li>
 </ul>
 <div class="fragment">
-<p>This flexibility is why JSON works for so many use cases — but it’s also why parsing it can sometimes feel like difficult.</p>
+<p>This flexibility is why JSON works for so many use cases — but it’s also why parsing it can sometimes feel difficult.</p>
 </div>
 </section>
 <section id="example-json" class="slide level2">
 <h2>Example JSON</h2>
-<div id="4dea54f3" class="cell" data-execution_count="75">
-<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb102-1"><a href=""></a>obj <span class="op">=</span> <span class="st">"""</span></span>
-<span id="cb102-2"><a href=""></a><span class="st">{"name": "Wes",</span></span>
-<span id="cb102-3"><a href=""></a><span class="st"> "cities_lived": ["Akron", "Nashville", "New York", "San Francisco"],</span></span>
-<span id="cb102-4"><a href=""></a><span class="st"> "pet": null,</span></span>
-<span id="cb102-5"><a href=""></a><span class="st"> "siblings": [{"name": "Scott", "age": 34, "hobbies": ["guitars", "soccer"]},</span></span>
-<span id="cb102-6"><a href=""></a><span class="st">              {"name": "Katie", "age": 42, "hobbies": ["diving", "art"]}]</span></span>
-<span id="cb102-7"><a href=""></a><span class="st">}</span></span>
-<span id="cb102-8"><a href=""></a><span class="st">"""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a74aa907" class="cell" data-execution_count="75">
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb103-1"><a href=""></a>obj <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb103-2"><a href=""></a><span class="st">{"name": "Wes",</span></span>
+<span id="cb103-3"><a href=""></a><span class="st"> "cities_lived": ["Akron", "Nashville", "New York", "San Francisco"],</span></span>
+<span id="cb103-4"><a href=""></a><span class="st"> "pet": null,</span></span>
+<span id="cb103-5"><a href=""></a><span class="st"> "siblings": [{"name": "Scott", "age": 34, "hobbies": ["guitars", "soccer"]},</span></span>
+<span id="cb103-6"><a href=""></a><span class="st">              {"name": "Katie", "age": 42, "hobbies": ["diving", "art"]}]</span></span>
+<span id="cb103-7"><a href=""></a><span class="st">}</span></span>
+<span id="cb103-8"><a href=""></a><span class="st">"""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Notice that this contains a variety of data types, and some nesting. Much more free form/flexible than a .csv</p>
 </section>
 <section id="converting-json-to-python-objects" class="slide level2">
 <h2>Converting JSON to Python Objects</h2>
-<div id="5bb62e0f" class="cell" data-execution_count="76">
-<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb103-1"><a href=""></a><span class="im">import</span> json </span>
-<span id="cb103-2"><a href=""></a>result <span class="op">=</span> json.loads(obj)</span>
-<span id="cb103-3"><a href=""></a></span>
-<span id="cb103-4"><a href=""></a>result</span>
-<span id="cb103-5"><a href=""></a></span>
-<span id="cb103-6"><a href=""></a><span class="bu">type</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="373f888f" class="cell" data-execution_count="76">
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb104-1"><a href=""></a><span class="im">import</span> json </span>
+<span id="cb104-2"><a href=""></a>result <span class="op">=</span> json.loads(obj)</span>
+<span id="cb104-3"><a href=""></a></span>
+<span id="cb104-4"><a href=""></a>result</span>
+<span id="cb104-5"><a href=""></a></span>
+<span id="cb104-6"><a href=""></a><span class="bu">type</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If we want to extract data into a <code>DataFrame</code></p>
-<div id="2bd713e0" class="cell" data-execution_count="77">
-<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb104-1"><a href=""></a>siblings <span class="op">=</span> pd.DataFrame(result[<span class="st">"siblings"</span>], columns<span class="op">=</span>[<span class="st">"name"</span>, <span class="st">"age"</span>])</span>
-<span id="cb104-2"><a href=""></a></span>
-<span id="cb104-3"><a href=""></a>siblings</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6b7cd2e0" class="cell" data-execution_count="77">
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb105-1"><a href=""></a>siblings <span class="op">=</span> pd.DataFrame(result[<span class="st">"siblings"</span>], columns<span class="op">=</span>[<span class="st">"name"</span>, <span class="st">"age"</span>])</span>
+<span id="cb105-2"><a href=""></a></span>
+<span id="cb105-3"><a href=""></a>siblings</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="apis" class="slide level2">
@@ -1966,22 +1979,22 @@ Name: count, dtype: int64</code></pre>
 <section id="parameters-example" class="slide level2">
 <h2>Parameters example</h2>
 <p>Using <code>requests</code> with a params dict is more readable than typing out the full URL, and avoids formatting mistakes.</p>
-<div id="73b56603" class="cell" data-execution_count="78">
-<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb105-1"><a href=""></a><span class="im">import</span> requests</span>
-<span id="cb105-2"><a href=""></a></span>
-<span id="cb105-3"><a href=""></a>endpoint <span class="op">=</span> <span class="st">"https://en.wikipedia.org/w/api.php"</span></span>
-<span id="cb105-4"><a href=""></a></span>
-<span id="cb105-5"><a href=""></a>headers <span class="op">=</span> {<span class="st">"User-Agent"</span>: <span class="st">"ICPSR-Python-Course/1.0 (your_email@example.com)"</span>}</span>
-<span id="cb105-6"><a href=""></a></span>
-<span id="cb105-7"><a href=""></a>parameters <span class="op">=</span> {</span>
-<span id="cb105-8"><a href=""></a>    <span class="st">"action"</span>: <span class="st">"query"</span>,</span>
-<span id="cb105-9"><a href=""></a>    <span class="st">"titles"</span>: <span class="st">"Jimmy_Carter"</span>,</span>
-<span id="cb105-10"><a href=""></a>    <span class="st">"prop"</span>:   <span class="st">"langlinkscount"</span>,</span>
-<span id="cb105-11"><a href=""></a>    <span class="st">"format"</span>: <span class="st">"json"</span>,</span>
-<span id="cb105-12"><a href=""></a>}</span>
-<span id="cb105-13"><a href=""></a></span>
-<span id="cb105-14"><a href=""></a>r <span class="op">=</span> requests.get(endpoint, params<span class="op">=</span>parameters, headers<span class="op">=</span>headers)</span>
-<span id="cb105-15"><a href=""></a>r.status_code  <span class="co"># 200 is good. 4xx is your problem; 5xx is theirs.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7a0612d4" class="cell" data-execution_count="78">
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb106-1"><a href=""></a><span class="im">import</span> requests</span>
+<span id="cb106-2"><a href=""></a></span>
+<span id="cb106-3"><a href=""></a>endpoint <span class="op">=</span> <span class="st">"https://en.wikipedia.org/w/api.php"</span></span>
+<span id="cb106-4"><a href=""></a></span>
+<span id="cb106-5"><a href=""></a>headers <span class="op">=</span> {<span class="st">"User-Agent"</span>: <span class="st">"ICPSR-Python-Course/1.0 (your_email@example.com)"</span>}</span>
+<span id="cb106-6"><a href=""></a></span>
+<span id="cb106-7"><a href=""></a>parameters <span class="op">=</span> {</span>
+<span id="cb106-8"><a href=""></a>    <span class="st">"action"</span>: <span class="st">"query"</span>,</span>
+<span id="cb106-9"><a href=""></a>    <span class="st">"titles"</span>: <span class="st">"Jimmy_Carter"</span>,</span>
+<span id="cb106-10"><a href=""></a>    <span class="st">"prop"</span>:   <span class="st">"langlinkscount"</span>,</span>
+<span id="cb106-11"><a href=""></a>    <span class="st">"format"</span>: <span class="st">"json"</span>,</span>
+<span id="cb106-12"><a href=""></a>}</span>
+<span id="cb106-13"><a href=""></a></span>
+<span id="cb106-14"><a href=""></a>r <span class="op">=</span> requests.get(endpoint, params<span class="op">=</span>parameters, headers<span class="op">=</span>headers)</span>
+<span id="cb106-15"><a href=""></a>r.status_code  <span class="co"># 200 is good. 4xx is your problem; 5xx is theirs.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="when-the-api-says-no-user-agent" class="slide level2 smaller">
@@ -1998,39 +2011,39 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="convert-the-response-to-a-python-dict" class="slide level2">
 <h2>Convert the response to a Python dict</h2>
-<div id="fec6d3e0" class="cell" data-execution_count="79">
-<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb106-1"><a href=""></a>d <span class="op">=</span> r.json()</span>
-<span id="cb106-2"><a href=""></a><span class="bu">type</span>(d)   <span class="co"># dict</span></span>
-<span id="cb106-3"><a href=""></a>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="32381590" class="cell" data-execution_count="79">
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb107-1"><a href=""></a>d <span class="op">=</span> r.json()</span>
+<span id="cb107-2"><a href=""></a><span class="bu">type</span>(d)   <span class="co"># dict</span></span>
+<span id="cb107-3"><a href=""></a>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The structure of <code>d</code> mirrors the JSON. Now we just walk in to grab the value we want.</p>
 </section>
 <section id="drilling-in" class="slide level2">
 <h2>Drilling in</h2>
-<div id="f7d7852d" class="cell" data-execution_count="80">
-<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb107-1"><a href=""></a><span class="co"># Grab the single page-dict (more important when querying multiple pages)</span></span>
-<span id="cb107-2"><a href=""></a>page <span class="op">=</span> <span class="bu">next</span>(<span class="bu">iter</span>(d[<span class="st">'query'</span>][<span class="st">'pages'</span>].values()))</span>
-<span id="cb107-3"><a href=""></a></span>
-<span id="cb107-4"><a href=""></a><span class="co"># Extract the language-links count</span></span>
-<span id="cb107-5"><a href=""></a>count <span class="op">=</span> page[<span class="st">'langlinkscount'</span>]</span>
-<span id="cb107-6"><a href=""></a></span>
-<span id="cb107-7"><a href=""></a><span class="bu">print</span>(<span class="st">"Jimmy Carter's page is translated into"</span>, count, <span class="st">"languages"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f45586af" class="cell" data-execution_count="80">
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb108-1"><a href=""></a><span class="co"># Grab the single page-dict (more important when querying multiple pages)</span></span>
+<span id="cb108-2"><a href=""></a>page <span class="op">=</span> <span class="bu">next</span>(<span class="bu">iter</span>(d[<span class="st">'query'</span>][<span class="st">'pages'</span>].values()))</span>
+<span id="cb108-3"><a href=""></a></span>
+<span id="cb108-4"><a href=""></a><span class="co"># Extract the language-links count</span></span>
+<span id="cb108-5"><a href=""></a>count <span class="op">=</span> page[<span class="st">'langlinkscount'</span>]</span>
+<span id="cb108-6"><a href=""></a></span>
+<span id="cb108-7"><a href=""></a><span class="bu">print</span>(<span class="st">"Jimmy Carter's page is translated into"</span>, count, <span class="st">"languages"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="your-turn-page-views" class="slide level2">
 <h2>Your Turn — page views</h2>
 <p>Modify the parameters to request <strong>page views</strong> instead of language link count, and extract the data.</p>
-<div id="dba780a3" class="cell" data-execution_count="81">
-<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb108-1"><a href=""></a>parameters <span class="op">=</span> {</span>
-<span id="cb108-2"><a href=""></a>    <span class="st">"action"</span>:  <span class="st">"query"</span>,</span>
-<span id="cb108-3"><a href=""></a>    <span class="st">"titles"</span>:  <span class="st">"Jimmy_Carter"</span>,</span>
-<span id="cb108-4"><a href=""></a>    <span class="st">"prop"</span>:    <span class="st">"pageviews"</span>,   <span class="co"># changed from langlinkscount</span></span>
-<span id="cb108-5"><a href=""></a>    <span class="st">"format"</span>:  <span class="st">"json"</span>,</span>
-<span id="cb108-6"><a href=""></a>}</span>
-<span id="cb108-7"><a href=""></a></span>
-<span id="cb108-8"><a href=""></a>r <span class="op">=</span> requests.get(endpoint, params<span class="op">=</span>parameters)</span>
-<span id="cb108-9"><a href=""></a>d <span class="op">=</span> r.json()</span>
-<span id="cb108-10"><a href=""></a>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="1c06c27c" class="cell" data-execution_count="81">
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb109-1"><a href=""></a>parameters <span class="op">=</span> {</span>
+<span id="cb109-2"><a href=""></a>    <span class="st">"action"</span>:  <span class="st">"query"</span>,</span>
+<span id="cb109-3"><a href=""></a>    <span class="st">"titles"</span>:  <span class="st">"Jimmy_Carter"</span>,</span>
+<span id="cb109-4"><a href=""></a>    <span class="st">"prop"</span>:    <span class="st">"pageviews"</span>,   <span class="co"># changed from langlinkscount</span></span>
+<span id="cb109-5"><a href=""></a>    <span class="st">"format"</span>:  <span class="st">"json"</span>,</span>
+<span id="cb109-6"><a href=""></a>}</span>
+<span id="cb109-7"><a href=""></a></span>
+<span id="cb109-8"><a href=""></a>r <span class="op">=</span> requests.get(endpoint, params<span class="op">=</span>parameters)</span>
+<span id="cb109-9"><a href=""></a>d <span class="op">=</span> r.json()</span>
+<span id="cb109-10"><a href=""></a>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="pagination-the-continue-token" class="slide level2">
@@ -2040,49 +2053,49 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="setting-up-the-query" class="slide level2">
 <h2>Setting up the query</h2>
-<div id="07bf19f4" class="cell" data-execution_count="82">
-<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb109-1"><a href=""></a>API_URL <span class="op">=</span> <span class="st">"https://en.wikipedia.org/w/api.php"</span></span>
-<span id="cb109-2"><a href=""></a></span>
-<span id="cb109-3"><a href=""></a>params <span class="op">=</span> {</span>
-<span id="cb109-4"><a href=""></a>    <span class="st">"action"</span>:  <span class="st">"query"</span>,</span>
-<span id="cb109-5"><a href=""></a>    <span class="st">"list"</span>:    <span class="st">"categorymembers"</span>,</span>
-<span id="cb109-6"><a href=""></a>    <span class="st">"cmtitle"</span>: <span class="st">"Category:Wikipedians_interested_in_history"</span>,</span>
-<span id="cb109-7"><a href=""></a>    <span class="st">"cmlimit"</span>: <span class="st">"50"</span>,</span>
-<span id="cb109-8"><a href=""></a>    <span class="st">"format"</span>:  <span class="st">"json"</span>,</span>
-<span id="cb109-9"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="342ae791" class="cell" data-execution_count="82">
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb110-1"><a href=""></a>API_URL <span class="op">=</span> <span class="st">"https://en.wikipedia.org/w/api.php"</span></span>
+<span id="cb110-2"><a href=""></a></span>
+<span id="cb110-3"><a href=""></a>params <span class="op">=</span> {</span>
+<span id="cb110-4"><a href=""></a>    <span class="st">"action"</span>:  <span class="st">"query"</span>,</span>
+<span id="cb110-5"><a href=""></a>    <span class="st">"list"</span>:    <span class="st">"categorymembers"</span>,</span>
+<span id="cb110-6"><a href=""></a>    <span class="st">"cmtitle"</span>: <span class="st">"Category:Wikipedians_interested_in_history"</span>,</span>
+<span id="cb110-7"><a href=""></a>    <span class="st">"cmlimit"</span>: <span class="st">"50"</span>,</span>
+<span id="cb110-8"><a href=""></a>    <span class="st">"format"</span>:  <span class="st">"json"</span>,</span>
+<span id="cb110-9"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="the-first-batch" class="slide level2">
 <h2>The first batch</h2>
-<div id="91887197" class="cell" data-execution_count="83">
-<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb110-1"><a href=""></a>resp <span class="op">=</span> requests.get(API_URL, params<span class="op">=</span>params)</span>
-<span id="cb110-2"><a href=""></a>resp.raise_for_status()      <span class="co"># raises on 4xx/5xx errors</span></span>
-<span id="cb110-3"><a href=""></a></span>
-<span id="cb110-4"><a href=""></a>data <span class="op">=</span> resp.json()</span>
-<span id="cb110-5"><a href=""></a><span class="bu">print</span>(<span class="st">"Top-level keys:"</span>, <span class="bu">list</span>(data.keys()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b94f328a" class="cell" data-execution_count="83">
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb111-1"><a href=""></a>resp <span class="op">=</span> requests.get(API_URL, params<span class="op">=</span>params)</span>
+<span id="cb111-2"><a href=""></a>resp.raise_for_status()      <span class="co"># raises on 4xx/5xx errors</span></span>
+<span id="cb111-3"><a href=""></a></span>
+<span id="cb111-4"><a href=""></a>data <span class="op">=</span> resp.json()</span>
+<span id="cb111-5"><a href=""></a><span class="bu">print</span>(<span class="st">"Top-level keys:"</span>, <span class="bu">list</span>(data.keys()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If <code>data</code> has a <code>"continue"</code> key, there’s more to fetch.</p>
 </section>
 <section id="a-while-loop-to-pull-all-batches" class="slide level2">
 <h2>A while loop to pull all batches</h2>
-<div id="e812a620" class="cell" data-execution_count="84">
-<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb111-1"><a href=""></a>all_members <span class="op">=</span> []</span>
-<span id="cb111-2"><a href=""></a></span>
-<span id="cb111-3"><a href=""></a><span class="cf">while</span> <span class="va">True</span>:</span>
-<span id="cb111-4"><a href=""></a>    resp <span class="op">=</span> requests.get(API_URL, params<span class="op">=</span>params)</span>
-<span id="cb111-5"><a href=""></a>    resp.raise_for_status()</span>
-<span id="cb111-6"><a href=""></a>    data <span class="op">=</span> resp.json()</span>
-<span id="cb111-7"><a href=""></a></span>
-<span id="cb111-8"><a href=""></a>    batch <span class="op">=</span> data[<span class="st">"query"</span>][<span class="st">"categorymembers"</span>]</span>
-<span id="cb111-9"><a href=""></a>    all_members.extend(batch)</span>
-<span id="cb111-10"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Fetched </span><span class="sc">{</span><span class="bu">len</span>(batch)<span class="sc">}</span><span class="ss"> (total: </span><span class="sc">{</span><span class="bu">len</span>(all_members)<span class="sc">}</span><span class="ss">)"</span>)</span>
-<span id="cb111-11"><a href=""></a></span>
-<span id="cb111-12"><a href=""></a>    <span class="cf">if</span> <span class="st">"continue"</span> <span class="kw">in</span> data:</span>
-<span id="cb111-13"><a href=""></a>        params.update(data[<span class="st">"continue"</span>])</span>
-<span id="cb111-14"><a href=""></a>    <span class="cf">else</span>:</span>
-<span id="cb111-15"><a href=""></a>        <span class="cf">break</span></span>
-<span id="cb111-16"><a href=""></a></span>
-<span id="cb111-17"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Done! Total: </span><span class="sc">{</span><span class="bu">len</span>(all_members)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="352d7bb5" class="cell" data-execution_count="84">
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb112-1"><a href=""></a>all_members <span class="op">=</span> []</span>
+<span id="cb112-2"><a href=""></a></span>
+<span id="cb112-3"><a href=""></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb112-4"><a href=""></a>    resp <span class="op">=</span> requests.get(API_URL, params<span class="op">=</span>params)</span>
+<span id="cb112-5"><a href=""></a>    resp.raise_for_status()</span>
+<span id="cb112-6"><a href=""></a>    data <span class="op">=</span> resp.json()</span>
+<span id="cb112-7"><a href=""></a></span>
+<span id="cb112-8"><a href=""></a>    batch <span class="op">=</span> data[<span class="st">"query"</span>][<span class="st">"categorymembers"</span>]</span>
+<span id="cb112-9"><a href=""></a>    all_members.extend(batch)</span>
+<span id="cb112-10"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Fetched </span><span class="sc">{</span><span class="bu">len</span>(batch)<span class="sc">}</span><span class="ss"> (total: </span><span class="sc">{</span><span class="bu">len</span>(all_members)<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb112-11"><a href=""></a></span>
+<span id="cb112-12"><a href=""></a>    <span class="cf">if</span> <span class="st">"continue"</span> <span class="kw">in</span> data:</span>
+<span id="cb112-13"><a href=""></a>        params.update(data[<span class="st">"continue"</span>])</span>
+<span id="cb112-14"><a href=""></a>    <span class="cf">else</span>:</span>
+<span id="cb112-15"><a href=""></a>        <span class="cf">break</span></span>
+<span id="cb112-16"><a href=""></a></span>
+<span id="cb112-17"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Done! Total: </span><span class="sc">{</span><span class="bu">len</span>(all_members)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="how-the-loop-works" class="slide level2">
@@ -2095,18 +2108,18 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="pulling-from-multiple-pages" class="slide level2">
 <h2>Pulling From Multiple Pages</h2>
-<div id="61dfc28b" class="cell" data-execution_count="85">
-<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb112-1"><a href=""></a>endpoint <span class="op">=</span> <span class="st">'https://en.wikipedia.org/w/api.php'</span></span>
-<span id="cb112-2"><a href=""></a>parameters <span class="op">=</span> {<span class="st">'action'</span>: <span class="st">'query'</span>,</span>
-<span id="cb112-3"><a href=""></a>              <span class="st">'titles'</span>: <span class="st">'Jimmy_Carter|George_H._W._Bush'</span>,</span>
-<span id="cb112-4"><a href=""></a>              <span class="st">'prop'</span>: <span class="st">'langlinkscount'</span>,</span>
-<span id="cb112-5"><a href=""></a>              <span class="st">'format'</span>: <span class="st">'json'</span>}</span>
-<span id="cb112-6"><a href=""></a></span>
-<span id="cb112-7"><a href=""></a>r <span class="op">=</span> requests.get(endpoint, params<span class="op">=</span>parameters)</span>
-<span id="cb112-8"><a href=""></a>r.status_code</span>
-<span id="cb112-9"><a href=""></a></span>
-<span id="cb112-10"><a href=""></a>d <span class="op">=</span> r.json()</span>
-<span id="cb112-11"><a href=""></a>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f40dad71" class="cell" data-execution_count="85">
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb113-1"><a href=""></a>endpoint <span class="op">=</span> <span class="st">'https://en.wikipedia.org/w/api.php'</span></span>
+<span id="cb113-2"><a href=""></a>parameters <span class="op">=</span> {<span class="st">'action'</span>: <span class="st">'query'</span>,</span>
+<span id="cb113-3"><a href=""></a>              <span class="st">'titles'</span>: <span class="st">'Jimmy_Carter|George_H._W._Bush'</span>,</span>
+<span id="cb113-4"><a href=""></a>              <span class="st">'prop'</span>: <span class="st">'langlinkscount'</span>,</span>
+<span id="cb113-5"><a href=""></a>              <span class="st">'format'</span>: <span class="st">'json'</span>}</span>
+<span id="cb113-6"><a href=""></a></span>
+<span id="cb113-7"><a href=""></a>r <span class="op">=</span> requests.get(endpoint, params<span class="op">=</span>parameters)</span>
+<span id="cb113-8"><a href=""></a>r.status_code</span>
+<span id="cb113-9"><a href=""></a></span>
+<span id="cb113-10"><a href=""></a>d <span class="op">=</span> r.json()</span>
+<span id="cb113-11"><a href=""></a>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="api-keys-dont-paste-them-in-your-script" class="slide level2">
@@ -2125,10 +2138,10 @@ Name: count, dtype: int64</code></pre>
 <section id="colab-use-secrets" class="slide level2">
 <h2>Colab: use Secrets</h2>
 <p>Click the <strong>key icon</strong> in the left sidebar. Add a new secret — name it <code>FRED_API_KEY</code>, paste the key as the value, and toggle notebook access.</p>
-<div id="caad6b4a" class="cell" data-execution_count="86">
-<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb113-1"><a href=""></a><span class="im">from</span> google.colab <span class="im">import</span> userdata</span>
-<span id="cb113-2"><a href=""></a></span>
-<span id="cb113-3"><a href=""></a>API_KEY <span class="op">=</span> userdata.get(<span class="st">"FRED_API_KEY"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c16c7ebf" class="cell" data-execution_count="86">
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb114-1"><a href=""></a><span class="im">from</span> google.colab <span class="im">import</span> userdata</span>
+<span id="cb114-2"><a href=""></a></span>
+<span id="cb114-3"><a href=""></a>API_KEY <span class="op">=</span> userdata.get(<span class="st">"FRED_API_KEY"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The key never appears in the notebook. If you share the notebook, the recipient sees <code>userdata.get("FRED_API_KEY")</code> and has to set up their own secret to run it.</p>
 </section>
@@ -2148,12 +2161,12 @@ Name: count, dtype: int64</code></pre>
 <p>In a file called <code>.env</code> (next to your script):</p>
 <pre><code>FRED_API_KEY=abc123...</code></pre>
 <p>Then in Python:</p>
-<div id="b6d76004" class="cell" data-execution_count="87">
-<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb115-1"><a href=""></a><span class="im">import</span> os</span>
-<span id="cb115-2"><a href=""></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
-<span id="cb115-3"><a href=""></a></span>
-<span id="cb115-4"><a href=""></a>load_dotenv()</span>
-<span id="cb115-5"><a href=""></a>API_KEY <span class="op">=</span> os.environ[<span class="st">"FRED_API_KEY"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a23c7850" class="cell" data-execution_count="87">
+<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb116-1"><a href=""></a><span class="im">import</span> os</span>
+<span id="cb116-2"><a href=""></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb116-3"><a href=""></a></span>
+<span id="cb116-4"><a href=""></a>load_dotenv()</span>
+<span id="cb116-5"><a href=""></a>API_KEY <span class="op">=</span> os.environ[<span class="st">"FRED_API_KEY"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>os.environ["..."]</code> raises a clear <code>KeyError</code> if the variable isn’t set, so you find out immediately if your setup is wrong.</p>
 </section>
@@ -2166,48 +2179,40 @@ Name: count, dtype: int64</code></pre>
 <li class="fragment">Either rewrite history (<code>git filter-repo</code>) or accept the key needs to stay revoked</li>
 </ul>
 <div class="fragment">
-<p>Treat any leaked key as compromised forever. If you don’t revoke, you may face a range of reputational or other sanctions.</p>
+<p>Treat any leaked key as compromised forever. Depending on the API, an unrevoked key can mean unauthorized charges to your account, permanent API bans, or professional consequences if it was tied to work.</p>
 </div>
 </section>
 <section id="a-second-api-fred" class="slide level2">
 <h2>A second API: FRED</h2>
 <p>FRED (Federal Reserve Economic Data) is one of the most useful APIs for economic data. Register for a free key at <a href="https://fred.stlouisfed.org/docs/api/api_key.html" class="uri">https://fred.stlouisfed.org/docs/api/api_key.html</a>.</p>
 <p>Same pattern as Wikipedia: endpoint, params dict, parse JSON, convert to DataFrame.</p>
-<div id="55fad47a" class="cell" data-execution_count="88">
-<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb116-1"><a href=""></a><span class="im">from</span> google.colab <span class="im">import</span> userdata</span>
-<span id="cb116-2"><a href=""></a></span>
-<span id="cb116-3"><a href=""></a>API_KEY <span class="op">=</span> userdata.get(<span class="st">"FRED_API_KEY"</span>)</span>
-<span id="cb116-4"><a href=""></a></span>
-<span id="cb116-5"><a href=""></a>endpoint <span class="op">=</span> <span class="st">"https://api.stlouisfed.org/fred/series/observations"</span></span>
-<span id="cb116-6"><a href=""></a></span>
-<span id="cb116-7"><a href=""></a>params <span class="op">=</span> {</span>
-<span id="cb116-8"><a href=""></a>    <span class="st">"series_id"</span>: <span class="st">"UNRATE"</span>,   <span class="co"># US unemployment rate</span></span>
-<span id="cb116-9"><a href=""></a>    <span class="st">"api_key"</span>:   API_KEY,</span>
-<span id="cb116-10"><a href=""></a>    <span class="st">"file_type"</span>: <span class="st">"json"</span>,</span>
-<span id="cb116-11"><a href=""></a>}</span>
-<span id="cb116-12"><a href=""></a></span>
-<span id="cb116-13"><a href=""></a>r <span class="op">=</span> requests.get(endpoint, params<span class="op">=</span>params)</span>
-<span id="cb116-14"><a href=""></a>data <span class="op">=</span> r.json()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6dd705de" class="cell" data-execution_count="88">
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb117-1"><a href=""></a><span class="im">from</span> google.colab <span class="im">import</span> userdata</span>
+<span id="cb117-2"><a href=""></a></span>
+<span id="cb117-3"><a href=""></a>API_KEY <span class="op">=</span> userdata.get(<span class="st">"FRED_API_KEY"</span>)</span>
+<span id="cb117-4"><a href=""></a></span>
+<span id="cb117-5"><a href=""></a>endpoint <span class="op">=</span> <span class="st">"https://api.stlouisfed.org/fred/series/observations"</span></span>
+<span id="cb117-6"><a href=""></a></span>
+<span id="cb117-7"><a href=""></a>params <span class="op">=</span> {</span>
+<span id="cb117-8"><a href=""></a>    <span class="st">"series_id"</span>: <span class="st">"UNRATE"</span>,   <span class="co"># US unemployment rate</span></span>
+<span id="cb117-9"><a href=""></a>    <span class="st">"api_key"</span>:   API_KEY,</span>
+<span id="cb117-10"><a href=""></a>    <span class="st">"file_type"</span>: <span class="st">"json"</span>,</span>
+<span id="cb117-11"><a href=""></a>}</span>
+<span id="cb117-12"><a href=""></a></span>
+<span id="cb117-13"><a href=""></a>r <span class="op">=</span> requests.get(endpoint, params<span class="op">=</span>params)</span>
+<span id="cb117-14"><a href=""></a>data <span class="op">=</span> r.json()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="fred-to-dataframe" class="slide level2">
 <h2>FRED to DataFrame</h2>
-<div id="bc30025a" class="cell" data-execution_count="89">
-<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb117-1"><a href=""></a>obs <span class="op">=</span> pd.DataFrame(data[<span class="st">"observations"</span>])</span>
-<span id="cb117-2"><a href=""></a>obs[<span class="st">"date"</span>]  <span class="op">=</span> pd.to_datetime(obs[<span class="st">"date"</span>])</span>
-<span id="cb117-3"><a href=""></a>obs[<span class="st">"value"</span>] <span class="op">=</span> pd.to_numeric(obs[<span class="st">"value"</span>])</span>
-<span id="cb117-4"><a href=""></a></span>
-<span id="cb117-5"><a href=""></a>obs.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a44c6733" class="cell" data-execution_count="89">
+<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb118-1"><a href=""></a>obs <span class="op">=</span> pd.DataFrame(data[<span class="st">"observations"</span>])</span>
+<span id="cb118-2"><a href=""></a>obs[<span class="st">"date"</span>]  <span class="op">=</span> pd.to_datetime(obs[<span class="st">"date"</span>])</span>
+<span id="cb118-3"><a href=""></a>obs[<span class="st">"value"</span>] <span class="op">=</span> pd.to_numeric(obs[<span class="st">"value"</span>])</span>
+<span id="cb118-4"><a href=""></a></span>
+<span id="cb118-5"><a href=""></a>obs.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>pd.to_datetime</code> and <code>pd.to_numeric</code> convert the string columns FRED returns into proper datetime and numeric types — much easier to plot or aggregate. Whenever an API returns dates as strings, this is the first thing to do.</p>
-</section>
-<section id="social-science-data-and-apis" class="slide level2">
-<h2>Social Science Data and APIs</h2>
-<p>While I can imagine fascinating research projects using this Wikipedia data, such as looking at revision histories to controversial topics, or edits in response to political shifts, most of the time we are looking to grab more traditional data from APIs.</p>
-<p>Let’s take a look at the API for the OECD by going to</p>
-<p><a href="https://data-explorer.oecd.org" class="uri">https://data-explorer.oecd.org</a></p>
-<p>Formatting info is here:</p>
-<p><a href="https://www.oecd.org/en/data/insights/data-explainers/2024/09/api.html" class="uri">https://www.oecd.org/en/data/insights/data-explainers/2024/09/api.html</a></p>
 </section>
 <section id="tomorrow" class="slide level2">
 <h2>Tomorrow</h2>
