@@ -1,9 +1,10 @@
 ---
-title: "Bio"
+pagetitle: "Bio"
 ---
-# Will Horne
 
 ![](images/presenting.jpg){fig-alt="Will Horne presenting in a classroom" .rounded width="50%" fig-align="center"}
+
+# Bio
 
 I am an Assistant Professor in Political Science at Clemson University. I received my PhD from Princeton University in the Department of Politics in May of 2022, and was a Post-Doctoral Fellow with the Executive Approval Project from 2022-2024. 
 
