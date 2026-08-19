@@ -3,11 +3,13 @@ title: "POSC 8410 (Fall 2026)"
 ---
 
 Course slides for **POSC 8410**, Clemson University, Fall 2026.
+Mon & Wed, 2:30–3:45 PM, 212 Brackett Hall.
 
 
 ## Slides
 
 | Date | Topic | Slides |
 |------|-------|--------|
-| Aug 19 | Introduction | [HTML](01_Introduction.html){target="_blank"}|
+| Aug 19 | Introduction | [HTML](01_Introduction.html){target="_blank"} |
 
+Slides are posted here after each class.

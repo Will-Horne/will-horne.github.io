@@ -15,6 +15,13 @@ project:
     - posc-3710/*.pptx
     - posc-8410/*.pdf
     - posc-8410/*.pptx
+    # Reveal.js decks are not self-contained: the .html is a shell that loads
+    # reveal.js/theme/plugins from site_libs, its plots from <deck>_files, and
+    # its pictures from images. All four must ship or the deck renders unstyled.
+    - posc-8410/*.html
+    - posc-8410/*_files/**
+    - posc-8410/site_libs/**
+    - posc-8410/images/**
     - icpsr-2026/*.html
     - icpsr-2026/*_files/**
     - icpsr-2026/Slides_Images/**
