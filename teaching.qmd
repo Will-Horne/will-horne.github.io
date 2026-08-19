@@ -25,7 +25,7 @@ At Clemson, I have taught the following classes:
 - **POSC 3710: Quantitaitive Research Methods** - An introduction to quantitative methods and research design for undergraduate political science majors, taught using R. 
 
 
-At Georgia State, I have taught:
+At Georgia State, I taught:
 
 - **POL4900: Representation and Inequality in Democratic Societies** – examines why some groups are less represented, exploring descriptive vs. substantive representation, inequality, and institutional reforms.
 - **POL8820: Text-as-Data for Social Scientists** – covers text-data methods: descriptive representation, topic models, embeddings, supervised classification, and transformer models like BERT/GPT.
