@@ -1,31 +1,66 @@
 [
   {
-    "objectID": "posc-3710/index.html",
-    "href": "posc-3710/index.html",
-    "title": "POSC 3710 — European Politics (Fall 2026)",
+    "objectID": "posc-8410/index.html",
+    "href": "posc-8410/index.html",
+    "title": "POSC 8410 (Fall 2026)",
     "section": "",
-    "text": "Course slides for POSC 3710: European Politics, Clemson University, Fall 2026. Mon & Wed, 4:00–5:15 PM, 212 Brackett Hall."
+    "text": "Course slides for POSC 8410, Clemson University, Fall 2026."
   },
   {
-    "objectID": "posc-3710/index.html#slides",
-    "href": "posc-3710/index.html#slides",
-    "title": "POSC 3710 — European Politics (Fall 2026)",
+    "objectID": "posc-8410/index.html#slides",
+    "href": "posc-8410/index.html#slides",
+    "title": "POSC 8410 (Fall 2026)",
     "section": "Slides",
-    "text": "Slides\n\n\n\nDate\nTopic\nSlides\n\n\n\n\nAug 19\nIntroduction\nPDF · PowerPoint\n\n\n\nSlides are posted here after each class. The PDF opens in your browser; the PowerPoint link downloads the original file."
+    "text": "Slides\nSlides will be posted here after each class."
   },
   {
-    "objectID": "resources.html",
-    "href": "resources.html",
-    "title": "Resources",
+    "objectID": "icpsr-2026/index.html",
+    "href": "icpsr-2026/index.html",
+    "title": "ICPSR 2026 — Introduction to Python",
     "section": "",
-    "text": "Curriculum Vitae (PDF)\nSample Syllabus: Representation and Inequality in Democratic Societies\nSample Syllabus: Text-as-Data for Social Scientists"
+    "text": "A one-week introduction to Python for social scientists, taught at the ICPSR Summer Program in Quantitative Methods. The course assumes no prior coding background and focuses on the practical skills social scientists need: data manipulation, web scraping, API usage, and basic natural language processing."
   },
   {
-    "objectID": "resources.html#materials",
-    "href": "resources.html#materials",
-    "title": "Resources",
+    "objectID": "icpsr-2026/index.html#slides",
+    "href": "icpsr-2026/index.html#slides",
+    "title": "ICPSR 2026 — Introduction to Python",
+    "section": "Slides",
+    "text": "Slides\n\nDay 1 — Getting started with Python\nDay 2 — Flow control and data types\nDay 3 — Functions and object-oriented programming\nDay 4 — NumPy, pandas, and APIs\nDay 5 — Web scraping and text-as-data"
+  },
+  {
+    "objectID": "icpsr-2026/index.html#optional-exercises",
+    "href": "icpsr-2026/index.html#optional-exercises",
+    "title": "ICPSR 2026 — Introduction to Python",
+    "section": "Optional exercises",
+    "text": "Optional exercises\nWorking through these is the fastest way to build fluency. Each set takes 45–60 minutes. Solutions in separate links.\n\n\n\nDay\nExercises\nSolutions\n\n\n\n\n1\nExercises\nSolutions\n\n\n2\nExercises\nSolutions\n\n\n3\nExercises\nSolutions\n\n\n4\nExercises\nSolutions"
+  },
+  {
+    "objectID": "teaching.html",
+    "href": "teaching.html",
+    "title": "Teaching",
     "section": "",
-    "text": "Curriculum Vitae (PDF)\nSample Syllabus: Representation and Inequality in Democratic Societies\nSample Syllabus: Text-as-Data for Social Scientists"
+    "text": "I am teaching POSC 8410, the second course in the Clemson’s PhD methods sequence. I am also teaching POSC 3710, European Politics. Slides and course resources are posted on each course’s page.\n\n\nI am teaching Introduction to Python at the ICPSR Summer Program in Quantitative Methods, University of Michigan. The course is a one-week, hands-on introduction to Python for social scientists, with no prior coding background assumed. It covers data manipulation with pandas, web scraping, API usage, and basic natural language processing, with worked examples drawn from real social science data.\nSlides and materials are available here."
+  },
+  {
+    "objectID": "teaching.html#fall-2026",
+    "href": "teaching.html#fall-2026",
+    "title": "Teaching",
+    "section": "",
+    "text": "I am teaching POSC 8410, the second course in the Clemson’s PhD methods sequence. I am also teaching POSC 3710, European Politics. Slides and course resources are posted on each course’s page.\n\n\nI am teaching Introduction to Python at the ICPSR Summer Program in Quantitative Methods, University of Michigan. The course is a one-week, hands-on introduction to Python for social scientists, with no prior coding background assumed. It covers data manipulation with pandas, web scraping, API usage, and basic natural language processing, with worked examples drawn from real social science data.\nSlides and materials are available here."
+  },
+  {
+    "objectID": "teaching.html#prior-teaching",
+    "href": "teaching.html#prior-teaching",
+    "title": "Teaching",
+    "section": "Prior Teaching",
+    "text": "Prior Teaching\nAt Clemson, I have taught the following classes:\n\nPOSC 8410: Public Data Analysis – first course in the PhD methods sequence, introducing probability theory, statistics, and basic research design. Taught using R.\nPOSC 8420: Advanced Quantitative Analysis for Social Scientists – Second course in the PhD methods sequence, introducing probability theory, statistics, and basic research design. Taught using R.\nPOSC 3710: European Politics - A survey of European Politics focused on the political systems of European countries and pressing political problems facing Europe today.\nPOSC 3710: Quantitaitive Research Methods - An introduction to quantitative methods and research design for undergraduate political science majors, taught using R.\n\nAt Georgia State, I have taught:\n\nPOL4900: Representation and Inequality in Democratic Societies – examines why some groups are less represented, exploring descriptive vs. substantive representation, inequality, and institutional reforms.\nPOL8820: Text-as-Data for Social Scientists – covers text-data methods: descriptive representation, topic models, embeddings, supervised classification, and transformer models like BERT/GPT.\n\nAt Princeton, I taught:\n\nPOL 981: The Junior Independent Work Research Design Seminar (Fall 2017 & Fall 2018) – original research design content (statistical, experimental, qualitative methods). Awarded the George Kateb Prize."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Will Horne",
+    "section": "",
+    "text": "I am an Assistant Professor in Political Science at Clemson University. I received my PhD from Princeton University in the Department of Politics in May of 2022, and was a Post-Doctoral Fellow with the Executive Approval Project from 2022-2024.\nMy research focuses on changes in the structure of political competition and representation in advanced democratic societies. In particular I am interested in how political parties choose when and how to represent different groups in society, and how these decisions impact attitudes towards parties (including affective polarization), policy outputs and attitudes towards democracy. Methodologically, I have a particular interest in the use of Natural Language Processing techniques to study political parties and candidates.\nMy work has been published in the  American Political Science Review , the British Journal of Political Science, Comparative Political Studies and Public Opinion Quarterly, among other outlets. My research has been featured in The New York Times, FiveThirtyEight, Foreign Policy and the Washington Post’s Monkey Cage. I am also a core team member of the Executive Approval Project.\nDownload My CV"
   },
   {
     "objectID": "research.html",
@@ -70,52 +105,31 @@
     "text": "Working Papers\n\nHorne, Will (Under Review), “Changing the Face of the Party: How Political Parties Use Candidate Selection to Influence Voter Perceptions.”\n\nHorne, Will (Under Review), “How are working class candidates different? Evidence from a quantitative text analysis of campaign materials”\n\nAdams, James, David Bracken, Noam Gidron, Will Horne, Seonghui Lee, Diana O’Brien, Philip Santoso, Kaitlin Senk, and Randolph Stevenson (Under Review), “Do Woman MPs Influence Party’s Policy Images?”\n\nHorne, Will, Gregory Love and Ryan Carlin, “Is your classifier bilingual? Using Large Language Models for Cross-Lingual Classification” (APSA 2023)\n\nDolinsky, Alona, Lena Maria Huber and Will Horne, “Parties Group Appeals Across Space and Time” (EPSA 2023)\n\nCarlin, Ryan, Jonathan Hartlyn, Timothy Hellwig, Will Horne, Gregory Love, Cecilia Martinez Gallardo and Matthew Singer, “Executive Approval in Times of Crisis.” (APSA 2023)"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Will Horne",
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources",
     "section": "",
-    "text": "I am an Assistant Professor in Political Science at Clemson University. I received my PhD from Princeton University in the Department of Politics in May of 2022, and was a Post-Doctoral Fellow with the Executive Approval Project from 2022-2024.\nMy research focuses on changes in the structure of political competition and representation in advanced democratic societies. In particular I am interested in how political parties choose when and how to represent different groups in society, and how these decisions impact attitudes towards parties (including affective polarization), policy outputs and attitudes towards democracy. Methodologically, I have a particular interest in the use of Natural Language Processing techniques to study political parties and candidates.\nMy work has been published in the  American Political Science Review , the British Journal of Political Science, Comparative Political Studies and Public Opinion Quarterly, among other outlets. My research has been featured in The New York Times, FiveThirtyEight, Foreign Policy and the Washington Post’s Monkey Cage. I am also a core team member of the Executive Approval Project.\nDownload My CV"
+    "text": "Curriculum Vitae (PDF)\nSample Syllabus: Representation and Inequality in Democratic Societies\nSample Syllabus: Text-as-Data for Social Scientists"
   },
   {
-    "objectID": "teaching.html",
-    "href": "teaching.html",
-    "title": "Teaching",
+    "objectID": "resources.html#materials",
+    "href": "resources.html#materials",
+    "title": "Resources",
     "section": "",
-    "text": "I am teaching POSC 8410, the second course in the Clemson’s PhD methods sequence. I am also teaching POSC 3710, European Politics. Course Resources will be posted this fall.\n\n\nI am teaching Introduction to Python at the ICPSR Summer Program in Quantitative Methods, University of Michigan. The course is a one-week, hands-on introduction to Python for social scientists, with no prior coding background assumed. It covers data manipulation with pandas, web scraping, API usage, and basic natural language processing, with worked examples drawn from real social science data.\nSlides and materials are available here."
+    "text": "Curriculum Vitae (PDF)\nSample Syllabus: Representation and Inequality in Democratic Societies\nSample Syllabus: Text-as-Data for Social Scientists"
   },
   {
-    "objectID": "teaching.html#fall-2026",
-    "href": "teaching.html#fall-2026",
-    "title": "Teaching",
+    "objectID": "posc-3710/index.html",
+    "href": "posc-3710/index.html",
+    "title": "POSC 3710 — European Politics (Fall 2026)",
     "section": "",
-    "text": "I am teaching POSC 8410, the second course in the Clemson’s PhD methods sequence. I am also teaching POSC 3710, European Politics. Course Resources will be posted this fall.\n\n\nI am teaching Introduction to Python at the ICPSR Summer Program in Quantitative Methods, University of Michigan. The course is a one-week, hands-on introduction to Python for social scientists, with no prior coding background assumed. It covers data manipulation with pandas, web scraping, API usage, and basic natural language processing, with worked examples drawn from real social science data.\nSlides and materials are available here."
+    "text": "Course slides for POSC 3710: European Politics, Clemson University, Fall 2026. Mon & Wed, 4:00–5:15 PM, 212 Brackett Hall."
   },
   {
-    "objectID": "teaching.html#prior-teaching",
-    "href": "teaching.html#prior-teaching",
-    "title": "Teaching",
-    "section": "Prior Teaching",
-    "text": "Prior Teaching\nAt Clemson, I have taught the following classes:\n\nPOSC 8410: Public Data Analysis – first course in the PhD methods sequence, introducing probability theory, statistics, and basic research design. Taught using R.\nPOSC 8420: Advanced Quantitative Analysis for Social Scientists – Second course in the PhD methods sequence, introducing probability theory, statistics, and basic research design. Taught using R.\nPOSC 3710: European Politics - A survey of European Politics focused on the political systems of European countries and pressing political problems facing Europe today.\nPOSC 3710: Quantitaitive Research Methods - An introduction to quantitative methods and research design for undergraduate political science majors, taught using R.\n\nAt Georgia State, I have taught:\n\nPOL4900: Representation and Inequality in Democratic Societies – examines why some groups are less represented, exploring descriptive vs. substantive representation, inequality, and institutional reforms.\nPOL8820: Text-as-Data for Social Scientists – covers text-data methods: descriptive representation, topic models, embeddings, supervised classification, and transformer models like BERT/GPT.\n\nAt Princeton, I taught:\n\nPOL 981: The Junior Independent Work Research Design Seminar (Fall 2017 & Fall 2018) – original research design content (statistical, experimental, qualitative methods). Awarded the George Kateb Prize."
-  },
-  {
-    "objectID": "icpsr-2026/index.html",
-    "href": "icpsr-2026/index.html",
-    "title": "ICPSR 2026 — Introduction to Python",
-    "section": "",
-    "text": "A one-week introduction to Python for social scientists, taught at the ICPSR Summer Program in Quantitative Methods. The course assumes no prior coding background and focuses on the practical skills social scientists need: data manipulation, web scraping, API usage, and basic natural language processing."
-  },
-  {
-    "objectID": "icpsr-2026/index.html#slides",
-    "href": "icpsr-2026/index.html#slides",
-    "title": "ICPSR 2026 — Introduction to Python",
+    "objectID": "posc-3710/index.html#slides",
+    "href": "posc-3710/index.html#slides",
+    "title": "POSC 3710 — European Politics (Fall 2026)",
     "section": "Slides",
-    "text": "Slides\n\nDay 1 — Getting started with Python\nDay 2 — Flow control and data types\nDay 3 — Functions and object-oriented programming\nDay 4 — NumPy, pandas, and APIs\nDay 5 — Web scraping and text-as-data"
-  },
-  {
-    "objectID": "icpsr-2026/index.html#optional-exercises",
-    "href": "icpsr-2026/index.html#optional-exercises",
-    "title": "ICPSR 2026 — Introduction to Python",
-    "section": "Optional exercises",
-    "text": "Optional exercises\nWorking through these is the fastest way to build fluency. Each set takes 45–60 minutes. Solutions in separate links.\n\n\n\nDay\nExercises\nSolutions\n\n\n\n\n1\nExercises\nSolutions\n\n\n2\nExercises\nSolutions\n\n\n3\nExercises\nSolutions\n\n\n4\nExercises\nSolutions"
+    "text": "Slides\n\n\n\nDate\nTopic\nSlides\n\n\n\n\nAug 19\nIntroduction\nPDF · PowerPoint\n\n\n\nSlides are posted here after each class. The PDF opens in your browser; the PowerPoint link downloads the original file."
   }
 ]
