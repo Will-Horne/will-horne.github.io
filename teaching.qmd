@@ -4,7 +4,7 @@ title: "Teaching"
 
 ## Fall 2026
 
- I am teaching **POSC 8410**, the second course in the Clemson’s PhD methods sequence. I am also teaching **POSC 3710, European Politics**. Course Resources will be posted this fall.
+ I am teaching **[POSC 8410](posc-8410/index.qmd)**, the second course in the Clemson’s PhD methods sequence. I am also teaching **[POSC 3710, European Politics](posc-3710/index.qmd)**. Slides and course resources are posted on each course's page.
 
 ### Summer 2026: ICPSR Introduction to Python
 

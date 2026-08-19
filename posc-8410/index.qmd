@@ -1,0 +1,9 @@
+---
+title: "POSC 8410 (Fall 2026)"
+---
+
+Course slides for **POSC 8410**, Clemson University, Fall 2026.
+
+## Slides
+
+Slides will be posted here after each class.
