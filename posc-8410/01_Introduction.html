@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="01_Introduction_files/libs/clipboard/clipboard.min.js"></script>
+<script src="01_Introduction_files/libs/quarto-html/tabby.min.js"></script>
+<script src="01_Introduction_files/libs/quarto-html/popper.min.js"></script>
+<script src="01_Introduction_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="01_Introduction_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="01_Introduction_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="01_Introduction_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.32">
+
+  <meta name="author" content="Will Horne">
+  <title>POSC 8410: Introduction</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="01_Introduction_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="01_Introduction_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="01_Introduction_files/libs/revealjs/dist/theme/quarto-f563837468303362081e247dddd440d0.css">
+  <link href="01_Introduction_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="01_Introduction_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="01_Introduction_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="01_Introduction_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">POSC 8410: Introduction</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Will Horne 
+</div>
+</div>
+</div>
+
+</section>
+<section id="who-am-i" class="slide level2">
+<h2>Who am I?</h2>
+<ul>
+<li><p>I am a <strong>Political Scientist</strong></p>
+<ul>
+<li><p>Comparativist: polarization, representation, democracy</p></li>
+<li><p>Methodologist: Text-as-Data, Machine Learning, Causal Inference</p></li>
+</ul></li>
+<li><p>My third year at Clemson</p>
+<ul>
+<li>PhD Princeton 2022</li>
+<li>GSU: Post Doc 2022-2024</li>
+</ul></li>
+<li><p>You can call me Will or Dr.&nbsp;Horne, either is fine!</p></li>
+</ul>
+</section>
+<section id="how-did-i-get-here" class="slide level2">
+<h2>How did I get here?</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="images/Screenshot%202024-08-12%20at%205.35.53%20PM-01.png" width="357"></p>
+<p><img data-src="images/Princeton_seal-01.svg" width="204"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/LSE_Logo-01.svg"></p>
+<p><img data-src="images/NU_K80_wordmark_h.png"></p>
+</div></div>
+</section>
+<section id="enough-about-me" class="slide level2">
+<h2>Enough About me!</h2>
+<div style="display: flex; align-items: center; justify-content: center; height: 60vh; font-size: 2em; font-weight: bold; text-align: center;">
+<p>Now let’s talk about you for a minute</p>
+</div>
+</section>
+<section>
+<section id="what-does-social-science-research-look-like" class="title-slide slide level1 center">
+<h1>What does social science research look like?</h1>
+
+</section>
+<section id="three-kinds-of-questions" class="slide level2">
+<h2>Three Kinds of Questions</h2>
+<ul>
+<li class="fragment"><p><strong>Descriptive:</strong> <em>What is happening?</em></p>
+<ul>
+<li class="fragment">How polarized is the American electorate? Has it changed since 1980?</li>
+</ul></li>
+<li class="fragment"><p><strong>Causal:</strong> <em>What happens to Y if we change X?</em></p>
+<ul>
+<li class="fragment">Does registering voters by mail increase turnout?</li>
+</ul></li>
+<li class="fragment"><p><strong>Predictive:</strong> <em>Given what we know, what comes next?</em></p>
+<ul>
+<li class="fragment">Which countries are most at risk of democratic backsliding?</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<p>These need <strong>different</strong> research designs. A lot of bad research is a design built for one question answering a different one.</p>
+</div>
+</section>
+<section id="from-concept-to-evidence" class="slide level2">
+<h2>From Concept to Evidence</h2>
+<ul>
+<li class="fragment"><p>The things we care about are <strong>abstract</strong>: discrimination, polarization, democracy, state capacity</p></li>
+<li class="fragment"><p>The things we can observe are <strong>concrete</strong>: survey answers, votes, callbacks, budget lines</p></li>
+<li class="fragment"><p>Research is the work of connecting the two</p>
+<ul>
+<li class="fragment">Concept → theory → testable implication → <strong>measure</strong> → data</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<p><strong>Measurement is a choice, and choices can be wrong.</strong> “How democratic is Hungary?” has no reading on a dial.</p>
+</div>
+</section>
+<section id="compared-to-what" class="slide level2">
+<h2>Compared to What?</h2>
+<ul>
+<li class="fragment"><p>Almost every interesting claim is a <strong>comparison</strong> claim</p>
+<ul>
+<li class="fragment">“The program worked” = recipients did better <em>than they would have otherwise</em></li>
+</ul></li>
+<li class="fragment"><p>The problem: we never observe <em>otherwise</em></p>
+<ul>
+<li class="fragment">We see the person who got the job training, not that same person in the world where they didn’t</li>
+</ul></li>
+<li class="fragment"><p>So we substitute a comparison group — everything depends on whether it is a fair one</p></li>
+</ul>
+<div class="fragment">
+<p>People who sign up for job training differ from people who don’t in a hundred ways. Which difference produced the result?</p>
+</div>
+</section>
+<section id="what-makes-research-credible" class="slide level2">
+<h2>What Makes Research Credible?</h2>
+<ol type="1">
+<li class="fragment"><p>A <strong>clear question</strong> — descriptive, causal, or predictive</p></li>
+<li class="fragment"><p><strong>Valid measurement</strong> — your variable captures the concept you claim</p></li>
+<li class="fragment"><p>A <strong>credible comparison</strong> — you can defend the counterfactual</p></li>
+<li class="fragment"><p><strong>Honest uncertainty</strong> — you report how wrong you might be</p></li>
+<li class="fragment"><p><strong>Transparency</strong> — someone else could redo it</p></li>
+</ol>
+</section></section>
+<section>
+<section id="a-worked-example" class="title-slide slide level1 center">
+<h1>A Worked Example</h1>
+
+</section>
+<section id="do-employers-racially-discriminate" class="slide level2">
+<h2>Do Employers Racially Discriminate?</h2>
+<ul>
+<li class="fragment"><p>A genuinely important policy question</p>
+<ul>
+<li class="fragment">Hiring discrimination is illegal. Is it happening anyway?</li>
+</ul></li>
+<li class="fragment"><p>But notice how hard it is to study</p>
+<ul>
+<li class="fragment"><p>You cannot ask employers — nobody self-reports discriminating</p></li>
+<li class="fragment"><p>You cannot just compare real applicants: people from different races also differ in schools, neighborhoods, networks, experience</p></li>
+</ul></li>
+</ul>
+<div class="fragment">
+<p><strong>This is the “compared to what?” problem!</strong></p>
+</div>
+</section>
+<section id="the-design" class="slide level2">
+<h2>The Design</h2>
+<ul>
+<li class="fragment"><p>Bertrand and Mullainathan (2004) mailed ~5,000 fictitious résumés to help-wanted ads in Boston and Chicago</p></li>
+<li class="fragment"><p>The résumés were <strong>identical</strong> except for the name at the top</p>
+<ul>
+<li class="fragment"><p>“Emily Walsh” / “Greg Baker”</p></li>
+<li class="fragment"><p>“Lakisha Washington” / “Jamal Jones”</p></li>
+</ul></li>
+<li class="fragment"><p>Names were <strong>randomly assigned</strong> to résumés</p></li>
+<li class="fragment"><p>Outcome: did the résumé get a callback?</p></li>
+</ul>
+<div class="fragment">
+<p>Randomization manufactures the counterfactual. The only systematic difference between the two piles is the name.</p>
+</div>
+</section>
+<section id="the-result" class="slide level2">
+<h2>The Result</h2>
+
+<img data-src="01_Introduction_files/figure-revealjs/unnamed-chunk-1-1.png" width="864" class="r-stretch"><p>A gap of about 3 percentage points, or roughly <strong>50% more callbacks</strong> for an identical résumé.</p>
+</section>
+<section id="does-a-better-résumé-help" class="slide level2">
+<h2>Does a Better Résumé Help?</h2>
+
+<img data-src="01_Introduction_files/figure-revealjs/unnamed-chunk-2-1.png" width="864" class="r-stretch"></section>
+<section id="the-returns-to-a-better-résumé" class="slide level2">
+<h2>The Returns to a Better Résumé</h2>
+<ul>
+<li class="fragment"><p>White-sounding names: a stronger résumé buys <strong>+2.3</strong> points of callback</p></li>
+<li class="fragment"><p>Black-sounding names: a stronger résumé buys <strong>+0.5</strong> points</p></li>
+<li class="fragment"><p>The gap does <strong>widens</strong> as you improve your credentials</p></li>
+</ul>
+<div class="fragment">
+<p>This kind of “the effect of X depends on Z” claim has a name. We will look at <em>interactions</em> at the end of the semester</p>
+</div>
+</section>
+<section id="is-this-credible" class="slide level2">
+<h2>Is this credible?</h2>
+<ol type="1">
+<li class="fragment"><p><strong>Clear question?</strong> Yes - causal, and stated as such</p></li>
+<li class="fragment"><p><strong>Valid measurement?</strong> Callbacks, not hires. A real limitation, but defensible</p></li>
+<li class="fragment"><p><strong>Credible comparison?</strong> Yes - randomization does the work</p></li>
+<li class="fragment"><p><strong>Honest uncertainty?</strong> Yes - we will get to how to measure this!</p></li>
+<li class="fragment"><p><strong>Transparent?</strong> Yes - the data is public.</p></li>
+</ol>
+</section>
+<section id="we-will-learn-to-do-this-kind-of-work" class="slide level2">
+<h2>We will learn to do this kind of work!</h2>
+<ul>
+<li class="fragment"><p><em>Is 3 points a big gap?</em> → Descriptive statistics, measurement</p></li>
+<li class="fragment"><p><em>Could we have gotten this by chance?</em> → Probability</p></li>
+<li class="fragment"><p><em>What would we expect in a different sample?</em> → Sampling and estimation</p></li>
+<li class="fragment"><p><em>How confident should we be?</em> → Hypothesis testing, confidence intervals</p></li>
+<li class="fragment"><p><em>Does the gap differ by industry? By résumé quality?</em> → <strong>ANOVA and regression</strong></p></li>
+</ul>
+<div class="fragment">
+<p>We will come back to this study all semester. You will analyze this data yourself.</p>
+</div>
+</section>
+<section id="goals-of-the-course" class="slide level2">
+<h2>Goals of the course</h2>
+<p>The goals of this course are:</p>
+<ol type="1">
+<li class="fragment"><p>Introduce the foundations of Quantitative Social Science (QSS)</p>
+<ul>
+<li class="fragment"><p>Descriptive Statistics</p></li>
+<li class="fragment"><p>Probability Theory</p></li>
+<li class="fragment"><p>Statistical inference</p></li>
+<li class="fragment"><p><strong>Regression analysis</strong> -&gt; our final destination</p></li>
+</ul></li>
+<li class="fragment"><p>Link QSS foundations to policy relevant questions</p></li>
+<li class="fragment"><p>Build enough R fluency to do your own analyses</p></li>
+</ol>
+</section>
+<section id="course-sequence" class="slide level2">
+<h2>Course Sequence</h2>
+<ul>
+<li class="fragment"><p>In practice, this is the first course in a sequence</p>
+<ul>
+<li class="fragment"><p>We will cover roughly intro level stats –&gt; OLS Regression. Roughly 2 semesters of (rigorous) UG stats.</p></li>
+<li class="fragment"><p>Spring: advanced regression models + design based techniques for causal inference (DiD, Experiments, etc)</p></li>
+</ul></li>
+<li class="fragment"><p>Tentatively: <strong>Quant 3 (POSC 8430)</strong> will cover machine learning, text-as-data and some other advanced topics.</p></li>
+</ul>
+</section>
+<section id="why-quantitative-social-science" class="slide level2 smaller">
+<h2>Why Quantitative Social Science?</h2>
+<ul>
+<li class="fragment"><p>Not Quant vs Qual</p>
+<ul>
+<li class="fragment"><p>Quant <em>and</em> qual</p></li>
+<li class="fragment"><p>Mixed methods research often stronger than pure qual or pure quant</p>
+<ul>
+<li class="fragment">I’ve done archival work + Other courses available specifically devoted to qualitative research methods</li>
+</ul></li>
+</ul>
+<!-- -->
+<ul>
+<li class="fragment">Commonalities in thinking hard about good research design
+<ul>
+<li class="fragment">King, Keohane and Verba (1994) <em>Designing Social Inquiry</em> is the classic on this point</li>
+</ul></li>
+</ul></li>
+<li class="fragment"><p>New techniques –&gt; wider range of research questions</p></li>
+</ul>
+</section>
+<section id="motivation" class="slide level2">
+<h2>Motivation</h2>
+
+<img data-src="01_Introduction_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
+<section id="motivation-1" class="slide level2">
+<h2>Motivation</h2>
+<ul>
+<li class="fragment"><p>It is <strong>not</strong> that “social scientist” is a booming job title</p>
+<ul>
+<li class="fragment">Political scientists: <strong>-3%</strong>. Survey researchers: <strong>-5%</strong></li>
+</ul></li>
+<li class="fragment"><p>It is that the <em>methods</em> are in demand, everywhere</p>
+<ul>
+<li class="fragment">Data scientists: <strong>+34%</strong>, median pay $112,590 (May 2024)</li>
+</ul></li>
+<li class="fragment"><p>The valuable combination is substantive knowledge <strong>+</strong> the ability to work with data</p>
+<ul>
+<li class="fragment">Plenty of people can run a regression. Far fewer know which regression to run, or what it means.</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<p>That combination is what this course is for.</p>
+</div>
+</section>
+<section id="course-outline" class="slide level2">
+<h2>Course Outline</h2>
+<ul>
+<li class="fragment"><p><strong>Weeks 1-2:</strong> Getting up and running in R; describing data</p></li>
+<li class="fragment"><p><strong>Weeks 3-6:</strong> Probability theory</p></li>
+<li class="fragment"><p><strong>Weeks 7-8:</strong> Sampling, estimation, and inference</p></li>
+<li class="fragment"><p><strong>Midterm</strong></p></li>
+<li class="fragment"><p><strong>Weeks 9-10:</strong> Asymptotics, hypothesis testing, confidence intervals</p></li>
+<li class="fragment"><p><strong>Weeks 11-14:</strong> ANOVA and regression</p></li>
+</ul>
+</section>
+<section id="this-will-require-some-math" class="slide level2">
+<h2>This Will Require Some Math</h2>
+<ul>
+<li class="fragment"><p>Calculus (derivatives, integrals, limits) + very basic matrix algebra</p></li>
+<li class="fragment"><p>We will review! Not a bad idea to check out Khan Academy or similar if rusty/new</p></li>
+<li class="fragment"><p>The math is not there for its own sake</p>
+<ul>
+<li class="fragment"><p>You cannot interpret a regression coefficient you don’t understand</p></li>
+<li class="fragment"><p>You cannot tell when a method is the wrong tool if you only know how to call it</p></li>
+</ul></li>
+<li class="fragment"><p>Grad school –&gt; Learning is your responsibility, be proactive.</p></li>
+</ul>
+</section>
+<section id="expectations" class="slide level2">
+<h2>Expectations</h2>
+<ul>
+<li class="fragment"><p>This course will be <strong>hard</strong> but…</p>
+<ul>
+<li class="fragment"><p>Don’t stress, <strong>grad school is not about grades</strong>!</p>
+<ul>
+<li class="fragment">Goal of this course is to give you tools for your future work</li>
+</ul></li>
+</ul></li>
+<li class="fragment"><p>If you are lost….<strong>stop me and ask questions</strong></p>
+<ul>
+<li class="fragment"><p>Office hours: By appointment (online or in-person). Please utilize!</p></li>
+<li class="fragment"><p>Please read! Tons of online resources for both statistics and coding. If you don’t like the readings, feel free to supplement w/ something else.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="course-books" class="slide level2">
+<h2>Course Books</h2>
+<ul>
+<li><p>Joseph Blitzstein and Jessica Hwang, <em>Introduction to Probability</em></p>
+<ul>
+<li><a href="https://drive.google.com/file/d/1VmkAAGOYCTORq1wxSQqy255qLJjTNvBI/edit" class="uri">Link</a></li>
+</ul></li>
+<li><p>Hadley Wickham et al, <em>R for Data Science (second edition)</em></p>
+<ul>
+<li><a href="https://r4ds.hadley.nz/" class="uri">https://r4ds.hadley.nz/</a></li>
+</ul></li>
+<li><p>Gelman, Hill and Vehtari, <em>Regression and Other Stories</em></p>
+<ul>
+<li><a href="https://avehtari.github.io/ROS-Examples/" class="uri">https://avehtari.github.io/ROS-Examples/</a></li>
+</ul></li>
+<li><p><a href="https://mattblackwell.github.io/gov2002-book/">Blackwell’s Gov 2002 notes</a> for a more formal treatment</p></li>
+<li><p><a href="https://theeffectbook.net/">Huntington-Klein’s The Effect</a></p></li>
+</ul>
+</section>
+<section id="assignments-and-grading" class="slide level2">
+<h2>Assignments and Grading</h2>
+<ul>
+<li><p>25% Midterm Exam</p></li>
+<li><p>25% Final Exam</p></li>
+<li><p>15% Problem sets</p>
+<ul>
+<li>De-emphasizing P-set grades because of gen AI.</li>
+</ul></li>
+<li><p>35%: Final Project (Research Proposal with Analyses)</p></li>
+</ul>
+</section>
+<section id="getting-started" class="slide level2">
+<h2>Getting Started</h2>
+<ul>
+<li class="fragment"><p>This course has two main aims</p>
+<ul>
+<li class="fragment"><p>Teaching the fundamentals of probability + statistics for social scientists</p></li>
+<li class="fragment"><p>Teaching you to actually <em>do</em> data analysis</p></li>
+</ul></li>
+<li class="fragment"><p>We move fast on R: our next <strong>two</strong> meetings get you to the point where you can load, clean, and plot real data</p>
+<ul>
+<li class="fragment">There are <em>tons</em> of tools out there to learn R.</li>
+</ul></li>
+</ul>
+</section>
+<section id="a-note-on-how-i-teach-r" class="slide level2">
+<h2>A Note on How I Teach R</h2>
+<ul>
+<li class="fragment"><p>I am not going to lecture at you about syntax for three weeks</p>
+<ul>
+<li class="fragment">That is the slowest possible way to learn a language</li>
+<li class="fragment">We don’t have time for it, anyways!</li>
+</ul></li>
+<li class="fragment"><p>Instead: two intensive sessions, then <strong>you learn by using it</strong></p>
+<ul>
+<li class="fragment"><p>Every problem set is an R assignment</p></li>
+<li class="fragment"><p>Readings from R4DS are meant to be worked through</p></li>
+</ul></li>
+<li class="fragment"><p>If you get stuck, that is normal and expected. Come to office hours.</p></li>
+</ul>
+</section>
+<section id="on-generative-ai-and-coding" class="slide level2">
+<h2>On Generative AI and Coding</h2>
+<ul>
+<li class="fragment"><p>You may use it.</p></li>
+<li class="fragment"><p><strong>I</strong> <strong>use it</strong>.</p></li>
+<li class="fragment"><p>But: if you cannot read and explain the code, it is worthless to you</p>
+<ul>
+<li class="fragment"><p>You will be asked to explain your code</p></li>
+<li class="fragment"><p>The exams are in person/on paper</p></li>
+</ul></li>
+<li class="fragment"><p>Use it the way you’d use a very fast, very confident, somewhat sloppy colleague</p></li>
+</ul>
+</section>
+<section id="why-r" class="slide level2">
+<h2>Why R?</h2>
+<ul>
+<li class="fragment"><p>Open Source and Free (unlike STATA, SPSS, SAS, etc)</p></li>
+<li class="fragment"><p>Widely used in academic and government research</p></li>
+<li class="fragment"><p>Specifically developed for statistical analysis (unlike Python)</p></li>
+<li class="fragment"><p>Has friendly IDEs</p></li>
+</ul>
+</section>
+<section id="how-do-i-get-r" class="slide level2">
+<h2>How do I get R?</h2>
+<ul>
+<li class="fragment"><p>R is maintained by CRAN (Comprehensive R Archive Network).</p></li>
+<li class="fragment"><p>Download here: <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a></p>
+<ul>
+<li class="fragment">A good idea to keep it relatively up-to-date, but you shouldn’t have to update for this course!</li>
+</ul></li>
+<li class="fragment"><p>You will rarely, if ever, actually open the <code>R</code> that you download from here, but it must be on your machine for anything else to work!</p></li>
+</ul>
+</section>
+<section id="what-is-an-ide" class="slide level2">
+<h2>What is an IDE?</h2>
+<ul>
+<li class="fragment"><p>R by itself is just a language. An <strong>IDE</strong> (“Integrated Development Environment”) is the program you actually sit in front of</p>
+<ul>
+<li class="fragment">Write and save scripts, run code, inspect your data, view plots, manage packages</li>
+</ul></li>
+<li class="fragment"><p>For R, the two main options are <strong>R Studio</strong> and <strong>Positron</strong></p>
+<ul>
+<li class="fragment">Both are made by Posit, both free, both open source</li>
+</ul></li>
+<li class="fragment"><p>We will use <strong>Positron</strong></p></li>
+</ul>
+</section>
+<section id="why-positron" class="slide level2">
+<h2>Why Positron?</h2>
+<ul>
+<li class="fragment"><p>It is <strong>polyglot</strong>: R <em>and</em> Python in the same tool, sometimes the same project</p>
+<ul>
+<li class="fragment">You will likely want Python eventually. This way you don’t relearn your editor later.</li>
+</ul></li>
+<li class="fragment"><p>It is where Posit’s development effort is going</p>
+<ul>
+<li class="fragment">R Studio still works and is still supported, but Positron is the forward direction</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<p>If you already use R Studio and love it, you may keep using it. Everything in this course runs identically in both. But my screen will show Positron.</p>
+</div>
+</section>
+<section id="how-to-get-positron" class="slide level2">
+<h2>How to get Positron</h2>
+<p>Download <strong>Positron</strong> here:</p>
+<p><a href="https://positron.posit.co/download.html" class="uri">https://positron.posit.co/download.html</a></p>
+<ul>
+<li class="fragment"><p>Free, and installs like any normal application (Mac, Windows, Linux)</p></li>
+<li class="fragment"><p>Install <strong>R first</strong>, then Positron — Positron detects the R installations on your machine at startup</p></li>
+<li class="fragment"><p>Detailed install instructions, if you want them: <a href="https://positron.posit.co/install.html" class="uri">https://positron.posit.co/install.html</a></p></li>
+</ul>
+</section>
+<section id="before-next-class" class="slide level2">
+<h2>Before Next Class</h2>
+<ul>
+<li class="fragment"><p><strong>Required:</strong> install R, then install Positron, and confirm Positron opens and finds R</p>
+<ul>
+<li class="fragment"><p>We start working with data immediately. If your setup is broken you will fall behind on day one.</p></li>
+<li class="fragment"><p>If you hit a wall, email me <em>before</em> class.</p></li>
+</ul></li>
+<li class="fragment"><p><strong>Read:</strong> Wickham, <em>R for Data Science</em>, Introduction and Chapter 2</p></li>
+<li class="fragment"><p><strong>Read:</strong> Ismay et al, <em>Statistical Inference via Data Science</em>, Chapter 1</p></li>
+</ul>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="01_Introduction_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="01_Introduction_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="01_Introduction_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="01_Introduction_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="01_Introduction_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="01_Introduction_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="01_Introduction_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="01_Introduction_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="01_Introduction_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="01_Introduction_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
