@@ -31,7 +31,7 @@ website:
       - teaching.qmd
       - resources.qmd
   page-footer:
-    center: "© {year} Will Horne"
+    center: "© {2026} Will Horne"
   site-url: "https://will-horne.github.io/"
 
 format:
