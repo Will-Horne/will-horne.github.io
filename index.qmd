@@ -8,7 +8,7 @@ I am an Assistant Professor in Political Science at Clemson University. I receiv
 
 My research focuses on changes in the structure of political competition and representation in advanced democratic societies. In particular I am interested in how political parties choose when and how to represent different groups in society, and how these decisions impact attitudes towards parties (including affective polarization), policy outputs and attitudes towards democracy. Methodologically, I have a particular interest in the use of Natural Language Processing techniques to study political parties and candidates.
 
-My work has been published in the <i> American Political Science Review </i>, the British Journal of Political Science, Comparative Political Studies and Public Opinion Quarterly, among other outlets. My research has been featured in The New York Times, FiveThirtyEight, Foreign Policy and the Washington Post’s Monkey Cage.  I am also a core team member of the Executive Approval Project.
+My work has been published in the <i> American Political Science Review </i>, <i>the British Journal of Political Science</i>, <i>Comparative Political Studies </i> and <i>Public Opinion Quarterly</i>, among other outlets. My research has been featured in <i>The New York Times </i>, <i> The Economist </i>, <i>FiveThirtyEight</i> (RIP) and <i>Foreign Policy</i>.  I am also a core team member of the Executive Approval Project.
 
 [Download My CV](files/Horne_CV.pdf){.btn .btn-primary}
 
