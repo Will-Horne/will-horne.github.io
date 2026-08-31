@@ -13,5 +13,6 @@ Mon & Wed, 2:30–3:45 PM, 212 Brackett Hall.
 | Aug 19 | Introduction | [HTML](01_Introduction.html){target="_blank"} |
 | Aug 24 | R Foundations | [HTML](02_R_Foundations.html){target="_blank"} |
 | Aug 26 | Data Wrangling | [HTML](03_Wrangling_Visualization.html){target="_blank"} |
+| Aug 31 | Describing Data | [HTML](04_Desbribing_Data.html){target="_blank"} |
 
 Slides are posted here before each class.
