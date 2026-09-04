@@ -2,6 +2,10 @@
 title: "Resources"
 ---
 
+## Talks
+
+- [Social Group Appeals and Affective Polarization in Western Europe — APSA 2026 slides](files/GroupAppeals_AffPol_APSA2026_slides.html)
+
 ## Materials
 
 - [Curriculum Vitae (PDF)](files/Horne_CV.pdf)
