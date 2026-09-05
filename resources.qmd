@@ -5,6 +5,7 @@ title: "Resources"
 ## Talks
 
 - [Social Group Appeals and Affective Polarization in Western Europe — APSA 2026 slides](files/GroupAppeals_AffPol_APSA2026_slides.html)
+- [Security Crises and Executive Approval (*Rally or Reprimand?*, Ch. 5) — APSA 2026 slides](files/SecurityCrises_APSA2026_slides.html)
 
 ## Materials
 
