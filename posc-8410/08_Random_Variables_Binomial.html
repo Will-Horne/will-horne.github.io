@@ -307,26 +307,27 @@ Will Horne
 <li class="fragment"><p>The PMF assigns probability “mass” to each point in the support</p></li>
 </ul>
 </section>
-<section id="what-makes-a-pmf-valid" class="slide level2">
+<section id="what-makes-a-pmf-valid" class="slide level2 smaller">
 <h2>What Makes a PMF Valid</h2>
+<p>Write the support of <span class="math inline">\(X\)</span> as <span class="math inline">\(x_1, x_2, \ldots\)</span> (for four coins, the values <span class="math inline">\(0, 1, 2, 3, 4\)</span>).</p>
 <ul>
-<li class="fragment"><p><strong>Non-negative:</strong> <span class="math inline">\(p_X(x) \geq 0\)</span> everywhere, and <span class="math inline">\(&gt; 0\)</span> only on the support</p></li>
-<li class="fragment"><p><strong>Sums to one:</strong> <span class="math inline">\(\sum_j p_X(x_j) = 1\)</span></p></li>
-<li class="fragment"><p>For any set <span class="math inline">\(S\)</span> of values, <span class="math inline">\(P(X \in S) = \sum_{x \in S} p_X(x)\)</span></p></li>
+<li class="fragment"><p><strong>Non-negative:</strong> <span class="math inline">\(p_X(x_j) &gt; 0\)</span> for every <span class="math inline">\(j\)</span>, and <span class="math inline">\(p_X(x) = 0\)</span> for any <span class="math inline">\(x\)</span> outside the support</p></li>
+<li class="fragment"><p><strong>Sums to one:</strong> <span class="math inline">\(\displaystyle \sum_{j} p_X(x_j) = 1\)</span></p></li>
+<li class="fragment"><p><strong>Any set of values</strong> <span class="math inline">\(A\)</span>: add up the mass at the support points inside <span class="math inline">\(A\)</span>, <span class="math inline">\(\displaystyle P(X \in A) = \sum_{j:\, x_j \in A} p_X(x_j)\)</span></p></li>
 </ul>
 <div class="fragment">
 <p>These are the axioms from Week 3, rewritten for a random variable. Nothing new here!</p>
 </div>
 </section>
-<section id="the-other-way-to-describe-a-distribution" class="slide level2">
+<section id="the-other-way-to-describe-a-distribution" class="slide level2 smaller">
 <h2>The Other Way to Describe a Distribution</h2>
 <p>Often we do not want <span class="math inline">\(P(X = k)\)</span>. We want <span class="math inline">\(P(X \leq k)\)</span> — <em>at most</em> three callbacks, <em>no more than</em> two defections.</p>
 <div class="fragment">
 <p>The <strong>cumulative distribution function</strong> answers that:</p>
 <p><span class="math display">\[F_X(x) = P(X \leq x)\]</span></p>
 <ul>
-<li class="fragment"><p>Just add up the PMF from the bottom: <span class="math inline">\(F_X(x) = \sum_{k \leq x} p_X(k)\)</span></p></li>
-<li class="fragment"><p>It is defined for <strong>every</strong> real <span class="math inline">\(x\)</span>, not only the values in the support</p></li>
+<li class="fragment"><p>Just add up the PMF from the bottom — it is the last slide’s <span class="math inline">\(P(X \in A)\)</span> with <span class="math inline">\(A = (-\infty, x]\)</span>: <span class="math inline">\(\displaystyle F_X(x) = \sum_{j:\, x_j \leq x} p_X(x_j)\)</span></p></li>
+<li class="fragment"><p>It is defined for <strong>every</strong> real <span class="math inline">\(x\)</span>, not only the values in the support: for four coins, <span class="math inline">\(F_X(2.5) = F_X(2) = 0.6875\)</span></p></li>
 </ul>
 </div>
 </section>
@@ -339,7 +340,7 @@ Will Horne
 <h2>Reading the CDF</h2>
 <ul>
 <li class="fragment"><p>It never decreases, starts at 0, and ends at 1</p></li>
-<li class="fragment"><p>The <strong>size of each jump</strong> is the PMF: <span class="math inline">\(p_X(k) = F_X(k) - F_X(k-1)\)</span></p></li>
+<li class="fragment"><p>The <strong>size of each jump</strong> is the PMF. When <span class="math inline">\(X\)</span> takes integer values, like our coin counts: <span class="math inline">\(p_X(k) = F_X(k) - F_X(k-1)\)</span></p></li>
 <li class="fragment"><p>Intervals are easy: <span class="math inline">\(P(a &lt; X \leq b) = F_X(b) - F_X(a)\)</span></p></li>
 </ul>
 <div class="fragment">
@@ -410,7 +411,7 @@ Will Horne
 <h2>Building the PMF</h2>
 <p>We want <span class="math inline">\(P(X = k)\)</span>: the probability of exactly <span class="math inline">\(k\)</span> successes in <span class="math inline">\(n\)</span> trials. Let’s build it in two.</p>
 <div class="fragment">
-<p><strong>First: how likely is one specific sequence with</strong> <span class="math inline">\(k\)</span> successes?</p>
+<p><strong>First: how likely is one specific sequence with <span class="math inline">\(k\)</span> successes?</strong></p>
 </div>
 <div class="fragment">
 <p>The trials are independent, so multiply: <span class="math inline">\(k\)</span> successes at probability <span class="math inline">\(p\)</span> each, and <span class="math inline">\(n-k\)</span> failures at <span class="math inline">\(1-p\)</span> each.</p>
@@ -431,7 +432,7 @@ Will Horne
 <section id="the-binomial-pmf" class="slide level2">
 <h2>The Binomial PMF</h2>
 <p>Every sequence with <span class="math inline">\(k\)</span> successes is equally likely, and there are <span class="math inline">\(\binom{n}{k}\)</span> of them:</p>
-<p><span class="math display">\[p_X(k) = \binom{n}{k} p^{k}(1-p)^{n-k}, \qquad k = 0, 1, \ldots, n\]</span></p>
+<p><span class="math display">\[P(X = k) = \binom{n}{k} p^{k}(1-p)^{n-k}, \qquad k = 0, 1, \ldots, n\]</span></p>
 <ul>
 <li class="fragment"><p><span class="math inline">\(p^{k}(1-p)^{n-k}\)</span> — the probability of <strong>one specific</strong> sequence</p></li>
 <li class="fragment"><p><span class="math inline">\(\binom{n}{k}\)</span> — <strong>how many</strong> such sequences exist</p></li>
@@ -453,7 +454,7 @@ Will Horne
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">rbinom</span>(<span class="dv">10</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">prob =</span> <span class="fl">0.5</span>)  <span class="co"># ten draws from Bin(4, 0.5)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 3 2 3 1 0 2 1 1 3 1</code></pre>
+<pre><code> [1] 3 2 2 3 1 1 2 0 4 2</code></pre>
 </div>
 </div>
 </div>
