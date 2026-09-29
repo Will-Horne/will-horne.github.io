@@ -20,5 +20,6 @@ Mon & Wed, 2:30–3:45 PM, 212 Brackett Hall.
 | Sep 16 | Random Variables and Discrete Distributions | [HTML](08_Random_Variables_Binomial.html){target="_blank"} |
 | Sep 21 | Expectation and Variance | [HTML](09_Expectation_Variance.html){target="_blank"} |
 | Sep 23 | Calculus for Social Scientists | [HTML](10_Calculus.html){target="_blank"} |
+| Sep 28 | Continuous Random Variables | [HTML](11_Continuous_Distributions.html){target="_blank"} |
 
 Slides are posted here before each class.
