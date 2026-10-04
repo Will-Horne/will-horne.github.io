@@ -149,6 +149,7 @@ title: "Research"
 ::: pub
 [Using Language Models to Detect Group Appeals in Parties’ Election Manifestos]{.pub-title}
 [Alona Dolinsky, Lena Maria Huber and **Will Horne**]{.pub-authors}
+[Under review]{.pub-venue}
 :::
 
 ::: pub
