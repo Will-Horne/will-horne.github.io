@@ -148,7 +148,7 @@ title: "Research"
 
 ::: pub
 [Using Language Models to Detect Group Appeals in Parties’ Election Manifestos]{.pub-title}
-[Alona Dolinsky, Lena Maria Huber and **Will Horne**]{.pub-authors}
+[**Will Horne**, Alona Dolinsky and Lena Maria Huber]{.pub-authors}
 [Under review]{.pub-venue}
 :::
 
@@ -160,7 +160,7 @@ title: "Research"
 
 ::: pub
 [Social Group Appeals and Affective Polarization]{.pub-title}
-[Alona Dolinsky, Lena Maria Huber, **Will Horne** and James Adams]{.pub-authors}
+[**Will Horne**, Alona Dolinsky, Lena Maria Huber and James Adams]{.pub-authors}
 [Under review]{.pub-venue}
 :::
 
