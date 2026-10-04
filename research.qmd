@@ -139,7 +139,7 @@ title: "Research"
 
 ::: pub
 [`groupappeals`]{.pub-title}
-[Alona Dolinsky, Lena Maria Huber and **Will Horne**]{.pub-authors}
+[Alona Dolinsky, **Will Horne** and Lena Maria Huber]{.pub-authors}
 [Python package for detecting and classifying group appeals in political texts]{.pub-venue}
 [[GitHub](https://github.com/alonadoli/GroupAppeals)]{.pub-links}
 :::
