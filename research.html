@@ -2,23 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Research – Will Horne</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -42,10 +36,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-55617497126496852ff9f5a59253c640.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -127,7 +121,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#peer-reviewed-journal-articles" id="toc-peer-reviewed-journal-articles" class="nav-link active" data-scroll-target="#peer-reviewed-journal-articles">Peer-Reviewed Journal Articles</a></li>
+  <li><a href="#journal-articles" id="toc-journal-articles" class="nav-link active" data-scroll-target="#journal-articles">Journal Articles</a></li>
   <li><a href="#books" id="toc-books" class="nav-link" data-scroll-target="#books">Books</a></li>
   <li><a href="#book-chapters" id="toc-book-chapters" class="nav-link" data-scroll-target="#book-chapters">Book Chapters</a></li>
   <li><a href="#data-and-software" id="toc-data-and-software" class="nav-link" data-scroll-target="#data-and-software">Data and Software</a></li>
@@ -157,52 +151,99 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="peer-reviewed-journal-articles" class="level2">
-<h2 class="anchored" data-anchor-id="peer-reviewed-journal-articles">Peer-Reviewed Journal Articles</h2>
-<ul>
-<li>Adams, James, David Bracken, Noam Gidron, Will Horne, Seonghui Lee, Diana O’Brien, Philip Santoso, Kaitlin Senk and Randolph Stevenson (Forthcoming), “Do Women MPs Influence Parties’ Policy Images?”, European Journal of Political Research</li>
-<li>Dolinsky, Alona, Lena Maria Huber and Will Horne (2026), “Who do Parties Speak To? Introducing the PSoGA: A New Comprehensive Database of Parties’ Social Group Appeals”, British Journal of Political Science</li>
-<li>Carlin, Ryan, Jonathan Hartlyn, Timothy Hellwig, Will Horne, Gregory Love, Cecilia Martínez-Gallardo and Matthew Singer (2026), “Executive Approval in Extraordinary Times: Comparing across Crises”, Constitutional Political Economy</li>
-<li>Gidron, Noam, Will Horne, Thomas Tichelbaecker and James Adams (2025), “Beyond Observational Relationships: Evidence from a Ten-Country Experiment that Policy Disputes Cause Affective Polarization”, British Journal of Political Science</li>
-<li>Balogh, Timea, Will Horne, James Adams, Simon Weschle and Christopher Wlezien (2024), “Does Political Sophistication Moderate How Citizens Infer Left-Right Distances between Political Parties?”, Journal of Elections, Public Opinion and Parties</li>
-<li>Hudde, Ansgar, Will Horne, Noam Gidron and James Adams (2024), “How Warm Are Political Interactions? A New Measure of Affective Fractionalization”, PLOS One</li>
-<li>Tichelbaecker, Thomas, Will Horne, Noam Gidron and James Adams (2023), “What do we Measure when we Measure Affective Polarization across Countries?”, Public Opinion Quarterly</li>
-<li>Adams, James, David Bracken, Noam Gidron, Will Horne, Diana O’Brien and Kaitlin Senk (2023), “Can’t We All Just Get Along? How Women MPs Can Ameliorate Affective Polarization in Western Publics”, American Political Science Review</li>
-<li>Gidron, Noam, James Adams and Will Horne (2023), “Who Dislikes Whom? Affective Polarization between Pairs of Parties in Western Democracies”, British Journal of Political Science</li>
-<li>Horne, Will, James Adams and Noam Gidron (2023), “The Way We Were: How Histories of Co-Governance Alleviate Partisan Hostility”, Comparative Political Studies</li>
-<li>Fuller, Sam, Will Horne, James Adams and Noam Gidron (2022), “Populism and the Affective Partisan Space in Eight European Publics: Evidence from a Cross-National Survey”, Frontiers in Political Science (Special Issue on Affective Polarization)</li>
-</ul>
+<style>
+  /* Each publication is a small block: linked title, authors, then venue/year */
+  .pub { margin: 0 0 1.15rem; padding-left: 0.9rem; border-left: 3px solid #dee2e6; }
+  .pub-title { display: block; font-weight: 600; line-height: 1.35; }
+  .pub-title a { text-decoration: none; }
+  .pub-title a:hover { text-decoration: underline; }
+  .pub-authors { display: block; font-size: 0.92rem; }
+  .pub-venue { display: block; font-size: 0.92rem; color: #6c757d; }
+  .pub-links { display: block; font-size: 0.85rem; margin-top: 0.15rem; }
+  .pub-links a { margin-right: 0.75rem; }
+  .research-intro { color: #6c757d; }
+</style>
+<p><span class="research-intro">Titles link to the published version of each article. For a full record, see my <a href="files/Horne_CV.pdf">CV</a>.</span></p>
+<section id="journal-articles" class="level2">
+<h2 class="anchored" data-anchor-id="journal-articles">Journal Articles</h2>
+<div class="pub">
+<p><span class="pub-title">Do Women MPs Influence Parties’ Policy Images?</span> <span class="pub-authors">James Adams, David Bracken, Noam Gidron, <strong>Will Horne</strong>, Seonghui Lee, Diana O’Brien, Philip Santoso, Kaitlin Senk and Randolph Stevenson</span> <span class="pub-venue"><em>European Journal of Political Research</em>, forthcoming</span></p>
+</div>
+<div class="pub">
+<p><span class="pub-title"><a href="https://doi.org/10.1017/S0007123426101586">Who Do Parties Speak To? Introducing the PSoGA: A New Comprehensive Database of Parties’ Social Group Appeals</a></span> <span class="pub-authors">Alona Dolinsky, Lena Maria Huber and <strong>Will Horne</strong></span> <span class="pub-venue"><em>British Journal of Political Science</em>, 2026</span></p>
+</div>
+<div class="pub">
+<p><span class="pub-title"><a href="https://doi.org/10.1007/s10602-026-09512-8">Executive Approval in Extraordinary Times: Comparing across Crises</a></span> <span class="pub-authors">Ryan Carlin, Jonathan Hartlyn, Timothy Hellwig, <strong>Will Horne</strong>, Gregory Love, Cecilia Martínez-Gallardo and Matthew Singer</span> <span class="pub-venue"><em>Constitutional Political Economy</em>, 2026</span></p>
+</div>
+<div class="pub">
+<p><span class="pub-title"><a href="https://doi.org/10.1017/S0007123425000158">Beyond Observational Relationships: Evidence from a Ten-Country Experiment that Policy Disputes Cause Affective Polarization</a></span> <span class="pub-authors">Noam Gidron, <strong>Will Horne</strong>, Thomas Tichelbaecker and James Adams</span> <span class="pub-venue"><em>British Journal of Political Science</em>, 2025</span></p>
+</div>
+<div class="pub">
+<p><span class="pub-title"><a href="https://doi.org/10.1080/17457289.2024.2429533">Does Political Sophistication Moderate How Citizens Infer Left-Right Distances between Political Parties?</a></span> <span class="pub-authors">Timea Balogh, <strong>Will Horne</strong>, James Adams, Simon Weschle and Christopher Wlezien</span> <span class="pub-venue"><em>Journal of Elections, Public Opinion and Parties</em>, 2024</span></p>
+</div>
+<div class="pub">
+<p><span class="pub-title"><a href="https://doi.org/10.1371/journal.pone.0294401">How Warm Are Political Interactions? A New Measure of Affective Fractionalization</a></span> <span class="pub-authors">Ansgar Hudde, <strong>Will Horne</strong>, Noam Gidron and James Adams</span> <span class="pub-venue"><em>PLOS One</em>, 2024</span></p>
+</div>
+<div class="pub">
+<p><span class="pub-title"><a href="https://doi.org/10.1093/poq/nfad033">What Do We Measure When We Measure Affective Polarization across Countries?</a></span> <span class="pub-authors">Thomas Tichelbaecker, <strong>Will Horne</strong>, Noam Gidron and James Adams</span> <span class="pub-venue"><em>Public Opinion Quarterly</em>, 2023</span></p>
+</div>
+<div class="pub">
+<p><span class="pub-title"><a href="https://doi.org/10.1017/S0003055422000491">Can’t We All Just Get Along? How Women MPs Can Ameliorate Affective Polarization in Western Publics</a></span> <span class="pub-authors">James Adams, David Bracken, Noam Gidron, <strong>Will Horne</strong>, Diana O’Brien and Kaitlin Senk</span> <span class="pub-venue"><em>American Political Science Review</em>, 2023</span></p>
+</div>
+<div class="pub">
+<p><span class="pub-title"><a href="https://doi.org/10.1017/S0007123422000394">Who Dislikes Whom? Affective Polarization between Pairs of Parties in Western Democracies</a></span> <span class="pub-authors">Noam Gidron, James Adams and <strong>Will Horne</strong></span> <span class="pub-venue"><em>British Journal of Political Science</em>, 2023</span></p>
+</div>
+<div class="pub">
+<p><span class="pub-title"><a href="https://doi.org/10.1177/00104140221100197">The Way We Were: How Histories of Co-Governance Alleviate Partisan Hostility</a></span> <span class="pub-authors"><strong>Will Horne</strong>, James Adams and Noam Gidron</span> <span class="pub-venue"><em>Comparative Political Studies</em>, 2023</span></p>
+</div>
+<div class="pub">
+<p><span class="pub-title"><a href="https://doi.org/10.3389/fpos.2022.984238">Populism and the Affective Partisan Space in Nine European Publics: Evidence from a Cross-National Survey</a></span> <span class="pub-authors">Sam Fuller, <strong>Will Horne</strong>, James Adams and Noam Gidron</span> <span class="pub-venue"><em>Frontiers in Political Science</em> (Special Issue on Affective Polarization), 2022</span></p>
+</div>
 </section>
 <section id="books" class="level2">
 <h2 class="anchored" data-anchor-id="books">Books</h2>
-<ul>
-<li>Adams, James, Timea Balogh, Braden Davis, Alexa Federice, Noam Gidron and Will Horne (Forthcoming), <em>Who Attacks Whom? Conflict and Cooperation between European Parties</em>. Cambridge University Press, Elements in European Politics</li>
-<li>Gidron, Noam, James Adams and Will Horne (2020), <em>American Affective Polarization in Comparative Perspective</em>. Cambridge University Press, Elements in American Politics</li>
-<li>Carlin, Ryan, Timothy Hellwig, Will Horne, Gregory Love, Cecilia Martínez-Gallardo and Matthew Singer (Under Review), <em>Rally or Reprimand? Public Support for Leaders in Times of Crisis</em></li>
-</ul>
+<div class="pub">
+<p><span class="pub-title"><em>Who Attacks Whom? Conflict and Cooperation between European Parties</em></span> <span class="pub-authors">James Adams, Timea Balogh, Braden Davis, Alexa Federice, Noam Gidron and <strong>Will Horne</strong></span> <span class="pub-venue">Cambridge University Press, Elements in European Politics, forthcoming</span></p>
+</div>
+<div class="pub">
+<p><span class="pub-title"><a href="https://doi.org/10.1017/9781108914123"><em>American Affective Polarization in Comparative Perspective</em></a></span> <span class="pub-authors">Noam Gidron, James Adams and <strong>Will Horne</strong></span> <span class="pub-venue">Cambridge University Press, Elements in American Politics, 2020</span></p>
+</div>
+<div class="pub">
+<p><span class="pub-title"><em>Rally or Reprimand? Public Support for Leaders in Times of Crisis</em></span> <span class="pub-authors">Ryan Carlin, Timothy Hellwig, <strong>Will Horne</strong>, Gregory Love, Cecilia Martínez-Gallardo and Matthew Singer</span> <span class="pub-venue">Under review</span></p>
+</div>
 </section>
 <section id="book-chapters" class="level2">
 <h2 class="anchored" data-anchor-id="book-chapters">Book Chapters</h2>
-<ul>
-<li>Horne, Will, James Adams and Noam Gidron (2025), “The Economy and Affective Polarization” in <em>The Elgar Handbook of Affective Polarization</em></li>
-<li>Boix, Carles, Will Horne and Alex Kerchner (2020), “The Formation and Development of Liberal Democracy” in <em>The Oxford Handbook of Political Representation in Liberal Democracies</em></li>
-</ul>
+<div class="pub">
+<p><span class="pub-title"><a href="https://doi.org/10.4337/9781035310609.00037">The Economy and Affective Polarization</a></span> <span class="pub-authors"><strong>Will Horne</strong>, James Adams and Noam Gidron</span> <span class="pub-venue">In <em>The Elgar Handbook of Affective Polarization</em>, 2025</span></p>
+</div>
+<div class="pub">
+<p><span class="pub-title"><a href="https://doi.org/10.1093/oxfordhb/9780198825081.013.2">The Formation and Development of Liberal Democracy</a></span> <span class="pub-authors">Carles Boix, <strong>Will Horne</strong> and Alex Kerchner</span> <span class="pub-venue">In <em>The Oxford Handbook of Political Representation in Liberal Democracies</em>, 2020</span></p>
+</div>
 </section>
 <section id="data-and-software" class="level2">
 <h2 class="anchored" data-anchor-id="data-and-software">Data and Software</h2>
-<ul>
-<li>Dolinsky, Alona, Lena Maria Huber and Will Horne, Parties’ Social Group Appeals (PSoGA) Database: group appeals coded at the sentence level in 791 election manifestos from 139 parties in eight European countries, 1970–2025</li>
-<li>Dolinsky, Alona, Lena Maria Huber and Will Horne, “ManifestoVault V1.0: Annotated full-text general election manifestos at the natural-sentence level”, DataverseNL (<a href="https://doi.org/10.34894/VKQSPO">doi:10.34894/VKQSPO</a>)</li>
-<li>Dolinsky, Alona, Lena Maria Huber and Will Horne, <code>groupappeals</code>: Python package for detecting and classifying group appeals in political texts (<a href="https://github.com/alonadoli/GroupAppeals">GitHub</a>)</li>
-</ul>
+<div class="pub">
+<p><span class="pub-title">Parties’ Social Group Appeals (PSoGA) Database</span> <span class="pub-authors">Alona Dolinsky, Lena Maria Huber and <strong>Will Horne</strong></span> <span class="pub-venue">Group appeals coded at the sentence level in 791 election manifestos from 139 parties in eight European countries, 1970–2025</span> <span class="pub-links"><a href="https://doi.org/10.1017/S0007123426101586">Article</a></span></p>
+</div>
+<div class="pub">
+<p><span class="pub-title">ManifestoVault V1.0</span> <span class="pub-authors">Alona Dolinsky, Lena Maria Huber and <strong>Will Horne</strong></span> <span class="pub-venue">Full-text election manifestos annotated at the natural-sentence level</span> <span class="pub-links"><a href="https://doi.org/10.34894/VKQSPO">DataverseNL</a></span></p>
+</div>
+<div class="pub">
+<p><span class="pub-title"><code>groupappeals</code></span> <span class="pub-authors">Alona Dolinsky, Lena Maria Huber and <strong>Will Horne</strong></span> <span class="pub-venue">Python package for detecting and classifying group appeals in political texts</span> <span class="pub-links"><a href="https://github.com/alonadoli/GroupAppeals">GitHub</a></span></p>
+</div>
 </section>
 <section id="working-papers" class="level2">
 <h2 class="anchored" data-anchor-id="working-papers">Working Papers</h2>
-<ul>
-<li>Horne, Will (Under Review), “Changing the Face of the Party: How Political Parties Use Candidate Selection to Influence Voter Perceptions”</li>
-<li>Dolinsky, Alona, Lena Maria Huber, Will Horne and James Adams (Under Review), “Social Group Appeals and Affective Polarization”</li>
-<li>Carlin, Ryan, Jonathan Hartlyn, Timothy Hellwig, Will Horne, Gregory Love, Cecilia Martínez-Gallardo and Matthew Singer (Under Review), “Reward or Reprimand? Conflict, Salience, and Public Reactions to Leaders in Times of Crisis”</li>
-</ul>
+<div class="pub">
+<p><span class="pub-title">Changing the Face of the Party: How Political Parties Use Candidate Selection to Influence Voter Perceptions</span> <span class="pub-authors"><strong>Will Horne</strong></span> <span class="pub-venue">Under review</span></p>
+</div>
+<div class="pub">
+<p><span class="pub-title">Social Group Appeals and Affective Polarization</span> <span class="pub-authors">Alona Dolinsky, Lena Maria Huber, <strong>Will Horne</strong> and James Adams</span> <span class="pub-venue">Under review</span></p>
+</div>
+<div class="pub">
+<p><span class="pub-title">Reward or Reprimand? Conflict, Salience, and Public Reactions to Leaders in Times of Crisis</span> <span class="pub-authors">Ryan Carlin, Jonathan Hartlyn, Timothy Hellwig, <strong>Will Horne</strong>, Gregory Love, Cecilia Martínez-Gallardo and Matthew Singer</span> <span class="pub-venue">Under review</span></p>
+</div>
 
 
 </section>
@@ -259,14 +300,13 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
