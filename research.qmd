@@ -91,7 +91,7 @@ title: "Research"
 
 ::: pub
 [*Who Attacks Whom? Conflict and Cooperation between European Parties*]{.pub-title}
-[James Adams, Timea Balogh, Braden Davis, Alexa Federice, Noam Gidron and **Will Horne**]{.pub-authors}
+[James Adams, Timea Balogh, Braeden Davis, Alexa Federice, Noam Gidron and **Will Horne**]{.pub-authors}
 [Cambridge University Press, Elements in European Politics, forthcoming]{.pub-venue}
 :::
 
