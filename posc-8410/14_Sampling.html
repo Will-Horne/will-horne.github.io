@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/tabby.min.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.32">
+
+  <meta name="author" content="Will Horne">
+  <title>POSC 8410 — Fall 2026 – POSC 8410: Sampling</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-f563837468303362081e247dddd440d0.css">
+  <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">POSC 8410: Sampling</h1>
+  <p class="subtitle">Where uncertainty comes from</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Will Horne 
+</div>
+</div>
+</div>
+
+</section>
+<section id="where-we-are" class="slide level2">
+<h2>Where We Are</h2>
+<ul>
+<li class="fragment"><p><strong>Probability is done.</strong> (But always lurking)</p></li>
+<li class="fragment"><p>Now we switch things up: we have <strong>data</strong>, and the distribution is unknown</p></li>
+</ul>
+<div class="fragment">
+<p>Our key question: <strong>what can one sample tell us?</strong> We are building to regression. Today we start with the simplest case: one population mean.</p>
+</div>
+</section>
+<section>
+<section id="populations-and-samples" class="title-slide slide level1 center">
+<h1>Populations and Samples</h1>
+
+</section>
+<section id="a-sample-of-20" class="slide level2 smaller">
+<h2>A Sample of 20</h2>
+<p>You are a TA for POSC 1010, a class of 300. You want the class’s average year (1 = first-year, 4 = senior), so you ask the 20 students in the first two rows.</p>
+<div class="columns">
+<div class="column" style="width:55%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>front <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>,</span>
+<span id="cb1-2"><a></a>           <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span>
+<span id="cb1-3"><a></a><span class="fu">mean</span>(front)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.75</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="14_Sampling_files/figure-revealjs/unnamed-chunk-3-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+<div class="fragment">
+<p><strong>How good is this estimate?</strong> Two separate worries: you may have been unlucky in <em>which</em> 20 you asked, and the front two rows may not look like the class.</p>
+</div>
+</section>
+<section id="the-vocabulary" class="slide level2 smaller">
+<h2>The Vocabulary</h2>
+<ul>
+<li class="fragment"><p><strong>Population</strong> - the set of units you want to describe. Size <span class="math inline">\(N\)</span>. <em>(All 300 students.)</em></p></li>
+<li class="fragment"><p><strong>Sample</strong> - the subset you actually observe. Size <span class="math inline">\(n\)</span>. <em>(The 20 in front.)</em></p></li>
+<li class="fragment"><p><strong>Parameter</strong> - a numerical summary of the <em>population</em>. Fixed, and usually unknown. <em>(The class’s average year,</em> <span class="math inline">\(\mu\)</span>.)</p></li>
+<li class="fragment"><p><strong>Statistic</strong> - a numerical summary of the <em>sample</em>. Known once you have the data, but a different sample would give a different value. <em>(</em><span class="math inline">\(\bar{x} =\)</span> 1.75.)</p></li>
+</ul>
+<div class="fragment">
+<p>An <strong>estimator</strong> is a rule for guessing a parameter from a sample. Its value in your data is the <strong>estimate</strong>. Recall: capital letters are the random version, lowercase the number you computed. So <span class="math inline">\(\bar{X}\)</span> is the estimator of <span class="math inline">\(\mu\)</span>, and the <span class="math inline">\(\bar{x}\)</span> you compute is an estimate.</p>
+</div>
+</section>
+<section id="greek-and-latin" class="slide level2">
+<h2>Greek and Latin</h2>
+<p>A reminder from earlier:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Quantity</th>
+<th>Population</th>
+<th>Sample</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mean</td>
+<td><span class="math inline">\(\mu\)</span></td>
+<td><span class="math inline">\(\bar{x}\)</span></td>
+</tr>
+<tr class="even">
+<td>Standard deviation</td>
+<td><span class="math inline">\(\sigma\)</span></td>
+<td><span class="math inline">\(s\)</span></td>
+</tr>
+<tr class="odd">
+<td>Proportion</td>
+<td><span class="math inline">\(p\)</span></td>
+<td><span class="math inline">\(\hat{p}\)</span></td>
+</tr>
+<tr class="even">
+<td>Regression slope</td>
+<td><span class="math inline">\(\beta\)</span></td>
+<td><span class="math inline">\(\hat{\beta}\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>Greek for what we want. Latin letters, or a hat, for what we compute from the sample (<span class="math inline">\(p\)</span> is the usual exception)</p>
+</div>
+</section>
+<section id="why-sample-at-all" class="slide level2">
+<h2>Why Sample At All?</h2>
+<ul>
+<li class="fragment"><p>Censuses are expensive, slow, and rare</p></li>
+<li class="fragment"><p>Often the population is <strong>hypothetical</strong>: Bertrand and Mullainathan’s 4,870 résumés are one sample from all the résumés they <em>could</em> have sent</p></li>
+<li class="fragment"><p>And a well-drawn sample of 1,500 can tell you a lot about 250 million people</p></li>
+</ul>
+<div class="fragment">
+<p>How does it work?</p>
+</div>
+</section>
+<section id="what-makes-a-sample-random" class="slide level2 smaller">
+<h2>What Makes a Sample Random</h2>
+<p>A <strong>simple random sample</strong> of <span class="math inline">\(n\)</span> from a population of <span class="math inline">\(N\)</span>:</p>
+<ul>
+<li class="fragment"><p>Every unit has the <strong>same chance</strong> of being picked: here <span class="math inline">\(n/N = 20/300\)</span></p></li>
+<li class="fragment"><p>Every possible set of 20 students is <strong>equally likely</strong></p></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">300</span>, <span class="dv">20</span>)      <span class="co"># student ID numbers for a random sample of 20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 293 246  27 183  56  29 262  41 196 218  92 294 135  47  68  99 154 140  17
+[20] 199</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>The front two rows fail both tests. Who sits up front is a choice, and it may be related to year.</p>
+</div>
+<div class="fragment">
+<p><strong>The randomness is in who gets picked, not in the students.</strong> That is what lets us use probability on a fixed population.</p>
+</div>
+</section></section>
+<section>
+<section id="estimates-vary" class="title-slide slide level1 center">
+<h1>Estimates Vary</h1>
+
+</section>
+<section id="treat-the-anes-as-a-population" class="slide level2 smaller">
+<h2>Treat the ANES as a Population</h2>
+<p>Suppose the ANES respondents <em>were</em> the whole population.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>pop <span class="ot">&lt;-</span> anes <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(ft_police)) <span class="sc">|&gt;</span> <span class="fu">pull</span>(ft_police)</span>
+<span id="cb5-2"><a></a><span class="fu">mean</span>(pop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 70.57485</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Draw a sample of 50. Then draw another:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>one <span class="ot">&lt;-</span> <span class="fu">sample</span>(pop, <span class="dv">50</span>)</span>
+<span id="cb7-2"><a></a><span class="fu">mean</span>(one)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 59.94</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">mean</span>(<span class="fu">sample</span>(pop, <span class="dv">50</span>))     <span class="co"># a second sample</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 80</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>The first misses by 10.6 points, and <strong>the second gives a different number.</strong></p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>sdist <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">4000</span>, <span class="fu">mean</span>(<span class="fu">sample</span>(pop, <span class="dv">50</span>)))   <span class="co"># repeat 4,000 times: draw 50, keep the mean</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="three-distributions" class="slide level2">
+<h2>Three Distributions</h2>
+
+<img data-src="14_Sampling_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"><p><strong>These are three different things.</strong> Orange is the truth, <span class="math inline">\(\mu\)</span>, in every panel. They are conflated constantly, and downstream analyses depend on keeping them apart.</p>
+</section>
+<section id="what-each-one-is" class="slide level2 smaller">
+<h2>What Each One Is</h2>
+<ul>
+<li class="fragment"><p><strong>The population distribution</strong> — how <code>ft_police</code> is spread across all respondents. Real, fixed, mostly unobserved.</p></li>
+<li class="fragment"><p><strong>The sample distribution</strong> — how it is spread in <em>your</em> 50. Observed, and a bit lumpy.</p></li>
+<li class="fragment"><p><strong>The sampling distribution</strong> — how <span class="math inline">\(\bar{x}\)</span> would vary across all the samples you might have drawn: the distribution of the random variable <span class="math inline">\(\bar{X}\)</span>. In real research, <strong>never observed</strong>.</p></li>
+</ul>
+<div class="fragment">
+<p>We can see it here only because we pretended to have the whole population. In practice it is a thought experiment, and it is what lets us attach a <strong>margin of error</strong> (the “± 3 points” on a poll) to an estimate.</p>
+</div>
+</section>
+<section id="the-sampling-distribution" class="slide level2">
+<h2>The Sampling Distribution</h2>
+<ul>
+<li class="fragment"><p><span class="math inline">\(\bar{X}\)</span> is a function of random draws, so <span class="math inline">\(\bar{X}\)</span> is itself a <strong>random variable</strong></p></li>
+<li class="fragment"><p>It has a distribution, a mean, and a variance — like any random variable</p></li>
+<li class="fragment"><p>Notice the shape: <strong>roughly normal</strong>, even though the population is not</p></li>
+</ul>
+<div class="fragment">
+<p>A later session explains why.</p>
+</div>
+</section>
+<section id="center-and-spread" class="slide level2">
+<h2>Center and Spread</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">mean</span>(sdist)                 <span class="co"># average of 4,000 sample means</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 70.60776</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">mean</span>(pop)                   <span class="co"># the truth</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 70.57485</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">sd</span>(sdist)                   <span class="co"># spread of the estimates</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.568119</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">sd</span>(pop) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="dv">50</span>)          <span class="co"># sigma / sqrt(n)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.553335</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><strong>Centered on the truth:</strong> each draw is random, so <span class="math inline">\(E[\bar{X}] = \mu\)</span>, as we showed earlier. And its spread is the <span class="math inline">\(\sigma / \sqrt{n}\)</span> we derived earlier.</p>
+</div>
+</section>
+<section id="why-averages-vary-less" class="slide level2 smaller">
+<h2>Why Averages Vary Less</h2>
+
+<img data-src="14_Sampling_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch"><ul>
+<li class="fragment"><p><span class="math inline">\(n = 1\)</span>: one random draw has exactly the population’s distribution, so <span class="math inline">\(E[X_i] = \mu\)</span> and <span class="math inline">\(\text{Var}(X_i) = \sigma^2\)</span></p></li>
+<li class="fragment"><p>Why does n = 50 already look much better? A low average needs many low scorers <strong>at once</strong>. Highs and lows cancel.</p></li>
+</ul>
+</section>
+<section id="the-standard-error" class="slide level2 smaller">
+<h2>The Standard Error</h2>
+<ul>
+<li class="fragment"><p>The standard deviation of the sampling distribution has its own name: the <strong>standard error</strong></p></li>
+<li class="fragment"><p><span class="math inline">\(SE(\bar{X}) = \sigma / \sqrt{n}\)</span>, for independent draws (the assumption behind the earlier derivation)</p></li>
+<li class="fragment"><p>In practice <span class="math inline">\(\sigma\)</span> is unknown, so we substitute <span class="math inline">\(s\)</span> from the sample</p></li>
+<li class="fragment"><p><span class="math inline">\(N\)</span> appears nowhere in this formula. Precision depends on the size of the <strong>sample</strong>, not the population: that is why 1,500 well-chosen people can describe 250 million.</p></li>
+</ul>
+<div class="fragment">
+<p><strong>Standard deviation</strong> describes spread in the data. <strong>Standard error</strong> describes spread in an estimate across samples. Both are standard deviations, of different things.</p>
+</div>
+</section>
+<section id="where-n-hides" class="slide level2 smaller">
+<h2>Where <span class="math inline">\(N\)</span> Hides</h2>
+<p><code>sample()</code> draws <strong>without replacement</strong>: once someone is picked, they cannot be picked again. The exact variance is then</p>
+<p><span class="math display">\[\text{Var}(\bar{X}) = \frac{\sigma^2}{n} \cdot \underset{\text{finite population correction}}{\frac{N - n}{N - 1}}\]</span></p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Case</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">N</th>
+<th style="text-align: right;">Correction</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Our ANES example</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">7,388</td>
+<td style="text-align: right;">0.993</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">A national poll</td>
+<td style="text-align: right;">1,500</td>
+<td style="text-align: right;">250 million</td>
+<td style="text-align: right;">0.999994</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A census</td>
+<td style="text-align: right;">N</td>
+<td style="text-align: right;">N</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="fragment">
+<p>This is the only place <span class="math inline">\(N\)</span> enters. Unless you sample a large share of the population, the correction is essentially 1: <strong>precision depends on</strong> <span class="math inline">\(n\)</span>, not <span class="math inline">\(N\)</span>.</p>
+</div>
+</section>
+<section id="when-draws-arent-independent" class="slide level2 smaller">
+<h2>When Draws Aren’t Independent</h2>
+<p><span class="math inline">\(\sigma / \sqrt{n}\)</span> assumed <strong>independent</strong> draws. Real surveys often <strong>cluster</strong>: pick a few places, then interview many people in each.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Design</th>
+<th style="text-align: right;">Average estimate</th>
+<th style="text-align: right;">Standard error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Simple random sample of 50</td>
+<td style="text-align: right;">70.92</td>
+<td style="text-align: right;">3.54</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2 states, 25 respondents each</td>
+<td style="text-align: right;">70.95</td>
+<td style="text-align: right;">4.48</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="fragment">
+<p>Same <span class="math inline">\(n\)</span> and the same center, but the clustered estimates are <strong>27% more spread out</strong>. People in the same state resemble each other, so the 25th person from a state adds less new information than a fresh random draw.</p>
+</div>
+<div class="fragment">
+<p>Ignoring clustering makes standard errors <strong>too small</strong>. We will fix this when we get to regression.</p>
+</div>
+</section></section>
+<section>
+<section id="bias-and-variance" class="title-slide slide level1 center">
+<h1>Bias and Variance</h1>
+
+</section>
+<section id="two-ways-to-be-wrong" class="slide level2">
+<h2>Two Ways to Be Wrong</h2>
+
+<img data-src="14_Sampling_files/figure-revealjs/unnamed-chunk-15-1.png" width="960" class="r-stretch"><p>Orange is the truth. Each dot is one study’s estimate.</p>
+</section>
+<section id="bias-and-variance-defined" class="slide level2 smaller">
+<h2>Bias and Variance, Defined</h2>
+<p>Write <span class="math inline">\(\theta\)</span> for any parameter (<span class="math inline">\(\mu\)</span>, <span class="math inline">\(p\)</span>, <span class="math inline">\(\beta\)</span>, …) and <span class="math inline">\(\widehat{\theta}\)</span> for its estimator. Like <span class="math inline">\(\bar{X}\)</span>, <span class="math inline">\(\widehat{\theta}\)</span> is a random variable with a sampling distribution.</p>
+<ul>
+<li class="fragment"><p><strong>Bias:</strong> <span class="math inline">\(E[\widehat{\theta}] - \theta\)</span>. Is the sampling distribution centered on the truth?</p></li>
+<li class="fragment"><p><strong>Variance:</strong> <span class="math inline">\(\text{Var}(\widehat{\theta}) = E\big[(\widehat{\theta} - E[\widehat{\theta}])^2\big]\)</span>, the same definition as before, applied to the estimator. How much <span class="math inline">\(\widehat{\theta}\)</span> bounces around from sample to sample. Its square root is the standard error.</p></li>
+</ul>
+<div class="fragment">
+<ul>
+<li class="fragment"><p>Variance is a problem you can <strong>buy your way out of</strong> by collecting more data</p></li>
+<li class="fragment"><p>Bias is a problem you <strong>cannot</strong>. More data just gives you a tighter cluster around the wrong answer.</p></li>
+</ul>
+</div>
+<div class="fragment">
+<p>Recall the badly skewed sample from earlier: more of that sample would never have fixed it. Reweighting with outside information did.</p>
+</div>
+</section>
+<section id="back-to-the-front-row" class="slide level2 smaller">
+<h2>Back to the Front Row</h2>
+<p>Suppose eagerness to sit up front falls with year: a first-year is 10 times as likely as a senior to be in the front rows.</p>
+
+<img data-src="14_Sampling_files/figure-revealjs/unnamed-chunk-16-1.png" width="960" class="r-stretch"><div class="fragment">
+<p>The truth (orange) is 1.82. Random samples center on it; front-row samples center on 1.42. Asking more front-row students would only tighten the cluster around the wrong answer.</p>
+</div>
+<div class="fragment">
+<p><strong>Bias is a property of how the sample was chosen, not of any one sample.</strong></p>
+</div>
+</section>
+<section id="where-variance-comes-from" class="slide level2">
+<h2>Where Variance Comes From</h2>
+<ul>
+<li class="fragment"><p><strong>Sampling variability</strong> — you happened to draw these people rather than those</p></li>
+<li class="fragment"><p>Small <span class="math inline">\(n\)</span>, or a population with high <span class="math inline">\(\sigma\)</span>: both feed into <span class="math inline">\(\sigma / \sqrt{n}\)</span></p></li>
+<li class="fragment"><p>Unlike bias, it is easily quantifiable: that is what a standard error is</p></li>
+</ul>
+</section></section>
+<section>
+<section id="when-sampling-fails" class="title-slide slide level1 center">
+<h1>When Sampling Fails</h1>
+
+</section>
+<section id="literary-digest-1936" class="slide level2">
+<h2>Literary Digest, 1936</h2>
+<ul>
+<li class="fragment"><p><em>Literary Digest</em> mailed <strong>10 million</strong> straw ballots ahead of the Roosevelt–Landon election</p></li>
+<li class="fragment"><p><strong>2.4 million</strong> were returned: at the time, the largest poll ever conducted</p></li>
+<li class="fragment"><p>It predicted <strong>Landon 57%, Roosevelt 43%</strong></p></li>
+</ul>
+<div class="fragment">
+<p>Roosevelt won <strong>62% to 38%</strong> of the two-party vote. A <strong>19-point</strong> error. But there were 2 million responses! What went wrong?</p>
+</div>
+</section>
+<section id="what-went-wrong" class="slide level2">
+<h2>What Went Wrong</h2>
+<ul>
+<li class="fragment"><p><strong>Coverage bias.</strong> The mailing list came from car registrations, telephone directories, and club memberships — in 1936, markers of wealth. The sampled population was not the voting population.</p></li>
+<li class="fragment"><p><strong>Nonresponse bias.</strong> Only a quarter of ballots came back, and the people motivated to return one were not a cross-section of those who received one.</p></li>
+</ul>
+<div class="fragment">
+<p>Neither of these is sampling <em>variability</em>. Both are <strong>bias</strong>.</p>
+</div>
+</section>
+<section id="bigger-samples-do-not-fix-bias" class="slide level2 smaller">
+<h2>Bigger Samples Do Not Fix Bias</h2>
+<ul>
+<li class="fragment"><p>For a proportion, <span class="math inline">\(SE(\hat{p}) = \sqrt{p(1-p)/n}\)</span>: the binomial variance from earlier, scaled to a share</p></li>
+<li class="fragment"><p>At <span class="math inline">\(n = 2{,}400{,}000\)</span> that is about <strong>0.03 percentage points</strong></p></li>
+<li class="fragment"><p>Their actual error was <strong>19 points</strong> — about 600 standard errors</p></li>
+</ul>
+<div class="fragment">
+<p>Gallup called the same election correctly with a <strong>tiny fraction</strong> of that sample, using quota sampling: interviewers filled quotas so the sample matched the electorate’s mix.</p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(n\)</span> controls variance. Only design controls bias. A precise answer to the wrong question is still wrong, and a big <span class="math inline">\(n\)</span> makes you <em>more</em> confident in it.</p>
+</div>
+</section>
+<section id="the-modern-versions" class="slide level2">
+<h2>The Modern Versions</h2>
+<ul>
+<li class="fragment"><p><strong>Online opt-in panels</strong> — who volunteers is not who votes</p></li>
+<li class="fragment"><p><strong>Declining response rates</strong> — major surveys now field single-digit response rates</p></li>
+<li class="fragment"><p><strong>Differential nonresponse</strong> — if one side’s supporters are less willing to answer, weighting (the post-stratification from earlier) only helps if you know <em>how</em> they differ</p></li>
+<li class="fragment"><p><strong>Convenience samples</strong> — undergraduates, Mechanical Turk (paid online gig workers), whoever answered your email</p></li>
+</ul>
+<div class="fragment">
+<p>Getting representative samples of the population is hard!</p>
+</div>
+</section>
+<section id="measurement-error" class="slide level2">
+<h2>Measurement Error</h2>
+<p>One more source worth naming: even a perfect sample gives wrong answers if the <strong>instrument</strong> is wrong.</p>
+<ul>
+<li class="fragment"><p>Question wording effects, social desirability bias, translation problems</p></li>
+<li class="fragment"><p>Turnout is overreported in nearly every survey: people say they voted when they did not. Because the error always runs the same direction, it is <strong>bias</strong>.</p></li>
+</ul>
+<div class="fragment">
+<p>As we said earlier: <strong>no amount of statistical machinery repairs an invalid measure.</strong></p>
+</div>
+</section>
+<section id="you-try" class="slide level2 smaller">
+<h2>You Try</h2>
+<ol type="1">
+<li class="fragment"><p>Treat <code>ft_science</code> as a population, built the way we built <code>pop</code>. Compute the true mean. Then draw one sample of 40 and compare.</p></li>
+<li class="fragment"><p>Use <code>replicate</code>, as we did for <code>sdist</code>, to draw 2,000 samples of 40. What is the mean of those sample means? What is their standard deviation?</p></li>
+<li class="fragment"><p>Check it against <span class="math inline">\(\sigma/\sqrt{n}\)</span>. Then repeat with <span class="math inline">\(n = 160\)</span>. Did the standard error halve?</p></li>
+<li class="fragment"><p>A pollster surveys 50,000 people through a website banner ad. Which of today’s problems does the large <span class="math inline">\(n\)</span> solve, and which does it not?</p></li>
+</ol>
+</section>
+<section id="for-next-time" class="slide level2">
+<h2>For Next Time</h2>
+<ul>
+<li class="fragment"><p><strong>Read:</strong> Blackwell, Ch. 2</p></li>
+<li class="fragment"><p>Next class: what makes an estimator <strong>good</strong> — unbiasedness, consistency, efficiency</p></li>
+</ul>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
