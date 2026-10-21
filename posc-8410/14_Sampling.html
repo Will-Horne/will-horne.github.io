@@ -248,8 +248,8 @@ Will Horne
 <p><strong>How good is this estimate?</strong> Two separate worries: you may have been unlucky in <em>which</em> 20 you asked, and the front two rows may not look like the class.</p>
 </div>
 </section>
-<section id="the-vocabulary" class="slide level2 smaller">
-<h2>The Vocabulary</h2>
+<section id="some-vocabulary" class="slide level2 smaller">
+<h2>Some Vocabulary</h2>
 <ul>
 <li class="fragment"><p><strong>Population</strong> - the set of units you want to describe. Size <span class="math inline">\(N\)</span>. <em>(All 300 students.)</em></p></li>
 <li class="fragment"><p><strong>Sample</strong> - the subset you actually observe. Size <span class="math inline">\(n\)</span>. <em>(The 20 in front.)</em></p></li>
@@ -285,12 +285,12 @@ Will Horne
 <tr class="odd">
 <td>Proportion</td>
 <td><span class="math inline">\(p\)</span></td>
-<td><span class="math inline">\(\hat{p}\)</span></td>
+<td><span class="math inline">\(\widehat{p}\)</span></td>
 </tr>
 <tr class="even">
 <td>Regression slope</td>
 <td><span class="math inline">\(\beta\)</span></td>
-<td><span class="math inline">\(\hat{\beta}\)</span></td>
+<td><span class="math inline">\(\widehat{\beta}\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -326,7 +326,7 @@ Will Horne
 </div>
 </div>
 <div class="fragment">
-<p>The front two rows fail both tests. Who sits up front is a choice, and it may be related to year.</p>
+<p>The front two rows are not a sample random sample! Who sits up front is a choice, and it may be related to year.</p>
 </div>
 <div class="fragment">
 <p><strong>The randomness is in who gets picked, not in the students.</strong> That is what lets us use probability on a fixed population.</p>
@@ -373,7 +373,7 @@ Will Horne
 <section id="three-distributions" class="slide level2">
 <h2>Three Distributions</h2>
 
-<img data-src="14_Sampling_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"><p><strong>These are three different things.</strong> Orange is the truth, <span class="math inline">\(\mu\)</span>, in every panel. They are conflated constantly, and downstream analyses depend on keeping them apart.</p>
+<img data-src="14_Sampling_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"><p><strong>These are three different things.</strong> Orange is the truth, <span class="math inline">\(\mu\)</span>. They are conflated constantly, and downstream analyses depend on keeping them apart.</p>
 </section>
 <section id="what-each-one-is" class="slide level2 smaller">
 <h2>What Each One Is</h2>
@@ -634,7 +634,7 @@ Will Horne
 <section id="you-try" class="slide level2 smaller">
 <h2>You Try</h2>
 <ol type="1">
-<li class="fragment"><p>Treat <code>ft_science</code> as a population, built the way we built <code>pop</code>. Compute the true mean. Then draw one sample of 40 and compare.</p></li>
+<li class="fragment"><p>Using the <code>anes</code>,treat <code>ft_science</code> as a population, built the way we built <code>pop</code>. Compute the true mean. Then draw one sample of 40 and compare.</p></li>
 <li class="fragment"><p>Use <code>replicate</code>, as we did for <code>sdist</code>, to draw 2,000 samples of 40. What is the mean of those sample means? What is their standard deviation?</p></li>
 <li class="fragment"><p>Check it against <span class="math inline">\(\sigma/\sqrt{n}\)</span>. Then repeat with <span class="math inline">\(n = 160\)</span>. Did the standard error halve?</p></li>
 <li class="fragment"><p>A pollster surveys 50,000 people through a website banner ad. Which of today’s problems does the large <span class="math inline">\(n\)</span> solve, and which does it not?</p></li>
