@@ -24,6 +24,7 @@ Mon & Wed, 2:30–3:45 PM, 212 Brackett Hall.
 | Sep 30 | Joint Distributions | [HTML](12_Joint_Distributions.html){target="_blank"} |
 | Oct 5  | Conditional Expectation | [HTML](13_Conditional_Expectation.html){target="_blank"} |
 | Oct 7  | Sampling | [HTML](14_Sampling.html){target="_blank"} |
+| Oct 14 | Estimators | [HTML](15_Estimators.html){target="_blank"} |
 
 Slides are posted here before each class.
 
