@@ -49,7 +49,7 @@ Worked answers to the in-class You Try exercises.
 
 ## Exam Solutions
 
-Worked solutions, with every calculation and full interpretation answers.
+Worked solutions + interpretations
 
 | Date | Exam | Solutions |
 |------|------|-----------|
