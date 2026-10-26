@@ -46,3 +46,11 @@ Worked answers to the in-class You Try exercises.
 | Oct 5  | Conditional Expectation | [HTML](13_Conditional_Expectation_YouTry_Answers.html){target="_blank"} |
 | Oct 7  | Sampling | [HTML](14_Sampling_YouTry_Answers.html){target="_blank"} |
 | Oct 14 | Estimators | [HTML](15_Estimators_YouTry_Answers.html){target="_blank"} |
+
+## Exam Solutions
+
+Worked solutions, with every calculation and full interpretation answers.
+
+| Date | Exam | Solutions |
+|------|------|-----------|
+| Oct 19 | Midterm | [HTML](Midterm_Solutions.html){target="_blank"} |
