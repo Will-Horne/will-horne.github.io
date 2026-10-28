@@ -26,6 +26,7 @@ Mon & Wed, 2:30–3:45 PM, 212 Brackett Hall.
 | Oct 7  | Sampling | [HTML](14_Sampling.html){target="_blank"} |
 | Oct 14 | Estimators | [HTML](15_Estimators.html){target="_blank"} |
 | Oct 26 | Review: Confounders vs. Colliders | [HTML](Review_Confounders_Colliders.html){target="_blank"} |
+| Oct 28 | Asymptotics | [HTML](17_Asymptotics.html){target="_blank"} |
 
 Slides are posted here before each class.
 
