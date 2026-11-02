@@ -237,8 +237,72 @@ Will Horne
 <p>The probability of landing outside <strong>any</strong> interval around <span class="math inline">\(b\)</span> - however small - goes to zero.</p>
 </div>
 <div class="fragment">
-<p>An estimator <span class="math inline">\(\widehat{\theta}_n\)</span> is <strong>consistent</strong> for <span class="math inline">\(\theta\)</span> if <span class="math inline">\(\widehat{\theta}_n \overset{p}{\to} \theta\)</span>: its sampling distribution collapses onto <span class="math inline">\(\theta\)</span>. To prove it we need a way to bound <span class="math inline">\(P(|\widehat{\theta}_n - \theta| &gt; \epsilon)\)</span>, and one inequality does it.</p>
+<p>An estimator <span class="math inline">\(\widehat{\theta}_n\)</span> is <strong>consistent</strong> for <span class="math inline">\(\theta\)</span> if <span class="math inline">\(\widehat{\theta}_n \overset{p}{\to} \theta\)</span>: its sampling distribution collapses onto <span class="math inline">\(\theta\)</span>.</p>
 </div>
+</section>
+<section id="seeing-convergence-in-probability-n-5" class="slide level2">
+<h2>Seeing Convergence in Probability: <span class="math inline">\(n = 5\)</span></h2>
+
+<img data-src="17_Asymptotics_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"><p><span class="math inline">\(\bar{X}_5\)</span> from a skewed population with <span class="math inline">\(\mu = 1\)</span>. Band: <span class="math inline">\(\mu \pm 0.2\)</span>.</p>
+<div class="fragment">
+<p>Grey area: <span class="math inline">\(P(|\bar{X}_5 - \mu| &gt; 0.2) =\)</span> 0.656</p>
+</div>
+</section>
+<section id="seeing-convergence-in-probability-n-30" class="slide level2">
+<h2>Seeing Convergence in Probability: <span class="math inline">\(n = 30\)</span></h2>
+
+<img data-src="17_Asymptotics_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"><p><span class="math inline">\(P(|\bar{X}_{30} - \mu| &gt; 0.2) =\)</span> 0.270</p>
+</section>
+<section id="seeing-convergence-in-probability-n-100" class="slide level2">
+<h2>Seeing Convergence in Probability: <span class="math inline">\(n = 100\)</span></h2>
+
+<img data-src="17_Asymptotics_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"><p><span class="math inline">\(P(|\bar{X}_{100} - \mu| &gt; 0.2) =\)</span> 0.045</p>
+</section>
+<section id="seeing-convergence-in-probability-n-1000" class="slide level2">
+<h2>Seeing Convergence in Probability: <span class="math inline">\(n = 1000\)</span></h2>
+
+<img data-src="17_Asymptotics_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"><p><span class="math inline">\(P(|\bar{X}_{1000} - \mu| &gt; 0.2) =\)</span> 0.000</p>
+<div class="fragment">
+<p>The grey area goes to zero: the sequence picture, with probability in place of points.</p>
+</div>
+</section>
+<section id="the-same-collapse-as-cdfs" class="slide level2">
+<h2>The Same Collapse, as CDFs</h2>
+
+<img data-src="17_Asymptotics_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"><p>As <span class="math inline">\(n\)</span> grows, the CDF of <span class="math inline">\(\bar{X}_n\)</span> steepens toward a <strong>step at</strong> <span class="math inline">\(\mu\)</span>: the CDF of a variable that always equals 1. Remember this picture. CDFs are how we will define the next mode of convergence.</p>
+</section>
+<section id="what-inconsistency-looks-like-n-5" class="slide level2">
+<h2>What Inconsistency Looks Like: <span class="math inline">\(n = 5\)</span></h2>
+<p><strong>Understanding check:</strong> the first observation, <span class="math inline">\(X_1\)</span>, is unbiased for <span class="math inline">\(\mu\)</span>. Is it consistent?</p>
+<div class="fragment">
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="17_Asymptotics_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="math inline">\(P(|X_1 - \mu| &gt; 0.2) =\)</span> 0.852</p>
+</div>
+</div>
+</section>
+<section id="what-inconsistency-looks-like-n-30" class="slide level2">
+<h2>What Inconsistency Looks Like: <span class="math inline">\(n = 30\)</span></h2>
+
+<img data-src="17_Asymptotics_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"><p><span class="math inline">\(P(|X_1 - \mu| &gt; 0.2) =\)</span> 0.852, the same as at <span class="math inline">\(n = 5\)</span></p>
+</section>
+<section id="what-inconsistency-looks-like-n-100" class="slide level2">
+<h2>What Inconsistency Looks Like: <span class="math inline">\(n = 100\)</span></h2>
+
+<img data-src="17_Asymptotics_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"><p><span class="math inline">\(P(|X_1 - \mu| &gt; 0.2) =\)</span> 0.852, still</p>
+</section>
+<section id="what-inconsistency-looks-like-n-1000" class="slide level2">
+<h2>What Inconsistency Looks Like: <span class="math inline">\(n = 1000\)</span></h2>
+
+<img data-src="17_Asymptotics_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch"><p>Still 0.852. Nothing moves: unbiased, but <strong>not consistent</strong>.</p>
 </section></section>
 <section>
 <section id="the-law-of-large-numbers" class="title-slide slide level1 center">
@@ -247,6 +311,7 @@ Will Horne
 </section>
 <section id="chebyshevs-inequality" class="slide level2">
 <h2>Chebyshev’s Inequality</h2>
+<p>To prove that the sample mean collapses for <em>every</em> population, we need a way to bound <span class="math inline">\(P(|\widehat{\theta}_n - \theta| &gt; \epsilon)\)</span>, and one inequality does it.</p>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -339,7 +404,7 @@ Will Horne
 <section id="seeing-it" class="slide level2">
 <h2>Seeing It</h2>
 
-<img data-src="17_Asymptotics_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"><p>The theorem says this must happen. At 20,000 flips: <strong>0.499</strong>.</p>
+<img data-src="17_Asymptotics_files/figure-revealjs/unnamed-chunk-13-1.png" width="960" class="r-stretch"><p>The theorem says this must happen. At 20,000 flips: <strong>0.499</strong>.</p>
 </section>
 <section id="what-the-lln-does-not-say" class="slide level2">
 <h2>What the LLN Does Not Say</h2>
@@ -432,10 +497,36 @@ Will Horne
 <p>This is why the CLT applies to skewed, bimodal, and discrete populations alike. The population’s peculiarities do not survive the averaging.</p>
 </div>
 </section>
-<section id="seeing-it-1" class="slide level2">
-<h2>Seeing It</h2>
+<section id="seeing-the-clt-n-1" class="slide level2">
+<h2>Seeing the CLT: <span class="math inline">\(n = 1\)</span></h2>
 
-<img data-src="17_Asymptotics_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"><p>An exponential population (skewness 2), rescaled by <span class="math inline">\(\sqrt{n}\)</span>. Orange is <span class="math inline">\(N(0,1)\)</span>.</p>
+<img data-src="17_Asymptotics_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch"><p>4,000 draws of <span class="math inline">\(\sqrt{n}\,(\bar{X}_n - \mu)\)</span> from an exponential population. Orange is <span class="math inline">\(N(0,1)\)</span>.</p>
+<div class="fragment">
+<p>At <span class="math inline">\(n = 1\)</span> this is just the population, shifted: skewness 2.00.</p>
+</div>
+</section>
+<section id="seeing-the-clt-n-5" class="slide level2">
+<h2>Seeing the CLT: <span class="math inline">\(n = 5\)</span></h2>
+
+<img data-src="17_Asymptotics_files/figure-revealjs/unnamed-chunk-15-1.png" width="960" class="r-stretch"><p>Skewness 0.93</p>
+</section>
+<section id="seeing-the-clt-n-30" class="slide level2">
+<h2>Seeing the CLT: <span class="math inline">\(n = 30\)</span></h2>
+
+<img data-src="17_Asymptotics_files/figure-revealjs/unnamed-chunk-16-1.png" width="960" class="r-stretch"><p>Skewness 0.32</p>
+</section>
+<section id="seeing-the-clt-n-100" class="slide level2">
+<h2>Seeing the CLT: <span class="math inline">\(n = 100\)</span></h2>
+
+<img data-src="17_Asymptotics_files/figure-revealjs/unnamed-chunk-17-1.png" width="960" class="r-stretch"><p>Skewness 0.25, down from 2: the population’s shape has almost washed out.</p>
+</section>
+<section id="the-same-convergence-as-cdfs" class="slide level2">
+<h2>The Same Convergence, as CDFs</h2>
+
+<img data-src="17_Asymptotics_files/figure-revealjs/unnamed-chunk-18-1.png" width="960" class="r-stretch"><p>With <span class="math inline">\(Z_n = \sqrt{n}\,(\bar{X}_n - \mu)\)</span>, the definition asks that <span class="math inline">\(P(Z_n \leq z) \to \Phi(z)\)</span> at every <span class="math inline">\(z\)</span>.</p>
+<div class="fragment">
+<p>Largest gap: 0.158 at <span class="math inline">\(n = 1\)</span>, 0.060 at 5, 0.024 at 30, 0.013 at 100. It shrinks like <span class="math inline">\(1/\sqrt{n}\)</span>.</p>
+</div>
 </section></section>
 <section>
 <section id="using-it-in-practice" class="title-slide slide level1 center">
