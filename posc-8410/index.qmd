@@ -29,6 +29,7 @@ Mon & Wed, 2:30–3:45 PM, 212 Brackett Hall.
 | Oct 28 | Asymptotics | [HTML](17_Asymptotics.html){target="_blank"} |
 | Nov 4  | Hypothesis Testing | [HTML](18_Hypothesis_Testing.html){target="_blank"} |
 | Nov 9  | Confidence Intervals | [HTML](19_Confidence_Intervals.html){target="_blank"} |
+| Nov 11 | Simple Linear Regression | [HTML](21_Simple_Regression.html){target="_blank"} |
 
 Slides are posted here before each class.
 
