@@ -54,14 +54,6 @@ Worked answers to the in-class You Try exercises.
 | Nov 9  | Confidence Intervals | [HTML](19_Confidence_Intervals_YouTry_Answers.html){target="_blank"} |
 | Nov 11 | Simple Linear Regression | [HTML](21_Simple_Regression_YouTry_Answers.html){target="_blank"} |
 
-## Lecture Notes
-
-Worked derivations that go beyond the slides.
-
-| Date | Topic | Notes |
-|------|-------|-------|
-| Nov 11 | Simple Linear Regression | [HTML](21_Simple_Regression_Lecture_Notes.html){target="_blank"} |
-
 ## Exam Solutions
 
 Worked solutions + interpretations
