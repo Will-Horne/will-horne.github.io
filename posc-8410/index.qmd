@@ -34,6 +34,7 @@ Mon & Wed, 2:30–3:45 PM, 212 Brackett Hall.
 | Nov 18 | Multiple Regression | [HTML](23_Multiple_Regression.html){target="_blank"} |
 | Nov 18 | The Matrix Form | [HTML](24_Matrix_Form.html){target="_blank"} |
 | Nov 23 | Interactions | [HTML](25_Interactions.html){target="_blank"} |
+| Nov 24 | Interactions, Step by Step | [HTML](Review_Interactions.html){target="_blank"} · [Notes (PDF)](25_Interactions_Step_by_Step.pdf){target="_blank"} |
 
 Slides are posted here before each class.
 
