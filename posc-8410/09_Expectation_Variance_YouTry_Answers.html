@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Will Horne">
-<meta name="dcterms.date" content="2026-10-26">
+<meta name="dcterms.date" content="2026-11-25">
 
 <title>You Try Answers: Expectation and Variance</title>
 <style>
@@ -2346,7 +2346,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 26, 2026</p>
+      <p class="date">November 25, 2026</p>
     </div>
   </div>
   
@@ -2381,10 +2381,10 @@ window.Quarto = {
 </div>
 </div>
 <p>That 0.048 assumes independence, which is exactly the definition from Session 7. Ask the class what they just assumed.</p>
-<p>Without independence, the four probabilities cannot multiple and we cannot answer without more info. Some possible bounds:</p>
+<p>Without independence, the four probabilities cannot be multiplied and we cannot answer without more info. Some possible bounds:</p>
 <ul>
 <li><strong>At most 0.2.</strong> If the races rise and fall together (a perfect national swing), winning the weakest district means winning all four, so a sweep is exactly as likely as winning the 0.2 district.</li>
-<li><strong>As low as 0.</strong> Nothing rules out the 0.2 and 0.5 districts being races the party can never win together (being disjont events), since <span class="math inline">\(0.2 + 0.5 \leq 1\)</span>.</li>
+<li><strong>As low as 0.</strong> Nothing rules out the 0.2 and 0.5 districts being races the party can never win together (being disjoint events), since <span class="math inline">\(0.2 + 0.5 \leq 1\)</span>.</li>
 </ul>
 <p>So what you would need is the joint distribution, meaning how the races move together, or independence as the special case that lets you multiply. (For reference, these are the bounds: <span class="math inline">\(\max(0, \sum p_j - 3) \leq P(\text{all four}) \leq \min_j p_j\)</span>.)</p>
 </section>
@@ -2428,7 +2428,7 @@ window.Quarto = {
 </div>
 <p>0.0122, exactly half of the answer to question 2.</p>
 <p><strong>4. Your 400 respondents come from 100 households, 4 people each. Why is the answer to (2) probably too optimistic?</strong></p>
-<p><span class="math inline">\(\sigma/\sqrt{n}\)</span> assumed the 400 answers are independent. People in the same household tend to vote together (shared information, the same mobilization contacts, one trip to the polls), so the four answers within a household are positively correlated. The variance of the sum then picks up positive covariance terms, <span class="math inline">\(\text{Var}[\bar{X}]\)</span> is larger than $\sigma^2/n$. 0.0245 understates the uncertainty. You have less information than 400 independent people would give you.</p>
+<p><span class="math inline">\(\sigma/\sqrt{n}\)</span> assumed the 400 answers are independent. People in the same household tend to vote together (shared information, the same mobilization contacts, one trip to the polls), so the four answers within a household are positively correlated. The variance of the sum then picks up positive covariance terms, <span class="math inline">\(\text{Var}[\bar{X}]\)</span> is larger than <span class="math inline">\(\sigma^2/n\)</span>. 0.0245 understates the uncertainty. You have less information than 400 independent people would give you.</p>
 <p>How much less? If household members always vote identically, you really have 100 independent observations, and the standard deviation doubles to <span class="math inline">\(\sqrt{0.24/100} = 0.049\)</span>. That is an upper bound, and our SD under independence is a lower bound. The truth is somewhere in between.</p>
 <p>More formally, the design effect for equal-sized clusters is <span class="math inline">\(1 + (m - 1)\rho\)</span>, with <span class="math inline">\(m = 4\)</span> people per household and within-household correlation <span class="math inline">\(\rho\)</span>:</p>
 <div class="cell">
