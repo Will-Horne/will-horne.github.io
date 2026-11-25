@@ -187,6 +187,33 @@
       margin-right: 0; 
     }
   </style>
+  <!--
+    Make MathJax draw math with its own TeX fonts on every computer.
+
+    Quarto's revealjs format loads MathJax 2.7, which prefers math fonts that are
+    installed locally. macOS ships the STIX fonts, so on a Mac MathJax uses STIX,
+    and its accent placement does not fit them: hats and tildes sit off-center,
+    square roots come apart from their bar, and \underbrace draws badly. Windows
+    has no STIX and already gets the TeX fonts. This setting tells MathJax to skip
+    local fonts and always download its TeX web fonts. MathJax reads it at startup.
+  -->
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: [], preferredFont: null, webFont: "TeX" }
+  });
+  </script>
+  <!--
+    Make the "▼ Code" toggle above each shown code chunk small.
+
+    Quarto draws the toggle label at full body-text size (40px) and leaves a 1em
+    gap below it, so every chunk with a toggle costs about 87px of slide height.
+    This gives the label a fixed small size and removes the gap, so a toggle
+    costs about 24px. A fixed px size keeps it readable on {.smaller} slides too.
+  -->
+  <style>
+  .reveal details.code-fold { margin-bottom: 0; }
+  .reveal details.code-fold > summary { font-size: 16px; line-height: 1.5; }
+  </style>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -227,7 +254,7 @@ Will Horne
 <p><span class="math display">\[P(A \mid B) = P(A)\]</span></p>
 </div>
 <div class="fragment">
-<p><strong>In short, Knowing</strong> <span class="math inline">\(B\)</span> tells you nothing about <span class="math inline">\(A\)</span>.</p>
+<p><strong>In short, knowing</strong> <span class="math inline">\(B\)</span> tells you nothing about <span class="math inline">\(A\)</span>.</p>
 </div>
 </section>
 <section id="independent-is-not-disjoint" class="slide level2">
@@ -403,12 +430,15 @@ Will Horne
 <p>In 1973 the University of California, Berkeley was concerned it faced a lawsuit over gender bias in graduate admissions.</p>
 <div class="fragment">
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>admissions <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(UCBAdmissions) <span class="sc">|&gt;</span> <span class="fu">as_tibble</span>()</span>
 <span id="cb1-2"><a></a></span>
 <span id="cb1-3"><a></a>admissions <span class="sc">|&gt;</span></span>
 <span id="cb1-4"><a></a>  <span class="fu">group_by</span>(Gender) <span class="sc">|&gt;</span></span>
 <span id="cb1-5"><a></a>  <span class="fu">summarise</span>(<span class="at">applicants =</span> <span class="fu">sum</span>(Freq),</span>
 <span id="cb1-6"><a></a>            <span class="at">admit_rate =</span> <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> <span class="fu">sum</span>(Freq[Admit <span class="sc">==</span> <span class="st">"Admitted"</span>]) <span class="sc">/</span> <span class="fu">sum</span>(Freq), <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 3
   Gender applicants admit_rate
@@ -560,6 +590,8 @@ Will Horne
 <section id="severe-disease-by-vaccination-and-age" class="slide level2 smaller">
 <h2>Severe Disease, by Vaccination and Age</h2>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>israel <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
 <span id="cb3-2"><a></a>  <span class="sc">~</span>age,          <span class="sc">~</span>status,        <span class="sc">~</span>severe_per_100k,</span>
 <span id="cb3-3"><a></a>  <span class="st">"All (12+)"</span>,   <span class="st">"Unvaccinated"</span>, <span class="fl">16.4</span>,</span>
@@ -572,6 +604,7 @@ Will Horne
 <span id="cb3-10"><a></a>israel <span class="sc">|&gt;</span></span>
 <span id="cb3-11"><a></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> status, <span class="at">values_from =</span> severe_per_100k) <span class="sc">|&gt;</span></span>
 <span id="cb3-12"><a></a>  <span class="fu">mutate</span>(<span class="at">efficacy =</span> <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> Vaccinated <span class="sc">/</span> Unvaccinated), <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 4
   age         Unvaccinated Vaccinated efficacy
@@ -588,8 +621,8 @@ Will Horne
 <p>Efficacy is <strong>higher in every age group than it is overall</strong>.</p>
 </div>
 </section>
-<section id="age-is-the-ommitted-variable" class="slide level2 smaller">
-<h2>Age Is the Ommitted Variable</h2>
+<section id="age-is-the-omitted-variable" class="slide level2 smaller">
+<h2>Age Is the Omitted Variable</h2>
 <ul>
 <li class="fragment"><p>Over 90% of Israelis 50+ were vaccinated; 73% of under-50s. <strong>85.7% of the unvaccinated were under 50.</strong></p></li>
 <li class="fragment"><p>So the vaccinated column is full of older, high-risk people, and the unvaccinated column is mostly young, low-risk people. Age drives both vaccination and severe disease</p></li>
@@ -622,11 +655,14 @@ Will Horne
 <h2>An Admissions Committee</h2>
 <p>Suppose a program admits students on test scores <strong>and</strong> essay quality. In the applicant pool the two are unrelated:</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">set.seed</span>(<span class="dv">8410</span>)</span>
 <span id="cb5-2"><a></a>applicants <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">test =</span> <span class="fu">rnorm</span>(<span class="dv">2000</span>), <span class="at">essay =</span> <span class="fu">rnorm</span>(<span class="dv">2000</span>)) <span class="sc">|&gt;</span></span>
 <span id="cb5-3"><a></a>  <span class="fu">mutate</span>(<span class="at">admitted =</span> (test <span class="sc">+</span> essay) <span class="sc">&gt;</span> <span class="fl">1.6</span>)</span>
 <span id="cb5-4"><a></a></span>
 <span id="cb5-5"><a></a><span class="fu">cor</span>(applicants<span class="sc">$</span>test, applicants<span class="sc">$</span>essay)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.01024972</code></pre>
 </div>
@@ -638,9 +674,12 @@ Will Horne
 <section id="among-the-admitted" class="slide level2">
 <h2>Among the Admitted</h2>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>admitted <span class="ot">&lt;-</span> <span class="fu">filter</span>(applicants, admitted)</span>
 <span id="cb7-2"><a></a></span>
 <span id="cb7-3"><a></a><span class="fu">cor</span>(admitted<span class="sc">$</span>test, admitted<span class="sc">$</span>essay)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -0.6570235</code></pre>
 </div>
@@ -667,20 +706,22 @@ Will Horne
 </section>
 <section id="the-smokers-paradox" class="slide level2 smaller">
 <h2>The Smoker’s Paradox</h2>
-<p>Spring 2020: studiesfound smokers <strong>underrepresented</strong> among hospitalized COVID patients. One French hospital study put daily smokers at roughly a quarter of their share of the general population.</p>
+<p>Spring 2020: studies found smokers <strong>underrepresented</strong> among hospitalized COVID patients. One French hospital study put daily smokers at roughly a quarter of their share of the general population.</p>
 <ul>
 <li class="fragment"><p>Researchers proposed nicotine as protective, and patch trials were launched</p></li>
 <li class="fragment"><p>In April 2020, France <strong>restricted sales of nicotine patches and gum</strong>, capped at a month’s supply, online sales suspended.</p></li>
 <li class="fragment"><p>Today’s reading, Griffith et al.&nbsp;(2020), is about why this whole inference was broken</p></li>
 </ul>
 <div class="fragment">
-<p>Where were those studies run? On <strong>hospitalized patients</strong>.They <em>conditioned</em> on hospitalization.</p>
+<p>Where were those studies run? On <strong>hospitalized patients</strong>. They <em>conditioned</em> on hospitalization.</p>
 </div>
 </section>
 <section id="build-a-world-where-smoking-does-nothing" class="slide level2 smaller">
 <h2>Build a World Where Smoking Does Nothing</h2>
 <p>In this simulated world, smoking has <strong>no effect</strong> on catching COVID. It does cause other illness - and other illness and COVID both send people to the hospital.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">set.seed</span>(<span class="dv">8410</span>)</span>
 <span id="cb9-2"><a></a>n <span class="ot">&lt;-</span> <span class="dv">100000</span></span>
 <span id="cb9-3"><a></a>pop <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
@@ -691,6 +732,7 @@ Will Horne
 <span id="cb9-8"><a></a>    <span class="at">hospitalized  =</span> <span class="fu">rbinom</span>(n, <span class="dv">1</span>, <span class="fl">0.02</span> <span class="sc">+</span> <span class="fl">0.30</span> <span class="sc">*</span> covid <span class="sc">+</span> <span class="fl">0.25</span> <span class="sc">*</span> other_illness) <span class="sc">==</span> <span class="dv">1</span>)</span>
 <span id="cb9-9"><a></a></span>
 <span id="cb9-10"><a></a>pop <span class="sc">|&gt;</span> <span class="fu">group_by</span>(smoker) <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="at">covid_rate =</span> <span class="fu">mean</span>(covid))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   smoker covid_rate
@@ -704,9 +746,12 @@ Will Horne
 <h2>Now Study Only the Hospital</h2>
 <p>Do what the spring-2020 studies did: collect your sample from the hospital wards.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>hospital <span class="ot">&lt;-</span> <span class="fu">filter</span>(pop, hospitalized)</span>
 <span id="cb11-2"><a></a></span>
 <span id="cb11-3"><a></a>hospital <span class="sc">|&gt;</span> <span class="fu">group_by</span>(smoker) <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>(), <span class="at">covid_rate =</span> <span class="fu">mean</span>(covid))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 3
   smoker     n covid_rate

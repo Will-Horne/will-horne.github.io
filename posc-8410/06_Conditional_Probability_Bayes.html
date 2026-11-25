@@ -187,6 +187,33 @@
       margin-right: 0; 
     }
   </style>
+  <!--
+    Make MathJax draw math with its own TeX fonts on every computer.
+
+    Quarto's revealjs format loads MathJax 2.7, which prefers math fonts that are
+    installed locally. macOS ships the STIX fonts, so on a Mac MathJax uses STIX,
+    and its accent placement does not fit them: hats and tildes sit off-center,
+    square roots come apart from their bar, and \underbrace draws badly. Windows
+    has no STIX and already gets the TeX fonts. This setting tells MathJax to skip
+    local fonts and always download its TeX web fonts. MathJax reads it at startup.
+  -->
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: [], preferredFont: null, webFont: "TeX" }
+  });
+  </script>
+  <!--
+    Make the "▼ Code" toggle above each shown code chunk small.
+
+    Quarto draws the toggle label at full body-text size (40px) and leaves a 1em
+    gap below it, so every chunk with a toggle costs about 87px of slide height.
+    This gives the label a fixed small size and removes the gap, so a toggle
+    costs about 24px. A fixed px size keeps it readable on {.smaller} slides too.
+  -->
+  <style>
+  .reveal details.code-fold { margin-bottom: 0; }
+  .reveal details.code-fold > summary { font-size: 16px; line-height: 1.5; }
+  </style>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -242,7 +269,7 @@ Will Horne
 </div>
 <div class="fragment">
 <ul>
-<li class="fragment"><p>Conditioning <strong>shrinks the sample space</strong>. We are no longer asking about everyone -only about the <span class="math inline">\(B\)</span> world.</p></li>
+<li class="fragment"><p>Conditioning <strong>shrinks the sample space</strong>. We are no longer asking about everyone, only about the <span class="math inline">\(B\)</span> world.</p></li>
 <li class="fragment"><p>Dividing by <span class="math inline">\(P(B)\)</span> re-normalizes so the new, smaller world still sums to 1</p></li>
 </ul>
 </div>
@@ -391,18 +418,24 @@ Will Horne
 <section id="weight-by-size" class="slide level2">
 <h2>Weight by Size</h2>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>support <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.60</span>, <span class="fl">0.15</span>, <span class="fl">0.10</span>)</span>
 <span id="cb1-2"><a></a>voters  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">500000</span>, <span class="dv">80000</span>, <span class="dv">20000</span>)</span>
 <span id="cb1-3"><a></a></span>
 <span id="cb1-4"><a></a>weights <span class="ot">&lt;-</span> voters <span class="sc">/</span> <span class="fu">sum</span>(voters)</span>
 <span id="cb1-5"><a></a>weights</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.83333333 0.13333333 0.03333333</code></pre>
 </div>
 </div>
 <div class="fragment">
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">sum</span>(support <span class="sc">*</span> weights)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.5233333</code></pre>
 </div>
@@ -495,11 +528,14 @@ Will Horne
 <section id="run-the-numbers" class="slide level2">
 <h2>Run the Numbers</h2>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>prior <span class="ot">&lt;-</span> <span class="fl">0.001</span>    <span class="co"># P(cancer)</span></span>
 <span id="cb5-2"><a></a>sens  <span class="ot">&lt;-</span> <span class="fl">0.99</span>     <span class="co"># P(positive | cancer)</span></span>
 <span id="cb5-3"><a></a>fpr   <span class="ot">&lt;-</span> <span class="fl">0.03</span>     <span class="co"># P(positive | no cancer)</span></span>
 <span id="cb5-4"><a></a></span>
 <span id="cb5-5"><a></a>(sens <span class="sc">*</span> prior) <span class="sc">/</span> (sens <span class="sc">*</span> prior <span class="sc">+</span> fpr <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> prior))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.03197674</code></pre>
 </div>
@@ -528,8 +564,11 @@ Will Horne
 <h2>This Is a Live Policy Question</h2>
 <p>Several states have required drug testing for public benefit applicants. Suppose 10% of applicants use drugs, and the test is 95% sensitive with a 5% false positive rate:</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>p <span class="ot">&lt;-</span> <span class="fl">0.1</span>; s <span class="ot">&lt;-</span> <span class="fl">0.95</span>; f <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
 <span id="cb7-2"><a></a>(s <span class="sc">*</span> p) <span class="sc">/</span> (s <span class="sc">*</span> p <span class="sc">+</span> f <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> p))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.6785714</code></pre>
 </div>
@@ -576,6 +615,8 @@ Will Horne
 <h2>The Actual Data</h2>
 <p>Broward County, 2013–14: everyone scored by COMPAS at pretrial, followed for two years. We keep the two groups the dispute was about.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>compas <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Data/compas-scores-two-years.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span></span>
 <span id="cb9-2"><a></a>  <span class="fu">filter</span>(race <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"African-American"</span>, <span class="st">"Caucasian"</span>)) <span class="sc">|&gt;</span></span>
 <span id="cb9-3"><a></a>  <span class="fu">mutate</span>(<span class="at">high_risk =</span> score_text <span class="sc">!=</span> <span class="st">"Low"</span>)   <span class="co"># COMPAS decile score of 5+</span></span>
@@ -583,6 +624,7 @@ Will Horne
 <span id="cb9-5"><a></a>compas <span class="sc">|&gt;</span></span>
 <span id="cb9-6"><a></a>  <span class="fu">count</span>(race, high_risk, <span class="at">rearrested =</span> <span class="fu">ifelse</span>(two_year_recid <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"yes"</span>, <span class="st">"no"</span>)) <span class="sc">|&gt;</span></span>
 <span id="cb9-7"><a></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> rearrested, <span class="at">values_from =</span> n, <span class="at">names_prefix =</span> <span class="st">"rearrested_"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 4
   race             high_risk rearrested_no rearrested_yes
@@ -600,6 +642,8 @@ Will Horne
 <section id="both-sides" class="slide level2 smaller">
 <h2>Both Sides</h2>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>rates <span class="ot">&lt;-</span> compas <span class="sc">|&gt;</span></span>
 <span id="cb11-2"><a></a>  <span class="fu">group_by</span>(race) <span class="sc">|&gt;</span></span>
 <span id="cb11-3"><a></a>  <span class="fu">summarise</span>(<span class="at">base_rate =</span> <span class="fu">mean</span>(two_year_recid),</span>
@@ -607,6 +651,7 @@ Will Horne
 <span id="cb11-5"><a></a>            <span class="at">fnr =</span> <span class="fu">mean</span>(<span class="sc">!</span>high_risk[two_year_recid <span class="sc">==</span> <span class="dv">1</span>]),  <span class="co"># P(not flagged | rearrested)</span></span>
 <span id="cb11-6"><a></a>            <span class="at">ppv =</span> <span class="fu">mean</span>(two_year_recid[high_risk]))        <span class="co"># P(rearrested | flagged)</span></span>
 <span id="cb11-7"><a></a>rates</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 5
   race             base_rate   fpr   fnr   ppv
@@ -616,7 +661,7 @@ Will Horne
 </div>
 </div>
 <ul>
-<li class="fragment"><p><strong>ProPublica’s number is <code>fpr</code>,</strong> <span class="math inline">\(P(\text{flagged} \mid \text{not rearrested})\)</span>: <strong>44.9%</strong> vs <strong>23.5%</strong>. Its mirror is <code>fnr</code>: rearrested white defendants were labeled low risk almost twice as often, <strong>47.7%</strong> vs <strong>28.0%</strong></p></li>
+<li class="fragment"><p><strong>ProPublica’s number is <code>fpr</code>,</strong> <span class="math inline">\(P(\text{flagged} \mid \text{not rearrested})\)</span>: <strong>44.8%</strong> vs <strong>23.5%</strong>. Its mirror is <code>fnr</code>: rearrested white defendants were labeled low risk almost twice as often, <strong>47.7%</strong> vs <strong>28.0%</strong></p></li>
 <li class="fragment"><p><strong>Northpointe’s number is <code>ppv</code>,</strong> <span class="math inline">\(P(\text{rearrested} \mid \text{flagged})\)</span>: <strong>63.0%</strong> vs <strong>59.1%</strong>. Roughly equal - a flag is calibrated.</p></li>
 </ul>
 <div class="fragment">
@@ -643,7 +688,10 @@ Will Horne
 <p>Given a group’s base rate, calibration, and miss rate, the false positive rate is not a free design choice. It is <strong>already determined</strong>.</p>
 <div class="fragment">
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>rates <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">fpr_check =</span> base_rate <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> base_rate) <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> ppv) <span class="sc">/</span> ppv <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> fnr))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 6
   race             base_rate   fpr   fnr   ppv fpr_check
@@ -684,7 +732,7 @@ Will Horne
 <h2>Which Conditional Probability Matters?</h2>
 <ul>
 <li class="fragment"><p>Both sides computed correctly from the same eight cells.</p></li>
-<li class="fragment"><p><span class="math inline">\(P(\text{flagged} \mid \text{not rearrested})\)</span> what happens to people who are flagged?</p></li>
+<li class="fragment"><p><span class="math inline">\(P(\text{flagged} \mid \text{not rearrested})\)</span> how often are people who were not rearrested flagged anyway?</p></li>
 <li class="fragment"><p><span class="math inline">\(P(\text{rearrested} \mid \text{flagged})\)</span> what is a flag worth as evidence?</p></li>
 <li class="fragment"><p>When base rates differ, no algorithm answers both symmetrically. Choosing is a <strong>normative</strong> decision, not a mathematical one!</p></li>
 </ul>
@@ -705,24 +753,33 @@ Will Horne
 <section id="priors-matter" class="slide level2 smaller">
 <h2>Priors Matter</h2>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>paul <span class="ot">&lt;-</span> <span class="cf">function</span>(prior) prior <span class="sc">/</span> (prior <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">-</span> prior) <span class="sc">*</span> (<span class="dv">1</span><span class="sc">/</span><span class="dv">256</span>))</span>
 <span id="cb15-2"><a></a></span>
 <span id="cb15-3"><a></a><span class="fu">paul</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">100</span>)      <span class="co"># generous: 1 in 100 octopuses is psychic</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.7211268</code></pre>
 </div>
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">paul</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">1000</span>)     <span class="co"># 1 in 1,000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.2039841</code></pre>
 </div>
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">paul</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">1000000</span>)  <span class="co"># 1 in a million</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.0002559347</code></pre>
 </div>
 </div>
 <div class="fragment">
 <ul>
-<li class="fragment"><p>The evidence is identical in all three. The conclusion is differs based on our priors.</p></li>
+<li class="fragment"><p>The evidence is identical in all three. The conclusion differs based on our priors.</p></li>
 <li class="fragment"><p>Eight correct picks is a <strong>huge</strong> update — a 1-in-1,000 prior becomes 1-in-5</p></li>
 <li class="fragment"><p>But start from a sane prior about octopuses and Paul is still almost certainly just lucky</p></li>
 </ul>
@@ -737,12 +794,9 @@ Will Horne
 </ul>
 <div class="fragment">
 <p>This is also an entire branch of statistics. If it appeals to you, take a Bayesian course! (I don’t really consider myself a Bayesian, but they definitely have some good points)</p>
+
+
 </div>
-</section>
-<section id="section" class="slide level2">
-<h2></h2>
-
-
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">

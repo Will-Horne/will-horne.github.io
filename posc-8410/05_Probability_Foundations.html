@@ -187,6 +187,33 @@
       margin-right: 0; 
     }
   </style>
+  <!--
+    Make MathJax draw math with its own TeX fonts on every computer.
+
+    Quarto's revealjs format loads MathJax 2.7, which prefers math fonts that are
+    installed locally. macOS ships the STIX fonts, so on a Mac MathJax uses STIX,
+    and its accent placement does not fit them: hats and tildes sit off-center,
+    square roots come apart from their bar, and \underbrace draws badly. Windows
+    has no STIX and already gets the TeX fonts. This setting tells MathJax to skip
+    local fonts and always download its TeX web fonts. MathJax reads it at startup.
+  -->
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: [], preferredFont: null, webFont: "TeX" }
+  });
+  </script>
+  <!--
+    Make the "▼ Code" toggle above each shown code chunk small.
+
+    Quarto draws the toggle label at full body-text size (40px) and leaves a 1em
+    gap below it, so every chunk with a toggle costs about 87px of slide height.
+    This gives the label a fixed small size and removes the gap, so a toggle
+    costs about 24px. A fixed px size keeps it readable on {.smaller} slides too.
+  -->
+  <style>
+  .reveal details.code-fold { margin-bottom: 0; }
+  .reveal details.code-fold > summary { font-size: 16px; line-height: 1.5; }
+  </style>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -369,8 +396,8 @@ Will Horne
 <li class="fragment"><p>For anything non-trivial, you cannot list them</p></li>
 <li class="fragment"><p>Later in the course:</p>
 <ul>
-<li class="fragment"><p>The **binomial distribution** is built directly on the counting rule we derive today</p></li>
-<li class="fragment"><p>**Sampling** is a counting problem, and it is the foundation of much of what we do</p></li>
+<li class="fragment"><p>The <strong>binomial distribution</strong> is built directly on the counting rule we derive today</p></li>
+<li class="fragment"><p><strong>Sampling</strong> is a counting problem, and it is the foundation of much of what we do</p></li>
 </ul></li>
 </ul>
 </section>
@@ -443,15 +470,18 @@ Will Horne
 <section id="how-many-samples-are-there" class="slide level2">
 <h2>How Many Samples Are There?</h2>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># digits in the number of possible 1,500-person samples</span></span>
-<span id="cb1-2"><a></a><span class="co"># from a population of 350 million</span></span>
-<span id="cb1-3"><a></a><span class="fu">round</span>(<span class="fu">lchoose</span>(<span class="fl">350e6</span>, <span class="dv">1500</span>) <span class="sc">/</span> <span class="fu">log</span>(<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a></a><span class="co"># from a population of 250 million (digits = floor(log10) + 1)</span></span>
+<span id="cb1-3"><a></a><span class="fu">floor</span>(<span class="fu">lchoose</span>(<span class="fl">250e6</span>, <span class="dv">1500</span>) <span class="sc">/</span> <span class="fu">log</span>(<span class="dv">10</span>)) <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 8701</code></pre>
+<pre><code>[1] 8483</code></pre>
 </div>
 </div>
 <div class="fragment">
-<p>A number with <strong>8,701 digits</strong>. The ANES you have been using is one draw from a space that size.</p>
+<p>A number with <strong>8,483 digits</strong>. The ANES you have been using is one draw from a space that size.</p>
 </div>
 <div class="fragment">
 <p>Probability is about what we can say when we only ever see one.</p>
@@ -495,22 +525,34 @@ Will Horne
 <section id="in-r" class="slide level2">
 <h2>In R</h2>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="dv">25</span> <span class="sc">*</span> <span class="dv">24</span> <span class="sc">*</span> <span class="dv">23</span>      <span class="co"># who holds which portfolio  (order matters)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 13800</code></pre>
 </div>
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">choose</span>(<span class="dv">25</span>, <span class="dv">3</span>)     <span class="co"># who is in cabinet at all   (order irrelevant)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2300</code></pre>
 </div>
 </div>
 <div class="fragment">
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>(<span class="dv">25</span> <span class="sc">*</span> <span class="dv">24</span> <span class="sc">*</span> <span class="dv">23</span>) <span class="sc">/</span> <span class="fu">choose</span>(<span class="dv">25</span>, <span class="dv">3</span>)   <span class="co"># the over-counting factor</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 6</code></pre>
 </div>
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">factorial</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 6</code></pre>
 </div>
@@ -551,8 +593,11 @@ Will Horne
 </ul>
 <div class="fragment">
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>p8 <span class="ot">&lt;-</span> <span class="fl">0.5</span><span class="sc">^</span><span class="dv">8</span></span>
 <span id="cb11-2"><a></a><span class="dv">1</span> <span class="sc">-</span> (<span class="dv">1</span> <span class="sc">-</span> p8)<span class="sc">^</span><span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.3238835</code></pre>
 </div>

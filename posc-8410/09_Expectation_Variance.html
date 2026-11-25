@@ -187,6 +187,33 @@
       margin-right: 0; 
     }
   </style>
+  <!--
+    Make MathJax draw math with its own TeX fonts on every computer.
+
+    Quarto's revealjs format loads MathJax 2.7, which prefers math fonts that are
+    installed locally. macOS ships the STIX fonts, so on a Mac MathJax uses STIX,
+    and its accent placement does not fit them: hats and tildes sit off-center,
+    square roots come apart from their bar, and \underbrace draws badly. Windows
+    has no STIX and already gets the TeX fonts. This setting tells MathJax to skip
+    local fonts and always download its TeX web fonts. MathJax reads it at startup.
+  -->
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: [], preferredFont: null, webFont: "TeX" }
+  });
+  </script>
+  <!--
+    Make the "▼ Code" toggle above each shown code chunk small.
+
+    Quarto draws the toggle label at full body-text size (40px) and leaves a 1em
+    gap below it, so every chunk with a toggle costs about 87px of slide height.
+    This gives the label a fixed small size and removes the gap, so a toggle
+    costs about 24px. A fixed px size keeps it readable on {.smaller} slides too.
+  -->
+  <style>
+  .reveal details.code-fold { margin-bottom: 0; }
+  .reveal details.code-fold > summary { font-size: 16px; line-height: 1.5; }
+  </style>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -262,10 +289,13 @@ Will Horne
 </table>
 <div class="fragment">
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
 <span id="cb1-2"><a></a>p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.10</span>, <span class="fl">0.20</span>, <span class="fl">0.25</span>, <span class="fl">0.30</span>, <span class="fl">0.15</span>)</span>
 <span id="cb1-3"><a></a></span>
 <span id="cb1-4"><a></a><span class="fu">sum</span>(x <span class="sc">*</span> p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.2</code></pre>
 </div>
@@ -307,10 +337,13 @@ Will Horne
 <p>Recall <code>affect_gap</code> from Week 2: Biden thermometer minus Trump thermometer. Those two ratings are about as far from independent as survey items get. (why?)</p>
 <div class="fragment">
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>anes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Data/anes.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span></span>
 <span id="cb3-2"><a></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(ft_biden), <span class="sc">!</span><span class="fu">is.na</span>(ft_trump))</span>
 <span id="cb3-3"><a></a></span>
 <span id="cb3-4"><a></a><span class="fu">cor</span>(anes<span class="sc">$</span>ft_biden, anes<span class="sc">$</span>ft_trump)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -0.8159562</code></pre>
 </div>
@@ -318,11 +351,17 @@ Will Horne
 </div>
 <div class="fragment">
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">mean</span>(anes<span class="sc">$</span>ft_biden <span class="sc">-</span> anes<span class="sc">$</span>ft_trump)          <span class="co"># mean of the gap</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 15.23528</code></pre>
 </div>
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">mean</span>(anes<span class="sc">$</span>ft_biden) <span class="sc">-</span> <span class="fu">mean</span>(anes<span class="sc">$</span>ft_trump)    <span class="co"># gap in the means</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 15.23528</code></pre>
 </div>
@@ -529,7 +568,7 @@ E[X + Y] &amp;= \sum_{s} \big(X(s) + Y(s)\big)\, P(\{s\}) \\
 <li class="fragment"><p>To halve your uncertainty, you need <strong>four times</strong> the data</p></li>
 </ul>
 <div class="fragment">
-<p>This is why we generally don’t bother getting a huge sample size; the decrease in variance is not linear.</p>
+<p>This is why huge samples are rarely worth the cost: the standard deviation shrinks with <span class="math inline">\(\sqrt{n}\)</span>, not with <span class="math inline">\(n\)</span>, so each extra respondent buys less precision than the last.</p>
 </div>
 </section>
 <section id="does-it-actually-work" class="slide level2">
@@ -575,7 +614,7 @@ E[X + Y] &amp;= \sum_{s} \big(X(s) + Y(s)\big)\, P(\{s\}) \\
 </div>
 </div>
 <div class="fragment">
-<p>The formula we derived from two variance properties predicts the simulation almost exactly. <strong>This is the why we can calculate confidence intervals and error bars</strong></p>
+<p>The formula we derived from two variance properties predicts the simulation almost exactly. <strong>This is why we can calculate confidence intervals and error bars</strong></p>
 </div>
 </section>
 <section id="you-try" class="slide level2">
